@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33403.182
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZC-GPA Calculator", "ZC-GPA Calculator\ZC-GPA Calculator.csproj", "{76505AB1-360D-4821-874E-05C589ED13E6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76505AB1-360D-4821-874E-05C589ED13E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76505AB1-360D-4821-874E-05C589ED13E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76505AB1-360D-4821-874E-05C589ED13E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76505AB1-360D-4821-874E-05C589ED13E6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7FA7B739-0749-4C01-B691-58039A86DFCB}
+	EndGlobalSection
+EndGlobal

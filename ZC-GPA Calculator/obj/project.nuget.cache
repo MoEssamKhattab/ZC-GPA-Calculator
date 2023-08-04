@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "+emHwHHmMKO+k463W6E/Sz3kGZEiVp4hEGMtcZ9k0TvC/nVhVNr6sgRpynZbS0a1HIVTIUl6JS4HRtx3MaIVqA==",
+  "success": true,
+  "projectFilePath": "E:\\CIE\\Y3\\Summer\\The Creative Mind\\Project\\ZC-GPA-Calculator\\ZC-GPA Calculator\\ZC-GPA Calculator.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\lenovo\\.nuget\\packages\\guna.ui2.winforms\\2.0.4.4\\guna.ui2.winforms.2.0.4.4.nupkg.sha512",
+    "C:\\Users\\lenovo\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
+    "C:\\Users\\lenovo\\.nuget\\packages\\system.management\\7.0.0\\system.management.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
