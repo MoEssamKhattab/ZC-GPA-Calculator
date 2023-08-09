@@ -41,3 +41,6 @@ E:\CIE\Y3\Summer\The Creative Mind\Project\ZC-GPA-Calculator\ZC-GPA Calculator\o
 E:\CIE\Y3\Summer\The Creative Mind\Project\ZC-GPA-Calculator\ZC-GPA Calculator\obj\Debug\net7.0-windows\ZC-GPA Calculator.genruntimeconfig.cache
 E:\CIE\Y3\Summer\The Creative Mind\Project\ZC-GPA-Calculator\ZC-GPA Calculator\obj\Debug\net7.0-windows\ref\ZC-GPA Calculator.dll
 E:\CIE\Y3\Summer\The Creative Mind\Project\ZC-GPA-Calculator\ZC-GPA Calculator\obj\Debug\net7.0-windows\ZC_GPA_Calculator.Properties.Resources.resources
+E:\CIE\Y3\Summer\The Creative Mind\Project\ZC-GPA-Calculator\ZC-GPA Calculator\bin\Debug\net7.0-windows\BouncyCastle.Crypto.dll
+E:\CIE\Y3\Summer\The Creative Mind\Project\ZC-GPA-Calculator\ZC-GPA Calculator\bin\Debug\net7.0-windows\itextsharp.dll
+E:\CIE\Y3\Summer\The Creative Mind\Project\ZC-GPA-Calculator\ZC-GPA Calculator\obj\Debug\net7.0-windows\ZC_GPA_Calculator.SemesterCard.resources

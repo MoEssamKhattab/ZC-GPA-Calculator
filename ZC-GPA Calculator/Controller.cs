@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.PortableExecutable;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using iTextSharp.text.pdf;
 using iTextSharp.text.pdf.parser;
 
@@ -12,44 +7,17 @@ namespace ZC_GPA_Calculator
 {
     enum CourseSubType : byte { LECTURE, LAB };
     enum Semester : byte { Fall = 0, Spring = 1, Summer = 2 };
-    public struct Grades
+    public static class Grades
     {
-        public const double A = 4.0;
-        public const double A_minus = 3.7;
-        public const double B_plus = 3.3;
-        public const double B = 3;
-        public const double B_minus = 2.7;
-        public const double C_plus = 2.3;
-        public const double C = 2;
-        public const double C_minus = 1.7;
-        public const double F = 0.0;
-
-        public double ToGrade(string grade)
-        {
-            switch (grade)
-            {
-                case "A":
-                    return A;
-                case "A-":
-                    return A_minus;
-                case "B+":
-                    return B_plus;
-                case "B":
-                    return B;
-                case "B-":
-                    return B_minus;
-                case "C+":
-                    return C_plus;
-                case "C":
-                    return C;
-                case "C-":
-                    return C_minus;
-                case "F":
-                    return F;
-                default:
-                    return 0.0;
-            }
-        }
+        public static readonly double A = 4.0;
+        public static readonly double A_minus = 3.7;
+        public static readonly double B_plus = 3.3;
+        public static readonly double B = 3.0;
+        public static readonly double B_minus = 2.7;
+        public static readonly double C_plus = 2.3;
+        public static readonly double C = 2.0;
+        public static readonly double C_minus = 1.7;
+        public static readonly double F = 0.0;
     }
     struct course
     {
@@ -73,8 +41,13 @@ namespace ZC_GPA_Calculator
         public string Grade { get => grade; set => grade = value; }
         public int Credits { get => credits; set => credits = value; }
         internal CourseSubType SubType { get => subType; set => subType = value; }
+
+        public double calculateQualityPoints()
+        {      
+            return Math.Round(Controller.stringToGrade(this.grade) * (double)this.credits, 2); 
+        }
     }
-    struct semester
+    public struct semester
     {
         Semester title;
         int year;
@@ -88,6 +61,7 @@ namespace ZC_GPA_Calculator
         public int Year { get => year; set => year = value; }
         internal List<course> Courses { get => courses; set => courses = value; }
         internal Semester Title { get => title; set => title = value; }
+
     }
 
     internal class Controller
@@ -143,7 +117,7 @@ namespace ZC_GPA_Calculator
 
                             courseGrade = courseStingArray[courseStingArray.Length - 3];
 
-                            // TODO: Handle the case of any repeated course //
+                            // TODO: Handle the case of any repeated course
 
                             courseCredits = Convert.ToInt32(Math.Floor(Convert.ToDouble(courseStingArray[courseStingArray.Length - 2])));
 
@@ -177,6 +151,33 @@ namespace ZC_GPA_Calculator
             catch (Exception ex)
             {
                 return "";
+            }
+        }
+
+        public static double stringToGrade(string grade)
+        {
+            switch (grade)
+            {
+                case "A":
+                    return Grades.A;
+                case "A-":
+                    return Grades.A_minus;
+                case "B+":
+                    return Grades.B_plus;
+                case "B":
+                    return Grades.B;
+                case "B-":
+                    return Grades.B_minus;
+                case "C+":
+                    return Grades.C_plus;
+                case "C":
+                    return Grades.C;
+                case "C-":
+                    return Grades.C_minus;
+                case "F":
+                    return Grades.F;
+                default:
+                    return 0.0;
             }
         }
 
