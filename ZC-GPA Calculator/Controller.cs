@@ -28,7 +28,6 @@ namespace ZC_GPA_Calculator
         int credits;
         int gpaCredits;
         double qualityPoints;
-
         public course(string code, string title, CourseSubType subType, string grade, int credits)
         {
             this.Code = code;
@@ -263,6 +262,17 @@ namespace ZC_GPA_Calculator
                 default:
                     return 0.0;
             }
+        }
+
+        public static void updateSemestersList(ref List<semester> semesters, int semesterIndex, int courseIndex, string newGrade)
+        {
+            course updatedCourse = semesters[semesterIndex].Courses[courseIndex];
+            updatedCourse.Grade = newGrade;
+            updatedCourse.QualityPoints = updatedCourse.calculateQualityPoints();
+
+            semesters[semesterIndex].Courses[courseIndex] = updatedCourse;
+
+
         }
 
         #region Testing modules
