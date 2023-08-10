@@ -25,20 +25,19 @@ namespace ZC_GPA_Calculator
             string[] letterGrades = new string[] { "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "F", "P" };
             this.grade.DataSource = letterGrades;
 
-            courseList.Rows.Clear();
-            courseList.Refresh();
-            string[] row = new string[] { "CIE 205", "Data Structures and Algorithm Analysis", "LECTURE" };
-            courseList.Rows.Add(row);
-            courseList.Rows.Add(row);
-            courseList.Rows.Add(row);
-            courseList.Rows.Add(row);
-            courseList.Rows.Add(row);
-            courseList.Rows.Add(row);
-            courseList.Rows.Add(row);
+            //courseList.Rows.Clear();
+            //courseList.Refresh();
+            //string[] row = new string[] { "CIE 205", "Data Structures and Algorithm Analysis", "LECTURE" };
+            //courseList.Rows.Add(row);
+            //courseList.Rows.Add(row);
+            //courseList.Rows.Add(row);
+            //courseList.Rows.Add(row);
+            //courseList.Rows.Add(row);
+            //courseList.Rows.Add(row);
+            //courseList.Rows.Add(row);
 
-
-            string[] tremRow = new string[] {"Term" };
-            string[] overallRow = new string[] {"Overall" };
+            string[] tremRow = new string[] { "Term" };
+            string[] overallRow = new string[] { "Overall" };
 
             calculationsTable.Rows.Add(tremRow);
             calculationsTable.Rows.Add(overallRow);
@@ -67,22 +66,30 @@ namespace ZC_GPA_Calculator
             this.Height = cardHeight;
         }
 
-        public void fill(semester semester)
+        public void fill(List<semester> semesters, int index)
         {
-            this.semesterTitle.Text = $"{semester.Title.ToString()}, {semester.Year}";
+            this.semesterTitle.Text = $"{semesters[index].Title.ToString()}, {semesters[index].Year}";
             this.courseList.Rows.Clear();
             this.courseList.Refresh();
 
-            foreach (var course in semester.Courses)
+            foreach (var course in semesters[index].Courses)
             {
+                // Fill course table
                 var rowIndex = courseList.Rows.Add();
                 courseList.Rows[rowIndex].Cells["Course"].Value = course.Code;
                 courseList.Rows[rowIndex].Cells["Title"].Value = course.Title;
                 courseList.Rows[rowIndex].Cells["Subtype"].Value = course.SubType.ToString();
                 courseList.Rows[rowIndex].Cells["Grade"].Value = course.Grade;
                 courseList.Rows[rowIndex].Cells["Credits"].Value = course.Credits.ToString();
+                // Need to be further improved (the quality points format)
                 courseList.Rows[rowIndex].Cells["QualityPoints"].Value = String.Format("{0:0.00}", course.calculateQualityPoints().ToString());
+
+                // GPA Calculations
+                //calculationsTable.Rows[1].Cells[]
+
             }
+
+
         }
     }
 }

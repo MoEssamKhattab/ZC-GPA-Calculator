@@ -26,6 +26,8 @@ namespace ZC_GPA_Calculator
         CourseSubType subType;
         string grade;
         int credits;
+        int gpaCredits;
+        double qualityPoints;
 
         public course(string code, string title, CourseSubType subType, string grade, int credits)
         {
@@ -34,6 +36,13 @@ namespace ZC_GPA_Calculator
             this.SubType = subType;
             this.Grade = grade;
             this.Credits = credits;
+
+            if (grade == "P")       // other cases to be covereds
+                this.gpaCredits = 0;
+            else 
+                this.gpaCredits = credits;
+
+            this.QualityPoints = calculateQualityPoints();
         }
 
         public string Code { get => code; set => code = value; }
@@ -41,6 +50,8 @@ namespace ZC_GPA_Calculator
         public string Grade { get => grade; set => grade = value; }
         public int Credits { get => credits; set => credits = value; }
         internal CourseSubType SubType { get => subType; set => subType = value; }
+        public int GpaCredits { get => gpaCredits; set => gpaCredits = value; }
+        public double QualityPoints { get => qualityPoints; set => qualityPoints = value; }
 
         public double calculateQualityPoints()
         {      
@@ -61,7 +72,72 @@ namespace ZC_GPA_Calculator
         public int Year { get => year; set => year = value; }
         internal List<course> Courses { get => courses; set => courses = value; }
         internal Semester Title { get => title; set => title = value; }
+        public double calculateQualityPoints()
+        {
+            double _qualityPoints = 0;
+            foreach (var course in this.courses)
+            {
+                _qualityPoints += course.QualityPoints;
+            }
+            return _qualityPoints;
+        }
+        public double calculateOverallQualityPoints(List<semester> semesters, int index)
+        {
+            double _qualityPoints = 0;
 
+            for (int i = 0; i <= index; i++)
+            {
+                foreach (var course in semesters[i].Courses)
+                {
+                    _qualityPoints += course.QualityPoints;
+                }
+            }
+            return _qualityPoints;
+        }
+        public double calculateCredits()
+        {
+            double _credits = 0;
+            foreach (var course in this.courses)
+            {
+                _credits += course.Credits;
+            }
+            return _credits;
+        }
+        public double calculateOverallCredits(List<semester> semesters, int index)
+        {
+            double _overallCredits = 0;
+
+            for (int i = 0; i <= index; i++)
+            {
+                foreach (var course in semesters[i].Courses)
+                {
+                    _overallCredits += course.Credits;
+                }
+            }
+            return _overallCredits;
+        }
+        public double calculateGPACredits()
+        {
+            double _GPACredits = 0;
+            foreach (var course in this.courses)
+            {
+                _GPACredits += course.GpaCredits;
+            }
+            return _GPACredits;
+        }
+        public double calculateOverallGPACredits(List<semester> semesters, int index)
+        {
+            double _overallGPACredits = 0;
+
+            for (int i = 0; i <= index; i++)
+            {
+                foreach (var course in semesters[i].Courses)
+                {
+                    _overallGPACredits += course.GpaCredits;
+                }
+            }
+            return _overallGPACredits;
+        }
     }
 
     internal class Controller
@@ -153,7 +229,6 @@ namespace ZC_GPA_Calculator
                 return "";
             }
         }
-
         public static double stringToGrade(string grade)
         {
             switch (grade)

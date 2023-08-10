@@ -7,6 +7,7 @@ namespace ZC_GPA_Calculator
     {
         Controller controller;
         List<semester> semesterList;
+        List<SemesterCard> semesterCardList;
 
         static string studentName;
         public Form1()
@@ -16,10 +17,11 @@ namespace ZC_GPA_Calculator
         private void Form1_Load(object sender, EventArgs e)
         {
             controller = new Controller();
+            semesterCardList= new List<SemesterCard>();
         }
         private void browseFileBtn_Click(object sender, EventArgs e)
         {
-            tabs.SelectTab(tab2);
+            
             
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
@@ -33,23 +35,23 @@ namespace ZC_GPA_Calculator
 
                 semesterList = Controller.readTranscript(filePath, out studentName);
 
-                semesterCard1.fill(semesterList[0]);
-
-                //if (this.t.ColumnCount == 0 || this.X.ColumnCount == 0)
-                //{
-                //    //Switch to SimulationMode    VIEW 0
-                //    tabControl1.SelectTab(tabPage1);
-                //    MessageBox.Show("File is empty.\nPlease enter a file with valid data.");
-                //}
-                //else
-                //{
-                //    //start ineractiveMode
-                //    tabControl1.SelectTab(tabPage2);
-                //    ACF = new double[X.RowCount, X.ColumnCount];
-                //}
+                addSemestersCards();
+                tabs.SelectTab(tab2);
             }
+
         }
 
-
+        public void addSemestersCards()
+        {
+            for (int i=0;  i<semesterList.Count; i++)
+            {
+                SemesterCard card = new SemesterCard();
+                card.fill(semesterList, i);
+                card.Parent= this.semestersPanel;
+                int x = (semestersPanel.Width - card.Width) / 2;
+                int y = i * (card.Height + 10);
+                card.Location = new System.Drawing.Point(x, y);
+            }
+        }
     }
 }
