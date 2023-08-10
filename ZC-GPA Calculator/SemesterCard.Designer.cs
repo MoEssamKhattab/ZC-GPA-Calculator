@@ -1,4 +1,6 @@
-﻿namespace ZC_GPA_Calculator
+﻿using System.Windows.Forms;
+
+namespace ZC_GPA_Calculator
 {
     partial class SemesterCard
     {
@@ -288,6 +290,12 @@
             this.courseList.ThemeStyle.RowsStyle.Height = 50;
             this.courseList.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.courseList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+
+            // Handlers
+            this.courseList.CellValueChanged += new DataGridViewCellEventHandler(courseList_CellValueChanged);
+            this.courseList.CurrentCellDirtyStateChanged += new EventHandler(courseList_CurrentCellDirtyStateChanged);
+
+
             // 
             // course
             // 

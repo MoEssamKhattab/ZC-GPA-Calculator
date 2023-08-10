@@ -1,6 +1,5 @@
 ﻿using Guna.UI2.WinForms;
 using Guna.UI2.WinForms.Enums;
-using Org.BouncyCastle.Crypto;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +14,11 @@ namespace ZC_GPA_Calculator
 {
     public partial class SemesterCard : UserControl
     {
+        //ComboBox gradeComboBox;
+        //DataGridViewComboBoxEditingControl gradeRow;
+
+        bool allowEditing = false;
+        int semsterIndexInSemestersList = 0;        //to use in case of any grade update
         public SemesterCard()
         {
             InitializeComponent();
@@ -25,21 +29,10 @@ namespace ZC_GPA_Calculator
             string[] letterGrades = new string[] { "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "F", "P" };
             this.grade.DataSource = letterGrades;
 
-            //courseList.Rows.Clear();
-            //courseList.Refresh();
-            //string[] row = new string[] { "CIE 205", "Data Structures and Algorithm Analysis", "LECTURE" };
-            //courseList.Rows.Add(row);
-            //courseList.Rows.Add(row);
-            //courseList.Rows.Add(row);
-            //courseList.Rows.Add(row);
-            //courseList.Rows.Add(row);
-            //courseList.Rows.Add(row);
-            //courseList.Rows.Add(row);
-
-            setCardHeight(7,4);
+            setCardHeight(7, 4);
+            allowEditing = true;
         }
 
-        //==================
 
         public void setCardHeight(int courseCount, int maxVisibleCourseListElements)
         {
@@ -66,6 +59,8 @@ namespace ZC_GPA_Calculator
             this.courseList.Rows.Clear();
             this.courseList.Refresh();
 
+            this.semsterIndexInSemestersList = index;       //to use in case of any grade update
+
             foreach (var course in semesters[index].Courses)
             {
                 // Fill course table
@@ -78,7 +73,11 @@ namespace ZC_GPA_Calculator
                 // Need to be further improved (the quality points format)
                 courseList.Rows[rowIndex].Cells["QualityPoints"].Value = String.Format("{0:0.00}", course.calculateQualityPoints().ToString());
             }
+            updateGPACalculationsTable(semesters, index);
+        }
 
+        public void updateGPACalculationsTable(List<semester> semesters, int index)
+        {
             string[] tremRow = new string[] { "Term" };
             string[] overallRow = new string[] { "Overall" };
 
@@ -86,9 +85,59 @@ namespace ZC_GPA_Calculator
             calculationsTable.Rows.Add(overallRow);
             // GPA Calculations
             calculationsTable.Rows[0].Cells["GPACredits"].Value = semesters[index].calculateGPACredits().ToString();
-            calculationsTable.Rows[1].Cells["GPACredits"].Value = semesters[index].calculateOverallGPACredits(semesters,index).ToString();
+            calculationsTable.Rows[1].Cells["GPACredits"].Value = semesters[index].calculateOverallGPACredits(semesters, index).ToString();
             calculationsTable.Rows[0].Cells["GPA"].Value = semesters[index].calculateGPA().ToString();
             calculationsTable.Rows[1].Cells["GPA"].Value = semesters[index].calculateOverallGPA(semesters, index).ToString();
         }
+
+        // This event handler manually raises the CellValueChanged event 
+        // by calling the CommitEdit method. 
+        private void courseList_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (courseList.IsCurrentCellDirty)
+            {
+                // This fires the cell value changed handler below
+                courseList.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
+
+        private void courseList_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (courseList.Rows.Count != 0 && allowEditing) //allowEditing flag is used to avoid performing the following in case of first uplading the transcript
+            {
+                int rowIndex = e.RowIndex;
+                DataGridViewComboBoxCell gradeComboBox = (DataGridViewComboBoxCell)courseList.Rows[rowIndex].Cells["Grade"];
+
+                if (gradeComboBox.Value != null)
+                {
+                    
+                    MessageBox.Show($"{rowIndex}     {gradeComboBox.Value}       {this.semesterTitle.Text}");
+                    courseList.Invalidate();
+                }
+            }
+        }
+
+        // Handelling the change of any grade value
+        //private void courseList_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)      
+        //{
+        //    // get ComboBox Object
+        //    gradeComboBox = e.Control as ComboBox;
+        //    gradeRow = e.Control as DataGridViewComboBoxEditingControl;
+
+        //    if (gradeComboBox != null ) 
+        //    {
+        //        //Avoid attachement to multiple Event Handlers
+        //        gradeComboBox.SelectedIndexChanged -= new EventHandler(gradeComboBox_LastColumnComboSelectionChanged);
+        //        gradeComboBox.SelectedIndexChanged += gradeComboBox_LastColumnComboSelectionChanged;
+        //    }
+        //}
+
+        //private void gradeComboBox_LastColumnComboSelectionChanged(object? sender, EventArgs e)
+        //{
+        //    string newGrade = (sender as ComboBox).SelectedItem.ToString();
+        //    MessageBox.Show(newGrade);
+        //}
+
+
     }
 }

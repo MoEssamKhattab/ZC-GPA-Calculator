@@ -37,8 +37,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -56,7 +54,6 @@
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tab2 = new System.Windows.Forms.TabPage();
-            this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.semestersPanel = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
@@ -71,7 +68,6 @@
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.tab2.SuspendLayout();
-            this.guna2GradientPanel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
@@ -216,7 +212,8 @@
             // tab2
             // 
             this.tab2.BackColor = System.Drawing.Color.White;
-            this.tab2.Controls.Add(this.guna2GradientPanel1);
+            this.tab2.Controls.Add(this.semestersPanel);
+            this.tab2.Controls.Add(this.guna2Panel3);
             this.tab2.Location = new System.Drawing.Point(5, 4);
             this.tab2.Margin = new System.Windows.Forms.Padding(0);
             this.tab2.Name = "tab2";
@@ -224,29 +221,15 @@
             this.tab2.TabIndex = 2;
             this.tab2.Text = "tabPage1";
             // 
-            // guna2GradientPanel1
-            // 
-            this.guna2GradientPanel1.Controls.Add(this.semestersPanel);
-            this.guna2GradientPanel1.Controls.Add(this.guna2Panel3);
-            this.guna2GradientPanel1.CustomizableEdges = customizableEdges17;
-            this.guna2GradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(231)))), ((int)(((byte)(234)))));
-            this.guna2GradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(1911, 1047);
-            this.guna2GradientPanel1.TabIndex = 8;
-            // 
             // semestersPanel
             // 
             this.semestersPanel.AutoScroll = true;
             this.semestersPanel.BackColor = System.Drawing.Color.Transparent;
             this.semestersPanel.CustomizableEdges = customizableEdges9;
-            this.semestersPanel.Location = new System.Drawing.Point(80, 222);
+            this.semestersPanel.Location = new System.Drawing.Point(80, 230);
             this.semestersPanel.Name = "semestersPanel";
             this.semestersPanel.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            this.semestersPanel.Size = new System.Drawing.Size(1750, 746);
+            this.semestersPanel.Size = new System.Drawing.Size(1750, 737);
             this.semestersPanel.TabIndex = 8;
             // 
             // guna2Panel3
@@ -258,7 +241,7 @@
             this.guna2Panel3.Controls.Add(this.guna2HtmlLabel1);
             this.guna2Panel3.CustomizableEdges = customizableEdges15;
             this.guna2Panel3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Panel3.Location = new System.Drawing.Point(105, 33);
+            this.guna2Panel3.Location = new System.Drawing.Point(105, 41);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges16;
             this.guna2Panel3.Size = new System.Drawing.Size(1700, 155);
@@ -376,7 +359,6 @@
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.tab2.ResumeLayout(false);
-            this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
@@ -403,7 +385,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Label label2;
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton2;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
         private Guna.UI2.WinForms.Guna2GradientPanel semestersPanel;
     }
 }

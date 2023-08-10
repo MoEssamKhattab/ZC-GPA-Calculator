@@ -33,11 +33,21 @@ namespace ZC_GPA_Calculator
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string filePath = openFileDialog.FileName;     //files path
+                
+                try
+                {
+                    semesterList = Controller.readTranscript(filePath, out studentName);
+                }
+                catch (Exception ex)
+                { Console.WriteLine(ex.Message); }
 
-                semesterList = Controller.readTranscript(filePath, out studentName);
-
-                addSemestersCards();
-                tabs.SelectTab(tab2);
+                if (semesterList.Count != 0)
+                {
+                    addSemestersCards();
+                    tabs.SelectTab(tab2);
+                }
+                else
+                    MessageBox.Show("Enter a valid ");
             }
         }
         public void addSemestersCards()
