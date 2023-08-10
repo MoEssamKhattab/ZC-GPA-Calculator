@@ -36,12 +36,6 @@ namespace ZC_GPA_Calculator
             //courseList.Rows.Add(row);
             //courseList.Rows.Add(row);
 
-            string[] tremRow = new string[] { "Term" };
-            string[] overallRow = new string[] { "Overall" };
-
-            calculationsTable.Rows.Add(tremRow);
-            calculationsTable.Rows.Add(overallRow);
-
             setCardHeight(7,4);
         }
 
@@ -83,13 +77,18 @@ namespace ZC_GPA_Calculator
                 courseList.Rows[rowIndex].Cells["Credits"].Value = course.Credits.ToString();
                 // Need to be further improved (the quality points format)
                 courseList.Rows[rowIndex].Cells["QualityPoints"].Value = String.Format("{0:0.00}", course.calculateQualityPoints().ToString());
-
-                // GPA Calculations
-                //calculationsTable.Rows[1].Cells[]
-
             }
 
+            string[] tremRow = new string[] { "Term" };
+            string[] overallRow = new string[] { "Overall" };
 
+            calculationsTable.Rows.Add(tremRow);
+            calculationsTable.Rows.Add(overallRow);
+            // GPA Calculations
+            calculationsTable.Rows[0].Cells["GPACredits"].Value = semesters[index].calculateGPACredits().ToString();
+            calculationsTable.Rows[1].Cells["GPACredits"].Value = semesters[index].calculateOverallGPACredits(semesters,index).ToString();
+            calculationsTable.Rows[0].Cells["GPA"].Value = semesters[index].calculateGPA().ToString();
+            calculationsTable.Rows[1].Cells["GPA"].Value = semesters[index].calculateOverallGPA(semesters, index).ToString();
         }
     }
 }

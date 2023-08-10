@@ -10,6 +10,7 @@ namespace ZC_GPA_Calculator
         List<SemesterCard> semesterCardList;
 
         static string studentName;
+        static string studentMajor;
         public Form1()
         {
             InitializeComponent();
@@ -38,9 +39,7 @@ namespace ZC_GPA_Calculator
                 addSemestersCards();
                 tabs.SelectTab(tab2);
             }
-
         }
-
         public void addSemestersCards()
         {
             for (int i=0;  i<semesterList.Count; i++)

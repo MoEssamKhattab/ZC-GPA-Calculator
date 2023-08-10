@@ -138,6 +138,15 @@ namespace ZC_GPA_Calculator
             }
             return _overallGPACredits;
         }
+        public double calculateGPA()
+        {
+            return Math.Round(calculateQualityPoints()/calculateGPACredits(),2);
+        }
+
+        public double calculateOverallGPA(List<semester> semesters, int index)
+        {
+            return Math.Round(calculateOverallQualityPoints(semesters, index) / calculateOverallGPACredits(semesters, index),2);
+        }
     }
 
     internal class Controller
