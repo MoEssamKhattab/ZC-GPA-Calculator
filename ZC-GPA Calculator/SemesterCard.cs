@@ -31,10 +31,10 @@ namespace ZC_GPA_Calculator
             string[] letterGrades = new string[] { "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "F", "P" };
             this.grade.DataSource = letterGrades;
 
-            setCardHeight(7, 4);
+            setCardHeight(this.CourseList.RowCount, 6);
             allowEditing = true;
         }
-        public void setCardHeight(int courseCount, int maxVisibleCourseListElements)
+        public int setCardHeight(int courseCount, int maxVisibleCourseListElements)
         {
             int headerHeight = CourseList.ThemeStyle.HeaderStyle.Height;
             int rowHeight = CourseList.ThemeStyle.RowsStyle.Height;
@@ -51,6 +51,8 @@ namespace ZC_GPA_Calculator
                 
             CourseList.Height = courseListHeight;     
             this.Height = cardHeight;
+            
+            return cardHeight;
         }
 
         public void fill(List<semester> semesters, int index)

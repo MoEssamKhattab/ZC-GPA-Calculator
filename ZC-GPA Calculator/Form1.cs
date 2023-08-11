@@ -22,8 +22,6 @@ namespace ZC_GPA_Calculator
         }
         private void browseFileBtn_Click(object sender, EventArgs e)
         {
-            
-            
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
             openFileDialog.Title = "Choose Your Transcript";
@@ -53,6 +51,8 @@ namespace ZC_GPA_Calculator
         }
         public void addSemestersCards()
         {
+            //clearAllData(****)
+
             for (int i=0;  i<semesterList.Count; i++)
             {
                 SemesterCard card = new SemesterCard();
@@ -74,19 +74,26 @@ namespace ZC_GPA_Calculator
                 card.fill(semesterList, i);
                 card.Parent= this.semestersPanel;
                 int x = (semestersPanel.Width - card.Width) / 2;
-                int y = i * (card.Height + 10);
+                int y = 0;
+                if (i!=0)
+                    y = semesterCardList[i-1].Location.Y + semesterCardList[i - 1].Height + 25;
+                
                 card.Location = new System.Drawing.Point(x, y);
 
                 semesterCardList.Add(card);
             }
         }
-
         private static void updateSemestersGPATables(List<semester> semesters, List<SemesterCard> semesterCards)
         {
             for (int i=0; i< semesterCards.Count; i++)
             {
                 semesterCards[i].updateGPACalculationsTable(semesters, i);
             }
+        }
+
+        private static void clearAllData(List<semester> semesters, List<SemesterCard> semesterCards )
+        {
+            //TODO: to clear all data  
         }
     }
 }
