@@ -31,7 +31,6 @@ namespace ZC_GPA_Calculator
             string[] letterGrades = new string[] { "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "F", "P" };
             this.grade.DataSource = letterGrades;
 
-            setCardHeight(this.CourseList.RowCount, 6);
             allowEditing = true;
         }
         public int setCardHeight(int courseCount, int maxVisibleCourseListElements)
@@ -75,6 +74,7 @@ namespace ZC_GPA_Calculator
                 // Need to be further improved (the quality points format)
                 CourseList.Rows[rowIndex].Cells["QualityPoints"].Value = String.Format("{0:0.00}", course.calculateQualityPoints().ToString());
             }
+            setCardHeight(this.CourseList.RowCount, 6);
             updateGPACalculationsTable(semesters, index);
         }
         public void updateGPACalculationsTable(List<semester> semesters, int index)
