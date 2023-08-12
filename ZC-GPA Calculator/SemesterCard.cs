@@ -77,6 +77,13 @@ namespace ZC_GPA_Calculator
             setCardHeight(this.CourseList.RowCount, 6);
             updateGPACalculationsTable(semesters, index);
         }
+        public void updateQualityPointsOfCourseTable(semester semester, int courseIndex)
+        {
+            double newQualityPoints = semester.Courses[courseIndex].QualityPoints;
+            CourseList.Rows[courseIndex].Cells["QualityPoints"].Value = newQualityPoints;
+            CourseList.Refresh();
+        }
+
         public void updateGPACalculationsTable(List<semester> semesters, int index)
         {
             this.calculationsTable.Rows.Clear();

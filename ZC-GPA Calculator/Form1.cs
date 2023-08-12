@@ -68,7 +68,8 @@ namespace ZC_GPA_Calculator
                     DataGridViewComboBoxCell gradeComboBox = (DataGridViewComboBoxCell)thisCard.CourseList.Rows[rowIndex].Cells["Grade"];
 
                     Controller.updateSemestersList(ref this.semesterList, thisCard.SemsterIndexInSemestersList, rowIndex, gradeComboBox.Value.ToString());
-                    updateSemestersGPATables(this.semesterList, this.semesterCardList);                    
+                    updateSemestersGPATables(this.semesterList, this.semesterCardList);
+                    card.updateQualityPointsOfCourseTable(semesterList[thisCard.SemsterIndexInSemestersList], rowIndex);
                 };
 
                 card.fill(semesterList, i);
