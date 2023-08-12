@@ -5,8 +5,8 @@ using iTextSharp.text.pdf.parser;
 
 namespace ZC_GPA_Calculator
 {
-    enum CourseSubType : byte { LECTURE, LAB };
-    enum Semester : byte { Fall = 0, Spring = 1, Summer = 2 };
+    public enum CourseSubType : byte { LECTURE, LAB };
+    public enum Semester : byte { Fall = 0, Spring = 1, Summer = 2 };
     public static class Grades
     {
         public static readonly double A = 4.0;

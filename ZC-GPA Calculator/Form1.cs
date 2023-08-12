@@ -2,6 +2,7 @@ using Guna.UI2.AnimatorNS;
 using System.Collections.Generic;
 using System;
 using System.Windows.Forms;
+using iTextSharp.text;
 
 namespace ZC_GPA_Calculator
 {
@@ -41,7 +42,7 @@ namespace ZC_GPA_Calculator
 
                 if (semesterList.Count != 0)
                 {
-                    addSemestersCards();
+                    initializeSemestersCards();
                     studentNameLabel.Text = studentName;
                     tabs.SelectTab(tab2);
                 }
@@ -49,7 +50,7 @@ namespace ZC_GPA_Calculator
                     MessageBox.Show("Enter a valid transcript document!");
             }
         }
-        public void addSemestersCards()
+        public void initializeSemestersCards()
         {
             //clearAllData(****)
 
@@ -84,6 +85,42 @@ namespace ZC_GPA_Calculator
                 semesterCardList.Add(card);
             }
         }
+        private static void addSemesterCard()
+        {
+            // TODO: to combine the above and below functions here
+        }
+        private void addNewSemester(Semester semesterTitle, int year, List<semester> semesterList, List<SemesterCard> semesterCardList)
+        {
+            semester semester = new semester();
+            semester.Title = semesterTitle;
+            semester.Year = year;
+            semesterList.Add(semester);
+
+            SemesterCard semesterCard = new SemesterCard();
+            
+            // ====>> redundant code to be optimized
+            semesterCard.GradeChanged += (object sender, EventArgs e) =>
+            {
+                //int rowIndex = (e as DataGridViewCellEventArgs).RowIndex;
+
+                DataGridViewCellEventArgs cell = (DataGridViewCellEventArgs)e;
+                int rowIndex = cell.RowIndex;
+
+                SemesterCard thisCard = (SemesterCard)sender;
+                DataGridViewComboBoxCell gradeComboBox = (DataGridViewComboBoxCell)thisCard.CourseList.Rows[rowIndex].Cells["Grade"];
+
+                Controller.updateSemestersList(ref this.semesterList, thisCard.SemsterIndexInSemestersList, rowIndex, gradeComboBox.Value.ToString());
+                updateSemestersGPATables(this.semesterList, this.semesterCardList);
+                semesterCard.updateQualityPointsOfCourseTable(semesterList[thisCard.SemsterIndexInSemestersList], rowIndex);
+            };
+
+            semesterCard.SemesterTitle = $"{semesterTitle.ToString()}, {year}";
+            semesterCard.Parent = this.semestersPanel;
+            int x = (semestersPanel.Width - semesterCard.Width) / 2;
+            int y = semesterCardList[semesterCardList.Count - 1].Location.Y + semesterCardList[semesterCardList.Count - 1].Height + 25;
+            semesterCard.Location = new System.Drawing.Point(x, y);
+            semesterCardList.Add(semesterCard);
+        }
         private static void updateSemestersGPATables(List<semester> semesters, List<SemesterCard> semesterCards)
         {
             for (int i=0; i< semesterCards.Count; i++)
@@ -95,6 +132,28 @@ namespace ZC_GPA_Calculator
         private static void clearAllData(List<semester> semesters, List<SemesterCard> semesterCards )
         {
             //TODO: to clear all data  
+        }
+
+        private void addNewSemesterBtn_Click(object sender, EventArgs e)
+        {
+            //AddSemesterForm addSemesterForm = new AddSemesterForm();
+            //addSemesterForm.ShowDialog();
+            using (AddSemesterForm addSemesterForm = new AddSemesterForm())
+            {
+                Semester semesterTitle;
+                int year;
+
+                DialogResult dialogResult = addSemesterForm.ShowDialog();               
+                if (dialogResult == DialogResult.OK)
+                {
+                    semesterTitle = addSemesterForm.SemesterTitle;
+                    year = addSemesterForm.SemesterYear;
+
+                    addNewSemester(semesterTitle, year, this.semesterList, this.semesterCardList);
+
+                    semestersPanel.VerticalScroll.Value = semestersPanel.VerticalScroll.Maximum;    //Scrol to the bottom to view the added semester card
+                }
+            }
         }
     }
 }

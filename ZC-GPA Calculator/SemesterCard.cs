@@ -20,6 +20,7 @@ namespace ZC_GPA_Calculator
         bool allowEditing = false;
         int semsterIndexInSemestersList = 0;        //to use in case of any grade update
 
+        public string SemesterTitle { get => semesterTitle.Text; set => semesterTitle.Text = value; }
         public int SemsterIndexInSemestersList { get => semsterIndexInSemestersList; set => semsterIndexInSemestersList = value; }
 
         public SemesterCard()
@@ -83,7 +84,6 @@ namespace ZC_GPA_Calculator
             CourseList.Rows[courseIndex].Cells["QualityPoints"].Value = newQualityPoints;
             CourseList.Refresh();
         }
-
         public void updateGPACalculationsTable(List<semester> semesters, int index)
         {
             this.calculationsTable.Rows.Clear();
