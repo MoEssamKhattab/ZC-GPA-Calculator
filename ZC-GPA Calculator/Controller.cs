@@ -150,7 +150,7 @@ namespace ZC_GPA_Calculator
 
     internal class Controller
     {
-        public static List<semester> readTranscript(string path, out string studentName)
+        public static List<semester> readTranscript(string path, out string studentName, out string major)
         {
             List<semester> semestersList = new();   //List of all semesters
 
@@ -167,6 +167,11 @@ namespace ZC_GPA_Calculator
 
             string[] semestersKeywords = Enum.GetNames(typeof(Semester));
             string[] coursesKeywords = Enum.GetNames(typeof(CourseSubType));
+
+            // Extracting the major
+            string[] majorTextSeparator = { "Undergraduate/Bachelor of Science/", "No Degree Awarded Yet" };
+            string[] majorData = separatedSemesters[1].Split(majorTextSeparator, StringSplitOptions.RemoveEmptyEntries);
+            major = majorData[1].Trim(Environment.NewLine.ToCharArray()).Replace("\n", "").Replace("\r", "");
 
             for (int i = 1; i < separatedSemesters.Length; i++)     //ignoring the first element since it's not a real semster data
             {

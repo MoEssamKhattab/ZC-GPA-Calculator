@@ -35,7 +35,7 @@ namespace ZC_GPA_Calculator
                 
                 try
                 {
-                    semesterList = Controller.readTranscript(filePath, out studentName);
+                    semesterList = Controller.readTranscript(filePath, out studentName, out studentMajor);
                 }
                 catch (Exception ex)
                 { Console.WriteLine(ex.Message); }
@@ -44,6 +44,8 @@ namespace ZC_GPA_Calculator
                 {
                     initializeSemestersCards();
                     studentNameLabel.Text = studentName;
+                    studentMajorLabel.Text = studentMajor;
+                    studentPicture.Text = studentName[0].ToString();
                     tabs.SelectTab(tab2);
                 }
                 else
@@ -85,7 +87,7 @@ namespace ZC_GPA_Calculator
                 semesterCardList.Add(card);
             }
         }
-        private static void addSemesterCard()
+        private void addSemesterCard()
         {
             // TODO: to combine the above and below functions here
         }
@@ -121,7 +123,7 @@ namespace ZC_GPA_Calculator
             semesterCard.Location = new System.Drawing.Point(x, y);
             semesterCardList.Add(semesterCard);
         }
-        private static void updateSemestersGPATables(List<semester> semesters, List<SemesterCard> semesterCards)
+        private void updateSemestersGPATables(List<semester> semesters, List<SemesterCard> semesterCards)
         {
             for (int i=0; i< semesterCards.Count; i++)
             {
@@ -129,7 +131,7 @@ namespace ZC_GPA_Calculator
             }
         }
 
-        private static void clearAllData(List<semester> semesters, List<SemesterCard> semesterCards )
+        private void clearAllData(List<semester> semesters, List<SemesterCard> semesterCards )
         {
             //TODO: to clear all data  
         }
