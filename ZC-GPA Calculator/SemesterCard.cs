@@ -19,9 +19,11 @@ namespace ZC_GPA_Calculator
 
         bool allowEditing = false;
         int semsterIndexInSemestersList = 0;        //to use in case of any grade update
+        bool allowAdding = false;
 
         public string SemesterTitle { get => semesterTitle.Text; set => semesterTitle.Text = value; }
         public int SemsterIndexInSemestersList { get => semsterIndexInSemestersList; set => semsterIndexInSemestersList = value; }
+        public bool AllowAdding { get => allowAdding; set => allowAdding = value; }
 
         public SemesterCard()
         {
@@ -33,26 +35,40 @@ namespace ZC_GPA_Calculator
             this.grade.DataSource = letterGrades;
 
             allowEditing = true;
+
+            if (AllowAdding)
+            {
+                addCourseBtn.Visible = true;
+                updateCardHeight();            
+            }
         }
-        public int setCardHeight(int courseCount, int maxVisiblecourseTableElements)
+
+        public void updateCardHeight()
         {
+            int cardHeaderHeight = cardHeaderPanel.Height;
+            int separator = 45;
+
+            // Course table
             int headerHeight = courseTable.ThemeStyle.HeaderStyle.Height;
             int rowHeight = courseTable.ThemeStyle.RowsStyle.Height;
+            int courseTableHeight = (courseTable.RowCount * rowHeight) + headerHeight;
+            courseTable.Height = courseTableHeight;
 
-            int courseTableHeight;
-            if (courseCount >= maxVisiblecourseTableElements)
-                courseTableHeight = (maxVisiblecourseTableElements * rowHeight) + headerHeight;
-            else
-                courseTableHeight = (courseCount * rowHeight) + headerHeight;
+            // Add course button
+            int addCourseBtnHeight = addCourseBtn.Height;
 
+            // Calculations Table
             int calculationsTableHeight = calculationsTable.ThemeStyle.HeaderStyle.Height + 2* calculationsTable.ThemeStyle.RowsStyle.Height;
-            int separator = 50;
-            int cardHeight = Convert.ToInt16(courseTable.Location.Y) + courseTableHeight + separator + calculationsTableHeight;
-                
-            courseTable.Height = courseTableHeight;     
-            this.Height = cardHeight;
             
-            return cardHeight;
+            // Total card
+            int cardHeight = Convert.ToInt16(courseTable.Location.Y) + courseTableHeight + separator + calculationsTableHeight;
+
+            if (allowAdding)
+            {
+                cardHeight += addCourseBtnHeight;
+            }
+
+            this.Height = cardHeight;
         }
 
         public void fill(List<semester> semesters, int index)
@@ -63,7 +79,7 @@ namespace ZC_GPA_Calculator
 
             this.SemsterIndexInSemestersList = index;       //to use in case of any grade update
 
-            foreach (var course in semesters[index].Courses)
+            foreach (var course in semesters[index].Courses.ToList())
             {
                 // Fill course table
                 var rowIndex = courseTable.Rows.Add();
@@ -75,7 +91,7 @@ namespace ZC_GPA_Calculator
                 // Need to be further improved (the quality points format)
                 courseTable.Rows[rowIndex].Cells["QualityPoints"].Value = String.Format("{0:0.00}", course.calculateQualityPoints().ToString());
             }
-            setCardHeight(this.courseTable.RowCount, 6);
+            updateCardHeight();
             updateGPACalculationsTable(semesters, index);
         }
         public void updateQualityPointsOfCourseTable(semester semester, int courseIndex)
@@ -124,33 +140,38 @@ namespace ZC_GPA_Calculator
                 if (gradeComboBox.Value != null)
                 {
                     GradeChanged?.Invoke(this, e);
-
                     courseTable.Invalidate();
                 }
             }
         }
 
-        // Handelling the change of any grade value
-        //private void courseTable_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)      
-        //{
-        //    // get ComboBox Object
-        //    gradeComboBox = e.Control as ComboBox;
-        //    gradeRow = e.Control as DataGridViewComboBoxEditingControl;
+        public event EventHandler<course> CourseAdded;
+        private void addCourseBtn_Click(object sender, EventArgs e)
+        {
+            course newCourse;
+            using (AddCourseForm addCourseForm = new AddCourseForm())
+            {
+                string CourseCode;
+                string CourseTitle;
+                CourseSubtype CourseSubtype;
+                string CourseGrade;
+                int CourseCredits;
 
-        //    if (gradeComboBox != null ) 
-        //    {
-        //        //Avoid attachement to multiple Event Handlers
-        //        gradeComboBox.SelectedIndexChanged -= new EventHandler(gradeComboBox_LastColumnComboSelectionChanged);
-        //        gradeComboBox.SelectedIndexChanged += gradeComboBox_LastColumnComboSelectionChanged;
-        //    }
-        //}
+                DialogResult dialogResult = addCourseForm.ShowDialog();
+                if (dialogResult == DialogResult.OK)
+                {
+                    CourseCode = addCourseForm.CourseCode;
+                    CourseTitle = addCourseForm.CourseTitle;
+                    CourseSubtype = addCourseForm.CourseSubtype;
+                    CourseGrade = addCourseForm.CourseGrade;
+                    CourseCredits = addCourseForm.CourseCredits;
 
-        //private void gradeComboBox_LastColumnComboSelectionChanged(object? sender, EventArgs e)
-        //{
-        //    string newGrade = (sender as ComboBox).SelectedItem.ToString();
-        //    MessageBox.Show(newGrade);
-        //}
+                    newCourse = new course(CourseCode, CourseTitle, CourseSubtype, CourseGrade, CourseCredits);
 
-
+                    CourseAdded?.Invoke(this, newCourse);
+                    courseTable.Invalidate();
+                }
+            }
+        }
     }
 }

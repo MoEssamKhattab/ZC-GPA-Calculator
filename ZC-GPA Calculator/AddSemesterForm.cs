@@ -25,8 +25,7 @@ namespace ZC_GPA_Calculator
             this.yearDatePicker.ShowUpDown = true;
         }
         private void AddSemesterForm_Load(object sender, EventArgs e)
-        {
-            
+        {    
             this.semesterComboBox.DataSource = Enum.GetNames(typeof(Semester));
             this.semesterComboBox.SelectedIndex= 0;
         }

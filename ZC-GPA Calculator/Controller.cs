@@ -5,7 +5,7 @@ using iTextSharp.text.pdf.parser;
 
 namespace ZC_GPA_Calculator
 {
-    public enum CourseSubType : byte { LECTURE, LAB };
+    public enum CourseSubtype : byte { LECTURE, LAB };
     public enum Semester : byte { Fall = 0, Spring = 1, Summer = 2 };
     public static class Grades
     {
@@ -19,16 +19,16 @@ namespace ZC_GPA_Calculator
         public static readonly double C_minus = 1.7;
         public static readonly double F = 0.0;
     }
-    struct course
+    public struct course
     {
         string code;
         string title;
-        CourseSubType subType;
+        CourseSubtype subType;
         string grade;
         int credits;
         int gpaCredits;
         double qualityPoints;
-        public course(string code, string title, CourseSubType subType, string grade, int credits)
+        public course(string code, string title, CourseSubtype subType, string grade, int credits)
         {
             this.Code = code;
             this.Title = title;
@@ -48,7 +48,7 @@ namespace ZC_GPA_Calculator
         public string Title { get => title; set => title = value; }
         public string Grade { get => grade; set => grade = value; }
         public int Credits { get => credits; set => credits = value; }
-        internal CourseSubType SubType { get => subType; set => subType = value; }
+        internal CourseSubtype SubType { get => subType; set => subType = value; }
         public int GpaCredits { get => gpaCredits; set => gpaCredits = value; }
         public double QualityPoints { get => qualityPoints; set => qualityPoints = value; }
 
@@ -166,7 +166,7 @@ namespace ZC_GPA_Calculator
             string[] separatedSemesters = allSemestersString.Split("Term");
 
             string[] semestersKeywords = Enum.GetNames(typeof(Semester));
-            string[] coursesKeywords = Enum.GetNames(typeof(CourseSubType));
+            string[] coursesKeywords = Enum.GetNames(typeof(CourseSubtype));
 
             // Extracting the major
             string[] majorTextSeparator = { "Undergraduate/Bachelor of Science/", "No Degree Awarded Yet" };
@@ -183,7 +183,7 @@ namespace ZC_GPA_Calculator
 
                     string courseCode;
                     string courseTitle;
-                    CourseSubType courseSubType;
+                    CourseSubtype courseSubType;
                     string courseGrade;
                     int courseCredits;
 
@@ -202,7 +202,7 @@ namespace ZC_GPA_Calculator
 
                             courseCode = string.Join(" ", courseStingArray, 0, 2);
                             courseTitle = string.Join(" ", courseStingArray, 2, courseStingArray.Length - 6);
-                            courseSubType = (CourseSubType)Enum.Parse(typeof(CourseSubType), courseStingArray[courseStingArray.Length - 4]);
+                            courseSubType = (CourseSubtype)Enum.Parse(typeof(CourseSubtype), courseStingArray[courseStingArray.Length - 4]);
 
                             courseGrade = courseStingArray[courseStingArray.Length - 3];
 
@@ -276,8 +276,6 @@ namespace ZC_GPA_Calculator
             updatedCourse.QualityPoints = updatedCourse.calculateQualityPoints();
 
             semesters[semesterIndex].Courses[courseIndex] = updatedCourse;
-
-
         }
 
         #region Testing modules
