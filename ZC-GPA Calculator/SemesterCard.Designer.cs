@@ -57,7 +57,7 @@ namespace ZC_GPA_Calculator
             this.GPACredits = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.transferCredits = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GPA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CourseList = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.courseTable = new Guna.UI2.WinForms.Guna2DataGridView();
             this.course = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subtype = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,7 +69,7 @@ namespace ZC_GPA_Calculator
             this.semesterTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.calculationsTable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CourseList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.courseTable)).BeginInit();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -81,7 +81,7 @@ namespace ZC_GPA_Calculator
             this.guna2Panel1.BorderThickness = 2;
             this.guna2Panel1.Controls.Add(this.guna2Separator1);
             this.guna2Panel1.Controls.Add(this.calculationsTable);
-            this.guna2Panel1.Controls.Add(this.CourseList);
+            this.guna2Panel1.Controls.Add(this.courseTable);
             this.guna2Panel1.Controls.Add(this.guna2Panel2);
             this.guna2Panel1.CustomizableEdges = customizableEdges5;
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -220,12 +220,12 @@ namespace ZC_GPA_Calculator
             this.GPA.MinimumWidth = 6;
             this.GPA.Name = "GPA";
             // 
-            // courseList
+            // courseTable
             // 
-            this.CourseList.AllowUserToAddRows = false;
+            this.courseTable.AllowUserToAddRows = false;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            this.CourseList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.CourseList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.courseTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.courseTable.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
@@ -234,10 +234,10 @@ namespace ZC_GPA_Calculator
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CourseList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.CourseList.ColumnHeadersHeight = 50;
-            this.CourseList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.CourseList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.courseTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.courseTable.ColumnHeadersHeight = 50;
+            this.courseTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.courseTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.course,
             this.title,
             this.subtype,
@@ -251,10 +251,10 @@ namespace ZC_GPA_Calculator
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CourseList.DefaultCellStyle = dataGridViewCellStyle8;
-            this.CourseList.GridColor = System.Drawing.Color.White;
-            this.CourseList.Location = new System.Drawing.Point(28, 57);
-            this.CourseList.Name = "courseList";
+            this.courseTable.DefaultCellStyle = dataGridViewCellStyle8;
+            this.courseTable.GridColor = System.Drawing.Color.White;
+            this.courseTable.Location = new System.Drawing.Point(28, 57);
+            this.courseTable.Name = "courseTable";
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -262,39 +262,39 @@ namespace ZC_GPA_Calculator
             dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CourseList.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.CourseList.RowHeadersVisible = false;
-            this.CourseList.RowHeadersWidth = 50;
+            this.courseTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.courseTable.RowHeadersVisible = false;
+            this.courseTable.RowHeadersWidth = 50;
             dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.CourseList.RowsDefaultCellStyle = dataGridViewCellStyle10;
-            this.CourseList.RowTemplate.Height = 50;
-            this.CourseList.Size = new System.Drawing.Size(1645, 353);
-            this.CourseList.TabIndex = 1;
-            this.CourseList.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.CourseList.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.CourseList.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.CourseList.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.CourseList.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.CourseList.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.CourseList.ThemeStyle.GridColor = System.Drawing.Color.White;
-            this.CourseList.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.CourseList.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.CourseList.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.CourseList.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.CourseList.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.CourseList.ThemeStyle.HeaderStyle.Height = 50;
-            this.CourseList.ThemeStyle.ReadOnly = false;
-            this.CourseList.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.CourseList.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.CourseList.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CourseList.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.CourseList.ThemeStyle.RowsStyle.Height = 50;
-            this.CourseList.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.CourseList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.courseTable.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.courseTable.RowTemplate.Height = 50;
+            this.courseTable.Size = new System.Drawing.Size(1645, 353);
+            this.courseTable.TabIndex = 1;
+            this.courseTable.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.courseTable.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.courseTable.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.courseTable.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.courseTable.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.courseTable.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.courseTable.ThemeStyle.GridColor = System.Drawing.Color.White;
+            this.courseTable.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.courseTable.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.courseTable.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.courseTable.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.courseTable.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.courseTable.ThemeStyle.HeaderStyle.Height = 50;
+            this.courseTable.ThemeStyle.ReadOnly = false;
+            this.courseTable.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.courseTable.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.courseTable.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.courseTable.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.courseTable.ThemeStyle.RowsStyle.Height = 50;
+            this.courseTable.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.courseTable.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
 
             // Handlers
-            this.CourseList.CellValueChanged += new DataGridViewCellEventHandler(courseList_CellValueChanged);
-            this.CourseList.CurrentCellDirtyStateChanged += new EventHandler(courseList_CurrentCellDirtyStateChanged);
+            this.courseTable.CellValueChanged += new DataGridViewCellEventHandler(courseTable_CellValueChanged);
+            this.courseTable.CurrentCellDirtyStateChanged += new EventHandler(courseTable_CurrentCellDirtyStateChanged);
 
 
             // 
@@ -395,7 +395,7 @@ namespace ZC_GPA_Calculator
             this.Load += new System.EventHandler(this.SemesterCard_Load);
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.calculationsTable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CourseList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.courseTable)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
@@ -409,7 +409,7 @@ namespace ZC_GPA_Calculator
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2HtmlLabel semesterTitle;
-        private Guna.UI2.WinForms.Guna2DataGridView courseList;
+        private Guna.UI2.WinForms.Guna2DataGridView courseTable;
         private DataGridViewTextBoxColumn course;
         private DataGridViewTextBoxColumn title;
         private DataGridViewTextBoxColumn subtype;
@@ -426,6 +426,6 @@ namespace ZC_GPA_Calculator
         private DataGridViewTextBoxColumn GPA;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
 
-        public Guna2DataGridView CourseList { get => courseList; set => courseList = value; }
+        public Guna2DataGridView CourseTable { get => courseTable; set => courseTable = value; }
     }
 }

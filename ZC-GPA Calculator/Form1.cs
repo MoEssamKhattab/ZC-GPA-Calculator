@@ -68,7 +68,7 @@ namespace ZC_GPA_Calculator
                     int rowIndex = cell.RowIndex;
 
                     SemesterCard thisCard = (SemesterCard)sender;
-                    DataGridViewComboBoxCell gradeComboBox = (DataGridViewComboBoxCell)thisCard.CourseList.Rows[rowIndex].Cells["Grade"];
+                    DataGridViewComboBoxCell gradeComboBox = (DataGridViewComboBoxCell)thisCard.CourseTable.Rows[rowIndex].Cells["Grade"];
 
                     Controller.updateSemestersList(ref this.semesterList, thisCard.SemsterIndexInSemestersList, rowIndex, gradeComboBox.Value.ToString());
                     updateSemestersGPATables(this.semesterList, this.semesterCardList);
@@ -109,7 +109,7 @@ namespace ZC_GPA_Calculator
                 int rowIndex = cell.RowIndex;
 
                 SemesterCard thisCard = (SemesterCard)sender;
-                DataGridViewComboBoxCell gradeComboBox = (DataGridViewComboBoxCell)thisCard.CourseList.Rows[rowIndex].Cells["Grade"];
+                DataGridViewComboBoxCell gradeComboBox = (DataGridViewComboBoxCell)thisCard.CourseTable.Rows[rowIndex].Cells["Grade"];
 
                 Controller.updateSemestersList(ref this.semesterList, thisCard.SemsterIndexInSemestersList, rowIndex, gradeComboBox.Value.ToString());
                 updateSemestersGPATables(this.semesterList, this.semesterCardList);

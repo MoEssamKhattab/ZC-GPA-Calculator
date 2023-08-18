@@ -34,22 +34,22 @@ namespace ZC_GPA_Calculator
 
             allowEditing = true;
         }
-        public int setCardHeight(int courseCount, int maxVisibleCourseListElements)
+        public int setCardHeight(int courseCount, int maxVisiblecourseTableElements)
         {
-            int headerHeight = CourseList.ThemeStyle.HeaderStyle.Height;
-            int rowHeight = CourseList.ThemeStyle.RowsStyle.Height;
+            int headerHeight = courseTable.ThemeStyle.HeaderStyle.Height;
+            int rowHeight = courseTable.ThemeStyle.RowsStyle.Height;
 
-            int courseListHeight;
-            if (courseCount >= maxVisibleCourseListElements)
-                courseListHeight = (maxVisibleCourseListElements * rowHeight) + headerHeight;
+            int courseTableHeight;
+            if (courseCount >= maxVisiblecourseTableElements)
+                courseTableHeight = (maxVisiblecourseTableElements * rowHeight) + headerHeight;
             else
-                courseListHeight = (courseCount * rowHeight) + headerHeight;
+                courseTableHeight = (courseCount * rowHeight) + headerHeight;
 
             int calculationsTableHeight = calculationsTable.ThemeStyle.HeaderStyle.Height + 2* calculationsTable.ThemeStyle.RowsStyle.Height;
             int separator = 50;
-            int cardHeight = Convert.ToInt16(CourseList.Location.Y) + courseListHeight + separator + calculationsTableHeight;
+            int cardHeight = Convert.ToInt16(courseTable.Location.Y) + courseTableHeight + separator + calculationsTableHeight;
                 
-            CourseList.Height = courseListHeight;     
+            courseTable.Height = courseTableHeight;     
             this.Height = cardHeight;
             
             return cardHeight;
@@ -58,31 +58,31 @@ namespace ZC_GPA_Calculator
         public void fill(List<semester> semesters, int index)
         {
             this.semesterTitle.Text = $"{semesters[index].Title.ToString()}, {semesters[index].Year}";
-            this.CourseList.Rows.Clear();
-            this.CourseList.Refresh();
+            this.courseTable.Rows.Clear();
+            this.courseTable.Refresh();
 
             this.SemsterIndexInSemestersList = index;       //to use in case of any grade update
 
             foreach (var course in semesters[index].Courses)
             {
                 // Fill course table
-                var rowIndex = CourseList.Rows.Add();
-                CourseList.Rows[rowIndex].Cells["Course"].Value = course.Code;
-                CourseList.Rows[rowIndex].Cells["Title"].Value = course.Title;
-                CourseList.Rows[rowIndex].Cells["Subtype"].Value = course.SubType.ToString();
-                CourseList.Rows[rowIndex].Cells["Grade"].Value = course.Grade;
-                CourseList.Rows[rowIndex].Cells["Credits"].Value = course.Credits.ToString();
+                var rowIndex = courseTable.Rows.Add();
+                courseTable.Rows[rowIndex].Cells["Course"].Value = course.Code;
+                courseTable.Rows[rowIndex].Cells["Title"].Value = course.Title;
+                courseTable.Rows[rowIndex].Cells["Subtype"].Value = course.SubType.ToString();
+                courseTable.Rows[rowIndex].Cells["Grade"].Value = course.Grade;
+                courseTable.Rows[rowIndex].Cells["Credits"].Value = course.Credits.ToString();
                 // Need to be further improved (the quality points format)
-                CourseList.Rows[rowIndex].Cells["QualityPoints"].Value = String.Format("{0:0.00}", course.calculateQualityPoints().ToString());
+                courseTable.Rows[rowIndex].Cells["QualityPoints"].Value = String.Format("{0:0.00}", course.calculateQualityPoints().ToString());
             }
-            setCardHeight(this.CourseList.RowCount, 6);
+            setCardHeight(this.courseTable.RowCount, 6);
             updateGPACalculationsTable(semesters, index);
         }
         public void updateQualityPointsOfCourseTable(semester semester, int courseIndex)
         {
             double newQualityPoints = semester.Courses[courseIndex].QualityPoints;
-            CourseList.Rows[courseIndex].Cells["QualityPoints"].Value = newQualityPoints;
-            CourseList.Refresh();
+            courseTable.Rows[courseIndex].Cells["QualityPoints"].Value = newQualityPoints;
+            courseTable.Refresh();
         }
         public void updateGPACalculationsTable(List<semester> semesters, int index)
         {
@@ -103,35 +103,35 @@ namespace ZC_GPA_Calculator
 
         // This event handler manually raises the CellValueChanged event 
         // by calling the CommitEdit method. 
-        private void courseList_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        private void courseTable_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
-            if (CourseList.IsCurrentCellDirty)
+            if (courseTable.IsCurrentCellDirty)
             {
                 // This fires the cell value changed handler below
-                CourseList.CommitEdit(DataGridViewDataErrorContexts.Commit);
+                courseTable.CommitEdit(DataGridViewDataErrorContexts.Commit);
             }
         }
 
         public event EventHandler GradeChanged;
 
-        private void courseList_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void courseTable_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (CourseList.Rows.Count != 0 && allowEditing) //allowEditing flag is used to avoid performing the following in case of first uplading the transcript
+            if (courseTable.Rows.Count != 0 && allowEditing) //allowEditing flag is used to avoid performing the following in case of first uplading the transcript
             {
                 int rowIndex = e.RowIndex;
-                DataGridViewComboBoxCell gradeComboBox = (DataGridViewComboBoxCell)CourseList.Rows[rowIndex].Cells["Grade"];
+                DataGridViewComboBoxCell gradeComboBox = (DataGridViewComboBoxCell)courseTable.Rows[rowIndex].Cells["Grade"];
 
                 if (gradeComboBox.Value != null)
                 {
                     GradeChanged?.Invoke(this, e);
 
-                    CourseList.Invalidate();
+                    courseTable.Invalidate();
                 }
             }
         }
 
         // Handelling the change of any grade value
-        //private void courseList_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)      
+        //private void courseTable_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)      
         //{
         //    // get ComboBox Object
         //    gradeComboBox = e.Control as ComboBox;

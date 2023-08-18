@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\CIE\\Y3\\Summer\\The Creative Mind\\Project\\bbb\\ZC-GPA-Calculator\\ZC-GPA Calculator\\ZC-GPA Calculator.csproj": {}
+    "E:\\CIE\\Y3\\Summer\\The Creative Mind\\ZC-GPA-Calculator\\ZC-GPA Calculator\\ZC-GPA Calculator.csproj": {}
   },
   "projects": {
-    "E:\\CIE\\Y3\\Summer\\The Creative Mind\\Project\\bbb\\ZC-GPA-Calculator\\ZC-GPA Calculator\\ZC-GPA Calculator.csproj": {
+    "E:\\CIE\\Y3\\Summer\\The Creative Mind\\ZC-GPA-Calculator\\ZC-GPA Calculator\\ZC-GPA Calculator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\CIE\\Y3\\Summer\\The Creative Mind\\Project\\bbb\\ZC-GPA-Calculator\\ZC-GPA Calculator\\ZC-GPA Calculator.csproj",
+        "projectUniqueName": "E:\\CIE\\Y3\\Summer\\The Creative Mind\\ZC-GPA-Calculator\\ZC-GPA Calculator\\ZC-GPA Calculator.csproj",
         "projectName": "ZC-GPA Calculator",
-        "projectPath": "E:\\CIE\\Y3\\Summer\\The Creative Mind\\Project\\bbb\\ZC-GPA-Calculator\\ZC-GPA Calculator\\ZC-GPA Calculator.csproj",
+        "projectPath": "E:\\CIE\\Y3\\Summer\\The Creative Mind\\ZC-GPA-Calculator\\ZC-GPA Calculator\\ZC-GPA Calculator.csproj",
         "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
-        "outputPath": "E:\\CIE\\Y3\\Summer\\The Creative Mind\\Project\\bbb\\ZC-GPA-Calculator\\ZC-GPA Calculator\\obj\\",
+        "outputPath": "E:\\CIE\\Y3\\Summer\\The Creative Mind\\ZC-GPA-Calculator\\ZC-GPA Calculator\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
