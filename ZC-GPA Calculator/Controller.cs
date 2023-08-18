@@ -293,5 +293,10 @@ namespace ZC_GPA_Calculator
         }
 
         #endregion
+
+        public static int getSemesterIndex(SemesterCard semesterCard, List<SemesterCard> semesterCardList)
+        {
+            return semesterCardList.IndexOf(semesterCard);
+        }
     }
 }

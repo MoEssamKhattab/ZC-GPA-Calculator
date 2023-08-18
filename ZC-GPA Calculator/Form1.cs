@@ -40,7 +40,7 @@ namespace ZC_GPA_Calculator
                 catch (Exception ex)
                 { Console.WriteLine(ex.Message); }
 
-                if (semesterList.Count != 0)
+                if (semesterList != null && semesterList.Count != 0)
                 {
                     initializeSemestersCards();
                     studentNameLabel.Text = studentName;
