@@ -31,8 +31,7 @@ namespace ZC_GPA_Calculator
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                string filePath = openFileDialog.FileName;     //files path
-                
+                string filePath = openFileDialog.FileName;     //files path                
                 try
                 {
                     semesterList = Controller.readTranscript(filePath, out studentName, out studentMajor);
@@ -63,13 +62,8 @@ namespace ZC_GPA_Calculator
                 initializeSemesterCardEvents(semesterCard);
 
                 semesterCard.fill(semesterList, i);
-                semesterCard.Parent= this.semestersPanel;
-                int x = (semestersPanel.Width - semesterCard.Width) / 2;
-                int y = 0;
-                if (i!=0)
-                    y = semesterCardList[i-1].Location.Y + semesterCardList[i - 1].Height + 25;
-
-                semesterCard.Location = new System.Drawing.Point(x, y);
+                
+                semestersPanel.Controls.Add(semesterCard);
 
                 semesterCardList.Add(semesterCard);
             }
@@ -93,7 +87,7 @@ namespace ZC_GPA_Calculator
 
                 Controller.updateSemestersList(ref this.semesterList, thisCard.SemsterIndexInSemestersList, rowIndex, gradeComboBox.Value.ToString());
                 updateSemestersGPATables(this.semesterList, this.semesterCardList);
-                semesterCard.updateQualityPointsOfCourseTable(semesterList[thisCard.SemsterIndexInSemestersList], rowIndex);
+                semesterCard.updateCourseTableQualityPoints(semesterList[thisCard.SemsterIndexInSemestersList], rowIndex);
             };
 
             semesterCard.CourseAdded += (object sender, course e) =>
@@ -119,13 +113,20 @@ namespace ZC_GPA_Calculator
             initializeSemesterCardEvents(semesterCard);
 
             semesterCard.SemesterTitle = $"{semesterTitle.ToString()}, {year}";
-            semesterCard.Parent = this.semestersPanel;
+            semestersPanel.Controls.Add(semesterCard);
             semesterCard.SemsterIndexInSemestersList = semesterList.Count-1;
-            int x = (semestersPanel.Width - semesterCard.Width) / 2;
-            int y = semesterCardList[semesterCardList.Count - 1].Location.Y + semesterCardList[semesterCardList.Count - 1].Height + 25;
-            semesterCard.Location = new System.Drawing.Point(x, y);
             semesterCardList.Add(semesterCard);
         }
+        private void SetCardLocation(int index, SemesterCard semesterCard)
+        {
+            int x = (semestersPanel.Width - semesterCard.Width) / 2;
+            int y = 0;
+            if (index != 0)
+                y = semesterCardList[index - 1].Location.Y + semesterCardList[index - 1].Height + 25;
+
+            semesterCard.Location = new System.Drawing.Point(x, y);
+        }
+
         private void updateSemestersGPATables(List<semester> semesters, List<SemesterCard> semesterCards)
         {
             for (int i=0; i< semesterCards.Count; i++)
@@ -133,12 +134,10 @@ namespace ZC_GPA_Calculator
                 semesterCards[i].updateGPACalculationsTable(semesters, i);
             }
         }
-
         private void clearAllData(List<semester> semesters, List<SemesterCard> semesterCards )
         {
             //TODO: to clear all data  
         }
-
         private void addNewSemesterBtn_Click(object sender, EventArgs e)
         {
             using (AddSemesterForm addSemesterForm = new AddSemesterForm())
@@ -153,7 +152,6 @@ namespace ZC_GPA_Calculator
                     year = addSemesterForm.SemesterYear;
 
                     addNewSemester(semesterTitle, year, this.semesterList, this.semesterCardList);
-
                     semestersPanel.VerticalScroll.Value = semestersPanel.VerticalScroll.Maximum;    //Scrol to the bottom to view the added semester card
                 }
             }

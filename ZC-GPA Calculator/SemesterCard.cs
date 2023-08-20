@@ -34,6 +34,9 @@ namespace ZC_GPA_Calculator
             string[] letterGrades = new string[] { "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "F", "P" };
             this.grade.DataSource = letterGrades;
 
+            int leftMargin = (this.Parent.Width - this.Width) / 2;
+            this.Margin = new Padding(leftMargin, 10, 0, 10);
+
             allowEditing = true;
 
             if (AllowAdding)
@@ -42,7 +45,6 @@ namespace ZC_GPA_Calculator
                 updateCardHeight();            
             }
         }
-
         public void updateCardHeight()
         {
             int cardHeaderHeight = cardHeaderPanel.Height;
@@ -70,7 +72,6 @@ namespace ZC_GPA_Calculator
 
             this.Height = cardHeight;
         }
-
         public void fill(List<semester> semesters, int index)
         {
             this.semesterTitle.Text = $"{semesters[index].Title.ToString()}, {semesters[index].Year}";
@@ -91,10 +92,10 @@ namespace ZC_GPA_Calculator
                 // Need to be further improved (the quality points format)
                 courseTable.Rows[rowIndex].Cells["QualityPoints"].Value = String.Format("{0:0.00}", course.calculateQualityPoints().ToString());
             }
-            updateCardHeight();
             updateGPACalculationsTable(semesters, index);
+            updateCardHeight();
         }
-        public void updateQualityPointsOfCourseTable(semester semester, int courseIndex)
+        public void updateCourseTableQualityPoints(semester semester, int courseIndex)
         {
             double newQualityPoints = semester.Courses[courseIndex].QualityPoints;
             courseTable.Rows[courseIndex].Cells["QualityPoints"].Value = newQualityPoints;

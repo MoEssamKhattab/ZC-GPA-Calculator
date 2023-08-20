@@ -58,7 +58,7 @@
             this.addSemesterBtn.Name = "addSemesterBtn";
             this.addSemesterBtn.ShadowDecoration.CustomizableEdges = customizableEdges2;
             this.addSemesterBtn.Size = new System.Drawing.Size(180, 45);
-            this.addSemesterBtn.TabIndex = 3;
+            this.addSemesterBtn.TabIndex = 2;
             this.addSemesterBtn.Text = "Add Semester";
             this.addSemesterBtn.Click += new System.EventHandler(this.addSemesterBtn_Click);
             // 
@@ -95,7 +95,7 @@
             this.yearDatePicker.Name = "yearDatePicker";
             this.yearDatePicker.ShadowDecoration.CustomizableEdges = customizableEdges4;
             this.yearDatePicker.Size = new System.Drawing.Size(250, 36);
-            this.yearDatePicker.TabIndex = 6;
+            this.yearDatePicker.TabIndex = 1;
             this.yearDatePicker.Value = new System.DateTime(2020, 8, 12, 23, 50, 0, 0);
             // 
             // semesterComboBox
@@ -113,7 +113,7 @@
             this.semesterComboBox.Name = "semesterComboBox";
             this.semesterComboBox.ShadowDecoration.CustomizableEdges = customizableEdges6;
             this.semesterComboBox.Size = new System.Drawing.Size(250, 36);
-            this.semesterComboBox.TabIndex = 7;
+            this.semesterComboBox.TabIndex = 0;
             // 
             // AddSemesterForm
             // 

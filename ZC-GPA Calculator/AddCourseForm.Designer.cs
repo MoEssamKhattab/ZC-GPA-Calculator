@@ -69,7 +69,7 @@
             this.subtypeComboBox.Name = "subtypeComboBox";
             this.subtypeComboBox.ShadowDecoration.CustomizableEdges = customizableEdges2;
             this.subtypeComboBox.Size = new System.Drawing.Size(286, 36);
-            this.subtypeComboBox.TabIndex = 12;
+            this.subtypeComboBox.TabIndex = 2;
             // 
             // guna2HtmlLabel2
             // 
@@ -108,7 +108,7 @@
             this.addCourseBtn.Name = "addCourseBtn";
             this.addCourseBtn.ShadowDecoration.CustomizableEdges = customizableEdges4;
             this.addCourseBtn.Size = new System.Drawing.Size(180, 45);
-            this.addCourseBtn.TabIndex = 8;
+            this.addCourseBtn.TabIndex = 5;
             this.addCourseBtn.Text = "Add Course";
             this.addCourseBtn.Click += new System.EventHandler(this.addCourseBtn_Click);
             // 
@@ -131,7 +131,7 @@
             this.courseCodeTxt.SelectedText = "";
             this.courseCodeTxt.ShadowDecoration.CustomizableEdges = customizableEdges6;
             this.courseCodeTxt.Size = new System.Drawing.Size(286, 36);
-            this.courseCodeTxt.TabIndex = 13;
+            this.courseCodeTxt.TabIndex = 0;
             // 
             // guna2HtmlLabel3
             // 
@@ -168,7 +168,7 @@
             this.gradeComboBox.Name = "gradeComboBox";
             this.gradeComboBox.ShadowDecoration.CustomizableEdges = customizableEdges8;
             this.gradeComboBox.Size = new System.Drawing.Size(286, 36);
-            this.gradeComboBox.TabIndex = 15;
+            this.gradeComboBox.TabIndex = 3;
             // 
             // courseTitleTxt
             // 
@@ -189,7 +189,7 @@
             this.courseTitleTxt.SelectedText = "";
             this.courseTitleTxt.ShadowDecoration.CustomizableEdges = customizableEdges10;
             this.courseTitleTxt.Size = new System.Drawing.Size(286, 36);
-            this.courseTitleTxt.TabIndex = 17;
+            this.courseTitleTxt.TabIndex = 1;
             // 
             // guna2HtmlLabel5
             // 
@@ -211,7 +211,7 @@
             this.creditsNumericUpDown.Name = "creditsNumericUpDown";
             this.creditsNumericUpDown.ShadowDecoration.CustomizableEdges = customizableEdges12;
             this.creditsNumericUpDown.Size = new System.Drawing.Size(286, 36);
-            this.creditsNumericUpDown.TabIndex = 19;
+            this.creditsNumericUpDown.TabIndex = 4;
             // 
             // AddCourseForm
             // 
