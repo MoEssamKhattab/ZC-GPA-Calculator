@@ -19,24 +19,24 @@ namespace ZC_GPA_Calculator
         public static readonly double C_minus = 1.7;
         public static readonly double F = 0.0;
     }
-    public struct course
+    public struct Course
     {
         string code;
         string title;
-        CourseSubtype subType;
+        CourseSubtype subtype;
         string grade;
         int credits;
         int gpaCredits;
         double qualityPoints;
-        public course(string code, string title, CourseSubtype subType, string grade, int credits)
+        public Course(string code, string title, CourseSubtype subtype, string grade, int credits)
         {
             this.Code = code;
             this.Title = title;
-            this.SubType = subType;
+            this.SubType = subtype;
             this.Grade = grade;
             this.Credits = credits;
 
-            if (grade == "P")       // other cases to be covereds
+            if (grade == "P")       // other cases to be covered
                 this.gpaCredits = 0;
             else 
                 this.gpaCredits = credits;
@@ -46,9 +46,18 @@ namespace ZC_GPA_Calculator
 
         public string Code { get => code; set => code = value; }
         public string Title { get => title; set => title = value; }
-        public string Grade { get => grade; set => grade = value; }
+        public string Grade { 
+            get => grade;
+            set 
+            {
+                grade = value;
+                if (grade == "P")
+                    gpaCredits= 0;
+                else gpaCredits = credits;
+            }
+        }
         public int Credits { get => credits; set => credits = value; }
-        internal CourseSubtype SubType { get => subType; set => subType = value; }
+        internal CourseSubtype SubType { get => subtype; set => subtype = value; }
         public int GpaCredits { get => gpaCredits; set => gpaCredits = value; }
         public double QualityPoints { get => qualityPoints; set => qualityPoints = value; }
 
@@ -61,7 +70,7 @@ namespace ZC_GPA_Calculator
     {
         Semester title;
         int year;
-        List<course> courses;
+        List<Course> courses;
         public semester()
         {
             this.title = new();
@@ -69,7 +78,7 @@ namespace ZC_GPA_Calculator
             this.courses = new();
         }
         public int Year { get => year; set => year = value; }
-        internal List<course> Courses { get => courses; set => courses = value; }
+        internal List<Course> Courses { get => courses; set => courses = value; }
         internal Semester Title { get => title; set => title = value; }
         public double calculateQualityPoints()
         {
@@ -210,7 +219,7 @@ namespace ZC_GPA_Calculator
 
                             courseCredits = Convert.ToInt32(Math.Floor(Convert.ToDouble(courseStingArray[courseStingArray.Length - 2])));
 
-                            course _course = new course(courseCode, courseTitle, courseSubType, courseGrade, courseCredits);
+                            Course _course = new Course(courseCode, courseTitle, courseSubType, courseGrade, courseCredits);
                             _semester.Courses.Add(_course);
                         }
                     }
@@ -271,7 +280,7 @@ namespace ZC_GPA_Calculator
 
         public static void updateSemestersList(ref List<semester> semesters, int semesterIndex, int courseIndex, string newGrade)
         {
-            course updatedCourse = semesters[semesterIndex].Courses[courseIndex];
+            Course updatedCourse = semesters[semesterIndex].Courses[courseIndex];
             updatedCourse.Grade = newGrade;
             updatedCourse.QualityPoints = updatedCourse.calculateQualityPoints();
 

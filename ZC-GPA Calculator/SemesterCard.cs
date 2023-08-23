@@ -14,9 +14,6 @@ namespace ZC_GPA_Calculator
 {
     public partial class SemesterCard : UserControl
     {
-        //ComboBox gradeComboBox;
-        //DataGridViewComboBoxEditingControl gradeRow;
-
         bool allowEditing = false;
         int semsterIndexInSemestersList = 0;        //to use in case of any grade update
         bool allowAdding = false;
@@ -40,10 +37,9 @@ namespace ZC_GPA_Calculator
             allowEditing = true;
 
             if (AllowAdding)
-            {
                 addCourseBtn.Visible = true;
-                updateCardHeight();            
-            }
+            
+            updateCardHeight();  
         }
         public void updateCardHeight()
         {
@@ -66,9 +62,7 @@ namespace ZC_GPA_Calculator
             int cardHeight = Convert.ToInt16(courseTable.Location.Y) + courseTableHeight + separator + calculationsTableHeight;
 
             if (allowAdding)
-            {
                 cardHeight += addCourseBtnHeight;
-            }
 
             this.Height = cardHeight;
         }
@@ -93,7 +87,6 @@ namespace ZC_GPA_Calculator
                 courseTable.Rows[rowIndex].Cells["QualityPoints"].Value = String.Format("{0:0.00}", course.calculateQualityPoints().ToString());
             }
             updateGPACalculationsTable(semesters, index);
-            updateCardHeight();
         }
         public void updateCourseTableQualityPoints(semester semester, int courseIndex)
         {
@@ -130,7 +123,6 @@ namespace ZC_GPA_Calculator
         }
 
         public event EventHandler GradeChanged;
-
         private void courseTable_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (courseTable.Rows.Count != 0 && allowEditing) //allowEditing flag is used to avoid performing the following in case of first uplading the transcript
@@ -146,10 +138,10 @@ namespace ZC_GPA_Calculator
             }
         }
 
-        public event EventHandler<course> CourseAdded;
+        public event EventHandler<Course> CourseAdded;
         private void addCourseBtn_Click(object sender, EventArgs e)
         {
-            course newCourse;
+            Course newCourse;
             using (AddCourseForm addCourseForm = new AddCourseForm())
             {
                 string CourseCode;
@@ -167,7 +159,7 @@ namespace ZC_GPA_Calculator
                     CourseGrade = addCourseForm.CourseGrade;
                     CourseCredits = addCourseForm.CourseCredits;
 
-                    newCourse = new course(CourseCode, CourseTitle, CourseSubtype, CourseGrade, CourseCredits);
+                    newCourse = new Course(CourseCode, CourseTitle, CourseSubtype, CourseGrade, CourseCredits);
 
                     CourseAdded?.Invoke(this, newCourse);
                     courseTable.Invalidate();

@@ -10,16 +10,16 @@ namespace ZC_GPA_Calculator
     {
         List<semester> semesterList;
         List<SemesterCard> semesterCardList;
-
         string studentName;
         string studentMajor;
+
         public Form1()
         {
             InitializeComponent();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            semesterCardList= new List<SemesterCard>();
+            semesterCardList = new List<SemesterCard>();
         }
         private void browseFileBtn_Click(object sender, EventArgs e)
         {
@@ -90,7 +90,7 @@ namespace ZC_GPA_Calculator
                 semesterCard.updateCourseTableQualityPoints(semesterList[thisCard.SemsterIndexInSemestersList], rowIndex);
             };
 
-            semesterCard.CourseAdded += (object sender, course e) =>
+            semesterCard.CourseAdded += (object sender, Course e) =>
             {
                 SemesterCard thisCard = sender as SemesterCard;
                 int semesterIndex = thisCard.SemsterIndexInSemestersList;
