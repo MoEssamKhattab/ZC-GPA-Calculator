@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Globalization;
+using System.Text;
 using iTextSharp.text.pdf;
 using iTextSharp.text.pdf.parser;
 
@@ -28,13 +29,15 @@ namespace ZC_GPA_Calculator
         int credits;
         int gpaCredits;
         double qualityPoints;
-        public Course(string code, string title, CourseSubtype subtype, string grade, int credits)
+        bool repeated;      //to be assigned true for the new course
+        public Course(string code, string title, CourseSubtype subtype, string grade, int credits, bool repeated = false)
         {
             this.Code = code;
             this.Title = title;
             this.SubType = subtype;
             this.Grade = grade;
             this.Credits = credits;
+            this.Repeated= repeated;
 
             if (grade == "P")       // other cases to be covered
                 this.gpaCredits = 0;
@@ -46,20 +49,23 @@ namespace ZC_GPA_Calculator
 
         public string Code { get => code; set => code = value; }
         public string Title { get => title; set => title = value; }
-        public string Grade { 
+        public string Grade 
+        { 
             get => grade;
             set 
             {
                 grade = value;
                 if (grade == "P")
                     gpaCredits= 0;
-                else gpaCredits = credits;
+                else 
+                    gpaCredits = credits;
             }
         }
         public int Credits { get => credits; set => credits = value; }
         internal CourseSubtype SubType { get => subtype; set => subtype = value; }
         public int GpaCredits { get => gpaCredits; set => gpaCredits = value; }
         public double QualityPoints { get => qualityPoints; set => qualityPoints = value; }
+        public bool Repeated { get => repeated; set => repeated = value; }
 
         public double calculateQualityPoints()
         {      
@@ -97,7 +103,8 @@ namespace ZC_GPA_Calculator
             {
                 foreach (var course in semesters[i].Courses)
                 {
-                    _qualityPoints += course.QualityPoints;
+                    if (!course.Repeated)
+                        _qualityPoints += course.QualityPoints;
                 }
             }
             return _qualityPoints;
@@ -119,7 +126,8 @@ namespace ZC_GPA_Calculator
             {
                 foreach (var course in semesters[i].Courses)
                 {
-                    _overallCredits += course.Credits;
+                    if (!course.Repeated)
+                        _overallCredits += course.Credits;
                 }
             }
             return _overallCredits;
@@ -141,7 +149,8 @@ namespace ZC_GPA_Calculator
             {
                 foreach (var course in semesters[i].Courses)
                 {
-                    _overallGPACredits += course.GpaCredits;
+                    if (!course.Repeated)
+                        _overallGPACredits += course.GpaCredits;
                 }
             }
             return _overallGPACredits;
@@ -150,7 +159,6 @@ namespace ZC_GPA_Calculator
         {
             return Math.Round(calculateQualityPoints()/calculateGPACredits(),2);
         }
-
         public double calculateOverallGPA(List<semester> semesters, int index)
         {
             return Math.Round(calculateOverallQualityPoints(semesters, index) / calculateOverallGPACredits(semesters, index),2);
@@ -212,11 +220,14 @@ namespace ZC_GPA_Calculator
                             courseCode = string.Join(" ", courseStingArray, 0, 2);
                             courseTitle = string.Join(" ", courseStingArray, 2, courseStingArray.Length - 6);
                             courseSubType = (CourseSubtype)Enum.Parse(typeof(CourseSubtype), courseStingArray[courseStingArray.Length - 4]);
-
                             courseGrade = courseStingArray[courseStingArray.Length - 3];
 
-                            // TODO: Handle the case of any repeated course
-
+                            //Handling the case of any repeated courses
+                            if (courseGrade.StartsWith('['))
+                            {
+                                courseGrade= courseGrade.Substring(1,courseGrade.Length-2);
+                                changeRepeatedFlag(courseCode, semestersList);
+                            }
                             courseCredits = Convert.ToInt32(Math.Floor(Convert.ToDouble(courseStingArray[courseStingArray.Length - 2])));
 
                             Course _course = new Course(courseCode, courseTitle, courseSubType, courseGrade, courseCredits);
@@ -306,6 +317,22 @@ namespace ZC_GPA_Calculator
         public static int getSemesterIndex(SemesterCard semesterCard, List<SemesterCard> semesterCardList)
         {
             return semesterCardList.IndexOf(semesterCard);
+        }
+
+        public static void changeRepeatedFlag(string courseCode, List<semester> semestersList)
+        {
+            for (int i=0; i<semestersList.Count; i++)
+            {
+                for (int j=0; j< semestersList[i].Courses.Count; j++)
+                {
+                    if (semestersList[i].Courses[j].Code == courseCode)
+                    {
+                        Course tempCourse = semestersList[i].Courses[j];
+                        tempCourse.Repeated = true;
+                        semestersList[i].Courses[j] = tempCourse;
+                    }
+                }
+            }
         }
     }
 }

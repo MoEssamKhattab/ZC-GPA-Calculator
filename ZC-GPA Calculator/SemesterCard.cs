@@ -15,11 +15,9 @@ namespace ZC_GPA_Calculator
     public partial class SemesterCard : UserControl
     {
         bool allowEditing = false;
-        int semsterIndexInSemestersList = 0;        //to use in case of any grade update
         bool allowAdding = false;
 
         public string SemesterTitle { get => semesterTitle.Text; set => semesterTitle.Text = value; }
-        public int SemsterIndexInSemestersList { get => semsterIndexInSemestersList; set => semsterIndexInSemestersList = value; }
         public bool AllowAdding { get => allowAdding; set => allowAdding = value; }
 
         public SemesterCard()
@@ -71,8 +69,6 @@ namespace ZC_GPA_Calculator
             this.semesterTitle.Text = $"{semesters[index].Title.ToString()}, {semesters[index].Year}";
             this.courseTable.Rows.Clear();
             this.courseTable.Refresh();
-
-            this.SemsterIndexInSemestersList = index;       //to use in case of any grade update
 
             foreach (var course in semesters[index].Courses.ToList())
             {

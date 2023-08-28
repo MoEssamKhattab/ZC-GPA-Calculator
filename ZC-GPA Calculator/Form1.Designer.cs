@@ -61,7 +61,7 @@
             this.studentMajorLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.guna2CircleButton2 = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.uploadAnotherDocBtn = new Guna.UI2.WinForms.Guna2CircleButton();
             this.studentNameLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.tabs.SuspendLayout();
             this.tab1.SuspendLayout();
@@ -313,7 +313,7 @@
             this.guna2Panel2.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
             this.guna2Panel2.BorderThickness = 2;
             this.guna2Panel2.Controls.Add(this.label2);
-            this.guna2Panel2.Controls.Add(this.guna2CircleButton2);
+            this.guna2Panel2.Controls.Add(this.uploadAnotherDocBtn);
             this.guna2Panel2.CustomizableEdges = customizableEdges13;
             this.guna2Panel2.FillColor = System.Drawing.Color.Transparent;
             this.guna2Panel2.Location = new System.Drawing.Point(1550, 2);
@@ -333,26 +333,27 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Another File";
             // 
-            // guna2CircleButton2
+            // uploadAnotherDocBtn
             // 
-            this.guna2CircleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.uploadAnotherDocBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2CircleButton2.Animated = true;
-            this.guna2CircleButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2CircleButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2CircleButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2CircleButton2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
-            this.guna2CircleButton2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.guna2CircleButton2.ForeColor = System.Drawing.Color.White;
-            this.guna2CircleButton2.Location = new System.Drawing.Point(40, 28);
-            this.guna2CircleButton2.Name = "guna2CircleButton2";
-            this.guna2CircleButton2.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            this.guna2CircleButton2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleButton2.Size = new System.Drawing.Size(70, 70);
-            this.guna2CircleButton2.TabIndex = 0;
-            this.guna2CircleButton2.Text = "+";
+            this.uploadAnotherDocBtn.Animated = true;
+            this.uploadAnotherDocBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.uploadAnotherDocBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.uploadAnotherDocBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.uploadAnotherDocBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.uploadAnotherDocBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
+            this.uploadAnotherDocBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.uploadAnotherDocBtn.ForeColor = System.Drawing.Color.White;
+            this.uploadAnotherDocBtn.Location = new System.Drawing.Point(40, 28);
+            this.uploadAnotherDocBtn.Name = "uploadAnotherDocBtn";
+            this.uploadAnotherDocBtn.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            this.uploadAnotherDocBtn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.uploadAnotherDocBtn.Size = new System.Drawing.Size(70, 70);
+            this.uploadAnotherDocBtn.TabIndex = 0;
+            this.uploadAnotherDocBtn.Text = "+";
+            this.uploadAnotherDocBtn.Click += new System.EventHandler(this.uploadAnotherDocBtn_Click);
             // 
             // studentNameLabel
             // 
@@ -412,7 +413,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel studentNameLabel;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Label label2;
-        private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton2;
+        private Guna.UI2.WinForms.Guna2CircleButton uploadAnotherDocBtn;
         private Guna.UI2.WinForms.Guna2Button addNewSemesterBtn;
         private FlowLayoutPanel semestersPanel;
     }
