@@ -25,6 +25,14 @@
           }
         }
       },
+      "HtmlAgilityPack/1.11.52": {
+        "runtime": {
+          "lib/netstandard2.0/HtmlAgilityPack.dll": {
+            "assemblyVersion": "1.11.52.0",
+            "fileVersion": "1.11.52.0"
+          }
+        }
+      },
       "iTextSharp/5.5.13.3": {
         "dependencies": {
           "BouncyCastle": "1.8.9"
@@ -79,6 +87,13 @@
       "sha512": "sha512-PAteiG4zIquxHEhRJR4q69d0+U97U4XZuiwCFueXkh8hsw7IpkgPL41A/iyIx6bRFWiyEZ8tBzWqRrq7blrfnA==",
       "path": "guna.ui2.winforms/2.0.4.4",
       "hashPath": "guna.ui2.winforms.2.0.4.4.nupkg.sha512"
+    },
+    "HtmlAgilityPack/1.11.52": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qfJzz0eEgoO5O6uA1PpH4wmU4yz64PKnDolAW41vTlCfRyPlAyZIJANg+QYmQgxiWg/cLUAkcLNMpB7CCV66ZQ==",
+      "path": "htmlagilitypack/1.11.52",
+      "hashPath": "htmlagilitypack.1.11.52.nupkg.sha512"
     },
     "iTextSharp/5.5.13.3": {
       "type": "package",

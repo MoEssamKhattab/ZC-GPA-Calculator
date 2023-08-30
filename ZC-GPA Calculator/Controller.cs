@@ -1,8 +1,10 @@
 ﻿using System.Globalization;
 using System.Text;
+using HtmlAgilityPack;
 using iTextSharp.text.pdf;
 using iTextSharp.text.pdf.parser;
-
+using HtmlAgilityPack;
+using System.Net;
 
 namespace ZC_GPA_Calculator
 {
@@ -39,7 +41,7 @@ namespace ZC_GPA_Calculator
             this.Credits = credits;
             this.Repeated= repeated;
 
-            if (grade == "P")       // other cases to be covered
+            if (grade == "P" || grade == "I" || grade == "IP" || grade == "W" || grade == "WP" || grade == "WF" || grade == "TR")       // TR === transfer
                 this.gpaCredits = 0;
             else 
                 this.gpaCredits = credits;
@@ -55,8 +57,8 @@ namespace ZC_GPA_Calculator
             set 
             {
                 grade = value;
-                if (grade == "P")
-                    gpaCredits= 0;
+                if (grade == "P" || grade == "I" || grade == "IP" || grade == "W" || grade == "WP" || grade == "WF" || grade == "TR")
+                    gpaCredits = 0;
                 else 
                     gpaCredits = credits;
             }
@@ -239,6 +241,72 @@ namespace ZC_GPA_Calculator
             }
             return semestersList;
         }
+
+        public static List<semester> readHtmlTranscript(string filePath, out string studentName, out string major)
+        {
+            List<semester> semestersList = new();   //List of all semesters
+
+            // Load the HTML document using HTMLAgilityPack
+            var document = new HtmlAgilityPack.HtmlDocument();
+            document.Load(filePath);
+
+            // Select Student Name
+            HtmlNode studentNameNode = document.DocumentNode.SelectSingleNode("//*[@id=\"contentPage\"]/div[2]/div/div/div/div[4]/div/p[2]");
+            studentName = WebUtility.HtmlDecode(studentNameNode.InnerText.Trim());
+            
+            // Select Major
+            HtmlNode majorNode = document.DocumentNode.SelectSingleNode("//*[@id=\"tblProgramDegreeCurriculum\"]/tbody/tr/th/span");
+            major = ((WebUtility.HtmlDecode(majorNode.InnerText.Trim())).Split("Undergraduate/Bachelor of Science/"))[1];
+
+            // Find all table elements with the specific ID
+            string coursesTableId = "tblOrganization";
+            IEnumerable<HtmlNode> tables = document.DocumentNode.Descendants("table")
+                .Where(table => table.GetAttributeValue("id", null) == coursesTableId);
+
+            // Loop through each table's parent (each representing a single semester)
+            foreach (HtmlNode table in tables)
+            {
+                semester semester = new semester();
+                HtmlNode div = table.ParentNode.ParentNode;
+
+                var h4Element = div.SelectSingleNode(".//h4");
+                if (h4Element != null)
+                {
+                    string[] semesterHeader = (WebUtility.HtmlDecode(h4Element.InnerText.Trim())).Split(' ');
+                    semester.Year = int.Parse(semesterHeader[0]);
+                    semester.Title = (Semester)Enum.Parse(typeof(Semester), semesterHeader[1]);
+                }
+
+                HtmlNodeCollection rows = table.SelectNodes(".//tr");
+
+                for (int i = 1; i < rows?.Count; i++)        //starting from index 1 to skip the header
+                {
+                    HtmlNode row = rows[i];
+                    HtmlNodeCollection cells = row.SelectNodes(".//th|td");
+
+                    if (cells != null && cells.Count > 0)
+                    {
+                        string courseCode = WebUtility.HtmlDecode(cells[0].InnerText.Trim());
+                        string courseTitle = WebUtility.HtmlDecode(cells[1].InnerText.Trim());
+                        CourseSubtype courseSubType = (CourseSubtype)Enum.Parse(typeof(CourseSubtype), WebUtility.HtmlDecode(cells[2].InnerText.Trim()));
+                        string courseGrade = WebUtility.HtmlDecode(cells[3].InnerText.Trim());
+                        int courseCredits = Convert.ToInt32(Math.Floor(Convert.ToDouble(cells[4].InnerText.Trim())));
+
+                        //Handling the case of any repeated courses
+                        if (courseGrade.StartsWith('['))
+                        {
+                            courseGrade = courseGrade.Substring(1, courseGrade.Length - 2);
+                            changeRepeatedFlag(courseCode, semestersList);
+                        }
+                        Course course = new Course(courseCode, courseTitle, courseSubType, courseGrade, courseCredits);
+                        semester.Courses.Add(course);
+                    }
+                }
+                semestersList.Add(semester);
+            }
+            return semestersList;
+        }
+
         static string ReadPDFfile(string path)
         {
             StringBuilder stringBuilder = new StringBuilder();

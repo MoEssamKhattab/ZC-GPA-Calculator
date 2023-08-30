@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "sWhiVP4aM7iw9WmKpnVeqLYbaOHtBM6vcLwE73vdLOimiJ+7mlixjVT/j5+PDFM+ZOQi0Uo/Z84/yMUVb/6Jog==",
+  "dgSpecHash": "Jw1NX5q+sMhMYVNiLTF/0gaY1jBKD+kRo6FReTcMO4/lcZh+7ixqhfqquB/Fv4ISOxWjlOwNawfJtRH0mIwXkg==",
   "success": true,
   "projectFilePath": "E:\\CIE\\Y3\\Summer\\The Creative Mind\\ZC-GPA-Calculator\\ZC-GPA Calculator\\ZC-GPA Calculator.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lenovo\\.nuget\\packages\\bouncycastle\\1.8.9\\bouncycastle.1.8.9.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\guna.ui2.winforms\\2.0.4.4\\guna.ui2.winforms.2.0.4.4.nupkg.sha512",
+    "C:\\Users\\lenovo\\.nuget\\packages\\htmlagilitypack\\1.11.52\\htmlagilitypack.1.11.52.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\itextsharp\\5.5.13.3\\itextsharp.5.5.13.3.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\system.management\\7.0.0\\system.management.7.0.0.nupkg.sha512"

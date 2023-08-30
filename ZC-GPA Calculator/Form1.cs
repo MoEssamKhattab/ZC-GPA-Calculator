@@ -27,14 +27,14 @@ namespace ZC_GPA_Calculator
 
             openFileDialog.Title = "Choose Your Transcript";
             //openFileDialog.InitialDirectory = @"";
-            openFileDialog.Filter = "PDF|*.pdf";      //Select .pdf files only
+            //openFileDialog.Filter = "Htm|*.htm";      //Select .pdf files only
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string filePath = openFileDialog.FileName;     //files path                
                 try
                 {
-                    semesterList = Controller.readTranscript(filePath, out studentName, out studentMajor);
+                    semesterList = Controller.readHtmlTranscript(filePath, out studentName, out studentMajor);
                 }
                 catch (Exception ex)
                 { Console.WriteLine(ex.Message); }

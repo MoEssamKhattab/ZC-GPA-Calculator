@@ -16,19 +16,19 @@ namespace ZC_GPA_Calculator
     {
         bool allowEditing = false;
         bool allowAdding = false;
-
+        List<string> letterGrades;
         public string SemesterTitle { get => semesterTitle.Text; set => semesterTitle.Text = value; }
         public bool AllowAdding { get => allowAdding; set => allowAdding = value; }
 
         public SemesterCard()
         {
             InitializeComponent();
+            letterGrades = new List<string> { "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "F", "P", "I", "IP", "W", "WP", "WF","TR" };
+            this.grade.DataSource = letterGrades;
+
         }
         private void SemesterCard_Load(object sender, EventArgs e)
         {
-            string[] letterGrades = new string[] { "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "F", "P" };
-            this.grade.DataSource = letterGrades;
-
             int leftMargin = (this.Parent.Width - this.Width) / 2;
             this.Margin = new Padding(leftMargin, 10, 0, 10);
 
@@ -77,7 +77,13 @@ namespace ZC_GPA_Calculator
                 courseTable.Rows[rowIndex].Cells["Course"].Value = course.Code;
                 courseTable.Rows[rowIndex].Cells["Title"].Value = course.Title;
                 courseTable.Rows[rowIndex].Cells["Subtype"].Value = course.SubType.ToString();
+
+                //if (!letterGrades.Contains(course.Grade))
+                //{
+                //    ((DataGridViewComboBoxCell)courseTable.Rows[rowIndex].Cells["Grade"]).Items.Add(letterGrades);
+                //}                
                 courseTable.Rows[rowIndex].Cells["Grade"].Value = course.Grade;
+
                 courseTable.Rows[rowIndex].Cells["Credits"].Value = course.Credits.ToString();
                 // Need to be further improved (the quality points format)
                 courseTable.Rows[rowIndex].Cells["QualityPoints"].Value = String.Format("{0:0.00}", course.calculateQualityPoints().ToString());

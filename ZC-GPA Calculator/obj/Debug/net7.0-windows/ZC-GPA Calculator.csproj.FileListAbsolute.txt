@@ -98,3 +98,4 @@ E:\CIE\Y3\Summer\The Creative Mind\ZC-GPA-Calculator\ZC-GPA Calculator\obj\Debug
 E:\CIE\Y3\Summer\The Creative Mind\ZC-GPA-Calculator\ZC-GPA Calculator\obj\Debug\net7.0-windows\ZC-GPA Calculator.genruntimeconfig.cache
 E:\CIE\Y3\Summer\The Creative Mind\ZC-GPA-Calculator\ZC-GPA Calculator\obj\Debug\net7.0-windows\ref\ZC-GPA Calculator.dll
 E:\CIE\Y3\Summer\The Creative Mind\ZC-GPA-Calculator\ZC-GPA Calculator\obj\Debug\net7.0-windows\ZC_GPA_Calculator.AddCourseForm.resources
+E:\CIE\Y3\Summer\The Creative Mind\ZC-GPA-Calculator\ZC-GPA Calculator\bin\Debug\net7.0-windows\HtmlAgilityPack.dll
