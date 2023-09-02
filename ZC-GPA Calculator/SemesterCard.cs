@@ -1,14 +1,4 @@
-﻿using Guna.UI2.WinForms;
-using Guna.UI2.WinForms.Enums;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.ComponentModel;
 
 namespace ZC_GPA_Calculator
 {
@@ -16,14 +6,14 @@ namespace ZC_GPA_Calculator
     {
         bool allowEditing = false;
         bool allowAdding = false;
-        List<string> letterGrades;
+        BindingList<string> letterGrades;
         public string SemesterTitle { get => semesterTitle.Text; set => semesterTitle.Text = value; }
         public bool AllowAdding { get => allowAdding; set => allowAdding = value; }
 
         public SemesterCard()
         {
             InitializeComponent();
-            letterGrades = new List<string> { "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "F", "P", "I", "IP", "W", "WP", "WF","TR" };
+            letterGrades = new BindingList<string> { "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "F", "P", "I", "IP", "W", "WP", "WF","TR" };
             this.grade.DataSource = letterGrades;
 
         }
@@ -64,9 +54,9 @@ namespace ZC_GPA_Calculator
 
             this.Height = cardHeight;
         }
-        public void fill(List<semester> semesters, int index)
+        public void fill(BindingList<semester> semesters, int index)
         {
-            this.semesterTitle.Text = $"{semesters[index].Title.ToString()}, {semesters[index].Year}";
+            this.semesterTitle.Text = semesters[index].Name;
             this.courseTable.Rows.Clear();
             this.courseTable.Refresh();
 
@@ -96,7 +86,7 @@ namespace ZC_GPA_Calculator
             courseTable.Rows[courseIndex].Cells["QualityPoints"].Value = newQualityPoints;
             courseTable.Refresh();
         }
-        public void updateGPACalculationsTable(List<semester> semesters, int index)
+        public void updateGPACalculationsTable(BindingList<semester> semesters, int index)
         {
             this.calculationsTable.Rows.Clear();
             this.calculationsTable.Refresh();
@@ -117,17 +107,19 @@ namespace ZC_GPA_Calculator
         // by calling the CommitEdit method. 
         private void courseTable_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
-            if (courseTable.IsCurrentCellDirty)
+            if (courseTable.IsCurrentCellDirty && courseTable.CurrentCell.OwningColumn == courseTable.Columns["Grade"])     // raise the enent only when the grade is changed
             {
                 // This fires the cell value changed handler below
                 courseTable.CommitEdit(DataGridViewDataErrorContexts.Commit);
             }
         }
+        
+        public event EventHandler CgpaUpdate;       // To update the cGPA label in case of any change
 
         public event EventHandler GradeChanged;
         private void courseTable_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (courseTable.Rows.Count != 0 && allowEditing) //allowEditing flag is used to avoid performing the following in case of first uplading the transcript
+            if (courseTable.Rows.Count != 0 && allowEditing && e.ColumnIndex == courseTable.Columns["Grade"].Index) //allowEditing flag is used to avoid performing the following in case of first uploading the transcript
             {
                 int rowIndex = e.RowIndex;
                 DataGridViewComboBoxCell gradeComboBox = (DataGridViewComboBoxCell)courseTable.Rows[rowIndex].Cells["Grade"];
@@ -136,10 +128,11 @@ namespace ZC_GPA_Calculator
                 {
                     GradeChanged?.Invoke(this, e);
                     courseTable.Invalidate();
+
+                    CgpaUpdate?.Invoke(null, EventArgs.Empty);
                 }
             }
         }
-
         public event EventHandler<Course> CourseAdded;
         private void addCourseBtn_Click(object sender, EventArgs e)
         {
@@ -165,6 +158,8 @@ namespace ZC_GPA_Calculator
 
                     CourseAdded?.Invoke(this, newCourse);
                     courseTable.Invalidate();
+
+                    CgpaUpdate?.Invoke(null,EventArgs.Empty);
                 }
             }
         }

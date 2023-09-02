@@ -1,14 +1,10 @@
-using Guna.UI2.AnimatorNS;
-using System.Collections.Generic;
-using System;
-using System.Windows.Forms;
-using iTextSharp.text;
+using System.ComponentModel;
 
 namespace ZC_GPA_Calculator
 {
     public partial class Form1 : Form
     {
-        List<semester> semesterList;
+        BindingList<semester> semesterList;
         List<SemesterCard> semesterCardList;
         string studentName;
         string studentMajor;
@@ -16,6 +12,7 @@ namespace ZC_GPA_Calculator
         public Form1()
         {
             InitializeComponent();
+            semestersComboBox.DisplayMember = "Name";
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -27,17 +24,14 @@ namespace ZC_GPA_Calculator
 
             openFileDialog.Title = "Choose Your Transcript";
             //openFileDialog.InitialDirectory = @"";
-            //openFileDialog.Filter = "Htm|*.htm";      //Select .pdf files only
+            //openFileDialog.Filter = "Htm|*.htm";      //Select .Htm files only
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string filePath = openFileDialog.FileName;     //files path                
-                try
-                {
-                    semesterList = Controller.readHtmlTranscript(filePath, out studentName, out studentMajor);
-                }
-                catch (Exception ex)
-                { Console.WriteLine(ex.Message); }
+                            
+                semesterList = Controller.readHtmlTranscript(filePath, out studentName, out studentMajor);
+                semesterCard_CgpaUpdate(null, EventArgs.Empty);     // Called once after loading all the semester cards, rather than after loading each card or course
 
                 if (semesterList != null && semesterList.Count != 0)
                 {
@@ -48,17 +42,16 @@ namespace ZC_GPA_Calculator
                     tabs.SelectTab(tab2);
                 }
                 else
-                    MessageBox.Show("Enter a valid transcript document!");
+                    MessageBox.Show("Open a valid transcript document, please!");
             }
         }
         public void initializeSemestersCards()
         {
-            //clearAllData(****)
-
             for (int i=0;  i<semesterList.Count; i++)
             {
                 SemesterCard semesterCard = new SemesterCard();
                 initializeSemesterCardEvents(semesterCard);
+                semestersComboBox.DataSource = semesterList;                
 
                 semesterCard.fill(semesterList, i);
                 
@@ -89,7 +82,6 @@ namespace ZC_GPA_Calculator
                 updateSemestersGPATables(this.semesterList, this.semesterCardList);
                 semesterCard.updateCourseTableQualityPoints(semesterList[semesterIndex], rowIndex);
             };
-
             semesterCard.CourseAdded += (object sender, Course e) =>
             {
                 SemesterCard thisCard = sender as SemesterCard;
@@ -99,8 +91,16 @@ namespace ZC_GPA_Calculator
                 thisCard.updateCardHeight();
                 semestersPanel.VerticalScroll.Value = semestersPanel.VerticalScroll.Maximum;
             };
+
+            semesterCard.CgpaUpdate += new System.EventHandler(this.semesterCard_CgpaUpdate);
         }
-        private void addNewSemester(Semester semesterTitle, int year, List<semester> semesterList, List<SemesterCard> semesterCardList)
+        
+        private void semesterCard_CgpaUpdate(object sender, EventArgs e)
+        {
+            double cGPA = Math.Round(semesterList[semesterList.Count - 1].calculateOverallGPA(semesterList, semesterList.Count - 1), 2);
+            cgpaLabel.Text = $"cGPA: {cGPA}";
+        }
+    private void addNewSemester(Semester semesterTitle, int year, BindingList<semester> semesterList, List<SemesterCard> semesterCardList)
         {
             semester semester = new semester();
             semester.Title = semesterTitle;
@@ -116,8 +116,7 @@ namespace ZC_GPA_Calculator
             semestersPanel.Controls.Add(semesterCard);
             semesterCardList.Add(semesterCard);
         }
-
-        private void updateSemestersGPATables(List<semester> semesters, List<SemesterCard> semesterCards)
+        private void updateSemestersGPATables(BindingList<semester> semesters, List<SemesterCard> semesterCards)
         {
             for (int i=0; i< semesterCards.Count; i++)
             {
@@ -149,12 +148,17 @@ namespace ZC_GPA_Calculator
                 }
             }
         }
-
         private void uploadAnotherDocBtn_Click(object sender, EventArgs e)
         {
             tabs.SelectedTab = tab1;
             clearAllData();
             this.browseFileBtn.PerformClick();
+        }
+
+        private void semestersComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Point targetPosition = new Point(0, semesterCardList[semestersComboBox.SelectedIndex].Top - semestersPanel.AutoScrollPosition.Y);
+            semestersPanel.AutoScrollPosition = targetPosition;
         }
     }
 }

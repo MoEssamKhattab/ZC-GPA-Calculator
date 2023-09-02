@@ -1,10 +1,10 @@
-﻿using System.Globalization;
-using System.Text;
+﻿using System.Text;
 using HtmlAgilityPack;
 using iTextSharp.text.pdf;
 using iTextSharp.text.pdf.parser;
 using HtmlAgilityPack;
 using System.Net;
+using System.ComponentModel;
 
 namespace ZC_GPA_Calculator
 {
@@ -50,7 +50,7 @@ namespace ZC_GPA_Calculator
         }
 
         public string Code { get => code; set => code = value; }
-        public string Title { get => title; set => title = value; }
+        public string Title { get => title; set => title = value; }    
         public string Grade 
         { 
             get => grade;
@@ -85,6 +85,7 @@ namespace ZC_GPA_Calculator
             this.year = 0;
             this.courses = new();
         }
+        public string Name => $"{year} {title.ToString()}";
         public int Year { get => year; set => year = value; }
         internal List<Course> Courses { get => courses; set => courses = value; }
         internal Semester Title { get => title; set => title = value; }
@@ -97,7 +98,7 @@ namespace ZC_GPA_Calculator
             }
             return _qualityPoints;
         }
-        public double calculateOverallQualityPoints(List<semester> semesters, int index)
+        public double calculateOverallQualityPoints(BindingList<semester> semesters, int index)
         {
             double _qualityPoints = 0;
 
@@ -120,7 +121,7 @@ namespace ZC_GPA_Calculator
             }
             return _credits;
         }
-        public double calculateOverallCredits(List<semester> semesters, int index)
+        public double calculateOverallCredits(BindingList<semester> semesters, int index)
         {
             double _overallCredits = 0;
 
@@ -143,7 +144,7 @@ namespace ZC_GPA_Calculator
             }
             return _GPACredits;
         }
-        public double calculateOverallGPACredits(List<semester> semesters, int index)
+        public double calculateOverallGPACredits(BindingList<semester> semesters, int index)
         {
             double _overallGPACredits = 0;
 
@@ -161,7 +162,7 @@ namespace ZC_GPA_Calculator
         {
             return Math.Round(calculateQualityPoints()/calculateGPACredits(),2);
         }
-        public double calculateOverallGPA(List<semester> semesters, int index)
+        public double calculateOverallGPA(BindingList<semester> semesters, int index)
         {
             return Math.Round(calculateOverallQualityPoints(semesters, index) / calculateOverallGPACredits(semesters, index),2);
         }
@@ -169,9 +170,9 @@ namespace ZC_GPA_Calculator
 
     internal class Controller
     {
-        public static List<semester> readTranscript(string path, out string studentName, out string major)
+        public static BindingList<semester> readTranscript(string path, out string studentName, out string major)
         {
-            List<semester> semestersList = new();   //List of all semesters
+            BindingList<semester> semestersList = new();   //List of all semesters
 
             //read PDF document
             string allPdfText = ReadPDFfile(path);
@@ -242,9 +243,9 @@ namespace ZC_GPA_Calculator
             return semestersList;
         }
 
-        public static List<semester> readHtmlTranscript(string filePath, out string studentName, out string major)
+        public static BindingList<semester> readHtmlTranscript(string filePath, out string studentName, out string major)
         {
-            List<semester> semestersList = new();   //List of all semesters
+            BindingList<semester> semestersList = new();   //List of all semesters
 
             // Load the HTML document using HTMLAgilityPack
             var document = new HtmlAgilityPack.HtmlDocument();
@@ -357,7 +358,7 @@ namespace ZC_GPA_Calculator
             }
         }
 
-        public static void updateSemestersList(ref List<semester> semesters, int semesterIndex, int courseIndex, string newGrade)
+        public static void updateSemestersList(ref BindingList<semester> semesters, int semesterIndex, int courseIndex, string newGrade)
         {
             Course updatedCourse = semesters[semesterIndex].Courses[courseIndex];
             updatedCourse.Grade = newGrade;
@@ -387,7 +388,7 @@ namespace ZC_GPA_Calculator
             return semesterCardList.IndexOf(semesterCard);
         }
 
-        public static void changeRepeatedFlag(string courseCode, List<semester> semestersList)
+        public static void changeRepeatedFlag(string courseCode, BindingList<semester> semestersList)
         {
             for (int i=0; i<semestersList.Count; i++)
             {
