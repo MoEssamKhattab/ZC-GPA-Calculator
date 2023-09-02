@@ -40,6 +40,10 @@ namespace ZC_GPA_Calculator
             this.Credits = credits;
             this.Repeated= repeated;
 
+            //if (grade == "A" || grade == "A-" || grade == "B+" || grade == "B" || grade == "B-" || grade == "C+" || grade == "C" || grade == "C-" || grade == "F" )
+            //    this.gpaCredits = credits;
+            //else
+            //    this.gpaCredits = 0;
             if (grade == "P" || grade == "I" || grade == "IP" || grade == "W" || grade == "WP" || grade == "WF" || grade == "TR")       // TR === transfer
                 this.gpaCredits = 0;
             else 
@@ -166,7 +170,6 @@ namespace ZC_GPA_Calculator
             return Math.Round(calculateOverallQualityPoints(semesters, index) / calculateOverallGPACredits(semesters, index),2);
         }
     }
-
     internal class Controller
     {
         public static BindingList<semester> readHtmlTranscript(string filePath, out string studentName, out string major)

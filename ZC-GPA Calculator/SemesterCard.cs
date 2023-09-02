@@ -13,7 +13,7 @@ namespace ZC_GPA_Calculator
         public SemesterCard()
         {
             InitializeComponent();
-            letterGrades = new BindingList<string> { "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "F", "P", "I", "IP", "W", "WP", "WF","TR" };
+            letterGrades = new BindingList<string> { "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "F" };
             this.grade.DataSource = letterGrades;
 
         }
@@ -68,10 +68,10 @@ namespace ZC_GPA_Calculator
                 courseTable.Rows[rowIndex].Cells["Title"].Value = course.Title;
                 courseTable.Rows[rowIndex].Cells["Subtype"].Value = course.SubType.ToString();
 
-                //if (!letterGrades.Contains(course.Grade))
-                //{
-                //    ((DataGridViewComboBoxCell)courseTable.Rows[rowIndex].Cells["Grade"]).Items.Add(letterGrades);
-                //}                
+                if (!letterGrades.Contains(course.Grade))
+                {
+                    letterGrades.Add(course.Grade);
+                }
                 courseTable.Rows[rowIndex].Cells["Grade"].Value = course.Grade;
 
                 courseTable.Rows[rowIndex].Cells["Credits"].Value = course.Credits.ToString();
