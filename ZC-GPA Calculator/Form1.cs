@@ -87,9 +87,17 @@ namespace ZC_GPA_Calculator
                 SemesterCard thisCard = sender as SemesterCard;
                 int semesterIndex = Controller.getSemesterIndex(thisCard, semesterCardList);
                 semesterList[semesterIndex].Courses.Add(e);
-                thisCard.fill(semesterList, semesterIndex);
+                thisCard.fill(semesterList, semesterIndex);     // TODO: to create a separate function that handles adding a new course in the semester card
                 thisCard.updateCardHeight();
                 semestersPanel.VerticalScroll.Value = semestersPanel.VerticalScroll.Maximum;
+            };
+            semesterCard.CourseDeleted += (object sender, int courseIndex) =>
+            {
+                SemesterCard thisCard = sender as SemesterCard;
+                int semesterIndex = Controller.getSemesterIndex(thisCard, semesterCardList);
+                semesterList[semesterIndex].Courses.RemoveAt(courseIndex);
+                updateSemestersGPATables(this.semesterList, this.semesterCardList);
+                semesterCard_CgpaUpdate(null, EventArgs.Empty);
             };
 
             semesterCard.CgpaUpdate += new System.EventHandler(this.semesterCard_CgpaUpdate);

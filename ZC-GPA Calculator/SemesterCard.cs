@@ -115,7 +115,6 @@ namespace ZC_GPA_Calculator
         }
         
         public event EventHandler CgpaUpdate;       // To update the cGPA label in case of any change
-
         public event EventHandler GradeChanged;
         private void courseTable_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
@@ -161,6 +160,35 @@ namespace ZC_GPA_Calculator
 
                     CgpaUpdate?.Invoke(null,EventArgs.Empty);
                 }
+            }
+        }
+        private int currentRowIndex = 0;
+        public event EventHandler<int> CourseDeleted;
+        private void courseTable_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            // TODO: to make sure that it's not the header of the table that clicked on
+
+            if (allowAdding && e.Button == MouseButtons.Right && e.RowIndex != -1)  // Allow delete only in case of added semesters 
+            {                                                                       // Excluding the header
+                courseTable.CurrentCell = courseTable.Rows[e.RowIndex].Cells[0];
+                currentRowIndex= e.RowIndex;
+                courseTableContextMenuStrip.Show(Cursor.Position);
+            }
+        }
+        private void deleteCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            courseTable.Rows.RemoveAt(currentRowIndex);
+            CourseDeleted?.Invoke(this, currentRowIndex);
+            updateCardHeight();
+        }
+        private void courseTable_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode & e.KeyCode)
+            {
+                case Keys.Delete:
+                    e.Handled = true;
+                    e.SuppressKeyPress = true;      // Disable the default Delete key event
+                    break;
             }
         }
     }

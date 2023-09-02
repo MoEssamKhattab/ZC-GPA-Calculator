@@ -47,10 +47,6 @@
             "HtmlAgilityPack": {
               "target": "Package",
               "version": "[1.11.52, )"
-            },
-            "iTextSharp": {
-              "target": "Package",
-              "version": "[5.5.13.3, )"
             }
           },
           "imports": [

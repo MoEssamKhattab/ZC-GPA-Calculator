@@ -1,7 +1,6 @@
-﻿using System.Text;
-using HtmlAgilityPack;
-using iTextSharp.text.pdf;
-using iTextSharp.text.pdf.parser;
+﻿using HtmlAgilityPack;
+//using iTextSharp.text.pdf;
+//using iTextSharp.text.pdf.parser;
 using HtmlAgilityPack;
 using System.Net;
 using System.ComponentModel;
@@ -170,79 +169,6 @@ namespace ZC_GPA_Calculator
 
     internal class Controller
     {
-        public static BindingList<semester> readTranscript(string path, out string studentName, out string major)
-        {
-            BindingList<semester> semestersList = new();   //List of all semesters
-
-            //read PDF document
-            string allPdfText = ReadPDFfile(path);
-
-            string[] allTextSeparator = { "12588", "Name" };
-            string[] separatedText = allPdfText.Split(allTextSeparator, StringSplitOptions.RemoveEmptyEntries);
-
-            studentName = separatedText[1].Trim(Environment.NewLine.ToCharArray());     //(or) *.Trim('\n', '\r');
-            string allSemestersString = separatedText[2];
-
-            string[] separatedSemesters = allSemestersString.Split("Term");
-
-            string[] semestersKeywords = Enum.GetNames(typeof(Semester));
-            string[] coursesKeywords = Enum.GetNames(typeof(CourseSubtype));
-
-            // Extracting the major
-            string[] majorTextSeparator = { "Undergraduate/Bachelor of Science/", "No Degree Awarded Yet" };
-            string[] majorData = separatedSemesters[1].Split(majorTextSeparator, StringSplitOptions.RemoveEmptyEntries);
-            major = majorData[1].Trim(Environment.NewLine.ToCharArray()).Replace("\n", "").Replace("\r", "");
-
-            for (int i = 1; i < separatedSemesters.Length; i++)     //ignoring the first element since it's not a real semster data
-            {
-                semester _semester = new();
-
-                using (StringReader stringReader = new StringReader(separatedSemesters[i]))
-                {
-                    string line;
-
-                    string courseCode;
-                    string courseTitle;
-                    CourseSubtype courseSubType;
-                    string courseGrade;
-                    int courseCredits;
-
-                    while ((line = stringReader.ReadLine()) != null)
-                    {
-                        if (semestersKeywords.Any(keyword => line.Contains(keyword)))
-                        {
-                            string[] semesterHeader = line.Split(' ');     //split the year, and semester title
-                            _semester.Year = int.Parse(semesterHeader[0]);
-                            _semester.Title = (Semester)Enum.Parse(typeof(Semester), semesterHeader[1]);
-                        }
-                        //Extracting course data
-                        else if (coursesKeywords.Any(keyword => line.Contains(keyword)))
-                        {
-                            string[] courseStingArray = line.Split(' ');
-
-                            courseCode = string.Join(" ", courseStingArray, 0, 2);
-                            courseTitle = string.Join(" ", courseStingArray, 2, courseStingArray.Length - 6);
-                            courseSubType = (CourseSubtype)Enum.Parse(typeof(CourseSubtype), courseStingArray[courseStingArray.Length - 4]);
-                            courseGrade = courseStingArray[courseStingArray.Length - 3];
-
-                            //Handling the case of any repeated courses
-                            if (courseGrade.StartsWith('['))
-                            {
-                                courseGrade= courseGrade.Substring(1,courseGrade.Length-2);
-                                changeRepeatedFlag(courseCode, semestersList);
-                            }
-                            courseCredits = Convert.ToInt32(Math.Floor(Convert.ToDouble(courseStingArray[courseStingArray.Length - 2])));
-
-                            Course _course = new Course(courseCode, courseTitle, courseSubType, courseGrade, courseCredits);
-                            _semester.Courses.Add(_course);
-                        }
-                    }
-                }
-                semestersList.Add(_semester);
-            }
-            return semestersList;
-        }
-
         public static BindingList<semester> readHtmlTranscript(string filePath, out string studentName, out string major)
         {
             BindingList<semester> semestersList = new();   //List of all semesters
@@ -306,31 +232,7 @@ namespace ZC_GPA_Calculator
                 semestersList.Add(semester);
             }
             return semestersList;
-        }
-
-        static string ReadPDFfile(string path)
-        {
-            StringBuilder stringBuilder = new StringBuilder();
-            try
-            {
-                using (PdfReader reader = new PdfReader(path))
-                {
-                    for (int p = 1; p <= reader.NumberOfPages; p++)
-                    {
-                        ITextExtractionStrategy strategy = new SimpleTextExtractionStrategy();
-                        string text = PdfTextExtractor.GetTextFromPage(reader, p, strategy);
-                        text = Encoding.UTF8.GetString(ASCIIEncoding.Convert(Encoding.Default, Encoding.UTF8, Encoding.Default.GetBytes(text)));
-
-                        stringBuilder.Append(text);
-                    }
-                }
-                return stringBuilder.ToString();
-            }
-            catch (Exception ex)
-            {
-                return "";
-            }
-        }
+        }       
         public static double stringToGrade(string grade)
         {
             switch (grade)
@@ -403,5 +305,102 @@ namespace ZC_GPA_Calculator
                 }
             }
         }
+
+        //public static BindingList<semester> readTranscript(string path, out string studentName, out string major)
+        //{
+        //    BindingList<semester> semestersList = new();   //List of all semesters
+
+        //    //read PDF document
+        //    string allPdfText = ReadPDFfile(path);
+
+        //    string[] allTextSeparator = { "12588", "Name" };
+        //    string[] separatedText = allPdfText.Split(allTextSeparator, StringSplitOptions.RemoveEmptyEntries);
+
+        //    studentName = separatedText[1].Trim(Environment.NewLine.ToCharArray());     //(or) *.Trim('\n', '\r');
+        //    string allSemestersString = separatedText[2];
+
+        //    string[] separatedSemesters = allSemestersString.Split("Term");
+
+        //    string[] semestersKeywords = Enum.GetNames(typeof(Semester));
+        //    string[] coursesKeywords = Enum.GetNames(typeof(CourseSubtype));
+
+        //    // Extracting the major
+        //    string[] majorTextSeparator = { "Undergraduate/Bachelor of Science/", "No Degree Awarded Yet" };
+        //    string[] majorData = separatedSemesters[1].Split(majorTextSeparator, StringSplitOptions.RemoveEmptyEntries);
+        //    major = majorData[1].Trim(Environment.NewLine.ToCharArray()).Replace("\n", "").Replace("\r", "");
+
+        //    for (int i = 1; i < separatedSemesters.Length; i++)     //ignoring the first element since it's not a real semster data
+        //    {
+        //        semester _semester = new();
+
+        //        using (StringReader stringReader = new StringReader(separatedSemesters[i]))
+        //        {
+        //            string line;
+
+        //            string courseCode;
+        //            string courseTitle;
+        //            CourseSubtype courseSubType;
+        //            string courseGrade;
+        //            int courseCredits;
+
+        //            while ((line = stringReader.ReadLine()) != null)
+        //            {
+        //                if (semestersKeywords.Any(keyword => line.Contains(keyword)))
+        //                {
+        //                    string[] semesterHeader = line.Split(' ');     //split the year, and semester title
+        //                    _semester.Year = int.Parse(semesterHeader[0]);
+        //                    _semester.Title = (Semester)Enum.Parse(typeof(Semester), semesterHeader[1]);
+        //                }
+        //                //Extracting course data
+        //                else if (coursesKeywords.Any(keyword => line.Contains(keyword)))
+        //                {
+        //                    string[] courseStingArray = line.Split(' ');
+
+        //                    courseCode = string.Join(" ", courseStingArray, 0, 2);
+        //                    courseTitle = string.Join(" ", courseStingArray, 2, courseStingArray.Length - 6);
+        //                    courseSubType = (CourseSubtype)Enum.Parse(typeof(CourseSubtype), courseStingArray[courseStingArray.Length - 4]);
+        //                    courseGrade = courseStingArray[courseStingArray.Length - 3];
+
+        //                    //Handling the case of any repeated courses
+        //                    if (courseGrade.StartsWith('['))
+        //                    {
+        //                        courseGrade= courseGrade.Substring(1,courseGrade.Length-2);
+        //                        changeRepeatedFlag(courseCode, semestersList);
+        //                    }
+        //                    courseCredits = Convert.ToInt32(Math.Floor(Convert.ToDouble(courseStingArray[courseStingArray.Length - 2])));
+
+        //                    Course _course = new Course(courseCode, courseTitle, courseSubType, courseGrade, courseCredits);
+        //                    _semester.Courses.Add(_course);
+        //                }
+        //            }
+        //        }
+        //        semestersList.Add(_semester);
+        //    }
+        //    return semestersList;
+        //}
+        //static string ReadPDFfile(string path)
+        //{
+        //    StringBuilder stringBuilder = new StringBuilder();
+        //    try
+        //    {
+        //        using (PdfReader reader = new PdfReader(path))
+        //        {
+        //            for (int p = 1; p <= reader.NumberOfPages; p++)
+        //            {
+        //                ITextExtractionStrategy strategy = new SimpleTextExtractionStrategy();
+        //                string text = PdfTextExtractor.GetTextFromPage(reader, p, strategy);
+        //                text = Encoding.UTF8.GetString(ASCIIEncoding.Convert(Encoding.Default, Encoding.UTF8, Encoding.Default.GetBytes(text)));
+
+        //                stringBuilder.Append(text);
+        //            }
+        //        }
+        //        return stringBuilder.ToString();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return "";
+        //    }
+        //}
+
     }
 }

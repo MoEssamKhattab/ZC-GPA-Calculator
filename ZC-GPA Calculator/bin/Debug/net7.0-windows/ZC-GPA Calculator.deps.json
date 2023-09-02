@@ -9,19 +9,10 @@
       "ZC-GPA Calculator/1.0.0": {
         "dependencies": {
           "Guna.UI2.WinForms": "2.0.4.4",
-          "HtmlAgilityPack": "1.11.52",
-          "iTextSharp": "5.5.13.3"
+          "HtmlAgilityPack": "1.11.52"
         },
         "runtime": {
           "ZC-GPA Calculator.dll": {}
-        }
-      },
-      "BouncyCastle/1.8.9": {
-        "runtime": {
-          "lib/BouncyCastle.Crypto.dll": {
-            "assemblyVersion": "1.8.9.0",
-            "fileVersion": "1.8.20343.1"
-          }
         }
       },
       "Guna.UI2.WinForms/2.0.4.4": {
@@ -40,17 +31,6 @@
           "lib/netstandard2.0/HtmlAgilityPack.dll": {
             "assemblyVersion": "1.11.52.0",
             "fileVersion": "1.11.52.0"
-          }
-        }
-      },
-      "iTextSharp/5.5.13.3": {
-        "dependencies": {
-          "BouncyCastle": "1.8.9"
-        },
-        "runtime": {
-          "lib/itextsharp.dll": {
-            "assemblyVersion": "5.5.13.3",
-            "fileVersion": "5.5.13.3"
           }
         }
       },
@@ -82,13 +62,6 @@
       "serviceable": false,
       "sha512": ""
     },
-    "BouncyCastle/1.8.9": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-axnBgvdD5n+FnEG6efk/tfKuMFru7R/EoISH9zjh319yb3HD24TEHSAbNN/lTRT2ulOGRxDgOsCjkuk08iwWPg==",
-      "path": "bouncycastle/1.8.9",
-      "hashPath": "bouncycastle.1.8.9.nupkg.sha512"
-    },
     "Guna.UI2.WinForms/2.0.4.4": {
       "type": "package",
       "serviceable": true,
@@ -102,13 +75,6 @@
       "sha512": "sha512-qfJzz0eEgoO5O6uA1PpH4wmU4yz64PKnDolAW41vTlCfRyPlAyZIJANg+QYmQgxiWg/cLUAkcLNMpB7CCV66ZQ==",
       "path": "htmlagilitypack/1.11.52",
       "hashPath": "htmlagilitypack.1.11.52.nupkg.sha512"
-    },
-    "iTextSharp/5.5.13.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-vtnMhTEJdZFCkLqaQLjD8aqTBIVKHPrSFuSXnxbLEJlvE/j/l88fvG9wtsejXTmhtErMo0lA9T2LdfdfbwplYw==",
-      "path": "itextsharp/5.5.13.3",
-      "hashPath": "itextsharp.5.5.13.3.nupkg.sha512"
     },
     "System.CodeDom/7.0.0": {
       "type": "package",

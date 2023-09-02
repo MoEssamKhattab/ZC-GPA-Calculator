@@ -70,11 +70,14 @@ namespace ZC_GPA_Calculator
             this.cardHeaderPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.semesterTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.courseTableContextMenuStrip = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
+            this.deleteCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.courseTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.calculationsTable)).BeginInit();
             this.cardHeaderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            this.courseTableContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -193,8 +196,10 @@ namespace ZC_GPA_Calculator
             this.courseTable.ThemeStyle.RowsStyle.Height = 50;
             this.courseTable.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.courseTable.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.courseTable.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.courseTable_CellMouseUp);
             this.courseTable.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.courseTable_CellValueChanged);
             this.courseTable.CurrentCellDirtyStateChanged += new System.EventHandler(this.courseTable_CurrentCellDirtyStateChanged);
+            this.courseTable.KeyDown += new System.Windows.Forms.KeyEventHandler(this.courseTable_KeyDown);
             // 
             // course
             // 
@@ -410,6 +415,30 @@ namespace ZC_GPA_Calculator
             this.semesterTitle.TabIndex = 1;
             this.semesterTitle.Text = "Fall, 2020";
             // 
+            // courseTableContextMenuStrip
+            // 
+            this.courseTableContextMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.courseTableContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteCourseToolStripMenuItem});
+            this.courseTableContextMenuStrip.Name = "courseTableContextMenuStrip";
+            this.courseTableContextMenuStrip.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.courseTableContextMenuStrip.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
+            this.courseTableContextMenuStrip.RenderStyle.ColorTable = null;
+            this.courseTableContextMenuStrip.RenderStyle.RoundedEdges = true;
+            this.courseTableContextMenuStrip.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
+            this.courseTableContextMenuStrip.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.courseTableContextMenuStrip.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.courseTableContextMenuStrip.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
+            this.courseTableContextMenuStrip.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.courseTableContextMenuStrip.Size = new System.Drawing.Size(172, 28);
+            // 
+            // deleteCourseToolStripMenuItem
+            // 
+            this.deleteCourseToolStripMenuItem.Name = "deleteCourseToolStripMenuItem";
+            this.deleteCourseToolStripMenuItem.Size = new System.Drawing.Size(171, 24);
+            this.deleteCourseToolStripMenuItem.Text = "Delete Course";
+            this.deleteCourseToolStripMenuItem.Click += new System.EventHandler(this.deleteCourseToolStripMenuItem_Click);
+            // 
             // SemesterCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -425,6 +454,7 @@ namespace ZC_GPA_Calculator
             this.cardHeaderPanel.ResumeLayout(false);
             this.cardHeaderPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            this.courseTableContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -452,6 +482,8 @@ namespace ZC_GPA_Calculator
         private DataGridViewTextBoxColumn credits;
         private DataGridViewTextBoxColumn qualityPoints;
         private Guna2Button addCourseBtn;
+        private Guna2ContextMenuStrip courseTableContextMenuStrip;
+        private ToolStripMenuItem deleteCourseToolStripMenuItem;
 
         public Guna2DataGridView CourseTable { get => courseTable; set => courseTable = value; }
     }
