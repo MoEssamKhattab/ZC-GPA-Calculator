@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace ZC_GPA_Calculator
 {
@@ -7,6 +8,7 @@ namespace ZC_GPA_Calculator
         bool allowEditing = false;
         bool allowAdding = false;
         BindingList<string> letterGrades;
+        static int maxVisibleCourses = 6;
         public string SemesterTitle { get => semesterTitle.Text; set => semesterTitle.Text = value; }
         public bool AllowAdding { get => allowAdding; set => allowAdding = value; }
 
@@ -27,9 +29,9 @@ namespace ZC_GPA_Calculator
             if (AllowAdding)
                 addCourseBtn.Visible = true;
             
-            updateCardHeight();  
+            updateCardHeight(maxVisibleCourses);  
         }
-        public void updateCardHeight()
+        public void updateCardHeight(int maxVisibleCourses)
         {
             int cardHeaderHeight = cardHeaderPanel.Height;
             int separator = 45;
@@ -37,7 +39,7 @@ namespace ZC_GPA_Calculator
             // Course table
             int headerHeight = courseTable.ThemeStyle.HeaderStyle.Height;
             int rowHeight = courseTable.ThemeStyle.RowsStyle.Height;
-            int courseTableHeight = (courseTable.RowCount * rowHeight) + headerHeight;
+            int courseTableHeight = (Math.Min(maxVisibleCourses ,courseTable.RowCount) * rowHeight) + headerHeight;
             courseTable.Height = courseTableHeight;
 
             // Add course button
@@ -57,8 +59,8 @@ namespace ZC_GPA_Calculator
         public void fill(BindingList<semester> semesters, int index)
         {
             this.semesterTitle.Text = semesters[index].Name;
-            this.courseTable.Rows.Clear();
-            this.courseTable.Refresh();
+            //this.courseTable.Rows.Clear();
+            //this.courseTable.Refresh();
 
             foreach (var course in semesters[index].Courses.ToList())
             {
@@ -75,10 +77,25 @@ namespace ZC_GPA_Calculator
                 courseTable.Rows[rowIndex].Cells["Grade"].Value = course.Grade;
 
                 courseTable.Rows[rowIndex].Cells["Credits"].Value = course.Credits.ToString();
-                // Need to be further improved (the quality points format)
-                courseTable.Rows[rowIndex].Cells["QualityPoints"].Value = String.Format("{0:0.00}", course.calculateQualityPoints().ToString());
+                courseTable.Rows[rowIndex].Cells["QualityPoints"].Value = course.calculateQualityPoints().ToString("0.00");
             }
             updateGPACalculationsTable(semesters, index);
+            updateCardHeight(maxVisibleCourses);
+        }
+        public void addNewCourse(BindingList<semester> semesters, int semesterIndex)
+        {
+            Course course = semesters[semesterIndex].Courses[semesters[semesterIndex].Courses.Count - 1];
+
+            var rowIndex = courseTable.Rows.Add();
+            courseTable.Rows[rowIndex].Cells["Course"].Value = course.Code;
+            courseTable.Rows[rowIndex].Cells["Title"].Value = course.Title;
+            courseTable.Rows[rowIndex].Cells["Subtype"].Value = course.SubType.ToString();
+            courseTable.Rows[rowIndex].Cells["Grade"].Value = course.Grade;
+            courseTable.Rows[rowIndex].Cells["Credits"].Value = course.Credits.ToString();
+            courseTable.Rows[rowIndex].Cells["QualityPoints"].Value = course.calculateQualityPoints().ToString("0.00");
+
+            updateGPACalculationsTable(semesters, semesterIndex);
+            updateCardHeight(maxVisibleCourses);
         }
         public void updateCourseTableQualityPoints(semester semester, int courseIndex)
         {
@@ -99,8 +116,8 @@ namespace ZC_GPA_Calculator
             // GPA Calculations
             calculationsTable.Rows[0].Cells["GPACredits"].Value = semesters[index].calculateGPACredits().ToString();
             calculationsTable.Rows[1].Cells["GPACredits"].Value = semesters[index].calculateOverallGPACredits(semesters, index).ToString();
-            calculationsTable.Rows[0].Cells["GPA"].Value = semesters[index].calculateGPA().ToString();
-            calculationsTable.Rows[1].Cells["GPA"].Value = semesters[index].calculateOverallGPA(semesters, index).ToString();
+            calculationsTable.Rows[0].Cells["GPA"].Value = semesters[index].calculateGPA().ToString("0.00");
+            calculationsTable.Rows[1].Cells["GPA"].Value = semesters[index].calculateOverallGPA(semesters, index).ToString("0.00");
         }
 
         // This event handler manually raises the CellValueChanged event 
@@ -166,8 +183,6 @@ namespace ZC_GPA_Calculator
         public event EventHandler<int> CourseDeleted;
         private void courseTable_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
-            // TODO: to make sure that it's not the header of the table that clicked on
-
             if (allowAdding && e.Button == MouseButtons.Right && e.RowIndex != -1)  // Allow delete only in case of added semesters 
             {                                                                       // Excluding the header
                 courseTable.CurrentCell = courseTable.Rows[e.RowIndex].Cells[0];
@@ -179,7 +194,7 @@ namespace ZC_GPA_Calculator
         {
             courseTable.Rows.RemoveAt(currentRowIndex);
             CourseDeleted?.Invoke(this, currentRowIndex);
-            updateCardHeight();
+            updateCardHeight(maxVisibleCourses);
         }
         private void courseTable_KeyDown(object sender, KeyEventArgs e)
         {
@@ -187,7 +202,7 @@ namespace ZC_GPA_Calculator
             {
                 case Keys.Delete:
                     e.Handled = true;
-                    e.SuppressKeyPress = true;      // Disable the default Delete key event
+                    e.SuppressKeyPress = true;      // Disable the default event of the delete key 
                     break;
             }
         }

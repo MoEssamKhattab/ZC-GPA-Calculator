@@ -8,7 +8,6 @@ namespace ZC_GPA_Calculator
         List<SemesterCard> semesterCardList;
         string studentName;
         string studentMajor;
-
         public Form1()
         {
             InitializeComponent();
@@ -16,7 +15,6 @@ namespace ZC_GPA_Calculator
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            semesterCardList = new List<SemesterCard>();
         }
         private void browseFileBtn_Click(object sender, EventArgs e)
         {
@@ -47,30 +45,38 @@ namespace ZC_GPA_Calculator
         }
         public void initializeSemestersCards()
         {
+            semesterCardList = new List<SemesterCard>();
             for (int i=0;  i<semesterList.Count; i++)
             {
                 SemesterCard semesterCard = new SemesterCard();
                 initializeSemesterCardEvents(semesterCard);
-                semestersComboBox.DataSource = semesterList;                
-
+                semestersComboBox.DataSource = semesterList;
                 semesterCard.fill(semesterList, i);
-                
                 semestersPanel.Controls.Add(semesterCard);
-
                 semesterCardList.Add(semesterCard);
             }
         }
-        private void addSemesterCard()
+        private void addNewSemester(Semester semesterTitle, int year, BindingList<semester> semesterList, List<SemesterCard> semesterCardList)
         {
-            // TODO: to combine the above and below functions here
-        }
+            semester semester = new semester();
+            semester.Title = semesterTitle;
+            semester.Year = year;
+            semesterList.Add(semester);
 
+            SemesterCard semesterCard = new SemesterCard();
+            semesterCard.AllowAdding = true;
+
+            initializeSemesterCardEvents(semesterCard);
+
+            semesterCard.SemesterTitle = $"{semesterTitle.ToString()}, {year}";
+            semestersPanel.Controls.Add(semesterCard);
+            semesterCardList.Add(semesterCard);
+        }
         private void initializeSemesterCardEvents(SemesterCard semesterCard)
         {
             semesterCard.GradeChanged += (object sender, EventArgs e) =>
             {
-                //int rowIndex = (e as DataGridViewCellEventArgs).RowIndex;
-
+                //int rowIndex = (e as DataGridViewCellEventArgs).RowIndex
                 DataGridViewCellEventArgs cell = (DataGridViewCellEventArgs)e;
                 int rowIndex = cell.RowIndex;
 
@@ -87,8 +93,8 @@ namespace ZC_GPA_Calculator
                 SemesterCard thisCard = sender as SemesterCard;
                 int semesterIndex = Controller.getSemesterIndex(thisCard, semesterCardList);
                 semesterList[semesterIndex].Courses.Add(e);
-                thisCard.fill(semesterList, semesterIndex);     // TODO: to create a separate function that handles adding a new course in the semester card
-                thisCard.updateCardHeight();
+                //thisCard.fill(semesterList, semesterIndex);     // TODO: to create a separate function that handles adding a new course in the semester card
+                thisCard.addNewCourse(semesterList, semesterIndex);
                 semestersPanel.VerticalScroll.Value = semestersPanel.VerticalScroll.Maximum;
             };
             semesterCard.CourseDeleted += (object sender, int courseIndex) =>
@@ -99,31 +105,13 @@ namespace ZC_GPA_Calculator
                 updateSemestersGPATables(this.semesterList, this.semesterCardList);
                 semesterCard_CgpaUpdate(null, EventArgs.Empty);
             };
-
             semesterCard.CgpaUpdate += new System.EventHandler(this.semesterCard_CgpaUpdate);
-        }
-        
+        }        
         private void semesterCard_CgpaUpdate(object sender, EventArgs e)
         {
             double cGPA = Math.Round(semesterList[semesterList.Count - 1].calculateOverallGPA(semesterList, semesterList.Count - 1), 2);
-            cgpaLabel.Text = $"cGPA: {cGPA}";
-        }
-    private void addNewSemester(Semester semesterTitle, int year, BindingList<semester> semesterList, List<SemesterCard> semesterCardList)
-        {
-            semester semester = new semester();
-            semester.Title = semesterTitle;
-            semester.Year = year;
-            semesterList.Add(semester);
-
-            SemesterCard semesterCard = new SemesterCard();
-            semesterCard.AllowAdding= true;
-
-            initializeSemesterCardEvents(semesterCard);
-
-            semesterCard.SemesterTitle = $"{semesterTitle.ToString()}, {year}";
-            semestersPanel.Controls.Add(semesterCard);
-            semesterCardList.Add(semesterCard);
-        }
+            cgpaLabel.Text = $"CGPA: {cGPA}";
+        }     
         private void updateSemestersGPATables(BindingList<semester> semesters, List<SemesterCard> semesterCards)
         {
             for (int i=0; i< semesterCards.Count; i++)
@@ -133,7 +121,7 @@ namespace ZC_GPA_Calculator
         }
         private void clearAllData()
         {
-            //TODO: to clear all data
+            // Clear all data
             semesterList.Clear();
             semestersPanel.Controls.Clear();
             semesterCardList.Clear();           
@@ -162,10 +150,9 @@ namespace ZC_GPA_Calculator
             clearAllData();
             this.browseFileBtn.PerformClick();
         }
-
         private void semestersComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Point targetPosition = new Point(0, semesterCardList[semestersComboBox.SelectedIndex].Top - semestersPanel.AutoScrollPosition.Y);
+            Point targetPosition = new Point(0, semesterCardList[semestersComboBox.SelectedIndex].Top - semesterCardList[semestersComboBox.SelectedIndex].Margin.Top - semestersPanel.AutoScrollPosition.Y);
             semestersPanel.AutoScrollPosition = targetPosition;
         }
     }

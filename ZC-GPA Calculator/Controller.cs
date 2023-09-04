@@ -51,7 +51,6 @@ namespace ZC_GPA_Calculator
 
             this.QualityPoints = calculateQualityPoints();
         }
-
         public string Code { get => code; set => code = value; }
         public string Title { get => title; set => title = value; }    
         public string Grade 
@@ -188,7 +187,6 @@ namespace ZC_GPA_Calculator
             HtmlNode majorNode = document.DocumentNode.SelectSingleNode("//*[@id=\"tblProgramDegreeCurriculum\"]/tbody/tr/th/span");
             major = ((WebUtility.HtmlDecode(majorNode.InnerText.Trim())).Split("Undergraduate/Bachelor of Science/"))[1];
 
-            // Find all table elements with the specific ID
             string coursesTableId = "tblOrganization";
             IEnumerable<HtmlNode> tables = document.DocumentNode.Descendants("table")
                 .Where(table => table.GetAttributeValue("id", null) == coursesTableId);
@@ -262,7 +260,6 @@ namespace ZC_GPA_Calculator
                     return 0.0;
             }
         }
-
         public static void updateSemestersList(ref BindingList<semester> semesters, int semesterIndex, int courseIndex, string newGrade)
         {
             Course updatedCourse = semesters[semesterIndex].Courses[courseIndex];
@@ -271,28 +268,10 @@ namespace ZC_GPA_Calculator
 
             semesters[semesterIndex].Courses[courseIndex] = updatedCourse;
         }
-
-        #region Testing modules
-        public static void printTranscript(List<semester> semestersList)
-        {
-            foreach (var semester in semestersList)
-            {
-                Console.WriteLine($"{semester.Year}     {semester.Title}");
-                foreach (var course in semester.Courses)
-                {
-                    Console.WriteLine($"{course.Code}   {course.Title}      {course.Grade}  {course.Credits}");
-                }
-                Console.WriteLine("============================================");
-            }
-        }
-
-        #endregion
-
         public static int getSemesterIndex(SemesterCard semesterCard, List<SemesterCard> semesterCardList)
         {
             return semesterCardList.IndexOf(semesterCard);
         }
-
         public static void changeRepeatedFlag(string courseCode, BindingList<semester> semestersList)
         {
             for (int i=0; i<semestersList.Count; i++)

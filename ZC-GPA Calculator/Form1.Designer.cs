@@ -56,6 +56,7 @@
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tab2 = new System.Windows.Forms.TabPage();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.semestersComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Separator2 = new Guna.UI2.WinForms.Guna2Separator();
             this.cgpaLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -218,6 +219,7 @@
             // tab2
             // 
             this.tab2.BackColor = System.Drawing.Color.White;
+            this.tab2.Controls.Add(this.guna2HtmlLabel1);
             this.tab2.Controls.Add(this.semestersComboBox);
             this.tab2.Controls.Add(this.guna2Separator2);
             this.tab2.Controls.Add(this.cgpaLabel);
@@ -231,6 +233,16 @@
             this.tab2.TabIndex = 2;
             this.tab2.Text = "tabPage1";
             // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(105, 159);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(88, 30);
+            this.guna2HtmlLabel1.TabIndex = 16;
+            this.guna2HtmlLabel1.Text = "Semester";
+            // 
             // semestersComboBox
             // 
             this.semestersComboBox.BackColor = System.Drawing.Color.Transparent;
@@ -242,7 +254,7 @@
             this.semestersComboBox.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.semestersComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.semestersComboBox.ItemHeight = 30;
-            this.semestersComboBox.Location = new System.Drawing.Point(105, 185);
+            this.semestersComboBox.Location = new System.Drawing.Point(105, 195);
             this.semestersComboBox.Name = "semestersComboBox";
             this.semestersComboBox.ShadowDecoration.CustomizableEdges = customizableEdges10;
             this.semestersComboBox.Size = new System.Drawing.Size(287, 36);
@@ -260,7 +272,7 @@
             // 
             this.cgpaLabel.BackColor = System.Drawing.Color.Transparent;
             this.cgpaLabel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cgpaLabel.Location = new System.Drawing.Point(1665, 175);
+            this.cgpaLabel.Location = new System.Drawing.Point(1665, 179);
             this.cgpaLabel.Name = "cgpaLabel";
             this.cgpaLabel.Size = new System.Drawing.Size(140, 39);
             this.cgpaLabel.TabIndex = 12;
@@ -275,13 +287,12 @@
             this.semestersPanel.Location = new System.Drawing.Point(7, 244);
             this.semestersPanel.Margin = new System.Windows.Forms.Padding(20);
             this.semestersPanel.Name = "semestersPanel";
-            this.semestersPanel.Size = new System.Drawing.Size(1878, 672);
+            this.semestersPanel.Size = new System.Drawing.Size(1878, 674);
             this.semestersPanel.TabIndex = 10;
             // 
             // addNewSemesterBtn
             // 
-            this.addNewSemesterBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.addNewSemesterBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.addNewSemesterBtn.Animated = true;
             this.addNewSemesterBtn.BackColor = System.Drawing.Color.Transparent;
             this.addNewSemesterBtn.BorderColor = System.Drawing.Color.DimGray;
@@ -313,7 +324,7 @@
             this.guna2Panel3.Controls.Add(this.studentNameLabel);
             this.guna2Panel3.CustomizableEdges = customizableEdges17;
             this.guna2Panel3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Panel3.Location = new System.Drawing.Point(105, 23);
+            this.guna2Panel3.Location = new System.Drawing.Point(105, 20);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges18;
             this.guna2Panel3.Size = new System.Drawing.Size(1700, 136);
@@ -464,5 +475,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel cgpaLabel;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator2;
         private Guna.UI2.WinForms.Guna2ComboBox semestersComboBox;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
     }
 }
