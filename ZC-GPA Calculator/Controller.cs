@@ -1,7 +1,6 @@
 ﻿using HtmlAgilityPack;
 //using iTextSharp.text.pdf;
 //using iTextSharp.text.pdf.parser;
-using HtmlAgilityPack;
 using System.Net;
 using System.ComponentModel;
 

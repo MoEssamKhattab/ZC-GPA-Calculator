@@ -27,20 +27,26 @@ namespace ZC_GPA_Calculator
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string filePath = openFileDialog.FileName;     //files path                
-                            
-                semesterList = Controller.readHtmlTranscript(filePath, out studentName, out studentMajor);
-                semesterCard_CgpaUpdate(null, EventArgs.Empty);     // Called once after loading all the semester cards, rather than after loading each card or course
-
-                if (semesterList != null && semesterList.Count != 0)
+                try
                 {
-                    initializeSemestersCards();
-                    studentNameLabel.Text = studentName;
-                    studentMajorLabel.Text = studentMajor;
-                    studentPicture.Text = studentName[0].ToString();
-                    tabs.SelectTab(tab2);
+                    semesterList = Controller.readHtmlTranscript(filePath, out studentName, out studentMajor);
+                    semesterCard_CgpaUpdate(null, EventArgs.Empty);     // Called once after loading all the semester cards, rather than after loading each card or course
+
+                    if (semesterList != null && semesterList.Count != 0)
+                    {
+                        initializeSemestersCards();
+                        studentNameLabel.Text = studentName;
+                        studentMajorLabel.Text = studentMajor;
+                        studentPicture.Text = studentName[0].ToString();
+                        tabs.SelectTab(tab2);
+                    }
+                    else
+                        MessageBox.Show("Open a valid transcript file, please!");
                 }
-                else
-                    MessageBox.Show("Open a valid transcript document, please!");
+                catch
+                {
+                    MessageBox.Show("Open a valid HTML file, please!");
+                }
             }
         }
         public void initializeSemestersCards()
