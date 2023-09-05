@@ -91,18 +91,28 @@ By using Option 2, you can quickly get started with the application without the 
 5. Use the interface:
 
 * to make changes to course grades as needed using the corresponding dropdown list 
-<select style="width: 70px; padding: 5px;">
-    <option value="option1">A</option>
-    <option value="option2">A-</option>
-    <option value="option3">B+</option>
-    <option value="option4">B</option>
-    <option value="option4">B-</option>
-    <option value="option4">C+</option>
-    <option value="option4">C</option>
-    <option value="option4">C-</option>
-    <option value="option4">F</option>
-    <option value="option4">P</option>
-</select>.
+<details>
+  <summary>Select an option</summary>
+  
+  <select id="dropdown">
+    <option value="option1">Option 1</option>
+    <option value="option2">Option 2</option>
+    <option value="option3">Option 3</option>
+  </select>
+  
+  <button onclick="displaySelectedOption()">Submit</button>
+
+  <p id="selectedOption"></p>
+
+  <script>
+    function displaySelectedOption() {
+      var dropdown = document.getElementById("dropdown");
+      var selectedOption = dropdown.options[dropdown.selectedIndex].text;
+      document.getElementById("selectedOption").textContent = "Selected option: " + selectedOption;
+    }
+  </script>
+</details>
+
 
 * to add new courses
     - Click on the <button class="add-new-button">Add New Semester</button> button.
