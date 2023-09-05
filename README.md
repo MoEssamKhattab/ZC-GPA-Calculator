@@ -55,7 +55,7 @@ Or simply accept the automatic download when launching the software, in case it'
 
 3. Run the downloaded executable file to launch <img src="./ZC-GPA Calculator/Logos/zewail logo.png" width="15" height="20" alt="ZC GPA Calculator Logo"> **ZC-GPA Calculator.exe**
 
-By using Option 2, you can quickly get started with the application without the need to build it from the source code.
+> By using Option 2, you can quickly get started with the application without the need to build it from the source code.
 
 ## Usage
 
@@ -75,12 +75,12 @@ By using Option 2, you can quickly get started with the application without the 
 
 5. Use the interface:
 
-* to make changes to course grades as needed using the corresponding dropdown list.
+    * to make changes to course grades as needed using the corresponding dropdown list.
 
-* to add new courses:
-    - Click on the **_Add New Semester_** button.
+    * to add new courses:
+        - Click on the **_Add New Semester_** button.
 
-    - Then click on **_Add New Course_** button.
+        - Then click on **_Add New Course_** button.
 
 6. The application will update semester GPA and cGPA in real-time.
 
