@@ -63,13 +63,13 @@ Or simply accept the automatic download when launching the software, in case it'
 
     - Open your transcript on the [SelfService](https://sisselfservice.zewailcity.edu.eg/PowerCampusSelfService/Home/LogIn?ReturnUrl=%2FPowerCampusSelfService%2FGrades%2FUnofficialTranscrip) platform.
 
-    - Right-click on the page -> save as.
+    - Right-click on the page &rarr; save as.
 
-    -  In the "Save As" dialog box, choose the third option, which is "Webpage, Complete" from the "Save as type" dropdown menu.
+    -  In the "**Save As**" dialog box, choose the third option, which is "**_Webpage, Complete_**" from the "**Save as type**" dropdown menu.
 
 2. Launch ZC GPA Calculator excutable file <img src="./ZC-GPA Calculator/Logos/zewail logo.png" width="15" height="20" alt="ZC GPA Calculator Logo"> **ZC-GPA Calculator.exe**
 
-3. Open your HTML transcript file by clicking on the _Open Transcript_ button.
+3. Open your HTML transcript file by clicking on the **_Open Transcript_** button.
 
 4. The application will automatically scrape and display the academic data.
 
