@@ -26,7 +26,7 @@ Before using ZC GPA Calculator, ensure that you have the following prerequisites
 
 Or simply accept the automatic download when launching the software, in case it's not already installed on your machine.
 
->> Please note that the application is specifically designed for Windows operating systems starting from Windows 7 and requires the specified version of the .NET Framework to run successfully.
+> **Please note that:** the application is specifically designed for Windows operating systems starting from Windows 7 and requires the specified version of the .NET Framework to run successfully.
 
 ### Installation
 
@@ -45,7 +45,7 @@ Or simply accept the automatic download when launching the software, in case it'
 
 3. Build and run the application using Visual Studio or the .NET CLI.
 
->> Note that: this option reuires .NET desktop development package to be installed on your machine.
+> **Note that:** this option reuires .NET desktop development package to be installed on your machine.
 
 #### Option 2: Use Executable from Release
 
@@ -59,7 +59,7 @@ By using Option 2, you can quickly get started with the application without the 
 
 ### Usage
 
-1. **Download Your Transcript as an HTML File:**
+1. Download Your Transcript as an HTML File:
 
     - Open your transcript on the [SelfService](https://sisselfservice.zewailcity.edu.eg/PowerCampusSelfService/Home/LogIn?ReturnUrl=%2FPowerCampusSelfService%2FGrades%2FUnofficialTranscrip) platform.
 
@@ -69,72 +69,18 @@ By using Option 2, you can quickly get started with the application without the 
 
 2. Launch ZC GPA Calculator excutable file <img src="./ZC-GPA Calculator/Logos/zewail logo.png" width="15" height="20" alt="ZC GPA Calculator Logo"> **ZC-GPA Calculator.exe**
 
-3. Open your HTML transcript file by clicking on the <button class="open-transcript-button">Open Transcript</button> button.
-
-<style>
-.open-transcript-button {
-    background-color: black;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-}
-.open-transcript-button:hover {
-    background-color: #2980b9;
-}
-</style>
+3. Open your HTML transcript file by clicking on the _Open Transcript_ button.
 
 4. The application will automatically scrape and display the academic data.
 
 5. Use the interface:
 
-* to make changes to course grades as needed using the corresponding dropdown list 
-<details>
-  <summary>Select an option</summary>
-  
-  <select id="dropdown">
-    <option value="option1">Option 1</option>
-    <option value="option2">Option 2</option>
-    <option value="option3">Option 3</option>
-  </select>
-  
-  <button onclick="displaySelectedOption()">Submit</button>
+* to make changes to course grades as needed using the corresponding dropdown list.
 
-  <p id="selectedOption"></p>
+* to add new courses:
+    - Click on the **_Add New Semester_** button.
 
-  <script>
-    function displaySelectedOption() {
-      var dropdown = document.getElementById("dropdown");
-      var selectedOption = dropdown.options[dropdown.selectedIndex].text;
-      document.getElementById("selectedOption").textContent = "Selected option: " + selectedOption;
-    }
-  </script>
-</details>
-
-
-* to add new courses
-    - Click on the <button class="add-new-button">Add New Semester</button> button.
-
-    - Then click on <button class="add-new-button">Add New Course</button> button.
-<style>
-.add-new-button {
-    background-color: white;
-    color: grey;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-}
-.open-transcript-button:hover {
-    background-color: #2980b9;
-}
-.open-transcript-button:hover {
-    background-color: #2980b9;
-}
-</style>
+    - Then click on **_Add New Course_** button.
 
 6. The application will update semester GPA and cGPA in real-time.
 
