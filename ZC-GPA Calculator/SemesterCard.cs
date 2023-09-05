@@ -15,7 +15,7 @@ namespace ZC_GPA_Calculator
         public SemesterCard()
         {
             InitializeComponent();
-            letterGrades = new BindingList<string> { "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "F" };
+            letterGrades = new BindingList<string> { "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "F", "P" };
             this.grade.DataSource = letterGrades;
 
         }

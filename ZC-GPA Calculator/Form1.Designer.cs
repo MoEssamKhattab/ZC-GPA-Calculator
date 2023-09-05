@@ -187,7 +187,7 @@
             this.browseFileBtn.ShadowDecoration.CustomizableEdges = customizableEdges4;
             this.browseFileBtn.Size = new System.Drawing.Size(180, 45);
             this.browseFileBtn.TabIndex = 2;
-            this.browseFileBtn.Text = "Browse File";
+            this.browseFileBtn.Text = "Open Transcript";
             this.browseFileBtn.Click += new System.EventHandler(this.browseFileBtn_Click);
             // 
             // guna2PictureBox1
