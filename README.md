@@ -45,7 +45,7 @@ Or simply accept the automatic download when launching the software, in case it'
 
 3. Build and run the application using Visual Studio or the .NET CLI.
 
-> **Note that:** this option reuires .NET desktop development package to be installed on your machine.
+> **Note that:** this option reuires both Visual Studio IDE and .NET desktop development package to be installed on your machine.
 
 #### Option 2: Use Executable from Release
 
@@ -57,7 +57,7 @@ Or simply accept the automatic download when launching the software, in case it'
 
 By using Option 2, you can quickly get started with the application without the need to build it from the source code.
 
-### Usage
+## Usage
 
 1. Download Your Transcript as an HTML File:
 
@@ -84,5 +84,5 @@ By using Option 2, you can quickly get started with the application without the 
 
 6. The application will update semester GPA and cGPA in real-time.
 
-### License
+## License
 This project is licensed under the [MIT License](LICENSE) - see the [LICENSE](LICENSE) file for details.
