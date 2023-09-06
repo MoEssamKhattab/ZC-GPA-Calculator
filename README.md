@@ -21,12 +21,13 @@ ZC-GPA-Calculator is a desktop-based application written in .NET (C# WinForms) d
 ### Prerequisites
 Before using ZC GPA Calculator, ensure that you have the following prerequisites installed on your system:
 - **Operating System:** Windows 7 or later.
-- **.NET Framework:** .NET 7.0
-[.NET 7.0](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
+- **.NET Framework:** <a href="https://dotnet.microsoft.com/en-us/download/dotnet/7.0" target="_blank">.NET 7.0</a>.
 
-Or simply accept the automatic download when launching the software, in case it's not already installed on your machine.
+Or simply accept the automatic download when launching the software, in case .NET 7.0 is not already installed on your machine.
 
-> **Please note that:** the application is specifically designed for Windows operating systems starting from Windows 7 and requires the specified version of the .NET Framework to run successfully.
+> _**Please note that:** the application is specifically designed for Windows operating systems starting from Windows 7 and requires the specified version of the .NET Framework to run successfully._
+
+---
 
 ### Installation
 
@@ -43,9 +44,9 @@ Or simply accept the automatic download when launching the software, in case it'
     cd ZC-GPA-Calculator
     ```
 
-3. Build and run the application using Visual Studio or the .NET CLI.
+3. Build and run the application using Visual Studio.
 
-> **Note that:** this option reuires both Visual Studio IDE and .NET desktop development package to be installed on your machine.
+> _**Note that:** this option reuires both Visual Studio IDE and .NET desktop development package to be installed on your machine._
 
 #### Option 2: Use Executable from Release
 
@@ -55,13 +56,14 @@ Or simply accept the automatic download when launching the software, in case it'
 
 3. Run the downloaded executable file to launch <img src="./ZC-GPA Calculator/Logos/zewail logo.png" width="15" height="20" alt="ZC GPA Calculator Logo"> **ZC-GPA Calculator.exe**
 
-> By using Option 2, you can quickly get started with the application without the need to build it from the source code.
+> _By using Option 2, you can quickly get started with the application without the need to build it from the source code._
 
 ## Usage
 
 1. Download Your Transcript as an HTML File:
 
-    - Open your transcript on the [SelfService](https://sisselfservice.zewailcity.edu.eg/PowerCampusSelfService/Home/LogIn?ReturnUrl=%2FPowerCampusSelfService%2FGrades%2FUnofficialTranscrip) platform.
+    - Open your transcript on the <a href="https://sisselfservice.zewailcity.edu.eg/PowerCampusSelfService/Home/LogIn?ReturnUrl=%2FPowerCampusSelfService%2FGrades%2FUnofficialTranscrip" target="_blank">SelfService</a> platform.
+
 
     - Right-click on the page &rarr; save as.
 
@@ -69,7 +71,7 @@ Or simply accept the automatic download when launching the software, in case it'
 
 2. Launch ZC GPA Calculator excutable file <img src="./ZC-GPA Calculator/Logos/zewail logo.png" width="15" height="20" alt="ZC GPA Calculator Logo"> **ZC-GPA Calculator.exe**
 
-3. Open your HTML transcript file by clicking on the **_Open Transcript_** button.
+3. Open your HTML transcript file by clicking on the **Open Transcript** button.
 
 4. The application will automatically scrape and display the academic data.
 
@@ -78,11 +80,17 @@ Or simply accept the automatic download when launching the software, in case it'
     * to make changes to course grades as needed using the corresponding dropdown list.
 
     * to add new courses:
-        - Click on the **_Add New Semester_** button.
 
-        - Then click on **_Add New Course_** button.
+        - Click on the **Add New Semester** button.
+
+        - Then click on **Add New Course** button.
+    
+    * to delete a newly-added course:
+
+        - Right click on the course row on the table &rarr; delete course
 
 6. The application will update semester GPA and cGPA in real-time.
 
 ## License
+
 This project is licensed under the [MIT License](LICENSE) - see the [LICENSE](LICENSE) file for details.

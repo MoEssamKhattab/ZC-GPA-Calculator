@@ -82,7 +82,8 @@ namespace ZC_GPA_Calculator
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(9)))), ((int)(((byte)(9)))));
+            this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(35)))));
             this.guna2Panel1.BorderRadius = 20;
             this.guna2Panel1.BorderThickness = 2;
             this.guna2Panel1.Controls.Add(this.addCourseBtn);
@@ -378,11 +379,12 @@ namespace ZC_GPA_Calculator
             // 
             // cardHeaderPanel
             // 
+            this.cardHeaderPanel.BorderColor = System.Drawing.Color.Transparent;
             this.cardHeaderPanel.Controls.Add(this.guna2PictureBox1);
             this.cardHeaderPanel.Controls.Add(this.semesterTitle);
             this.cardHeaderPanel.CustomizableEdges = customizableEdges5;
             this.cardHeaderPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.cardHeaderPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(8)))), ((int)(((byte)(8)))));
+            this.cardHeaderPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(35)))));
             this.cardHeaderPanel.Location = new System.Drawing.Point(0, 0);
             this.cardHeaderPanel.Name = "cardHeaderPanel";
             this.cardHeaderPanel.ShadowDecoration.CustomizableEdges = customizableEdges6;

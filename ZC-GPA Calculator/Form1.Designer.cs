@@ -1,6 +1,6 @@
 ﻿namespace ZC_GPA_Calculator
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,29 +29,45 @@
         private void InitializeComponent()
         {
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             this.tabs = new Guna.UI2.WinForms.Guna2TabControl();
             this.tab1 = new System.Windows.Forms.TabPage();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.sourceCodeBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dragFilePanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Separator3 = new Guna.UI2.WinForms.Guna2Separator();
+            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
+            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.browseFileBtn = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -71,8 +87,11 @@
             this.studentNameLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.tabs.SuspendLayout();
             this.tab1.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
-            this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
+            this.dragFilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.tab2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
@@ -116,8 +135,12 @@
             // 
             this.tab1.BackColor = System.Drawing.Color.White;
             this.tab1.Controls.Add(this.guna2HtmlLabel3);
-            this.tab1.Controls.Add(this.guna2PictureBox2);
-            this.tab1.Controls.Add(this.guna2Panel1);
+            this.tab1.Controls.Add(this.panel1);
+            this.tab1.Controls.Add(this.guna2PictureBox4);
+            this.tab1.Controls.Add(this.guna2PictureBox3);
+            this.tab1.Controls.Add(this.guna2HtmlLabel2);
+            this.tab1.Controls.Add(this.label4);
+            this.tab1.Controls.Add(this.dragFilePanel);
             this.tab1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tab1.Location = new System.Drawing.Point(5, 4);
             this.tab1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -130,12 +153,22 @@
             // guna2HtmlLabel3
             // 
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel3.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(738, 281);
+            this.guna2HtmlLabel3.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(576, 244);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(435, 43);
-            this.guna2HtmlLabel3.TabIndex = 3;
-            this.guna2HtmlLabel3.Text = "Welcome to ZC GPA Calculator";
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(741, 56);
+            this.guna2HtmlLabel3.TabIndex = 12;
+            this.guna2HtmlLabel3.Text = "Manipulate Your Academic Data Easily!";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.guna2PictureBox2);
+            this.panel1.Controls.Add(this.sourceCodeBtn);
+            this.panel1.Controls.Add(this.guna2HtmlLabel4);
+            this.panel1.Location = new System.Drawing.Point(116, 51);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1660, 110);
+            this.panel1.TabIndex = 11;
             // 
             // guna2PictureBox2
             // 
@@ -144,48 +177,170 @@
             this.guna2PictureBox2.FillColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox2.Image")));
             this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(824, 98);
+            this.guna2PictureBox2.Location = new System.Drawing.Point(18, 31);
             this.guna2PictureBox2.Name = "guna2PictureBox2";
             this.guna2PictureBox2.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            this.guna2PictureBox2.Size = new System.Drawing.Size(262, 159);
+            this.guna2PictureBox2.Size = new System.Drawing.Size(45, 49);
             this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox2.TabIndex = 2;
             this.guna2PictureBox2.TabStop = false;
             // 
-            // guna2Panel1
+            // sourceCodeBtn
             // 
-            this.guna2Panel1.BorderColor = System.Drawing.Color.Black;
-            this.guna2Panel1.BorderRadius = 15;
-            this.guna2Panel1.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.guna2Panel1.BorderThickness = 3;
-            this.guna2Panel1.Controls.Add(this.browseFileBtn);
-            this.guna2Panel1.Controls.Add(this.guna2PictureBox1);
-            this.guna2Panel1.Controls.Add(this.label1);
-            this.guna2Panel1.CustomizableEdges = customizableEdges7;
-            this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(231)))), ((int)(((byte)(234)))));
-            this.guna2Panel1.Location = new System.Drawing.Point(681, 407);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            this.guna2Panel1.Size = new System.Drawing.Size(549, 350);
-            this.guna2Panel1.TabIndex = 0;
+            this.sourceCodeBtn.Animated = true;
+            this.sourceCodeBtn.BackColor = System.Drawing.Color.Transparent;
+            this.sourceCodeBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(79)))), ((int)(((byte)(237)))));
+            this.sourceCodeBtn.BorderRadius = 30;
+            this.sourceCodeBtn.BorderThickness = 1;
+            this.sourceCodeBtn.CustomBorderColor = System.Drawing.SystemColors.HotTrack;
+            this.sourceCodeBtn.CustomizableEdges = customizableEdges3;
+            this.sourceCodeBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.sourceCodeBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.sourceCodeBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.sourceCodeBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.sourceCodeBtn.FillColor = System.Drawing.Color.Transparent;
+            this.sourceCodeBtn.Font = new System.Drawing.Font("Courier New", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.sourceCodeBtn.ForeColor = System.Drawing.Color.Gray;
+            this.sourceCodeBtn.Location = new System.Drawing.Point(1475, 24);
+            this.sourceCodeBtn.Name = "sourceCodeBtn";
+            this.sourceCodeBtn.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            this.sourceCodeBtn.Size = new System.Drawing.Size(167, 62);
+            this.sourceCodeBtn.TabIndex = 10;
+            this.sourceCodeBtn.Text = "Source Code";
+            this.sourceCodeBtn.Click += new System.EventHandler(this.sourceCodeBtn_Click);
+            // 
+            // guna2HtmlLabel4
+            // 
+            this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.guna2HtmlLabel4.Location = new System.Drawing.Point(69, 40);
+            this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(205, 30);
+            this.guna2HtmlLabel4.TabIndex = 5;
+            this.guna2HtmlLabel4.Text = "ZC GPA CALCULATOR";
+            // 
+            // guna2PictureBox4
+            // 
+            this.guna2PictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox4.CustomizableEdges = customizableEdges5;
+            this.guna2PictureBox4.FillColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox4.Image")));
+            this.guna2PictureBox4.ImageRotate = 0F;
+            this.guna2PictureBox4.Location = new System.Drawing.Point(-196, 265);
+            this.guna2PictureBox4.Name = "guna2PictureBox4";
+            this.guna2PictureBox4.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            this.guna2PictureBox4.Size = new System.Drawing.Size(487, 694);
+            this.guna2PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox4.TabIndex = 9;
+            this.guna2PictureBox4.TabStop = false;
+            // 
+            // guna2PictureBox3
+            // 
+            this.guna2PictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox3.CustomizableEdges = customizableEdges7;
+            this.guna2PictureBox3.FillColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox3.Image")));
+            this.guna2PictureBox3.ImageRotate = 0F;
+            this.guna2PictureBox3.Location = new System.Drawing.Point(1586, 397);
+            this.guna2PictureBox3.Name = "guna2PictureBox3";
+            this.guna2PictureBox3.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            this.guna2PictureBox3.Size = new System.Drawing.Size(572, 562);
+            this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox3.TabIndex = 6;
+            this.guna2PictureBox3.TabStop = false;
+            // 
+            // guna2HtmlLabel2
+            // 
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.Gray;
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(4, 1008);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(1885, 14);
+            this.guna2HtmlLabel2.TabIndex = 8;
+            this.guna2HtmlLabel2.Text = "© 2023 MoEssamKhattab";
+            this.guna2HtmlLabel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label4.Location = new System.Drawing.Point(629, 328);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(635, 42);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "ZC GPA Calculator is  a comprehensive tool to analyze your transcript,\r\nand conve" +
+    "niently manipulate your academic data.";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dragFilePanel
+            // 
+            this.dragFilePanel.AllowDrop = true;
+            this.dragFilePanel.BackColor = System.Drawing.Color.Transparent;
+            this.dragFilePanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(223)))), ((int)(((byte)(242)))));
+            this.dragFilePanel.BorderRadius = 25;
+            this.dragFilePanel.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.dragFilePanel.BorderThickness = 3;
+            this.dragFilePanel.Controls.Add(this.guna2Separator3);
+            this.dragFilePanel.Controls.Add(this.guna2Separator1);
+            this.dragFilePanel.Controls.Add(this.guna2HtmlLabel5);
+            this.dragFilePanel.Controls.Add(this.browseFileBtn);
+            this.dragFilePanel.Controls.Add(this.guna2PictureBox1);
+            this.dragFilePanel.Controls.Add(this.label1);
+            this.dragFilePanel.CustomizableEdges = customizableEdges13;
+            this.dragFilePanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(251)))));
+            this.dragFilePanel.Location = new System.Drawing.Point(672, 468);
+            this.dragFilePanel.Name = "dragFilePanel";
+            this.dragFilePanel.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            this.dragFilePanel.Size = new System.Drawing.Size(549, 340);
+            this.dragFilePanel.TabIndex = 0;
+            this.dragFilePanel.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragFilePanel_DragDrop);
+            this.dragFilePanel.DragEnter += new System.Windows.Forms.DragEventHandler(this.dragFilePanel_DragEnter);
+            // 
+            // guna2Separator3
+            // 
+            this.guna2Separator3.Location = new System.Drawing.Point(297, 211);
+            this.guna2Separator3.Name = "guna2Separator3";
+            this.guna2Separator3.Size = new System.Drawing.Size(67, 12);
+            this.guna2Separator3.TabIndex = 5;
+            // 
+            // guna2Separator1
+            // 
+            this.guna2Separator1.Location = new System.Drawing.Point(184, 211);
+            this.guna2Separator1.Name = "guna2Separator1";
+            this.guna2Separator1.Size = new System.Drawing.Size(67, 12);
+            this.guna2Separator1.TabIndex = 4;
+            // 
+            // guna2HtmlLabel5
+            // 
+            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.guna2HtmlLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(257, 199);
+            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(34, 33);
+            this.guna2HtmlLabel5.TabIndex = 3;
+            this.guna2HtmlLabel5.Text = "OR";
             // 
             // browseFileBtn
             // 
             this.browseFileBtn.Animated = true;
             this.browseFileBtn.BackColor = System.Drawing.Color.Transparent;
             this.browseFileBtn.BorderRadius = 8;
-            this.browseFileBtn.CustomizableEdges = customizableEdges3;
+            this.browseFileBtn.CustomizableEdges = customizableEdges9;
             this.browseFileBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.browseFileBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.browseFileBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.browseFileBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.browseFileBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(8)))), ((int)(((byte)(8)))));
-            this.browseFileBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.browseFileBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(79)))), ((int)(((byte)(237)))));
+            this.browseFileBtn.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.browseFileBtn.ForeColor = System.Drawing.Color.White;
-            this.browseFileBtn.Location = new System.Drawing.Point(184, 233);
+            this.browseFileBtn.Location = new System.Drawing.Point(184, 247);
             this.browseFileBtn.Name = "browseFileBtn";
-            this.browseFileBtn.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            this.browseFileBtn.Size = new System.Drawing.Size(180, 45);
+            this.browseFileBtn.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            this.browseFileBtn.Size = new System.Drawing.Size(180, 51);
             this.browseFileBtn.TabIndex = 2;
             this.browseFileBtn.Text = "Open Transcript";
             this.browseFileBtn.Click += new System.EventHandler(this.browseFileBtn_Click);
@@ -193,14 +348,14 @@
             // guna2PictureBox1
             // 
             this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox1.CustomizableEdges = customizableEdges5;
+            this.guna2PictureBox1.CustomizableEdges = customizableEdges11;
             this.guna2PictureBox1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox1.Image = global::ZC_GPA_Calculator.Properties.Resources.addfile;
+            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(247, 73);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(242, 43);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(56, 88);
+            this.guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            this.guna2PictureBox1.Size = new System.Drawing.Size(65, 76);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox1.TabIndex = 1;
             this.guna2PictureBox1.TabStop = false;
@@ -209,12 +364,14 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(131, 164);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(138, 134);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(286, 28);
+            this.label1.Size = new System.Drawing.Size(272, 50);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Browse your transcript please!";
+            this.label1.Text = "Drag your HTML transcript file\r\nhere to start analyzing.";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tab2
             // 
@@ -246,7 +403,8 @@
             // semestersComboBox
             // 
             this.semestersComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.semestersComboBox.CustomizableEdges = customizableEdges9;
+            this.semestersComboBox.BorderRadius = 8;
+            this.semestersComboBox.CustomizableEdges = customizableEdges15;
             this.semestersComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.semestersComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.semestersComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -256,7 +414,7 @@
             this.semestersComboBox.ItemHeight = 30;
             this.semestersComboBox.Location = new System.Drawing.Point(105, 195);
             this.semestersComboBox.Name = "semestersComboBox";
-            this.semestersComboBox.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            this.semestersComboBox.ShadowDecoration.CustomizableEdges = customizableEdges16;
             this.semestersComboBox.Size = new System.Drawing.Size(287, 36);
             this.semestersComboBox.TabIndex = 15;
             this.semestersComboBox.SelectedIndexChanged += new System.EventHandler(this.semestersComboBox_SelectedIndexChanged);
@@ -272,11 +430,12 @@
             // 
             this.cgpaLabel.BackColor = System.Drawing.Color.Transparent;
             this.cgpaLabel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cgpaLabel.Location = new System.Drawing.Point(1665, 179);
+            this.cgpaLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(8)))), ((int)(((byte)(8)))));
+            this.cgpaLabel.Location = new System.Drawing.Point(1661, 182);
             this.cgpaLabel.Name = "cgpaLabel";
-            this.cgpaLabel.Size = new System.Drawing.Size(140, 39);
+            this.cgpaLabel.Size = new System.Drawing.Size(144, 39);
             this.cgpaLabel.TabIndex = 12;
-            this.cgpaLabel.Text = "cGPA: 4.00";
+            this.cgpaLabel.Text = "CGPA: 4.00";
             // 
             // semestersPanel
             // 
@@ -284,7 +443,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.semestersPanel.AutoScroll = true;
-            this.semestersPanel.Location = new System.Drawing.Point(7, 244);
+            this.semestersPanel.BackColor = System.Drawing.Color.Transparent;
+            this.semestersPanel.Location = new System.Drawing.Point(7, 243);
             this.semestersPanel.Margin = new System.Windows.Forms.Padding(20);
             this.semestersPanel.Name = "semestersPanel";
             this.semestersPanel.Size = new System.Drawing.Size(1878, 674);
@@ -299,7 +459,7 @@
             this.addNewSemesterBtn.BorderRadius = 8;
             this.addNewSemesterBtn.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
             this.addNewSemesterBtn.BorderThickness = 1;
-            this.addNewSemesterBtn.CustomizableEdges = customizableEdges11;
+            this.addNewSemesterBtn.CustomizableEdges = customizableEdges17;
             this.addNewSemesterBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.addNewSemesterBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.addNewSemesterBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -309,7 +469,7 @@
             this.addNewSemesterBtn.ForeColor = System.Drawing.Color.DimGray;
             this.addNewSemesterBtn.Location = new System.Drawing.Point(96, 931);
             this.addNewSemesterBtn.Name = "addNewSemesterBtn";
-            this.addNewSemesterBtn.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            this.addNewSemesterBtn.ShadowDecoration.CustomizableEdges = customizableEdges18;
             this.addNewSemesterBtn.Size = new System.Drawing.Size(1700, 45);
             this.addNewSemesterBtn.TabIndex = 9;
             this.addNewSemesterBtn.Text = "Add New Semester";
@@ -322,11 +482,11 @@
             this.guna2Panel3.Controls.Add(this.studentMajorLabel);
             this.guna2Panel3.Controls.Add(this.guna2Panel2);
             this.guna2Panel3.Controls.Add(this.studentNameLabel);
-            this.guna2Panel3.CustomizableEdges = customizableEdges17;
+            this.guna2Panel3.CustomizableEdges = customizableEdges23;
             this.guna2Panel3.FillColor = System.Drawing.Color.Transparent;
             this.guna2Panel3.Location = new System.Drawing.Point(105, 20);
             this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            this.guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges24;
             this.guna2Panel3.Size = new System.Drawing.Size(1700, 136);
             this.guna2Panel3.TabIndex = 5;
             // 
@@ -338,12 +498,12 @@
             this.studentPicture.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.studentPicture.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.studentPicture.Enabled = false;
-            this.studentPicture.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.studentPicture.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(35)))));
             this.studentPicture.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.studentPicture.ForeColor = System.Drawing.Color.White;
             this.studentPicture.Location = new System.Drawing.Point(3, 37);
             this.studentPicture.Name = "studentPicture";
-            this.studentPicture.ShadowDecoration.CustomizableEdges = customizableEdges13;
+            this.studentPicture.ShadowDecoration.CustomizableEdges = customizableEdges19;
             this.studentPicture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.studentPicture.Size = new System.Drawing.Size(80, 80);
             this.studentPicture.TabIndex = 3;
@@ -353,7 +513,7 @@
             // 
             this.studentMajorLabel.BackColor = System.Drawing.Color.Transparent;
             this.studentMajorLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.studentMajorLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.studentMajorLabel.ForeColor = System.Drawing.Color.Gray;
             this.studentMajorLabel.Location = new System.Drawing.Point(89, 87);
             this.studentMajorLabel.Name = "studentMajorLabel";
             this.studentMajorLabel.Size = new System.Drawing.Size(55, 30);
@@ -369,11 +529,11 @@
             this.guna2Panel2.BorderThickness = 2;
             this.guna2Panel2.Controls.Add(this.label2);
             this.guna2Panel2.Controls.Add(this.uploadAnotherDocBtn);
-            this.guna2Panel2.CustomizableEdges = customizableEdges15;
+            this.guna2Panel2.CustomizableEdges = customizableEdges21;
             this.guna2Panel2.FillColor = System.Drawing.Color.Transparent;
             this.guna2Panel2.Location = new System.Drawing.Point(1570, 3);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            this.guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges22;
             this.guna2Panel2.Size = new System.Drawing.Size(130, 130);
             this.guna2Panel2.TabIndex = 6;
             // 
@@ -398,12 +558,12 @@
             this.uploadAnotherDocBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.uploadAnotherDocBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.uploadAnotherDocBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.uploadAnotherDocBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
+            this.uploadAnotherDocBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(35)))));
             this.uploadAnotherDocBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.uploadAnotherDocBtn.ForeColor = System.Drawing.Color.White;
             this.uploadAnotherDocBtn.Location = new System.Drawing.Point(35, 26);
             this.uploadAnotherDocBtn.Name = "uploadAnotherDocBtn";
-            this.uploadAnotherDocBtn.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            this.uploadAnotherDocBtn.ShadowDecoration.CustomizableEdges = customizableEdges20;
             this.uploadAnotherDocBtn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.uploadAnotherDocBtn.Size = new System.Drawing.Size(60, 60);
             this.uploadAnotherDocBtn.TabIndex = 0;
@@ -421,7 +581,7 @@
             this.studentNameLabel.TabIndex = 0;
             this.studentNameLabel.Text = "Name";
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -431,16 +591,20 @@
             this.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "ZC GPA Calculator";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabs.ResumeLayout(false);
             this.tab1.ResumeLayout(false);
             this.tab1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
-            this.guna2Panel1.ResumeLayout(false);
-            this.guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
+            this.dragFilePanel.ResumeLayout(false);
+            this.dragFilePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.tab2.ResumeLayout(false);
             this.tab2.PerformLayout();
@@ -456,13 +620,11 @@
 
         private Guna.UI2.WinForms.Guna2TabControl tabs;
         private TabPage tab1;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Label label1;
+        private Guna.UI2.WinForms.Guna2Panel dragFilePanel;
         private Guna.UI2.WinForms.Guna2Button browseFileBtn;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private TabPage tab2;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2CircleButton studentPicture;
         private Guna.UI2.WinForms.Guna2HtmlLabel studentMajorLabel;
@@ -476,5 +638,17 @@
         private Guna.UI2.WinForms.Guna2Separator guna2Separator2;
         private Guna.UI2.WinForms.Guna2ComboBox semestersComboBox;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
+        private Guna.UI2.WinForms.Guna2Separator guna2Separator3;
+        private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
+        private Label label1;
+        private Label label4;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox4;
+        private Panel panel1;
+        private Guna.UI2.WinForms.Guna2Button sourceCodeBtn;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
     }
 }

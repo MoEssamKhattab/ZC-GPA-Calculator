@@ -1,20 +1,25 @@
 using System.ComponentModel;
+using System.Diagnostics;
+using System.Security.Policy;
 
 namespace ZC_GPA_Calculator
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         BindingList<semester> semesterList;
         List<SemesterCard> semesterCardList;
+
         string studentName;
         string studentMajor;
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             semestersComboBox.DisplayMember = "Name";
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            this.WindowState = FormWindowState.Maximized;
         }
         private void browseFileBtn_Click(object sender, EventArgs e)
         {
@@ -27,26 +32,30 @@ namespace ZC_GPA_Calculator
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string filePath = openFileDialog.FileName;     //files path                
-                try
-                {
-                    semesterList = Controller.readHtmlTranscript(filePath, out studentName, out studentMajor);
-                    semesterCard_CgpaUpdate(null, EventArgs.Empty);     // Called once after loading all the semester cards, rather than after loading each card or course
+                readInputFile(filePath);
+            }
+        }
+        public void readInputFile(string filePath)
+        {
+            try
+            {
+                semesterList = Controller.readHtmlTranscript(filePath, out studentName, out studentMajor);
+                semesterCard_CgpaUpdate(null, EventArgs.Empty);     // Called once after loading all the semester cards, rather than after loading each card or course
 
-                    if (semesterList != null && semesterList.Count != 0)
-                    {
-                        initializeSemestersCards();
-                        studentNameLabel.Text = studentName;
-                        studentMajorLabel.Text = studentMajor;
-                        studentPicture.Text = studentName[0].ToString();
-                        tabs.SelectTab(tab2);
-                    }
-                    else
-                        MessageBox.Show("Open a valid transcript file, please!");
+                if (semesterList != null && semesterList.Count != 0)
+                {                    
+                    initializeSemestersCards();
+                    studentNameLabel.Text = studentName;
+                    studentMajorLabel.Text = studentMajor;
+                    studentPicture.Text = studentName[0].ToString();
+                    tabs.SelectTab(tab2);
                 }
-                catch
-                {
-                    MessageBox.Show("Open a valid HTML file, please!");
-                }
+                else
+                    MessageBox.Show("Open a valid transcript file, please!");
+            }
+            catch
+            {
+                MessageBox.Show("Open a valid HTML file, please!");
             }
         }
         public void initializeSemestersCards()
@@ -161,5 +170,35 @@ namespace ZC_GPA_Calculator
             Point targetPosition = new Point(0, semesterCardList[semestersComboBox.SelectedIndex].Top - semesterCardList[semestersComboBox.SelectedIndex].Margin.Top - semestersPanel.AutoScrollPosition.Y);
             semestersPanel.AutoScrollPosition = targetPosition;
         }
+
+        private void dragFilePanel_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                e.Effect = DragDropEffects.Copy;
+        }
+        private void dragFilePanel_DragDrop(object sender, DragEventArgs e)
+        {
+            var files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            string filePath = files[0];
+            readInputFile(filePath);
+        }
+        private void sourceCodeBtn_Click(object sender, EventArgs e)
+        {
+            string url = "https://github.com/MoEssamKhattab/ZC-GPA-Calculator";
+            try
+            {
+                Process.Start(new ProcessStartInfo() { FileName = url, UseShellExecute = true });
+            }
+            catch (System.ComponentModel.Win32Exception noBrowser)
+            {
+                if (noBrowser.ErrorCode == -2147467259)
+                    MessageBox.Show(noBrowser.Message);
+            }
+            catch (System.Exception other)
+            {
+                MessageBox.Show(other.Message);
+            }
+        }
+
     }
 }

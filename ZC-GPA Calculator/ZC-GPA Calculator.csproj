@@ -7,11 +7,11 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <ApplicationIcon>Icons\zewail-logo.ico</ApplicationIcon>
+    <ApplicationIcon>Logos\zewail-logo-blue.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Icons\zewail-logo.ico" />
+    <Content Include="Logos\zewail-logo-blue.ico" />
   </ItemGroup>
 
   <ItemGroup>

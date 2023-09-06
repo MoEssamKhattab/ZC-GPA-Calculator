@@ -273,19 +273,73 @@ namespace ZC_GPA_Calculator
         }
         public static void changeRepeatedFlag(string courseCode, BindingList<semester> semestersList)
         {
-            for (int i=0; i<semestersList.Count; i++)
+            bool found = false;
+            for (int i = semestersList.Count - 1; i >= 0; i--)   // In reverse order to Handle the last occurence
             {
-                for (int j=0; j< semestersList[i].Courses.Count; j++)
+                for (int j = 0; j < semestersList[i].Courses.Count; j++)   // In ordinary order as the course is not repeated at the same semester (it doesn't matter)
                 {
                     if (semestersList[i].Courses[j].Code == courseCode)
                     {
                         Course tempCourse = semestersList[i].Courses[j];
                         tempCourse.Repeated = true;
                         semestersList[i].Courses[j] = tempCourse;
+                        found = true;
                     }
                 }
             }
+            if (found == false)
+            {
+                MessageBox.Show($"It seems that the repeated course, {courseCode}, was repeated with different corse code. Reach the old course and change its grade to 'P', please!");
+            }
+            // if (found == false)
+            //    allCourseCodesList = new BindingList<string>();
+            //    fillAllCourseCodesList(semestersList, allCourseCodesList);
+            //    using (HandleRepeatsForm handleRepeatsForm = new HandleRepeatsForm(courseCode, allCourseCodesList))
+            //    {
+            //        string oldCourseCode;
+
+                    //        DialogResult dialogResult = handleRepeatsForm.ShowDialog();
+                    //        if (dialogResult == DialogResult.OK)
+                    //        {
+                    //            oldCourseCode = handleRepeatsForm.OldCourseCode;
+
+                    //        }
+                    //    }
+            //}
         }
+        //public static bool searchRepeatedCourse(BindingList<semester> semestersList, string courseCode)
+        //{
+        //    bool found = false;
+        //    for (int i = semestersList.Count - 1; i >= 0; i--)   // In reverse order to Handle the last occurence
+        //    {
+        //        for (int j = 0; j < semestersList[i].Courses.Count; j++)   // In ordinary order as the course is not repeated at the same semester (it doesn't matter)
+        //        {
+        //            if (semestersList[i].Courses[j].Code == courseCode)
+        //            {
+        //                Course tempCourse = semestersList[i].Courses[j];
+        //                tempCourse.Repeated = true;
+        //                semestersList[i].Courses[j] = tempCourse;
+        //                return true;
+        //            }
+        //        }
+        //    }
+        //    return found;
+        //}
+
+        //public static void fillAllCourseCodesList(BindingList<semester> semestersList, BindingList<string> allCourseCodesList)
+        //{
+        //    foreach(var semester in semestersList)
+        //    {
+        //        foreach(var course in semester.Courses) 
+        //        {
+        //            if(!allCourseCodesList.Contains(course.Code))
+        //            {
+        //                allCourseCodesList.Add(course.Code);
+        //            }
+        //        }
+        //    }
+        //    MessageBox.Show(allCourseCodesList[allCourseCodesList.Count - 1]);
+        //}
 
         //public static BindingList<semester> readTranscript(string path, out string studentName, out string major)
         //{
