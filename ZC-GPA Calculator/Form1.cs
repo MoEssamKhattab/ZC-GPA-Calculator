@@ -43,7 +43,7 @@ namespace ZC_GPA_Calculator
                 semesterCard_CgpaUpdate(null, EventArgs.Empty);     // Called once after loading all the semester cards, rather than after loading each card or course
 
                 if (semesterList != null && semesterList.Count != 0)
-                {                    
+                {
                     initializeSemestersCards();
                     studentNameLabel.Text = studentName;
                     studentMajorLabel.Text = studentMajor;
@@ -51,11 +51,17 @@ namespace ZC_GPA_Calculator
                     tabs.SelectTab(tab2);
                 }
                 else
+                {
                     MessageBox.Show("Open a valid transcript file, please!");
+                }
             }
-            catch
+            catch (NullReferenceException nullRefEx)
             {
                 MessageBox.Show("Open a valid HTML file, please!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
         public void initializeSemestersCards()
@@ -93,22 +99,33 @@ namespace ZC_GPA_Calculator
             {
                 //int rowIndex = (e as DataGridViewCellEventArgs).RowIndex
                 DataGridViewCellEventArgs cell = (DataGridViewCellEventArgs)e;
-                int rowIndex = cell.RowIndex;
+                int rowIndex = cell.RowIndex;       // Course index
 
                 SemesterCard thisCard = (SemesterCard)sender;
-                DataGridViewComboBoxCell gradeComboBox = (DataGridViewComboBoxCell)thisCard.CourseTable.Rows[rowIndex].Cells["Grade"];
-                
                 int semesterIndex = Controller.getSemesterIndex(thisCard, semesterCardList);
-                Controller.updateSemestersList(ref this.semesterList, semesterIndex, rowIndex, gradeComboBox.Value.ToString());
-                updateSemestersGPATables(this.semesterList, this.semesterCardList);
-                semesterCard.updateCourseTableQualityPoints(semesterList[semesterIndex], rowIndex);
+
+                if (semesterList[semesterIndex].Courses[rowIndex].RepeatedIn != -1)
+                {
+                    MessageBox.Show("This is an already repeated course, try to change the grade of the recently repeated version");
+                }
+                else if (semesterList[semesterIndex].Courses[rowIndex].GpaCredits == 0)
+                {
+                    MessageBox.Show("This course has 0 GPA Credits; changing its grade will not affect your GPA at all!");
+                }
+                else
+                {
+                    DataGridViewComboBoxCell gradeComboBox = (DataGridViewComboBoxCell)thisCard.CourseTable.Rows[rowIndex].Cells["Grade"];
+
+                    Controller.updateSemestersList(ref this.semesterList, semesterIndex, rowIndex, gradeComboBox.Value.ToString());
+                    updateSemestersGPATables(this.semesterList, this.semesterCardList);
+                    semesterCard.updateCourseTableQualityPoints(semesterList[semesterIndex], rowIndex);
+                }
             };
             semesterCard.CourseAdded += (object sender, Course e) =>
             {
                 SemesterCard thisCard = sender as SemesterCard;
                 int semesterIndex = Controller.getSemesterIndex(thisCard, semesterCardList);
                 semesterList[semesterIndex].Courses.Add(e);
-                //thisCard.fill(semesterList, semesterIndex);     // TODO: to create a separate function that handles adding a new course in the semester card
                 thisCard.addNewCourse(semesterList, semesterIndex);
                 semestersPanel.VerticalScroll.Value = semestersPanel.VerticalScroll.Maximum;
             };
@@ -121,11 +138,11 @@ namespace ZC_GPA_Calculator
                 semesterCard_CgpaUpdate(null, EventArgs.Empty);
             };
             semesterCard.CgpaUpdate += new System.EventHandler(this.semesterCard_CgpaUpdate);
-        }        
+        }
         private void semesterCard_CgpaUpdate(object sender, EventArgs e)
         {
             double cGPA = Math.Round(semesterList[semesterList.Count - 1].calculateOverallGPA(semesterList, semesterList.Count - 1), 2);
-            cgpaLabel.Text = $"CGPA: {cGPA}";
+            cgpaLabel.Text = $"CGPA: {cGPA.ToString("0.00")}";
         }     
         private void updateSemestersGPATables(BindingList<semester> semesters, List<SemesterCard> semesterCards)
         {
@@ -155,7 +172,7 @@ namespace ZC_GPA_Calculator
                     year = addSemesterForm.SemesterYear;
 
                     addNewSemester(semesterTitle, year, this.semesterList, this.semesterCardList);
-                    semestersPanel.VerticalScroll.Value = semestersPanel.VerticalScroll.Maximum;    //Scrol to the bottom to view the added semester card
+                    semestersPanel.VerticalScroll.Value = semestersPanel.VerticalScroll.Maximum;    //Scroll to the bottom to view the added semester card
                 }
             }
         }
@@ -189,14 +206,14 @@ namespace ZC_GPA_Calculator
             {
                 Process.Start(new ProcessStartInfo() { FileName = url, UseShellExecute = true });
             }
-            catch (System.ComponentModel.Win32Exception noBrowser)
+            catch (System.ComponentModel.Win32Exception noBrowserExeption)
             {
-                if (noBrowser.ErrorCode == -2147467259)
-                    MessageBox.Show(noBrowser.Message);
+                if (noBrowserExeption.ErrorCode == -2147467259)
+                    MessageBox.Show(noBrowserExeption.Message);
             }
-            catch (System.Exception other)
+            catch (System.Exception otherExeption)
             {
-                MessageBox.Show(other.Message);
+                MessageBox.Show(otherExeption.Message);
             }
         }
 

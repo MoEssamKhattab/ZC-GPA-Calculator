@@ -15,7 +15,7 @@ namespace ZC_GPA_Calculator
         public SemesterCard()
         {
             InitializeComponent();
-            letterGrades = new BindingList<string> { "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "F", "P" };
+            letterGrades = new BindingList<string> { "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "F" };
             this.grade.DataSource = letterGrades;
 
         }
@@ -68,7 +68,7 @@ namespace ZC_GPA_Calculator
                 var rowIndex = courseTable.Rows.Add();
                 courseTable.Rows[rowIndex].Cells["Course"].Value = course.Code;
                 courseTable.Rows[rowIndex].Cells["Title"].Value = course.Title;
-                courseTable.Rows[rowIndex].Cells["Subtype"].Value = course.SubType.ToString();
+                courseTable.Rows[rowIndex].Cells["Subtype"].Value = course.Subtype.ToString();
 
                 if (!letterGrades.Contains(course.Grade))
                 {
@@ -89,7 +89,7 @@ namespace ZC_GPA_Calculator
             var rowIndex = courseTable.Rows.Add();
             courseTable.Rows[rowIndex].Cells["Course"].Value = course.Code;
             courseTable.Rows[rowIndex].Cells["Title"].Value = course.Title;
-            courseTable.Rows[rowIndex].Cells["Subtype"].Value = course.SubType.ToString();
+            courseTable.Rows[rowIndex].Cells["Subtype"].Value = course.Subtype.ToString();
             courseTable.Rows[rowIndex].Cells["Grade"].Value = course.Grade;
             courseTable.Rows[rowIndex].Cells["Credits"].Value = course.Credits.ToString();
             courseTable.Rows[rowIndex].Cells["QualityPoints"].Value = course.calculateQualityPoints().ToString("0.00");
@@ -116,6 +116,10 @@ namespace ZC_GPA_Calculator
             // GPA Calculations
             calculationsTable.Rows[0].Cells["GPACredits"].Value = semesters[index].calculateGPACredits().ToString();
             calculationsTable.Rows[1].Cells["GPACredits"].Value = semesters[index].calculateOverallGPACredits(semesters, index).ToString();
+            calculationsTable.Rows[0].Cells["TransferCredits"].Value = semesters[index].calculateTransferCredits().ToString();
+            calculationsTable.Rows[1].Cells["TransferCredits"].Value = semesters[index].calculateOverallTransferCredits(semesters, index).ToString();
+            calculationsTable.Rows[0].Cells["Quality_Points"].Value = semesters[index].calculateQualityPoints().ToString("0.00");
+            calculationsTable.Rows[1].Cells["Quality_Points"].Value = semesters[index].calculateOverallQualityPoints(semesters, index).ToString("0.00");
             calculationsTable.Rows[0].Cells["GPA"].Value = semesters[index].calculateGPA().ToString("0.00");
             calculationsTable.Rows[1].Cells["GPA"].Value = semesters[index].calculateOverallGPA(semesters, index).ToString("0.00");
         }

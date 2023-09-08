@@ -29,15 +29,15 @@ namespace ZC_GPA_Calculator
         int credits;
         int gpaCredits;
         double qualityPoints;
-        bool repeated;      //to be assigned true for the new course
-        public Course(string code, string title, CourseSubtype subtype, string grade, int credits, bool repeated = false)
+        int repeatedIn;      // Initially = -1, to be assigned to index of the semester in which the course is later repeated
+        public Course(string code, string title, CourseSubtype subtype, string grade, int credits, int repeatedIn = -1)
         {
-            this.Code = code;
-            this.Title = title;
-            this.SubType = subtype;
+            this.code = code;
+            this.title = title;
+            this.subtype = subtype;
             this.Grade = grade;
-            this.Credits = credits;
-            this.Repeated= repeated;
+            this.credits = credits;
+            this.repeatedIn = repeatedIn;
 
             //if (grade == "A" || grade == "A-" || grade == "B+" || grade == "B" || grade == "B-" || grade == "C+" || grade == "C" || grade == "C-" || grade == "F" )
             //    this.gpaCredits = credits;
@@ -65,10 +65,10 @@ namespace ZC_GPA_Calculator
             }
         }
         public int Credits { get => credits; set => credits = value; }
-        internal CourseSubtype SubType { get => subtype; set => subtype = value; }
+        internal CourseSubtype Subtype { get => subtype; set => subtype = value; }
         public int GpaCredits { get => gpaCredits; set => gpaCredits = value; }
         public double QualityPoints { get => qualityPoints; set => qualityPoints = value; }
-        public bool Repeated { get => repeated; set => repeated = value; }
+        public int RepeatedIn { get => repeatedIn; set => repeatedIn = value; }
 
         public double calculateQualityPoints()
         {      
@@ -107,7 +107,7 @@ namespace ZC_GPA_Calculator
             {
                 foreach (var course in semesters[i].Courses)
                 {
-                    if (!course.Repeated)
+                    if (course.RepeatedIn == -1 || course.RepeatedIn > index)      // Once repeated, exclude the effect of the old grade
                         _qualityPoints += course.QualityPoints;
                 }
             }
@@ -130,7 +130,31 @@ namespace ZC_GPA_Calculator
             {
                 foreach (var course in semesters[i].Courses)
                 {
-                    if (!course.Repeated)
+                    if (course.RepeatedIn == -1 || course.RepeatedIn > index)    // Not repeated at all (or) not yet repeat, its effect must be counted
+                        _overallCredits += course.Credits;
+                }
+            }
+            return _overallCredits;
+        }
+        public double calculateTransferCredits()
+        {
+            double _credits = 0;
+            foreach (var course in this.courses)
+            {
+                if (course.Grade == "TR")
+                    _credits += course.Credits;
+            }
+            return _credits;
+        }
+        public double calculateOverallTransferCredits(BindingList<semester> semesters, int index)
+        {
+            double _overallCredits = 0;
+
+            for (int i = 0; i <= index; i++)
+            {
+                foreach (var course in semesters[i].Courses)
+                {
+                    if (course.Grade == "TR")
                         _overallCredits += course.Credits;
                 }
             }
@@ -153,7 +177,7 @@ namespace ZC_GPA_Calculator
             {
                 foreach (var course in semesters[i].Courses)
                 {
-                    if (!course.Repeated)
+                    if (course.RepeatedIn == -1 || course.RepeatedIn > index)
                         _overallGPACredits += course.GpaCredits;
                 }
             }
@@ -223,7 +247,7 @@ namespace ZC_GPA_Calculator
                         if (courseGrade.StartsWith('['))
                         {
                             courseGrade = courseGrade.Substring(1, courseGrade.Length - 2);
-                            changeRepeatedFlag(courseCode, semestersList);
+                            changeRepeatedFlag2(courseCode, semestersList);
                         }
                         Course course = new Course(courseCode, courseTitle, courseSubType, courseGrade, courseCredits);
                         semester.Courses.Add(course);
@@ -281,7 +305,7 @@ namespace ZC_GPA_Calculator
                     if (semestersList[i].Courses[j].Code == courseCode)
                     {
                         Course tempCourse = semestersList[i].Courses[j];
-                        tempCourse.Repeated = true;
+                        tempCourse.RepeatedIn = semestersList.Count;
                         semestersList[i].Courses[j] = tempCourse;
                         found = true;
                     }
@@ -291,55 +315,46 @@ namespace ZC_GPA_Calculator
             {
                 MessageBox.Show($"It seems that the repeated course, {courseCode}, was repeated with different corse code. Reach the old course and change its grade to 'P', please!");
             }
-            // if (found == false)
-            //    allCourseCodesList = new BindingList<string>();
-            //    fillAllCourseCodesList(semestersList, allCourseCodesList);
-            //    using (HandleRepeatsForm handleRepeatsForm = new HandleRepeatsForm(courseCode, allCourseCodesList))
-            //    {
-            //        string oldCourseCode;
 
-                    //        DialogResult dialogResult = handleRepeatsForm.ShowDialog();
-                    //        if (dialogResult == DialogResult.OK)
-                    //        {
-                    //            oldCourseCode = handleRepeatsForm.OldCourseCode;
-
-                    //        }
-                    //    }
-            //}
+    }
+        public static void changeRepeatedFlag2(string courseCode, BindingList<semester> semestersList)
+        {
+            bool found = searchRepeatedCourse(courseCode, semestersList);
+            
+            if (found == false)
+            {
+                string oldCourseCode = "";
+                using (HandleRepeatsForm handleRepeatsForm = new HandleRepeatsForm(courseCode, semestersList))
+                {                   
+                    DialogResult dialogResult = handleRepeatsForm.ShowDialog();
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        oldCourseCode = handleRepeatsForm.OldCourseCode;
+                    }
+                }
+                if (oldCourseCode != "")
+                    searchRepeatedCourse(oldCourseCode, semestersList);
+            }
         }
-        //public static bool searchRepeatedCourse(BindingList<semester> semestersList, string courseCode)
-        //{
-        //    bool found = false;
-        //    for (int i = semestersList.Count - 1; i >= 0; i--)   // In reverse order to Handle the last occurence
-        //    {
-        //        for (int j = 0; j < semestersList[i].Courses.Count; j++)   // In ordinary order as the course is not repeated at the same semester (it doesn't matter)
-        //        {
-        //            if (semestersList[i].Courses[j].Code == courseCode)
-        //            {
-        //                Course tempCourse = semestersList[i].Courses[j];
-        //                tempCourse.Repeated = true;
-        //                semestersList[i].Courses[j] = tempCourse;
-        //                return true;
-        //            }
-        //        }
-        //    }
-        //    return found;
-        //}
+        
+        public static bool searchRepeatedCourse(string courseCode, BindingList<semester> semestersList)
+        {
+            for (int i = semestersList.Count - 1; i >= 0; i--)   // In reverse order to Handle the last occurence
+            {
+                for (int j = 0; j < semestersList[i].Courses.Count; j++)   // In ordinary order as the course is not repeated at the same semester (it doesn't matter)
+                {
+                    if (semestersList[i].Courses[j].Code == courseCode)
+                    {
+                        Course tempCourse = semestersList[i].Courses[j];
+                        tempCourse.RepeatedIn = semestersList.Count;
+                        semestersList[i].Courses[j] = tempCourse;
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
 
-        //public static void fillAllCourseCodesList(BindingList<semester> semestersList, BindingList<string> allCourseCodesList)
-        //{
-        //    foreach(var semester in semestersList)
-        //    {
-        //        foreach(var course in semester.Courses) 
-        //        {
-        //            if(!allCourseCodesList.Contains(course.Code))
-        //            {
-        //                allCourseCodesList.Add(course.Code);
-        //            }
-        //        }
-        //    }
-        //    MessageBox.Show(allCourseCodesList[allCourseCodesList.Count - 1]);
-        //}
 
         //public static BindingList<semester> readTranscript(string path, out string studentName, out string major)
         //{

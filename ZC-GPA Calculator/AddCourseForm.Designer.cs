@@ -213,6 +213,7 @@
             this.creditsNumericUpDown.ShadowDecoration.CustomizableEdges = customizableEdges12;
             this.creditsNumericUpDown.Size = new System.Drawing.Size(286, 36);
             this.creditsNumericUpDown.TabIndex = 4;
+            this.creditsNumericUpDown.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(79)))), ((int)(((byte)(237)))));
             // 
             // AddCourseForm
             // 

@@ -32,6 +32,7 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HandleRepeatsForm));
             this.Label1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.courseCodesComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -62,7 +63,6 @@
             // 
             // courseCodesComboBox
             // 
-            this.courseCodesComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.courseCodesComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.courseCodesComboBox.BackColor = System.Drawing.Color.Transparent;
             this.courseCodesComboBox.BorderRadius = 8;
@@ -122,7 +122,9 @@
             this.Controls.Add(this.guna2HtmlLabel2);
             this.Controls.Add(this.Label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "HandleRepeatsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Repeated Course Not Found";
             this.Load += new System.EventHandler(this.HandleRepeatsForm_Load);
             this.ResumeLayout(false);
