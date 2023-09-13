@@ -3,6 +3,7 @@
 //using iTextSharp.text.pdf.parser;
 using System.Net;
 using System.ComponentModel;
+using System;
 
 namespace ZC_GPA_Calculator
 {
@@ -99,15 +100,15 @@ namespace ZC_GPA_Calculator
             }
             return _qualityPoints;
         }
-        public double calculateOverallQualityPoints(BindingList<semester> semesters, int index)
+        public static double calculateOverallQualityPoints(BindingList<semester> semesters, int endIndex, int startIndex=0)
         {
             double _qualityPoints = 0;
 
-            for (int i = 0; i <= index; i++)
+            for (int i = startIndex; i <= endIndex; i++)
             {
                 foreach (var course in semesters[i].Courses)
                 {
-                    if (course.RepeatedIn == -1 || course.RepeatedIn > index)      // Once repeated, exclude the effect of the old grade
+                    if (course.RepeatedIn == -1 || course.RepeatedIn > endIndex)      // Once repeated, exclude the effect of the old grade
                         _qualityPoints += course.QualityPoints;
                 }
             }
@@ -122,7 +123,7 @@ namespace ZC_GPA_Calculator
             }
             return _credits;
         }
-        public double calculateOverallCredits(BindingList<semester> semesters, int index)
+        public static double calculateOverallCredits(BindingList<semester> semesters, int index)
         {
             double _overallCredits = 0;
 
@@ -146,7 +147,7 @@ namespace ZC_GPA_Calculator
             }
             return _credits;
         }
-        public double calculateOverallTransferCredits(BindingList<semester> semesters, int index)
+        public static double calculateOverallTransferCredits(BindingList<semester> semesters, int index)
         {
             double _overallCredits = 0;
 
@@ -169,15 +170,15 @@ namespace ZC_GPA_Calculator
             }
             return _GPACredits;
         }
-        public double calculateOverallGPACredits(BindingList<semester> semesters, int index)
+        public static double calculateOverallGPACredits(BindingList<semester> semesters, int endIndex, int startIndex = 0)
         {
             double _overallGPACredits = 0;
 
-            for (int i = 0; i <= index; i++)
+            for (int i = startIndex; i <= endIndex; i++)
             {
                 foreach (var course in semesters[i].Courses)
                 {
-                    if (course.RepeatedIn == -1 || course.RepeatedIn > index)
+                    if (course.RepeatedIn == -1 || course.RepeatedIn > endIndex)
                         _overallGPACredits += course.GpaCredits;
                 }
             }
@@ -187,9 +188,9 @@ namespace ZC_GPA_Calculator
         {
             return Math.Round(calculateQualityPoints()/calculateGPACredits(),2);
         }
-        public double calculateOverallGPA(BindingList<semester> semesters, int index)
+        public static double calculateOverallGPA(BindingList<semester> semesters, int endIndex)
         {
-            return Math.Round(calculateOverallQualityPoints(semesters, index) / calculateOverallGPACredits(semesters, index),2);
+            return Math.Round(calculateOverallQualityPoints(semesters, endIndex) / calculateOverallGPACredits(semesters, endIndex),2);
         }
     }
     internal class Controller
@@ -316,7 +317,7 @@ namespace ZC_GPA_Calculator
                 MessageBox.Show($"It seems that the repeated course, {courseCode}, was repeated with different corse code. Reach the old course and change its grade to 'P', please!");
             }
 
-    }
+        }
         public static void changeRepeatedFlag2(string courseCode, BindingList<semester> semestersList)
         {
             bool found = searchRepeatedCourse(courseCode, semestersList);
@@ -335,8 +336,7 @@ namespace ZC_GPA_Calculator
                 if (oldCourseCode != "")
                     searchRepeatedCourse(oldCourseCode, semestersList);
             }
-        }
-        
+        }      
         public static bool searchRepeatedCourse(string courseCode, BindingList<semester> semestersList)
         {
             for (int i = semestersList.Count - 1; i >= 0; i--)   // In reverse order to Handle the last occurence
@@ -354,7 +354,19 @@ namespace ZC_GPA_Calculator
             }
             return false;
         }
+        public static double calculateSpecialGPA(BindingList<semester> semesters)
+        {
+            if (semesters.Count <= 2 || (semesters.Count == 3 && semesters[2].Title == Semester.Summer))
+                return double.NaN;
 
+            int startIndex;
+            if (semesters[2].Title == Semester.Summer)
+                startIndex = 3;
+            else
+                startIndex = 2;
+
+            return Math.Round(semester.calculateOverallQualityPoints(semesters, semesters.Count-1, startIndex) / semester.calculateOverallGPACredits(semesters, semesters.Count - 1, startIndex), 2);
+        }
 
         //public static BindingList<semester> readTranscript(string path, out string studentName, out string major)
         //{

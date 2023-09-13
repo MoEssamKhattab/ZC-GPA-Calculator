@@ -100,7 +100,7 @@ namespace ZC_GPA_Calculator
         public void updateCourseTableQualityPoints(semester semester, int courseIndex)
         {
             double newQualityPoints = semester.Courses[courseIndex].QualityPoints;
-            courseTable.Rows[courseIndex].Cells["QualityPoints"].Value = newQualityPoints;
+            courseTable.Rows[courseIndex].Cells["QualityPoints"].Value = newQualityPoints.ToString("0.00");
             courseTable.Refresh();
         }
         public void updateGPACalculationsTable(BindingList<semester> semesters, int index)
@@ -115,13 +115,13 @@ namespace ZC_GPA_Calculator
             calculationsTable.Rows.Add(overallRow);
             // GPA Calculations
             calculationsTable.Rows[0].Cells["GPACredits"].Value = semesters[index].calculateGPACredits().ToString();
-            calculationsTable.Rows[1].Cells["GPACredits"].Value = semesters[index].calculateOverallGPACredits(semesters, index).ToString();
+            calculationsTable.Rows[1].Cells["GPACredits"].Value = semester.calculateOverallGPACredits(semesters, index).ToString();
             calculationsTable.Rows[0].Cells["TransferCredits"].Value = semesters[index].calculateTransferCredits().ToString();
-            calculationsTable.Rows[1].Cells["TransferCredits"].Value = semesters[index].calculateOverallTransferCredits(semesters, index).ToString();
+            calculationsTable.Rows[1].Cells["TransferCredits"].Value = semester.calculateOverallTransferCredits(semesters, index).ToString();
             calculationsTable.Rows[0].Cells["Quality_Points"].Value = semesters[index].calculateQualityPoints().ToString("0.00");
-            calculationsTable.Rows[1].Cells["Quality_Points"].Value = semesters[index].calculateOverallQualityPoints(semesters, index).ToString("0.00");
+            calculationsTable.Rows[1].Cells["Quality_Points"].Value = semester.calculateOverallQualityPoints(semesters, index).ToString("0.00");
             calculationsTable.Rows[0].Cells["GPA"].Value = semesters[index].calculateGPA().ToString("0.00");
-            calculationsTable.Rows[1].Cells["GPA"].Value = semesters[index].calculateOverallGPA(semesters, index).ToString("0.00");
+            calculationsTable.Rows[1].Cells["GPA"].Value = semester.calculateOverallGPA(semesters, index).ToString("0.00");
         }
 
         // This event handler manually raises the CellValueChanged event 
@@ -179,7 +179,7 @@ namespace ZC_GPA_Calculator
                     CourseAdded?.Invoke(this, newCourse);
                     courseTable.Invalidate();
 
-                    CgpaUpdate?.Invoke(null,EventArgs.Empty);
+                    //CgpaUpdate?.Invoke(null,EventArgs.Empty);     //No need as it already gets invoked with the grade change in course table
                 }
             }
         }

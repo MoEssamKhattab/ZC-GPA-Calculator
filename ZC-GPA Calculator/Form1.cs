@@ -108,14 +108,13 @@ namespace ZC_GPA_Calculator
                 {
                     MessageBox.Show("This is an already repeated course, try to change the grade of the recently repeated version");
                 }
-                else if (semesterList[semesterIndex].Courses[rowIndex].GpaCredits == 0)
+                else if (semesterList[semesterIndex].Courses[rowIndex].GpaCredits == 0 && !semesterCardList[semesterIndex].AllowAdding)
                 {
                     MessageBox.Show("This course has 0 GPA Credits; changing its grade will not affect your GPA at all!");
                 }
                 else
-                {
+                {                
                     DataGridViewComboBoxCell gradeComboBox = (DataGridViewComboBoxCell)thisCard.CourseTable.Rows[rowIndex].Cells["Grade"];
-
                     Controller.updateSemestersList(ref this.semesterList, semesterIndex, rowIndex, gradeComboBox.Value.ToString());
                     updateSemestersGPATables(this.semesterList, this.semesterCardList);
                     semesterCard.updateCourseTableQualityPoints(semesterList[semesterIndex], rowIndex);
@@ -141,8 +140,21 @@ namespace ZC_GPA_Calculator
         }
         private void semesterCard_CgpaUpdate(object sender, EventArgs e)
         {
-            double cGPA = Math.Round(semesterList[semesterList.Count - 1].calculateOverallGPA(semesterList, semesterList.Count - 1), 2);
+            double cGPA = semester.calculateOverallGPA(semesterList, semesterList.Count - 1);
             cgpaLabel.Text = $"CGPA: {cGPA.ToString("0.00")}";
+
+            double specialGPA = Controller.calculateSpecialGPA(semesterList);
+            if (Double.IsNaN(specialGPA))
+            {
+                specialGPATxt.Visible = false;
+                gpaSeparator.Visible = false;
+            }
+            else
+            {
+                specialGPATxt.Text = $"Special GPA: {specialGPA.ToString("0.00")}";
+                specialGPATxt.Visible = true;
+                gpaSeparator.Visible = true;
+            }
         }     
         private void updateSemestersGPATables(BindingList<semester> semesters, List<SemesterCard> semesterCards)
         {

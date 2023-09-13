@@ -72,6 +72,8 @@
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tab2 = new System.Windows.Forms.TabPage();
+            this.gpaSeparator = new Guna.UI2.WinForms.Guna2VSeparator();
+            this.specialGPATxt = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.semestersComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Separator2 = new Guna.UI2.WinForms.Guna2Separator();
@@ -376,6 +378,8 @@
             // tab2
             // 
             this.tab2.BackColor = System.Drawing.Color.White;
+            this.tab2.Controls.Add(this.gpaSeparator);
+            this.tab2.Controls.Add(this.specialGPATxt);
             this.tab2.Controls.Add(this.guna2HtmlLabel1);
             this.tab2.Controls.Add(this.semestersComboBox);
             this.tab2.Controls.Add(this.guna2Separator2);
@@ -389,6 +393,25 @@
             this.tab2.Size = new System.Drawing.Size(1893, 1025);
             this.tab2.TabIndex = 2;
             this.tab2.Text = "tabPage1";
+            // 
+            // gpaSeparator
+            // 
+            this.gpaSeparator.Location = new System.Drawing.Point(1667, 177);
+            this.gpaSeparator.Name = "gpaSeparator";
+            this.gpaSeparator.Size = new System.Drawing.Size(12, 33);
+            this.gpaSeparator.TabIndex = 18;
+            // 
+            // specialGPATxt
+            // 
+            this.specialGPATxt.BackColor = System.Drawing.Color.Transparent;
+            this.specialGPATxt.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.specialGPATxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(35)))));
+            this.specialGPATxt.Location = new System.Drawing.Point(1473, 177);
+            this.specialGPATxt.Name = "specialGPATxt";
+            this.specialGPATxt.Size = new System.Drawing.Size(188, 33);
+            this.specialGPATxt.TabIndex = 17;
+            this.specialGPATxt.Text = "Special GPA: 4.00";
+            this.specialGPATxt.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // guna2HtmlLabel1
             // 
@@ -429,13 +452,14 @@
             // cgpaLabel
             // 
             this.cgpaLabel.BackColor = System.Drawing.Color.Transparent;
-            this.cgpaLabel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cgpaLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(8)))), ((int)(((byte)(8)))));
-            this.cgpaLabel.Location = new System.Drawing.Point(1661, 182);
+            this.cgpaLabel.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.cgpaLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(35)))));
+            this.cgpaLabel.Location = new System.Drawing.Point(1685, 177);
             this.cgpaLabel.Name = "cgpaLabel";
-            this.cgpaLabel.Size = new System.Drawing.Size(144, 39);
+            this.cgpaLabel.Size = new System.Drawing.Size(120, 33);
             this.cgpaLabel.TabIndex = 12;
             this.cgpaLabel.Text = "CGPA: 4.00";
+            this.cgpaLabel.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // semestersPanel
             // 
@@ -650,5 +674,7 @@
         private Panel panel1;
         private Guna.UI2.WinForms.Guna2Button sourceCodeBtn;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private Guna.UI2.WinForms.Guna2HtmlLabel specialGPATxt;
+        private Guna.UI2.WinForms.Guna2VSeparator gpaSeparator;
     }
 }
