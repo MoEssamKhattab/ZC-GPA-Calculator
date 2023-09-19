@@ -141,7 +141,7 @@ namespace ZC_GPA_Calculator
         private void semesterCard_CgpaUpdate(object sender, EventArgs e)
         {
             double cGPA = semester.calculateOverallGPA(semesterList, semesterList.Count - 1);
-            cgpaLabel.Text = $"CGPA: {cGPA.ToString("0.00")}";
+            cgpaLabel.Text = $"CGPA: {cGPA.ToString("0.0000")}";
 
             double specialGPA = Controller.calculateSpecialGPA(semesterList);
             if (Double.IsNaN(specialGPA))
@@ -151,7 +151,7 @@ namespace ZC_GPA_Calculator
             }
             else
             {
-                specialGPATxt.Text = $"Special GPA: {specialGPA.ToString("0.00")}";
+                specialGPATxt.Text = $"Special GPA: {specialGPA.ToString("0.0000")}";
                 specialGPATxt.Visible = true;
                 gpaSeparator.Visible = true;
             }

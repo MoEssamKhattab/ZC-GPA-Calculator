@@ -396,7 +396,7 @@
             // 
             // gpaSeparator
             // 
-            this.gpaSeparator.Location = new System.Drawing.Point(1667, 177);
+            this.gpaSeparator.Location = new System.Drawing.Point(1641, 177);
             this.gpaSeparator.Name = "gpaSeparator";
             this.gpaSeparator.Size = new System.Drawing.Size(12, 33);
             this.gpaSeparator.TabIndex = 18;
@@ -406,11 +406,11 @@
             this.specialGPATxt.BackColor = System.Drawing.Color.Transparent;
             this.specialGPATxt.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.specialGPATxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(35)))));
-            this.specialGPATxt.Location = new System.Drawing.Point(1473, 177);
+            this.specialGPATxt.Location = new System.Drawing.Point(1421, 177);
             this.specialGPATxt.Name = "specialGPATxt";
-            this.specialGPATxt.Size = new System.Drawing.Size(188, 33);
+            this.specialGPATxt.Size = new System.Drawing.Size(214, 33);
             this.specialGPATxt.TabIndex = 17;
-            this.specialGPATxt.Text = "Special GPA: 4.00";
+            this.specialGPATxt.Text = "Special GPA: 4.0000";
             this.specialGPATxt.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // guna2HtmlLabel1
@@ -454,11 +454,11 @@
             this.cgpaLabel.BackColor = System.Drawing.Color.Transparent;
             this.cgpaLabel.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cgpaLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(35)))));
-            this.cgpaLabel.Location = new System.Drawing.Point(1685, 177);
+            this.cgpaLabel.Location = new System.Drawing.Point(1659, 177);
             this.cgpaLabel.Name = "cgpaLabel";
-            this.cgpaLabel.Size = new System.Drawing.Size(120, 33);
+            this.cgpaLabel.Size = new System.Drawing.Size(146, 33);
             this.cgpaLabel.TabIndex = 12;
-            this.cgpaLabel.Text = "CGPA: 4.00";
+            this.cgpaLabel.Text = "CGPA: 4.0000";
             this.cgpaLabel.TextAlignment = System.Drawing.ContentAlignment.TopRight;
             // 
             // semestersPanel

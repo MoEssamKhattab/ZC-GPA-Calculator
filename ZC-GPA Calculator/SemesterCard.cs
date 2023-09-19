@@ -120,8 +120,8 @@ namespace ZC_GPA_Calculator
             calculationsTable.Rows[1].Cells["TransferCredits"].Value = semester.calculateOverallTransferCredits(semesters, index).ToString();
             calculationsTable.Rows[0].Cells["Quality_Points"].Value = semesters[index].calculateQualityPoints().ToString("0.00");
             calculationsTable.Rows[1].Cells["Quality_Points"].Value = semester.calculateOverallQualityPoints(semesters, index).ToString("0.00");
-            calculationsTable.Rows[0].Cells["GPA"].Value = semesters[index].calculateGPA().ToString("0.00");
-            calculationsTable.Rows[1].Cells["GPA"].Value = semester.calculateOverallGPA(semesters, index).ToString("0.00");
+            calculationsTable.Rows[0].Cells["GPA"].Value = semesters[index].calculateGPA().ToString("0.0000");
+            calculationsTable.Rows[1].Cells["GPA"].Value = semester.calculateOverallGPA(semesters, index).ToString("0.0000");
         }
 
         // This event handler manually raises the CellValueChanged event 
