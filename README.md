@@ -1,5 +1,9 @@
 # ZC-GPA-Calculator
 
+<div style="text-align:center">
+    <img src="./Demo/home.png" width = 1000/>
+</div>
+
 ## Table of contents
 - [Introduction](#introduction)
 - [Features](#features)
@@ -69,25 +73,45 @@ Or simply accept the automatic download when launching the software, in case .NE
 
     -  In the "**Save As**" dialog box, choose the third option, which is "**_Webpage, Complete_**" from the "**Save as type**" dropdown menu.
 
+<div style="text-align:center">
+    <img src="./Demo/save.png" alt="Save Transcript" width = 700/>
+</div>
+
 2. Launch ZC GPA Calculator excutable file <img src="./ZC-GPA Calculator/Logos/zewail logo.png" width="15" height="20" alt="ZC GPA Calculator Logo"> **ZC-GPA Calculator.exe**
 
 3. Open your HTML transcript file by clicking on the **Open Transcript** button.
 
+<div style="text-align:center">
+    <img src="./Demo/home.png" alt="Home Page" width = 700/>
+</div>
+
 4. The application will automatically scrape and display the academic data.
+
+<div style="text-align:center">
+    <img src="./Demo/transcript.png" alt="Your Transcript" width = 700/>
+</div>
 
 5. Use the interface:
 
-    * to make changes to course grades as needed using the corresponding dropdown list.
+* to make changes to course grades as needed using the corresponding dropdown list.
 
-    * to add new courses:
+* to add new courses:
 
-        - Click on the **Add New Semester** button.
+    - Click on the **Add New Semester** button.
 
-        - Then click on **Add New Course** button.
-    
-    * to delete a newly-added course:
+<div style="text-align:center">
+    <img src="./Demo/add_new_semester.png" alt="Add New Semester" width = 700/>
+</div>
 
-        - Right click on the course row on the table &rarr; delete course
+*   - Then click on **Add New Course** button.
+
+<div style="text-align:center">
+    <img src="./Demo/add_new_course.png" alt="Add New Course" width = 700/>
+</div>
+
+* to delete a newly-added course:
+
+    - Right click on the course row on the table &rarr; delete course
 
 6. The application will update semester GPA and cGPA in real-time.
 
