@@ -14,7 +14,7 @@ namespace ZC_GPA_Calculator
             this.year = 0;
             this.courses = new();
         }
-        public string Name => $"{year} {title.ToString()}";
+        public string Name => $"{year} {title}";
         public int Year { get => year; set => year = value; }
         internal List<Course> Courses { get => courses; set => courses = value; }
         internal Semester Title { get => title; set => title = value; }
@@ -41,16 +41,17 @@ namespace ZC_GPA_Calculator
             }
             return _qualityPoints;
         }
-        public double calculateCredits()
+        public double calculateAttemptedCredits()
         {
             double _credits = 0;
             foreach (var course in this.courses)
             {
-                _credits += course.Credits;
+                if (course.Grade != "IP")
+                    _credits += course.Credits;
             }
             return _credits;
         }
-        public static double calculateOverallCredits(BindingList<semester> semesters, int index)
+        public static double calculateOverallAttemptedCredits(BindingList<semester> semesters, int index)
         {
             double _overallCredits = 0;
 
@@ -58,7 +59,31 @@ namespace ZC_GPA_Calculator
             {
                 foreach (var course in semesters[i].Courses)
                 {
-                    if (course.RepeatedIn == -1 || course.RepeatedIn > index)    // Not repeated at all (or) not yet repeat, its effect must be counted
+                    if (course.Grade != "IP")
+                        _overallCredits += course.Credits;
+                }
+            }
+            return _overallCredits;
+        }
+        public double calculateEarnedCredits()
+        {
+            double _credits = 0;
+            foreach (var course in this.courses)
+            {
+                if (course.Grade != "IP" && course.Grade != "" &&)
+                    _credits += course.Credits;
+            }
+            return _credits;
+        }
+        public static double calculateOverallEarnedCredits(BindingList<semester> semesters, int index)
+        {
+            double _overallCredits = 0;
+
+            for (int i = 0; i <= index; i++)
+            {
+                foreach (var course in semesters[i].Courses)
+                {
+                    if (course.Grade != "IP")
                         _overallCredits += course.Credits;
                 }
             }
@@ -105,7 +130,7 @@ namespace ZC_GPA_Calculator
             {
                 foreach (var course in semesters[i].Courses)
                 {
-                    if (course.RepeatedIn == -1 || course.RepeatedIn > endIndex)
+                    if (course.RepeatedIn == -1 || course.RepeatedIn > endIndex)        // Not repeated at all (or) not yet repeat, its effect must be counted
                         _overallGPACredits += course.GpaCredits;
                 }
             }

@@ -6,23 +6,8 @@ using System.ComponentModel;
 using System;
 
 namespace ZC_GPA_Calculator
-{
-    public enum CourseSubtype : byte { LECTURE, LAB };
-    public enum Semester : byte { Fall = 0, Spring = 1, Summer = 2 };
-    public static class Grades
-    {
-        public static readonly double A = 4.0;
-        public static readonly double A_minus = 3.7;
-        public static readonly double B_plus = 3.3;
-        public static readonly double B = 3.0;
-        public static readonly double B_minus = 2.7;
-        public static readonly double C_plus = 2.3;
-        public static readonly double C = 2.0;
-        public static readonly double C_minus = 1.7;
-        public static readonly double F = 0.0;
-    }
-    
-    internal static class Controller
+{    
+    internal static class Utilities
     {
         public static BindingList<semester> readHtmlTranscript(string filePath, out string studentName, out string major)
         {

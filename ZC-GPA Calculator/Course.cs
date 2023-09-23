@@ -53,7 +53,7 @@ namespace ZC_GPA_Calculator
 
         public double calculateQualityPoints()
         {
-            return Math.Round(Controller.stringToGrade(this.grade) * (double)this.credits, 2);
+            return Math.Round(Utilities.stringToGrade(this.grade) * (double)this.credits, 2);
         }
     }
 }

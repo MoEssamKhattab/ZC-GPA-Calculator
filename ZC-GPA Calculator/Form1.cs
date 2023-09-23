@@ -39,7 +39,7 @@ namespace ZC_GPA_Calculator
         {
             try
             {
-                semesterList = Controller.readHtmlTranscript(filePath, out studentName, out studentMajor);
+                semesterList = Utilities.readHtmlTranscript(filePath, out studentName, out studentMajor);
                 semesterCard_CgpaUpdate(null, EventArgs.Empty);     // Called once after loading all the semester cards, rather than after loading each card or course
 
                 if (semesterList != null && semesterList.Count != 0)
@@ -102,7 +102,7 @@ namespace ZC_GPA_Calculator
                 int rowIndex = cell.RowIndex;       // Course index
 
                 SemesterCard thisCard = (SemesterCard)sender;
-                int semesterIndex = Controller.getSemesterIndex(thisCard, semesterCardList);
+                int semesterIndex = Utilities.getSemesterIndex(thisCard, semesterCardList);
 
                 if (semesterList[semesterIndex].Courses[rowIndex].RepeatedIn != -1)
                 {
@@ -115,7 +115,7 @@ namespace ZC_GPA_Calculator
                 else
                 {                
                     DataGridViewComboBoxCell gradeComboBox = (DataGridViewComboBoxCell)thisCard.CourseTable.Rows[rowIndex].Cells["Grade"];
-                    Controller.updateSemestersList(ref this.semesterList, semesterIndex, rowIndex, gradeComboBox.Value.ToString());
+                    Utilities.updateSemestersList(ref this.semesterList, semesterIndex, rowIndex, gradeComboBox.Value.ToString());
                     updateSemestersGPATables(this.semesterList, this.semesterCardList);
                     semesterCard.updateCourseTableQualityPoints(semesterList[semesterIndex], rowIndex);
                 }
@@ -123,7 +123,7 @@ namespace ZC_GPA_Calculator
             semesterCard.CourseAdded += (object sender, Course e) =>
             {
                 SemesterCard thisCard = sender as SemesterCard;
-                int semesterIndex = Controller.getSemesterIndex(thisCard, semesterCardList);
+                int semesterIndex = Utilities.getSemesterIndex(thisCard, semesterCardList);
                 semesterList[semesterIndex].Courses.Add(e);
                 thisCard.addNewCourse(semesterList, semesterIndex);
                 semestersPanel.VerticalScroll.Value = semestersPanel.VerticalScroll.Maximum;
@@ -131,7 +131,7 @@ namespace ZC_GPA_Calculator
             semesterCard.CourseDeleted += (object sender, int courseIndex) =>
             {
                 SemesterCard thisCard = sender as SemesterCard;
-                int semesterIndex = Controller.getSemesterIndex(thisCard, semesterCardList);
+                int semesterIndex = Utilities.getSemesterIndex(thisCard, semesterCardList);
                 semesterList[semesterIndex].Courses.RemoveAt(courseIndex);
                 updateSemestersGPATables(this.semesterList, this.semesterCardList);
                 semesterCard_CgpaUpdate(null, EventArgs.Empty);
@@ -143,7 +143,7 @@ namespace ZC_GPA_Calculator
             double cGPA = semester.calculateOverallGPA(semesterList, semesterList.Count - 1);
             cgpaLabel.Text = $"CGPA: {cGPA.ToString("0.0000")}";
 
-            double specialGPA = Controller.calculateSpecialGPA(semesterList);
+            double specialGPA = Utilities.calculateSpecialGPA(semesterList);
             if (Double.IsNaN(specialGPA))
             {
                 specialGPATxt.Visible = false;
