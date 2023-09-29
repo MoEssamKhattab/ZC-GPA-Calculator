@@ -56,7 +56,7 @@ Or simply accept the automatic download when launching the software, in case .NE
 
 1. Go to the Releases section of this GitHub repository.
 
-2. Download the latest release executable file.
+2. Download the [latest release executable file](https://github.com/MoEssamKhattab/ZC-GPA-Calculator/releases/download/v1.0/ZC.GPA.Calculator.v1.0.rar).
 
 3. Run the downloaded executable file to launch <img src="./ZC-GPA Calculator/Logos/zewail logo.png" width="15" height="20" alt="ZC GPA Calculator Logo"> **ZC-GPA Calculator.exe**
 
