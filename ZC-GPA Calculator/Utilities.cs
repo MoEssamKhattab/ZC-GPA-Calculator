@@ -3,7 +3,6 @@
 //using iTextSharp.text.pdf.parser;
 using System.Net;
 using System.ComponentModel;
-using System;
 
 namespace ZC_GPA_Calculator
 {    
@@ -130,7 +129,6 @@ namespace ZC_GPA_Calculator
             {
                 MessageBox.Show($"It seems that the repeated course, {courseCode}, was repeated with different corse code. Reach the old course and change its grade to 'P', please!");
             }
-
         }
         public static void changeRepeatedFlag2(string courseCode, BindingList<semester> semestersList)
         {

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Diagnostics;
 
 
 namespace ZC_GPA_Calculator
@@ -70,7 +71,9 @@ namespace ZC_GPA_Calculator
             double _credits = 0;
             foreach (var course in this.courses)
             {
-                if (course.Grade != "IP" && course.Grade != "" &&)
+                //if ((course.Grade == "A" || course.Grade == "A-" || course.Grade == "B+" || course.Grade == "B" || course.Grade == "B-" || course.Grade == "C+" || course.Grade == "C" || course.Grade == "C-" || course.Grade == "P" || course.Grade == "TR") && course.RepeatedIn == -1)
+                // ===
+                if ((course.GpaCredits != 0 || course.Grade == "P" || course.Grade == "TR") && course.RepeatedIn == -1)
                     _credits += course.Credits;
             }
             return _credits;
@@ -78,13 +81,33 @@ namespace ZC_GPA_Calculator
         public static double calculateOverallEarnedCredits(BindingList<semester> semesters, int index)
         {
             double _overallCredits = 0;
-
             for (int i = 0; i <= index; i++)
             {
                 foreach (var course in semesters[i].Courses)
                 {
-                    if (course.Grade != "IP")
+                    if ((course.GpaCredits != 0 || course.Grade == "P" || course.Grade == "TR") && course.RepeatedIn == -1)
                         _overallCredits += course.Credits;
+                }
+            }
+            return _overallCredits;
+        }
+        public double calculateTotalCredits()
+        {
+            double _credits = 0;
+            foreach (var course in this.courses)
+            {
+                _credits += course.Credits;
+            }
+            return _credits;
+        }
+        public static double calculateOverallTotalCredits(BindingList<semester> semesters, int index)
+        {
+            double _overallCredits = 0;
+            for (int i = 0; i <= index; i++)
+            {
+                foreach (var course in semesters[i].Courses)
+                {
+                    _overallCredits += course.Credits;
                 }
             }
             return _overallCredits;

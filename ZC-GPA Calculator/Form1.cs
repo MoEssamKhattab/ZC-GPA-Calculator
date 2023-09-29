@@ -1,6 +1,5 @@
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Security.Policy;
 
 namespace ZC_GPA_Calculator
 {
@@ -31,7 +30,7 @@ namespace ZC_GPA_Calculator
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                string filePath = openFileDialog.FileName;     //files path                
+                string filePath = openFileDialog.FileName;
                 readInputFile(filePath);
             }
         }
@@ -89,7 +88,7 @@ namespace ZC_GPA_Calculator
 
             initializeSemesterCardEvents(semesterCard);
 
-            semesterCard.SemesterTitle = $"{semesterTitle.ToString()}, {year}";
+            semesterCard.SemesterTitle = $"{semesterTitle} {year}";
             semestersPanel.Controls.Add(semesterCard);
             semesterCardList.Add(semesterCard);
         }

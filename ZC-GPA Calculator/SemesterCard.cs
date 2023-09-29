@@ -8,7 +8,7 @@ namespace ZC_GPA_Calculator
         bool allowEditing = false;
         bool allowAdding = false;
         BindingList<string> letterGrades;
-        static int maxVisibleCourses = 6;
+        const int maxVisibleCourses = 6;
         public string SemesterTitle { get => semesterTitle.Text; set => semesterTitle.Text = value; }
         public bool AllowAdding { get => allowAdding; set => allowAdding = value; }
 
@@ -17,7 +17,6 @@ namespace ZC_GPA_Calculator
             InitializeComponent();
             letterGrades = new BindingList<string> { "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "F" };
             this.grade.DataSource = letterGrades;
-
         }
         private void SemesterCard_Load(object sender, EventArgs e)
         {
@@ -116,6 +115,12 @@ namespace ZC_GPA_Calculator
             // GPA Calculations
             calculationsTable.Rows[0].Cells["GPACredits"].Value = semesters[index].calculateGPACredits().ToString();
             calculationsTable.Rows[1].Cells["GPACredits"].Value = semester.calculateOverallGPACredits(semesters, index).ToString();
+            calculationsTable.Rows[0].Cells["AttemptedCredits"].Value = semesters[index].calculateAttemptedCredits().ToString();
+            calculationsTable.Rows[1].Cells["AttemptedCredits"].Value = semester.calculateOverallAttemptedCredits(semesters, index).ToString();
+            calculationsTable.Rows[0].Cells["EarnedCredits"].Value = semesters[index].calculateEarnedCredits().ToString();
+            calculationsTable.Rows[1].Cells["EarnedCredits"].Value = semester.calculateOverallEarnedCredits(semesters, index).ToString();
+            calculationsTable.Rows[0].Cells["TotalCredits"].Value = semesters[index].calculateTotalCredits().ToString();
+            calculationsTable.Rows[1].Cells["TotalCredits"].Value = semester.calculateOverallTotalCredits(semesters, index).ToString();
             calculationsTable.Rows[0].Cells["TransferCredits"].Value = semesters[index].calculateTransferCredits().ToString();
             calculationsTable.Rows[1].Cells["TransferCredits"].Value = semester.calculateOverallTransferCredits(semesters, index).ToString();
             calculationsTable.Rows[0].Cells["Quality_Points"].Value = semesters[index].calculateQualityPoints().ToString("0.00");

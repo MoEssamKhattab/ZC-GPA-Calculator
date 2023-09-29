@@ -24,7 +24,7 @@ namespace ZC_GPA_Calculator
 
         private void addSemesterBtn_Click(object sender, EventArgs e)
         {
-            SemesterTitle = (Semester)Enum.Parse(typeof(Semester) ,this.semesterComboBox.Text);
+            SemesterTitle = (Semester)Enum.Parse(typeof(Semester), this.semesterComboBox.Text);
             SemesterYear = this.yearDatePicker.Value.Year;
             this.DialogResult = DialogResult.OK;
         }
