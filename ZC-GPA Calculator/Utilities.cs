@@ -168,16 +168,29 @@ namespace ZC_GPA_Calculator
         }
         public static double calculateSpecialGPA(BindingList<semester> semesters)
         {
-            if (semesters.Count <= 2 || (semesters.Count == 3 && semesters[2].Title == Semester.Summer))
+            if (semesters.Count <= 2)
+                return double.NaN;
+            if (semesters.Count == 3 && (isTransferSemester(semesters, 0) || semesters[2].Title == Semester.Summer)) 
                 return double.NaN;
 
             int startIndex;
-            if (semesters[2].Title == Semester.Summer)
+            if (isTransferSemester(semesters, 0) && semesters[3].Title == Semester.Summer)
+                startIndex = 4;
+            else if (semesters[2].Title == Semester.Summer || isTransferSemester(semesters, 0))
                 startIndex = 3;
             else
                 startIndex = 2;
 
             return Math.Round(semester.calculateOverallQualityPoints(semesters, semesters.Count-1, startIndex) / semester.calculateOverallGPACredits(semesters, semesters.Count - 1, startIndex), 4);
+        }
+        public static bool isTransferSemester(BindingList<semester> semesters, int semesterIndex)
+        {
+            foreach (Course course in semesters[semesterIndex].Courses)
+            {
+                if (course.Grade != "TR")
+                    return false;
+            }
+            return true;
         }
 
         //public static BindingList<semester> readTranscript(string path, out string studentName, out string major)
