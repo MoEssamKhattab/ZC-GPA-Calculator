@@ -58,7 +58,7 @@ namespace ZC_GPA_Calculator
                         int courseCredits = Convert.ToInt32(Math.Floor(Convert.ToDouble(cells[4].InnerText.Trim())));
 
                         //Handling the case of any repeated courses
-                        if (courseGrade.StartsWith('['))
+                        if (courseGrade.StartsWith('[') && courseGrade != "W" && courseGrade != "WP" && courseGrade != "WF" && courseGrade != "I" && courseGrade != "IP")
                         {
                             courseGrade = courseGrade.Substring(1, courseGrade.Length - 2);
                             changeRepeatedFlag2(courseCode, semestersList);
