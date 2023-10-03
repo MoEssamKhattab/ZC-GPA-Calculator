@@ -17,6 +17,8 @@ namespace ZC_GPA_Calculator
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.MinimumSize = new Size(1024, 768);
+            this.MaximumSize = new Size(1920, 1080);
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             this.WindowState = FormWindowState.Maximized;
         }
@@ -84,6 +86,7 @@ namespace ZC_GPA_Calculator
             semesterList.Add(semester);
 
             SemesterCard semesterCard = new SemesterCard();
+            semesterCard.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
             semesterCard.AllowAdding = true;
 
             initializeSemesterCardEvents(semesterCard);
@@ -91,6 +94,7 @@ namespace ZC_GPA_Calculator
             semesterCard.SemesterTitle = $"{semesterTitle} {year}";
             semestersPanel.Controls.Add(semesterCard);
             semesterCardList.Add(semesterCard);
+
         }
         private void initializeSemesterCardEvents(SemesterCard semesterCard)
         {
@@ -227,6 +231,5 @@ namespace ZC_GPA_Calculator
                 MessageBox.Show(otherExeption.Message);
             }
         }
-
     }
 }

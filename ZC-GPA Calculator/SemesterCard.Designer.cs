@@ -60,11 +60,6 @@ namespace ZC_GPA_Calculator
             this.qualityPoints = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.calculationsTable = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.cardHeaderPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.semesterTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.courseTableContextMenuStrip = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
-            this.deleteCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.header = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.attemptedCredits = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.earnedCredits = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,6 +68,11 @@ namespace ZC_GPA_Calculator
             this.transferCredits = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quality_Points = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GPA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cardHeaderPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.semesterTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.courseTableContextMenuStrip = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
+            this.deleteCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.courseTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.calculationsTable)).BeginInit();
@@ -103,7 +103,8 @@ namespace ZC_GPA_Calculator
             // 
             // addCourseBtn
             // 
-            this.addCourseBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.addCourseBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.addCourseBtn.Animated = true;
             this.addCourseBtn.BackColor = System.Drawing.Color.Transparent;
             this.addCourseBtn.BorderColor = System.Drawing.Color.DimGray;
@@ -252,7 +253,8 @@ namespace ZC_GPA_Calculator
             // 
             // guna2Separator1
             // 
-            this.guna2Separator1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.guna2Separator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Separator1.Location = new System.Drawing.Point(28, 416);
             this.guna2Separator1.Name = "guna2Separator1";
             this.guna2Separator1.Size = new System.Drawing.Size(1645, 12);
@@ -263,7 +265,8 @@ namespace ZC_GPA_Calculator
             this.calculationsTable.AllowUserToAddRows = false;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
             this.calculationsTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.calculationsTable.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.calculationsTable.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -331,6 +334,62 @@ namespace ZC_GPA_Calculator
             this.calculationsTable.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.calculationsTable.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
+            // header
+            // 
+            this.header.HeaderText = "";
+            this.header.MinimumWidth = 6;
+            this.header.Name = "header";
+            this.header.ReadOnly = true;
+            // 
+            // attemptedCredits
+            // 
+            this.attemptedCredits.HeaderText = "Attempted Credits";
+            this.attemptedCredits.MinimumWidth = 6;
+            this.attemptedCredits.Name = "attemptedCredits";
+            this.attemptedCredits.ReadOnly = true;
+            // 
+            // earnedCredits
+            // 
+            this.earnedCredits.HeaderText = "Earned Credits";
+            this.earnedCredits.MinimumWidth = 6;
+            this.earnedCredits.Name = "earnedCredits";
+            this.earnedCredits.ReadOnly = true;
+            // 
+            // totalCredits
+            // 
+            this.totalCredits.HeaderText = "Total Credits";
+            this.totalCredits.MinimumWidth = 6;
+            this.totalCredits.Name = "totalCredits";
+            this.totalCredits.ReadOnly = true;
+            // 
+            // GPACredits
+            // 
+            this.GPACredits.HeaderText = "GPA Credits";
+            this.GPACredits.MinimumWidth = 6;
+            this.GPACredits.Name = "GPACredits";
+            this.GPACredits.ReadOnly = true;
+            // 
+            // transferCredits
+            // 
+            this.transferCredits.HeaderText = "Transfer Credits";
+            this.transferCredits.MinimumWidth = 6;
+            this.transferCredits.Name = "transferCredits";
+            this.transferCredits.ReadOnly = true;
+            // 
+            // Quality_Points
+            // 
+            this.Quality_Points.HeaderText = "Quality Points";
+            this.Quality_Points.MinimumWidth = 6;
+            this.Quality_Points.Name = "Quality_Points";
+            this.Quality_Points.ReadOnly = true;
+            // 
+            // GPA
+            // 
+            this.GPA.HeaderText = "GPA";
+            this.GPA.MinimumWidth = 6;
+            this.GPA.Name = "GPA";
+            this.GPA.ReadOnly = true;
+            // 
             // cardHeaderPanel
             // 
             this.cardHeaderPanel.BorderColor = System.Drawing.Color.Transparent;
@@ -394,62 +453,6 @@ namespace ZC_GPA_Calculator
             this.deleteCourseToolStripMenuItem.Size = new System.Drawing.Size(171, 24);
             this.deleteCourseToolStripMenuItem.Text = "Delete Course";
             this.deleteCourseToolStripMenuItem.Click += new System.EventHandler(this.deleteCourseToolStripMenuItem_Click);
-            // 
-            // header
-            // 
-            this.header.HeaderText = "";
-            this.header.MinimumWidth = 6;
-            this.header.Name = "header";
-            this.header.ReadOnly = true;
-            // 
-            // attemptedCredits
-            // 
-            this.attemptedCredits.HeaderText = "Attempted Credits";
-            this.attemptedCredits.MinimumWidth = 6;
-            this.attemptedCredits.Name = "attemptedCredits";
-            this.attemptedCredits.ReadOnly = true;
-            // 
-            // earnedCredits
-            // 
-            this.earnedCredits.HeaderText = "Earned Credits";
-            this.earnedCredits.MinimumWidth = 6;
-            this.earnedCredits.Name = "earnedCredits";
-            this.earnedCredits.ReadOnly = true;
-            // 
-            // totalCredits
-            // 
-            this.totalCredits.HeaderText = "Total Credits";
-            this.totalCredits.MinimumWidth = 6;
-            this.totalCredits.Name = "totalCredits";
-            this.totalCredits.ReadOnly = true;
-            // 
-            // GPACredits
-            // 
-            this.GPACredits.HeaderText = "GPA Credits";
-            this.GPACredits.MinimumWidth = 6;
-            this.GPACredits.Name = "GPACredits";
-            this.GPACredits.ReadOnly = true;
-            // 
-            // transferCredits
-            // 
-            this.transferCredits.HeaderText = "Transfer Credits";
-            this.transferCredits.MinimumWidth = 6;
-            this.transferCredits.Name = "transferCredits";
-            this.transferCredits.ReadOnly = true;
-            // 
-            // Quality_Points
-            // 
-            this.Quality_Points.HeaderText = "Quality Points";
-            this.Quality_Points.MinimumWidth = 6;
-            this.Quality_Points.Name = "Quality_Points";
-            this.Quality_Points.ReadOnly = true;
-            // 
-            // GPA
-            // 
-            this.GPA.HeaderText = "GPA";
-            this.GPA.MinimumWidth = 6;
-            this.GPA.Name = "GPA";
-            this.GPA.ReadOnly = true;
             // 
             // SemesterCard
             // 

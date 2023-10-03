@@ -27,8 +27,8 @@ namespace ZC_GPA_Calculator
 
             if (AllowAdding)
                 addCourseBtn.Visible = true;
-            
-            updateCardHeight(maxVisibleCourses);  
+
+            updateCardHeight(maxVisibleCourses);
         }
         public void updateCardHeight(int maxVisibleCourses)
         {
@@ -38,15 +38,15 @@ namespace ZC_GPA_Calculator
             // Course table
             int headerHeight = courseTable.ThemeStyle.HeaderStyle.Height;
             int rowHeight = courseTable.ThemeStyle.RowsStyle.Height;
-            int courseTableHeight = (Math.Min(maxVisibleCourses ,courseTable.RowCount) * rowHeight) + headerHeight;
+            int courseTableHeight = (Math.Min(maxVisibleCourses, courseTable.RowCount) * rowHeight) + headerHeight;
             courseTable.Height = courseTableHeight;
 
             // Add course button
             int addCourseBtnHeight = addCourseBtn.Height;
 
             // Calculations Table
-            int calculationsTableHeight = calculationsTable.ThemeStyle.HeaderStyle.Height + 2* calculationsTable.ThemeStyle.RowsStyle.Height;
-            
+            int calculationsTableHeight = calculationsTable.ThemeStyle.HeaderStyle.Height + 2 * calculationsTable.ThemeStyle.RowsStyle.Height;
+
             // Total card
             int cardHeight = Convert.ToInt16(courseTable.Location.Y) + courseTableHeight + separator + calculationsTableHeight;
 
@@ -139,7 +139,7 @@ namespace ZC_GPA_Calculator
                 courseTable.CommitEdit(DataGridViewDataErrorContexts.Commit);
             }
         }
-        
+
         public event EventHandler CgpaUpdate;       // To update the cGPA label in case of any change
         public event EventHandler GradeChanged;
         private void courseTable_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -195,7 +195,7 @@ namespace ZC_GPA_Calculator
             if (allowAdding && e.Button == MouseButtons.Right && e.RowIndex != -1)  // Allow delete only in case of added semesters 
             {                                                                       // Excluding the header
                 courseTable.CurrentCell = courseTable.Rows[e.RowIndex].Cells[0];
-                currentRowIndex= e.RowIndex;
+                currentRowIndex = e.RowIndex;
                 courseTableContextMenuStrip.Show(Cursor.Position);
             }
         }
