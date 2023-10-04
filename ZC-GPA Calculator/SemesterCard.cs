@@ -20,9 +20,6 @@ namespace ZC_GPA_Calculator
         }
         private void SemesterCard_Load(object sender, EventArgs e)
         {
-            int leftMargin = (this.Parent.Width - this.Width) / 2;
-            this.Margin = new Padding(leftMargin, 10, 0, 10);
-
             allowEditing = true;
 
             if (AllowAdding)

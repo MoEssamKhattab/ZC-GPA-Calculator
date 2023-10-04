@@ -119,7 +119,7 @@ namespace ZC_GPA_Calculator
             this.addCourseBtn.FillColor = System.Drawing.Color.White;
             this.addCourseBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.addCourseBtn.ForeColor = System.Drawing.Color.DimGray;
-            this.addCourseBtn.Location = new System.Drawing.Point(28, 368);
+            this.addCourseBtn.Location = new System.Drawing.Point(28, 353);
             this.addCourseBtn.Name = "addCourseBtn";
             this.addCourseBtn.ShadowDecoration.CustomizableEdges = customizableEdges2;
             this.addCourseBtn.Size = new System.Drawing.Size(1645, 45);
@@ -143,7 +143,7 @@ namespace ZC_GPA_Calculator
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.courseTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.courseTable.ColumnHeadersHeight = 50;
+            this.courseTable.ColumnHeadersHeight = 60;
             this.courseTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.courseTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.course,
@@ -161,7 +161,7 @@ namespace ZC_GPA_Calculator
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.courseTable.DefaultCellStyle = dataGridViewCellStyle3;
             this.courseTable.GridColor = System.Drawing.Color.White;
-            this.courseTable.Location = new System.Drawing.Point(28, 60);
+            this.courseTable.Location = new System.Drawing.Point(28, 51);
             this.courseTable.Name = "courseTable";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
@@ -190,7 +190,7 @@ namespace ZC_GPA_Calculator
             this.courseTable.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.courseTable.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.courseTable.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.courseTable.ThemeStyle.HeaderStyle.Height = 50;
+            this.courseTable.ThemeStyle.HeaderStyle.Height = 60;
             this.courseTable.ThemeStyle.ReadOnly = false;
             this.courseTable.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.courseTable.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -232,7 +232,7 @@ namespace ZC_GPA_Calculator
             // 
             this.grade.FillWeight = 34.25575F;
             this.grade.HeaderText = "Grade";
-            this.grade.MinimumWidth = 6;
+            this.grade.MinimumWidth = 80;
             this.grade.Name = "grade";
             // 
             // credits
@@ -255,7 +255,7 @@ namespace ZC_GPA_Calculator
             // 
             this.guna2Separator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Separator1.Location = new System.Drawing.Point(28, 416);
+            this.guna2Separator1.Location = new System.Drawing.Point(28, 403);
             this.guna2Separator1.Name = "guna2Separator1";
             this.guna2Separator1.Size = new System.Drawing.Size(1645, 12);
             this.guna2Separator1.TabIndex = 3;
@@ -275,7 +275,7 @@ namespace ZC_GPA_Calculator
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.calculationsTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.calculationsTable.ColumnHeadersHeight = 50;
+            this.calculationsTable.ColumnHeadersHeight = 60;
             this.calculationsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.calculationsTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.header,
@@ -295,7 +295,7 @@ namespace ZC_GPA_Calculator
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.calculationsTable.DefaultCellStyle = dataGridViewCellStyle8;
             this.calculationsTable.GridColor = System.Drawing.Color.White;
-            this.calculationsTable.Location = new System.Drawing.Point(28, 435);
+            this.calculationsTable.Location = new System.Drawing.Point(28, 422);
             this.calculationsTable.Name = "calculationsTable";
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
@@ -310,7 +310,7 @@ namespace ZC_GPA_Calculator
             dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.calculationsTable.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.calculationsTable.RowTemplate.Height = 50;
-            this.calculationsTable.Size = new System.Drawing.Size(1645, 152);
+            this.calculationsTable.Size = new System.Drawing.Size(1645, 163);
             this.calculationsTable.TabIndex = 2;
             this.calculationsTable.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.calculationsTable.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -324,7 +324,7 @@ namespace ZC_GPA_Calculator
             this.calculationsTable.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.calculationsTable.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.calculationsTable.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.calculationsTable.ThemeStyle.HeaderStyle.Height = 50;
+            this.calculationsTable.ThemeStyle.HeaderStyle.Height = 60;
             this.calculationsTable.ThemeStyle.ReadOnly = false;
             this.calculationsTable.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.calculationsTable.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -483,12 +483,6 @@ namespace ZC_GPA_Calculator
         private Guna.UI2.WinForms.Guna2DataGridView calculationsTable;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
         private Guna2DataGridView courseTable;
-        private DataGridViewTextBoxColumn course;
-        private DataGridViewTextBoxColumn title;
-        private DataGridViewTextBoxColumn subtype;
-        private DataGridViewComboBoxColumn grade;
-        private DataGridViewTextBoxColumn credits;
-        private DataGridViewTextBoxColumn qualityPoints;
         private Guna2Button addCourseBtn;
         private Guna2ContextMenuStrip courseTableContextMenuStrip;
         private ToolStripMenuItem deleteCourseToolStripMenuItem;
@@ -500,6 +494,12 @@ namespace ZC_GPA_Calculator
         private DataGridViewTextBoxColumn transferCredits;
         private DataGridViewTextBoxColumn Quality_Points;
         private DataGridViewTextBoxColumn GPA;
+        private DataGridViewTextBoxColumn course;
+        private DataGridViewTextBoxColumn title;
+        private DataGridViewTextBoxColumn subtype;
+        private DataGridViewComboBoxColumn grade;
+        private DataGridViewTextBoxColumn credits;
+        private DataGridViewTextBoxColumn qualityPoints;
 
         public Guna2DataGridView CourseTable { get => courseTable; set => courseTable = value; }
     }

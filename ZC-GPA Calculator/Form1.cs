@@ -74,6 +74,10 @@ namespace ZC_GPA_Calculator
                 initializeSemesterCardEvents(semesterCard);
                 semestersComboBox.DataSource = semesterList;
                 semesterCard.fill(semesterList, i);
+
+                semesterCard.Margin = new Padding(3, 0, 3, 20);
+                semesterCard.Dock= DockStyle.Fill;
+                
                 semestersPanel.Controls.Add(semesterCard);
                 semesterCardList.Add(semesterCard);
             }
@@ -86,15 +90,17 @@ namespace ZC_GPA_Calculator
             semesterList.Add(semester);
 
             SemesterCard semesterCard = new SemesterCard();
-            semesterCard.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
             semesterCard.AllowAdding = true;
 
             initializeSemesterCardEvents(semesterCard);
 
             semesterCard.SemesterTitle = $"{semesterTitle} {year}";
+
+            semesterCard.Margin = new Padding(3, 0, 3, 20);
+            semesterCard.Dock = DockStyle.Fill;
+            
             semestersPanel.Controls.Add(semesterCard);
             semesterCardList.Add(semesterCard);
-
         }
         private void initializeSemesterCardEvents(SemesterCard semesterCard)
         {
