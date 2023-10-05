@@ -193,6 +193,23 @@ namespace ZC_GPA_Calculator
             return true;
         }
 
+        // To Reduce Graphics Flicker with Double Buffering For WinForms Controls
+        public static void SetDoubleBuffered(System.Windows.Forms.Control c)
+        {
+            //Taxes: Remote Desktop Connection and painting
+            //http://blogs.msdn.com/oldnewthing/archive/2006/01/03/508694.aspx
+            if (System.Windows.Forms.SystemInformation.TerminalServerSession)
+                return;
+
+            System.Reflection.PropertyInfo aProp =
+                  typeof(System.Windows.Forms.Control).GetProperty(
+                        "DoubleBuffered",
+                        System.Reflection.BindingFlags.NonPublic |
+                        System.Reflection.BindingFlags.Instance);
+
+            aProp.SetValue(c, true, null);
+        }
+
         //public static BindingList<semester> readTranscript(string path, out string studentName, out string major)
         //{
         //    BindingList<semester> semestersList = new();   //List of all semesters

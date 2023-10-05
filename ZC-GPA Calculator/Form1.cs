@@ -14,6 +14,7 @@ namespace ZC_GPA_Calculator
         {
             InitializeComponent();
             semestersComboBox.DisplayMember = "Name";
+            Utilities.SetDoubleBuffered(transcriptTableLayoutPanel);        // to reduce graphics flicker
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -77,7 +78,8 @@ namespace ZC_GPA_Calculator
 
                 semesterCard.Margin = new Padding(3, 0, 3, 20);
                 semesterCard.Dock= DockStyle.Fill;
-                
+                Utilities.SetDoubleBuffered(semesterCard);
+
                 semestersPanel.Controls.Add(semesterCard);
                 semesterCardList.Add(semesterCard);
             }
@@ -135,7 +137,7 @@ namespace ZC_GPA_Calculator
                 int semesterIndex = Utilities.getSemesterIndex(thisCard, semesterCardList);
                 semesterList[semesterIndex].Courses.Add(e);
                 thisCard.addNewCourse(semesterList, semesterIndex);
-                semestersPanel.VerticalScroll.Value = semestersPanel.VerticalScroll.Maximum;
+                semestersPanel.VerticalScroll.Value = semesterCardScrollPosition(sender as SemesterCard).Y;
             };
             semesterCard.CourseDeleted += (object sender, int courseIndex) =>
             {
@@ -205,10 +207,13 @@ namespace ZC_GPA_Calculator
         }
         private void semestersComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Point targetPosition = new Point(0, semesterCardList[semestersComboBox.SelectedIndex].Top - semesterCardList[semestersComboBox.SelectedIndex].Margin.Top - semestersPanel.AutoScrollPosition.Y);
+            Point targetPosition = semesterCardScrollPosition(semesterCardList[semestersComboBox.SelectedIndex]);
             semestersPanel.AutoScrollPosition = targetPosition;
         }
-
+        private Point semesterCardScrollPosition(SemesterCard semesterCard)
+        {
+            return new Point(0, semesterCard.Top - semesterCard.Margin.Top - semestersPanel.AutoScrollPosition.Y);
+        }
         private void dragFilePanel_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))

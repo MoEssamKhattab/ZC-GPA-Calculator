@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace ZC_GPA_Calculator
 {
@@ -8,7 +7,7 @@ namespace ZC_GPA_Calculator
         bool allowEditing = false;
         bool allowAdding = false;
         BindingList<string> letterGrades;
-        const int maxVisibleCourses = 6;
+        static int maxVisibleCourses = 6;
         public string SemesterTitle { get => semesterTitle.Text; set => semesterTitle.Text = value; }
         public bool AllowAdding { get => allowAdding; set => allowAdding = value; }
 
@@ -17,6 +16,8 @@ namespace ZC_GPA_Calculator
             InitializeComponent();
             letterGrades = new BindingList<string> { "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "F" };
             this.grade.DataSource = letterGrades;
+
+            Utilities.SetDoubleBuffered(semesterCardTableLayoutPanel);   // to reduse graphics flicker when resizing
         }
         private void SemesterCard_Load(object sender, EventArgs e)
         {
@@ -29,27 +30,30 @@ namespace ZC_GPA_Calculator
         }
         public void updateCardHeight(int maxVisibleCourses)
         {
-            int cardHeaderHeight = cardHeaderPanel.Height;
-            int separator = 45;
-
             // Course table
             int headerHeight = courseTable.ThemeStyle.HeaderStyle.Height;
             int rowHeight = courseTable.ThemeStyle.RowsStyle.Height;
             int courseTableHeight = (Math.Min(maxVisibleCourses, courseTable.RowCount) * rowHeight) + headerHeight;
             courseTable.Height = courseTableHeight;
 
-            // Add course button
-            int addCourseBtnHeight = addCourseBtn.Height;
-
             // Calculations Table
             int calculationsTableHeight = calculationsTable.ThemeStyle.HeaderStyle.Height + 2 * calculationsTable.ThemeStyle.RowsStyle.Height;
 
+            // Total Margins
+            int totalMargin = courseTable.Margin.Top + courseTable.Margin.Bottom
+                + semesterCardSeparator.Margin.Top + semesterCardSeparator.Margin.Bottom
+                + addCourseBtn.Margin.Top + addCourseBtn.Margin.Bottom
+                + calculationsTable.Margin.Top + calculationsTable.Margin.Bottom
+                + semesterCardTableLayoutPanel.Margin.Bottom;
+
             // Total card
-            int cardHeight = Convert.ToInt16(courseTable.Location.Y) + courseTableHeight + separator + calculationsTableHeight;
+            int cardHeight = Convert.ToInt16(semesterCardTableLayoutPanel.Location.Y) + courseTableHeight + calculationsTableHeight + semesterCardSeparator.Height + totalMargin;
 
+            // Add Course Button
             if (allowAdding)
-                cardHeight += addCourseBtnHeight;
+                cardHeight += addCourseBtn.Height;
 
+            this.semesterCardPanel.Height = cardHeight;
             this.Height = cardHeight;
         }
         public void fill(BindingList<semester> semesters, int index)
@@ -136,7 +140,6 @@ namespace ZC_GPA_Calculator
                 courseTable.CommitEdit(DataGridViewDataErrorContexts.Commit);
             }
         }
-
         public event EventHandler CgpaUpdate;       // To update the cGPA label in case of any change
         public event EventHandler GradeChanged;
         private void courseTable_CellValueChanged(object sender, DataGridViewCellEventArgs e)
