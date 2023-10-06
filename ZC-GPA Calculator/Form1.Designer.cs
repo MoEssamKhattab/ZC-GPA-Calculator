@@ -455,8 +455,8 @@
             this.transcriptTableLayoutPanel.RowCount = 4;
             this.transcriptTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18F));
             this.transcriptTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11F));
-            this.transcriptTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
-            this.transcriptTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6F));
+            this.transcriptTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 64F));
+            this.transcriptTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7F));
             this.transcriptTableLayoutPanel.Size = new System.Drawing.Size(1893, 1025);
             this.transcriptTableLayoutPanel.TabIndex = 20;
             // 
@@ -680,7 +680,7 @@
             this.addNewSemesterBtn.FillColor = System.Drawing.Color.White;
             this.addNewSemesterBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.addNewSemesterBtn.ForeColor = System.Drawing.Color.DimGray;
-            this.addNewSemesterBtn.Location = new System.Drawing.Point(192, 965);
+            this.addNewSemesterBtn.Location = new System.Drawing.Point(192, 955);
             this.addNewSemesterBtn.Name = "addNewSemesterBtn";
             this.addNewSemesterBtn.ShadowDecoration.CustomizableEdges = customizableEdges24;
             this.addNewSemesterBtn.Size = new System.Drawing.Size(1508, 45);
@@ -695,7 +695,7 @@
             this.semestersPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.semestersPanel.Location = new System.Drawing.Point(192, 299);
             this.semestersPanel.Name = "semestersPanel";
-            this.semestersPanel.Size = new System.Drawing.Size(1508, 660);
+            this.semestersPanel.Size = new System.Drawing.Size(1508, 650);
             this.semestersPanel.TabIndex = 20;
             this.semestersPanel.WrapContents = false;
             this.semestersPanel.SizeChanged += new System.EventHandler(this.semestersPanel_SizeChanged);

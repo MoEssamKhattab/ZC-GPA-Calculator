@@ -16,7 +16,6 @@ namespace ZC_GPA_Calculator
         {
             InitializeComponent();
             semestersComboBox.DisplayMember = "Name";
-            Utilities.SetDoubleBuffered(transcriptTableLayoutPanel);        // to reduce graphics flicker when size changes
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -24,6 +23,8 @@ namespace ZC_GPA_Calculator
             this.MaximumSize = new Size(1920, 1080);
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             this.WindowState = FormWindowState.Maximized;
+
+            Utilities.SetDoubleBuffered(transcriptTableLayoutPanel);        // to reduce graphics flicker when size changes
         }
         private void browseFileBtn_Click(object sender, EventArgs e)
         {
