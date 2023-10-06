@@ -91,7 +91,7 @@
             this.cgpaLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.addNewSemesterBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.semestersPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.semestersPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.tabs.SuspendLayout();
             this.tab1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -442,9 +442,9 @@
             // transcriptTableLayoutPanel
             // 
             this.transcriptTableLayoutPanel.ColumnCount = 3;
-            this.transcriptTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.transcriptTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90F));
-            this.transcriptTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.transcriptTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.transcriptTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.transcriptTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.transcriptTableLayoutPanel.Controls.Add(this.guna2Panel3, 1, 0);
             this.transcriptTableLayoutPanel.Controls.Add(this.panel4, 1, 1);
             this.transcriptTableLayoutPanel.Controls.Add(this.addNewSemesterBtn, 1, 3);
@@ -470,10 +470,10 @@
             this.guna2Panel3.CustomizableEdges = customizableEdges19;
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Panel3.Location = new System.Drawing.Point(97, 3);
+            this.guna2Panel3.Location = new System.Drawing.Point(192, 3);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            this.guna2Panel3.Size = new System.Drawing.Size(1697, 178);
+            this.guna2Panel3.Size = new System.Drawing.Size(1508, 178);
             this.guna2Panel3.TabIndex = 5;
             // 
             // guna2Panel2
@@ -488,7 +488,7 @@
             this.guna2Panel2.Controls.Add(this.uploadAnotherDocBtn);
             this.guna2Panel2.CustomizableEdges = customizableEdges16;
             this.guna2Panel2.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Panel2.Location = new System.Drawing.Point(1577, 55);
+            this.guna2Panel2.Location = new System.Drawing.Point(1388, 55);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges17;
             this.guna2Panel2.Size = new System.Drawing.Size(120, 120);
@@ -582,9 +582,9 @@
             this.panel4.Controls.Add(this.cgpaLabel);
             this.panel4.Controls.Add(this.guna2HtmlLabel1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(97, 187);
+            this.panel4.Location = new System.Drawing.Point(192, 187);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1697, 106);
+            this.panel4.Size = new System.Drawing.Size(1508, 106);
             this.panel4.TabIndex = 17;
             // 
             // guna2Separator2
@@ -594,7 +594,7 @@
             this.guna2Separator2.FillColor = System.Drawing.Color.Gainsboro;
             this.guna2Separator2.Location = new System.Drawing.Point(3, 92);
             this.guna2Separator2.Name = "guna2Separator2";
-            this.guna2Separator2.Size = new System.Drawing.Size(1691, 12);
+            this.guna2Separator2.Size = new System.Drawing.Size(1502, 12);
             this.guna2Separator2.TabIndex = 19;
             // 
             // specialGPATxt
@@ -603,7 +603,7 @@
             this.specialGPATxt.BackColor = System.Drawing.Color.Transparent;
             this.specialGPATxt.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.specialGPATxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(35)))));
-            this.specialGPATxt.Location = new System.Drawing.Point(1310, 37);
+            this.specialGPATxt.Location = new System.Drawing.Point(1121, 37);
             this.specialGPATxt.Name = "specialGPATxt";
             this.specialGPATxt.Size = new System.Drawing.Size(214, 33);
             this.specialGPATxt.TabIndex = 17;
@@ -633,7 +633,7 @@
             // gpaSeparator
             // 
             this.gpaSeparator.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.gpaSeparator.Location = new System.Drawing.Point(1530, 37);
+            this.gpaSeparator.Location = new System.Drawing.Point(1341, 37);
             this.gpaSeparator.Name = "gpaSeparator";
             this.gpaSeparator.Size = new System.Drawing.Size(12, 33);
             this.gpaSeparator.TabIndex = 18;
@@ -644,7 +644,7 @@
             this.cgpaLabel.BackColor = System.Drawing.Color.Transparent;
             this.cgpaLabel.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cgpaLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(35)))));
-            this.cgpaLabel.Location = new System.Drawing.Point(1548, 37);
+            this.cgpaLabel.Location = new System.Drawing.Point(1359, 37);
             this.cgpaLabel.Name = "cgpaLabel";
             this.cgpaLabel.Size = new System.Drawing.Size(146, 33);
             this.cgpaLabel.TabIndex = 12;
@@ -680,10 +680,10 @@
             this.addNewSemesterBtn.FillColor = System.Drawing.Color.White;
             this.addNewSemesterBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.addNewSemesterBtn.ForeColor = System.Drawing.Color.DimGray;
-            this.addNewSemesterBtn.Location = new System.Drawing.Point(97, 965);
+            this.addNewSemesterBtn.Location = new System.Drawing.Point(192, 965);
             this.addNewSemesterBtn.Name = "addNewSemesterBtn";
             this.addNewSemesterBtn.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            this.addNewSemesterBtn.Size = new System.Drawing.Size(1697, 45);
+            this.addNewSemesterBtn.Size = new System.Drawing.Size(1508, 45);
             this.addNewSemesterBtn.TabIndex = 9;
             this.addNewSemesterBtn.Text = "Add New Semester";
             this.addNewSemesterBtn.Click += new System.EventHandler(this.addNewSemesterBtn_Click);
@@ -691,15 +691,14 @@
             // semestersPanel
             // 
             this.semestersPanel.AutoScroll = true;
-            this.semestersPanel.ColumnCount = 1;
-            this.semestersPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.semestersPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.semestersPanel.Location = new System.Drawing.Point(97, 299);
+            this.semestersPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.semestersPanel.Location = new System.Drawing.Point(192, 299);
             this.semestersPanel.Name = "semestersPanel";
-            this.semestersPanel.RowCount = 1;
-            this.semestersPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.semestersPanel.Size = new System.Drawing.Size(1697, 660);
-            this.semestersPanel.TabIndex = 18;
+            this.semestersPanel.Size = new System.Drawing.Size(1508, 660);
+            this.semestersPanel.TabIndex = 20;
+            this.semestersPanel.WrapContents = false;
+            this.semestersPanel.SizeChanged += new System.EventHandler(this.semestersPanel_SizeChanged);
             // 
             // MainForm
             // 
@@ -782,6 +781,6 @@
         private TableLayoutPanel transcriptTableLayoutPanel;
         private Panel panel4;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator2;
-        private TableLayoutPanel semestersPanel;
+        private FlowLayoutPanel semestersPanel;
     }
 }

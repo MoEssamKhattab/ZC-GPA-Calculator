@@ -10,7 +10,6 @@ namespace ZC_GPA_Calculator
         static int maxVisibleCourses = 6;
         public string SemesterTitle { get => semesterTitle.Text; set => semesterTitle.Text = value; }
         public bool AllowAdding { get => allowAdding; set => allowAdding = value; }
-
         public SemesterCard()
         {
             InitializeComponent();
@@ -18,6 +17,8 @@ namespace ZC_GPA_Calculator
             this.grade.DataSource = letterGrades;
 
             Utilities.SetDoubleBuffered(semesterCardTableLayoutPanel);   // to reduse graphics flicker when resizing
+            Utilities.SetDoubleBuffered(CourseTable);
+            Utilities.SetDoubleBuffered(calculationsTable);
         }
         private void SemesterCard_Load(object sender, EventArgs e)
         {
@@ -53,7 +54,7 @@ namespace ZC_GPA_Calculator
             if (allowAdding)
                 cardHeight += addCourseBtn.Height;
 
-            this.semesterCardPanel.Height = cardHeight;
+            //this.semesterCardPanel.Height = cardHeight;
             this.Height = cardHeight;
         }
         public void fill(BindingList<semester> semesters, int index)
@@ -202,8 +203,8 @@ namespace ZC_GPA_Calculator
         private void deleteCourseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             courseTable.Rows.RemoveAt(currentRowIndex);
-            CourseDeleted?.Invoke(this, currentRowIndex);
             updateCardHeight(maxVisibleCourses);
+            CourseDeleted?.Invoke(this, currentRowIndex);
         }
         private void courseTable_KeyDown(object sender, KeyEventArgs e)
         {

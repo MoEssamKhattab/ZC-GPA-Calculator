@@ -1,5 +1,7 @@
+using Guna.UI2.WinForms;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace ZC_GPA_Calculator
 {
@@ -14,7 +16,7 @@ namespace ZC_GPA_Calculator
         {
             InitializeComponent();
             semestersComboBox.DisplayMember = "Name";
-            Utilities.SetDoubleBuffered(transcriptTableLayoutPanel);        // to reduce graphics flicker
+            Utilities.SetDoubleBuffered(transcriptTableLayoutPanel);        // to reduce graphics flicker when size changes
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -69,7 +71,7 @@ namespace ZC_GPA_Calculator
         public void initializeSemestersCards()
         {
             semesterCardList = new List<SemesterCard>();
-            for (int i=0;  i<semesterList.Count; i++)
+            for (int i = 0; i < semesterList.Count; i++)
             {
                 SemesterCard semesterCard = new SemesterCard();
                 initializeSemesterCardEvents(semesterCard);
@@ -77,8 +79,10 @@ namespace ZC_GPA_Calculator
                 semesterCard.fill(semesterList, i);
 
                 semesterCard.Margin = new Padding(3, 0, 3, 20);
-                semesterCard.Dock= DockStyle.Fill;
+                if (i > 0) semesterCard.Dock= DockStyle.Top;
                 Utilities.SetDoubleBuffered(semesterCard);
+
+                semesterCard.Width = semestersPanel.Width - 2 * SystemInformation.VerticalScrollBarWidth;
 
                 semestersPanel.Controls.Add(semesterCard);
                 semesterCardList.Add(semesterCard);
@@ -99,10 +103,13 @@ namespace ZC_GPA_Calculator
             semesterCard.SemesterTitle = $"{semesterTitle} {year}";
 
             semesterCard.Margin = new Padding(3, 0, 3, 20);
-            semesterCard.Dock = DockStyle.Fill;
-            
+            semesterCard.Dock = DockStyle.Top;
+
+            semesterCard.Width = semestersPanel.Width - 2 * SystemInformation.VerticalScrollBarWidth;
+
             semestersPanel.Controls.Add(semesterCard);
             semesterCardList.Add(semesterCard);
+
         }
         private void initializeSemesterCardEvents(SemesterCard semesterCard)
         {
@@ -241,6 +248,15 @@ namespace ZC_GPA_Calculator
             {
                 MessageBox.Show(otherExeption.Message);
             }
+        }
+
+        private void semestersPanel_SizeChanged(object sender, EventArgs e)
+        {
+            if (semesterCardList == null || semesterCardList.Count == 0) return;
+
+            semesterCardList[0].Width = semestersPanel.Width - SystemInformation.VerticalScrollBarWidth - 10;
+
+            semestersPanel.PerformLayout();     // Perform Layout is used to remove the space right to the semestercards when their size gets reduced
         }
     }
 }

@@ -61,7 +61,7 @@ namespace ZC_GPA_Calculator
                         if (courseGrade.StartsWith('[') && courseGrade != "W" && courseGrade != "WP" && courseGrade != "WF" && courseGrade != "I" && courseGrade != "IP")
                         {
                             courseGrade = courseGrade.Substring(1, courseGrade.Length - 2);
-                            changeRepeatedFlag2(courseCode, semestersList);
+                            findRepeatedCourse(courseCode, semestersList);
                         }
                         Course course = new Course(courseCode, courseTitle, courseSubType, courseGrade, courseCredits);
                         semester.Courses.Add(course);
@@ -130,9 +130,9 @@ namespace ZC_GPA_Calculator
                 MessageBox.Show($"It seems that the repeated course, {courseCode}, was repeated with different corse code. Reach the old course and change its grade to 'P', please!");
             }
         }
-        public static void changeRepeatedFlag2(string courseCode, BindingList<semester> semestersList)
+        public static void findRepeatedCourse(string courseCode, BindingList<semester> semestersList)
         {
-            bool found = searchRepeatedCourse(courseCode, semestersList);
+            bool found = searchRepeatedCourse(courseCode, semestersList, semestersList.Count - 1);
             
             if (found == false)
             {
@@ -146,21 +146,32 @@ namespace ZC_GPA_Calculator
                     }
                 }
                 if (oldCourseCode != "")
-                    searchRepeatedCourse(oldCourseCode, semestersList);
+                    searchRepeatedCourse(oldCourseCode, semestersList, semestersList.Count - 1);
             }
         }      
-        public static bool searchRepeatedCourse(string courseCode, BindingList<semester> semestersList)
+        public static bool searchRepeatedCourse(string courseCode, BindingList<semester> semestersList, int lastIndex)
         {
-            for (int i = semestersList.Count - 1; i >= 0; i--)   // In reverse order to Handle the last occurence
+            for (int i = lastIndex; i >= 0; i--)   // In reverse order to Handle the last occurence
             {
                 for (int j = 0; j < semestersList[i].Courses.Count; j++)   // In ordinary order as the course is not repeated at the same semester (it doesn't matter)
                 {
                     if (semestersList[i].Courses[j].Code == courseCode)
                     {
-                        Course tempCourse = semestersList[i].Courses[j];
-                        tempCourse.RepeatedIn = semestersList.Count;
-                        semestersList[i].Courses[j] = tempCourse;
-                        return true;
+                        string courseGrade = semestersList[i].Courses[j].Grade;
+                        if (courseGrade != "W" && courseGrade != "WP" && courseGrade != "WF" /*&& courseGrade != "I" && courseGrade != "IP"*/)
+                        {
+                            Course tempCourse = semestersList[i].Courses[j];
+                            tempCourse.RepeatedIn = semestersList.Count;
+                            semestersList[i].Courses[j] = tempCourse;
+
+                            return true;
+                        }
+                        /*bool isRepeat = semestersList[i].Courses[j].isRepeat;*/
+                        else if ((courseGrade == "W" || courseGrade == "WP" || courseGrade != "WF") /*&& isRepeat*/)
+                            searchRepeatedCourse(courseCode, semestersList, i-1);
+                        
+                        else
+                            return false;
                     }
                 }
             }

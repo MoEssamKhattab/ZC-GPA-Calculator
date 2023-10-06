@@ -212,11 +212,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\ZC\\ZC-GPA-Calculator - Copy\\ZC-GPA Calculator\\ZC-GPA Calculator.csproj",
+      "projectUniqueName": "E:\\ZC\\ZC-GPA-Calculator\\ZC-GPA Calculator\\ZC-GPA Calculator.csproj",
       "projectName": "ZC-GPA Calculator",
-      "projectPath": "E:\\ZC\\ZC-GPA-Calculator - Copy\\ZC-GPA Calculator\\ZC-GPA Calculator.csproj",
+      "projectPath": "E:\\ZC\\ZC-GPA-Calculator\\ZC-GPA Calculator\\ZC-GPA Calculator.csproj",
       "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
-      "outputPath": "E:\\ZC\\ZC-GPA-Calculator - Copy\\ZC-GPA Calculator\\obj\\",
+      "outputPath": "E:\\ZC\\ZC-GPA-Calculator\\ZC-GPA Calculator\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
