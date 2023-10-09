@@ -53,6 +53,12 @@ namespace ZC_GPA_Calculator
             this.semesterCardTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.addCourseBtn = new Guna.UI2.WinForms.Guna2Button();
             this.courseTable = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.course = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subtype = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grade = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.credits = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qualityPoints = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.semesterCardSeparator = new Guna.UI2.WinForms.Guna2Separator();
             this.calculationsTable = new Guna.UI2.WinForms.Guna2DataGridView();
             this.header = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,12 +74,6 @@ namespace ZC_GPA_Calculator
             this.semesterTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.courseTableContextMenuStrip = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.deleteCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.course = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subtype = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grade = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.credits = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qualityPoints = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.semesterCardPanel.SuspendLayout();
             this.semesterCardTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.courseTable)).BeginInit();
@@ -223,6 +223,55 @@ namespace ZC_GPA_Calculator
             this.courseTable.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.courseTable_CellValueChanged);
             this.courseTable.CurrentCellDirtyStateChanged += new System.EventHandler(this.courseTable_CurrentCellDirtyStateChanged);
             this.courseTable.KeyDown += new System.Windows.Forms.KeyEventHandler(this.courseTable_KeyDown);
+            // 
+            // course
+            // 
+            this.course.FillWeight = 64.17112F;
+            this.course.HeaderText = "Course";
+            this.course.MinimumWidth = 110;
+            this.course.Name = "course";
+            this.course.ReadOnly = true;
+            this.course.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // title
+            // 
+            this.title.FillWeight = 248.3437F;
+            this.title.HeaderText = "Title";
+            this.title.MinimumWidth = 6;
+            this.title.Name = "title";
+            this.title.ReadOnly = true;
+            // 
+            // subtype
+            // 
+            this.subtype.FillWeight = 100.7273F;
+            this.subtype.HeaderText = "Subtype";
+            this.subtype.MinimumWidth = 6;
+            this.subtype.Name = "subtype";
+            this.subtype.ReadOnly = true;
+            // 
+            // grade
+            // 
+            this.grade.FillWeight = 34.25575F;
+            this.grade.HeaderText = "Grade";
+            this.grade.MinimumWidth = 80;
+            this.grade.Name = "grade";
+            this.grade.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // credits
+            // 
+            this.credits.FillWeight = 76.25104F;
+            this.credits.HeaderText = "Credits";
+            this.credits.MinimumWidth = 6;
+            this.credits.Name = "credits";
+            this.credits.ReadOnly = true;
+            // 
+            // qualityPoints
+            // 
+            this.qualityPoints.FillWeight = 76.25104F;
+            this.qualityPoints.HeaderText = "Quality Points";
+            this.qualityPoints.MinimumWidth = 6;
+            this.qualityPoints.Name = "qualityPoints";
+            this.qualityPoints.ReadOnly = true;
             // 
             // semesterCardSeparator
             // 
@@ -424,55 +473,6 @@ namespace ZC_GPA_Calculator
             this.deleteCourseToolStripMenuItem.Size = new System.Drawing.Size(171, 24);
             this.deleteCourseToolStripMenuItem.Text = "Delete Course";
             this.deleteCourseToolStripMenuItem.Click += new System.EventHandler(this.deleteCourseToolStripMenuItem_Click);
-            // 
-            // course
-            // 
-            this.course.FillWeight = 64.17112F;
-            this.course.HeaderText = "Course";
-            this.course.MinimumWidth = 110;
-            this.course.Name = "course";
-            this.course.ReadOnly = true;
-            this.course.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // title
-            // 
-            this.title.FillWeight = 248.3437F;
-            this.title.HeaderText = "Title";
-            this.title.MinimumWidth = 6;
-            this.title.Name = "title";
-            this.title.ReadOnly = true;
-            // 
-            // subtype
-            // 
-            this.subtype.FillWeight = 100.7273F;
-            this.subtype.HeaderText = "Subtype";
-            this.subtype.MinimumWidth = 6;
-            this.subtype.Name = "subtype";
-            this.subtype.ReadOnly = true;
-            // 
-            // grade
-            // 
-            this.grade.FillWeight = 34.25575F;
-            this.grade.HeaderText = "Grade";
-            this.grade.MinimumWidth = 80;
-            this.grade.Name = "grade";
-            this.grade.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // credits
-            // 
-            this.credits.FillWeight = 76.25104F;
-            this.credits.HeaderText = "Credits";
-            this.credits.MinimumWidth = 6;
-            this.credits.Name = "credits";
-            this.credits.ReadOnly = true;
-            // 
-            // qualityPoints
-            // 
-            this.qualityPoints.FillWeight = 76.25104F;
-            this.qualityPoints.HeaderText = "Quality Points";
-            this.qualityPoints.MinimumWidth = 6;
-            this.qualityPoints.Name = "qualityPoints";
-            this.qualityPoints.ReadOnly = true;
             // 
             // SemesterCard
             // 

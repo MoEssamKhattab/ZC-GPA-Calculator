@@ -7,7 +7,7 @@ namespace ZC_GPA_Calculator
         public string OldCourseCode { get; set; }
         public BindingList<string> allCourseCodes;
 
-        public HandleRepeatsForm(string newCourseCode, BindingList<semester> semestersList)
+        public HandleRepeatsForm(string newCourseCode, BindingList<Semester> semestersList)
         {
             InitializeComponent();
             this.MaximizeBox = false;
@@ -28,17 +28,14 @@ namespace ZC_GPA_Calculator
             OldCourseCode = courseCodesComboBox.Text;
             this.DialogResult = DialogResult.OK;
         }
-
-        public void fillAllCourseCodesList(BindingList<semester> semestersList, BindingList<string> allCourseCodesList)
+        public void fillAllCourseCodesList(BindingList<Semester> semestersList, BindingList<string> allCourseCodesList)
         {
             foreach (var semester in semestersList)
             {
                 foreach (var course in semester.Courses)
                 {
                     if (!allCourseCodesList.Contains(course.Code) && course.GpaCredits != 0)
-                    {
                         allCourseCodesList.Add(course.Code);
-                    }
                 }
             }
         }

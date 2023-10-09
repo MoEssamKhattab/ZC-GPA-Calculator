@@ -1,14 +1,13 @@
-using Guna.UI2.WinForms;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Windows.Forms;
 
 namespace ZC_GPA_Calculator
 {
     public partial class MainForm : Form
     {
-        BindingList<semester> semesterList;
+        BindingList<Semester> semesterList;
         List<SemesterCard> semesterCardList;
+        bool isTranscriptInitialized = false;
 
         string studentName;
         string studentMajor;
@@ -54,6 +53,8 @@ namespace ZC_GPA_Calculator
                     studentMajorLabel.Text = studentMajor;
                     studentPicture.Text = studentName[0].ToString();
                     tabs.SelectTab(tab2);
+                    
+                    isTranscriptInitialized = true;
                 }
                 else
                 {
@@ -88,10 +89,11 @@ namespace ZC_GPA_Calculator
                 semestersPanel.Controls.Add(semesterCard);
                 semesterCardList.Add(semesterCard);
             }
+            semesterCardList[semesterCardList.Count- 1].Margin = new Padding(3, 0, 3, 3);
         }
-        private void addNewSemester(Semester semesterTitle, int year, BindingList<semester> semesterList, List<SemesterCard> semesterCardList)
+        private void addNewSemester(SemesterType semesterTitle, int year, BindingList<Semester> semesterList, List<SemesterCard> semesterCardList)
         {
-            semester semester = new semester();
+            Semester semester = new Semester();
             semester.Title = semesterTitle;
             semester.Year = year;
             semesterList.Add(semester);
@@ -103,7 +105,8 @@ namespace ZC_GPA_Calculator
 
             semesterCard.SemesterTitle = $"{semesterTitle} {year}";
 
-            semesterCard.Margin = new Padding(3, 0, 3, 20);
+            semesterCardList[semesterCardList.Count - 1].Margin = new Padding(3, 0, 3, 20);
+            semesterCard.Margin = new Padding(3, 0, 3, 3);
             semesterCard.Dock = DockStyle.Top;
 
             semesterCard.Width = semestersPanel.Width - 2 * SystemInformation.VerticalScrollBarWidth;
@@ -134,7 +137,7 @@ namespace ZC_GPA_Calculator
                 else
                 {                
                     DataGridViewComboBoxCell gradeComboBox = (DataGridViewComboBoxCell)thisCard.CourseTable.Rows[rowIndex].Cells["Grade"];
-                    Utilities.updateSemestersList(ref this.semesterList, semesterIndex, rowIndex, gradeComboBox.Value.ToString());
+                    Utilities.updateSemestersList(this.semesterList, semesterIndex, rowIndex, gradeComboBox.Value.ToString());
                     updateSemestersGPATables(this.semesterList, this.semesterCardList);
                     semesterCard.updateCourseTableQualityPoints(semesterList[semesterIndex], rowIndex);
                 }
@@ -159,7 +162,7 @@ namespace ZC_GPA_Calculator
         }
         private void semesterCard_CgpaUpdate(object sender, EventArgs e)
         {
-            double cGPA = semester.calculateOverallGPA(semesterList, semesterList.Count - 1);
+            double cGPA = Semester.calculateOverallGPA(semesterList, semesterList.Count - 1);
             cgpaLabel.Text = $"CGPA: {cGPA.ToString("0.0000")}";
 
             double specialGPA = Utilities.calculateSpecialGPA(semesterList);
@@ -175,7 +178,7 @@ namespace ZC_GPA_Calculator
                 gpaSeparator.Visible = true;
             }
         }     
-        private void updateSemestersGPATables(BindingList<semester> semesters, List<SemesterCard> semesterCards)
+        private void updateSemestersGPATables(BindingList<Semester> semesters, List<SemesterCard> semesterCards)
         {
             for (int i=0; i< semesterCards.Count; i++)
             {
@@ -187,13 +190,14 @@ namespace ZC_GPA_Calculator
             // Clear all data
             semesterList.Clear();
             semestersPanel.Controls.Clear();
-            semesterCardList.Clear();           
+            semesterCardList.Clear();      
+            isTranscriptInitialized= false;
         }
         private void addNewSemesterBtn_Click(object sender, EventArgs e)
         {
             using (AddSemesterForm addSemesterForm = new AddSemesterForm())
             {
-                Semester semesterTitle;
+                SemesterType semesterTitle;
                 int year;
 
                 DialogResult dialogResult = addSemesterForm.ShowDialog();               
@@ -215,8 +219,12 @@ namespace ZC_GPA_Calculator
         }
         private void semestersComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Point targetPosition = semesterCardScrollPosition(semesterCardList[semestersComboBox.SelectedIndex]);
-            semestersPanel.AutoScrollPosition = targetPosition;
+            try
+            {
+                Point targetPosition = semesterCardScrollPosition(semesterCardList[semestersComboBox.SelectedIndex]);
+                semestersPanel.AutoScrollPosition = targetPosition;
+            }
+            catch { }
         }
         private Point semesterCardScrollPosition(SemesterCard semesterCard)
         {
@@ -224,8 +232,15 @@ namespace ZC_GPA_Calculator
         }
         private void dragFilePanel_DragEnter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(DataFormats.FileDrop))
-                e.Effect = DragDropEffects.Copy;
+            try
+            {
+                if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                    e.Effect = DragDropEffects.Copy;
+            }
+            catch 
+            {
+                MessageBox.Show("Drop a valid html, please!");
+            }
         }
         private void dragFilePanel_DragDrop(object sender, DragEventArgs e)
         {
@@ -250,7 +265,6 @@ namespace ZC_GPA_Calculator
                 MessageBox.Show(otherExeption.Message);
             }
         }
-
         private void semestersPanel_SizeChanged(object sender, EventArgs e)
         {
             if (semesterCardList == null || semesterCardList.Count == 0) return;

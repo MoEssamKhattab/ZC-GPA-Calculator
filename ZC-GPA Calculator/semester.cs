@@ -1,15 +1,13 @@
 ﻿using System.ComponentModel;
-using System.Diagnostics;
-
 
 namespace ZC_GPA_Calculator
 {
-    public struct semester
+    public class Semester
     {
-        Semester title;
+        SemesterType title;
         int year;
         List<Course> courses;
-        public semester()
+        public Semester()
         {
             this.title = new();
             this.year = 0;
@@ -18,7 +16,7 @@ namespace ZC_GPA_Calculator
         public string Name => $"{year} {title}";
         public int Year { get => year; set => year = value; }
         internal List<Course> Courses { get => courses; set => courses = value; }
-        internal Semester Title { get => title; set => title = value; }
+        internal SemesterType Title { get => title; set => title = value; }
         public double calculateQualityPoints()
         {
             double _qualityPoints = 0;
@@ -28,7 +26,7 @@ namespace ZC_GPA_Calculator
             }
             return _qualityPoints;
         }
-        public static double calculateOverallQualityPoints(BindingList<semester> semesters, int endIndex, int startIndex = 0)
+        public static double calculateOverallQualityPoints(BindingList<Semester> semesters, int endIndex, int startIndex = 0)
         {
             double _qualityPoints = 0;
 
@@ -52,7 +50,7 @@ namespace ZC_GPA_Calculator
             }
             return _credits;
         }
-        public static double calculateOverallAttemptedCredits(BindingList<semester> semesters, int index)
+        public static double calculateOverallAttemptedCredits(BindingList<Semester> semesters, int index)
         {
             double _overallCredits = 0;
 
@@ -78,7 +76,7 @@ namespace ZC_GPA_Calculator
             }
             return _credits;
         }
-        public static double calculateOverallEarnedCredits(BindingList<semester> semesters, int index)
+        public static double calculateOverallEarnedCredits(BindingList<Semester> semesters, int index)
         {
             double _overallCredits = 0;
             for (int i = 0; i <= index; i++)
@@ -100,7 +98,7 @@ namespace ZC_GPA_Calculator
             }
             return _credits;
         }
-        public static double calculateOverallTotalCredits(BindingList<semester> semesters, int index)
+        public static double calculateOverallTotalCredits(BindingList<Semester> semesters, int index)
         {
             double _overallCredits = 0;
             for (int i = 0; i <= index; i++)
@@ -122,7 +120,7 @@ namespace ZC_GPA_Calculator
             }
             return _credits;
         }
-        public static double calculateOverallTransferCredits(BindingList<semester> semesters, int index)
+        public static double calculateOverallTransferCredits(BindingList<Semester> semesters, int index)
         {
             double _overallCredits = 0;
 
@@ -145,7 +143,7 @@ namespace ZC_GPA_Calculator
             }
             return _GPACredits;
         }
-        public static double calculateOverallGPACredits(BindingList<semester> semesters, int endIndex, int startIndex = 0)
+        public static double calculateOverallGPACredits(BindingList<Semester> semesters, int endIndex, int startIndex = 0)
         {
             double _overallGPACredits = 0;
 
@@ -163,7 +161,7 @@ namespace ZC_GPA_Calculator
         {
             return Math.Round(calculateQualityPoints() / calculateGPACredits(), 4);
         }
-        public static double calculateOverallGPA(BindingList<semester> semesters, int endIndex)
+        public static double calculateOverallGPA(BindingList<Semester> semesters, int endIndex)
         {
             return Math.Round(calculateOverallQualityPoints(semesters, endIndex) / calculateOverallGPACredits(semesters, endIndex), 4);
         }

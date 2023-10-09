@@ -16,7 +16,7 @@ namespace ZC_GPA_Calculator
         public string CourseTitle { get; set; }
         public CourseSubtype CourseSubtype { get; set; }
         public string CourseGrade { get; set; }
-        public int CourseCredits { get; set; }
+        public byte CourseCredits { get; set; }
 
         public AddCourseForm()
         {
@@ -41,7 +41,7 @@ namespace ZC_GPA_Calculator
             CourseTitle= courseTitleTxt.Text;
             CourseSubtype = (CourseSubtype)Enum.Parse(typeof(CourseSubtype),subtypeComboBox.Text);
             CourseGrade = gradeComboBox.Text;
-            CourseCredits = Convert.ToInt16(creditsNumericUpDown.Value);
+            CourseCredits = Convert.ToByte(creditsNumericUpDown.Value);
             this.DialogResult = DialogResult.OK;
         }
     }

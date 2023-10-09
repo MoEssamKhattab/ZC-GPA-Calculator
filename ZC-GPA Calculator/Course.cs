@@ -1,24 +1,26 @@
 ﻿
 namespace ZC_GPA_Calculator
 {
-    public struct Course
+    public class Course
     {
         string code;
         string title;
         CourseSubtype subtype;
         string grade;
-        int credits;
-        int gpaCredits;
+        byte credits;
+        byte gpaCredits;
         double qualityPoints;
-        int repeatedIn;      // Initially = -1, to be assigned to index of the semester in which the course is later repeated
-        public Course(string code, string title, CourseSubtype subtype, string grade, int credits, int repeatedIn = -1)
+        sbyte repeatedIn;      // Initially = null, to be assigned to index of the semester in which the course is later repeated
+        bool isRepeat;         // indicates if the current course is a repeated version of an old one.
+        public Course(string code, string title, CourseSubtype subtype, string grade, byte credits, sbyte repeatedIn = -1, bool isRepeat = false)
         {
             this.code = code;
             this.title = title;
             this.subtype = subtype;
-            this.Grade = grade;
+            this.grade = grade;
             this.credits = credits;
             this.repeatedIn = repeatedIn;
+            this.isRepeat = isRepeat;
 
             //if (grade == "A" || grade == "A-" || grade == "B+" || grade == "B" || grade == "B-" || grade == "C+" || grade == "C" || grade == "C-" || grade == "F" )
             //    this.gpaCredits = credits;
@@ -45,15 +47,16 @@ namespace ZC_GPA_Calculator
                     gpaCredits = credits;
             }
         }
-        public int Credits { get => credits; set => credits = value; }
+        public byte Credits { get => credits; set => credits = value; }
         internal CourseSubtype Subtype { get => subtype; set => subtype = value; }
-        public int GpaCredits { get => gpaCredits; set => gpaCredits = value; }
+        public byte GpaCredits { get => gpaCredits; set => gpaCredits = value; }
         public double QualityPoints { get => qualityPoints; set => qualityPoints = value; }
-        public int RepeatedIn { get => repeatedIn; set => repeatedIn = value; }
+        public sbyte RepeatedIn { get => repeatedIn; set => repeatedIn = value; }
+        public bool IsRepeat { get => isRepeat; set => isRepeat = value; }
 
         public double calculateQualityPoints()
         {
-            return Math.Round(Utilities.stringToGrade(this.grade) * (double)this.credits, 2);
+            return Math.Round(Utilities.stringToGrade(this.grade) * this.credits, 2);
         }
     }
 }

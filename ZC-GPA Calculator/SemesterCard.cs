@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace ZC_GPA_Calculator
 {
@@ -19,13 +20,13 @@ namespace ZC_GPA_Calculator
             Utilities.SetDoubleBuffered(semesterCardTableLayoutPanel);   // to reduse graphics flicker when resizing
             Utilities.SetDoubleBuffered(CourseTable);
             Utilities.SetDoubleBuffered(calculationsTable);
+
         }
         private void SemesterCard_Load(object sender, EventArgs e)
         {
             allowEditing = true;
 
-            if (AllowAdding)
-                addCourseBtn.Visible = true;
+            if (AllowAdding) addCourseBtn.Visible = true;
 
             updateCardHeight(maxVisibleCourses);
         }
@@ -54,10 +55,9 @@ namespace ZC_GPA_Calculator
             if (allowAdding)
                 cardHeight += addCourseBtn.Height;
 
-            //this.semesterCardPanel.Height = cardHeight;
             this.Height = cardHeight;
         }
-        public void fill(BindingList<semester> semesters, int index)
+        public void fill(BindingList<Semester> semesters, int index)
         {
             this.semesterTitle.Text = semesters[index].Name;
             //this.courseTable.Rows.Clear();
@@ -81,9 +81,9 @@ namespace ZC_GPA_Calculator
                 courseTable.Rows[rowIndex].Cells["QualityPoints"].Value = course.calculateQualityPoints().ToString("0.00");
             }
             updateGPACalculationsTable(semesters, index);
-            updateCardHeight(maxVisibleCourses);
+            //updateCardHeight(maxVisibleCourses);          //  already called in the load event handler
         }
-        public void addNewCourse(BindingList<semester> semesters, int semesterIndex)
+        public void addNewCourse(BindingList<Semester> semesters, int semesterIndex)
         {
             Course course = semesters[semesterIndex].Courses[semesters[semesterIndex].Courses.Count - 1];
 
@@ -98,13 +98,13 @@ namespace ZC_GPA_Calculator
             updateGPACalculationsTable(semesters, semesterIndex);
             updateCardHeight(maxVisibleCourses);
         }
-        public void updateCourseTableQualityPoints(semester semester, int courseIndex)
+        public void updateCourseTableQualityPoints(Semester semester, int courseIndex)
         {
             double newQualityPoints = semester.Courses[courseIndex].QualityPoints;
             courseTable.Rows[courseIndex].Cells["QualityPoints"].Value = newQualityPoints.ToString("0.00");
             courseTable.Refresh();
         }
-        public void updateGPACalculationsTable(BindingList<semester> semesters, int index)
+        public void updateGPACalculationsTable(BindingList<Semester> semesters, int index)
         {
             this.calculationsTable.Rows.Clear();
             this.calculationsTable.Refresh();
@@ -116,19 +116,19 @@ namespace ZC_GPA_Calculator
             calculationsTable.Rows.Add(overallRow);
             // GPA Calculations
             calculationsTable.Rows[0].Cells["GPACredits"].Value = semesters[index].calculateGPACredits().ToString();
-            calculationsTable.Rows[1].Cells["GPACredits"].Value = semester.calculateOverallGPACredits(semesters, index).ToString();
+            calculationsTable.Rows[1].Cells["GPACredits"].Value = Semester.calculateOverallGPACredits(semesters, index).ToString();
             calculationsTable.Rows[0].Cells["AttemptedCredits"].Value = semesters[index].calculateAttemptedCredits().ToString();
-            calculationsTable.Rows[1].Cells["AttemptedCredits"].Value = semester.calculateOverallAttemptedCredits(semesters, index).ToString();
+            calculationsTable.Rows[1].Cells["AttemptedCredits"].Value = Semester.calculateOverallAttemptedCredits(semesters, index).ToString();
             calculationsTable.Rows[0].Cells["EarnedCredits"].Value = semesters[index].calculateEarnedCredits().ToString();
-            calculationsTable.Rows[1].Cells["EarnedCredits"].Value = semester.calculateOverallEarnedCredits(semesters, index).ToString();
+            calculationsTable.Rows[1].Cells["EarnedCredits"].Value = Semester.calculateOverallEarnedCredits(semesters, index).ToString();
             calculationsTable.Rows[0].Cells["TotalCredits"].Value = semesters[index].calculateTotalCredits().ToString();
-            calculationsTable.Rows[1].Cells["TotalCredits"].Value = semester.calculateOverallTotalCredits(semesters, index).ToString();
+            calculationsTable.Rows[1].Cells["TotalCredits"].Value = Semester.calculateOverallTotalCredits(semesters, index).ToString();
             calculationsTable.Rows[0].Cells["TransferCredits"].Value = semesters[index].calculateTransferCredits().ToString();
-            calculationsTable.Rows[1].Cells["TransferCredits"].Value = semester.calculateOverallTransferCredits(semesters, index).ToString();
+            calculationsTable.Rows[1].Cells["TransferCredits"].Value = Semester.calculateOverallTransferCredits(semesters, index).ToString();
             calculationsTable.Rows[0].Cells["Quality_Points"].Value = semesters[index].calculateQualityPoints().ToString("0.00");
-            calculationsTable.Rows[1].Cells["Quality_Points"].Value = semester.calculateOverallQualityPoints(semesters, index).ToString("0.00");
+            calculationsTable.Rows[1].Cells["Quality_Points"].Value = Semester.calculateOverallQualityPoints(semesters, index).ToString("0.00");
             calculationsTable.Rows[0].Cells["GPA"].Value = semesters[index].calculateGPA().ToString("0.0000");
-            calculationsTable.Rows[1].Cells["GPA"].Value = semester.calculateOverallGPA(semesters, index).ToString("0.0000");
+            calculationsTable.Rows[1].Cells["GPA"].Value = Semester.calculateOverallGPA(semesters, index).ToString("0.0000");
         }
 
         // This event handler manually raises the CellValueChanged event 
@@ -169,7 +169,7 @@ namespace ZC_GPA_Calculator
                 string CourseTitle;
                 CourseSubtype CourseSubtype;
                 string CourseGrade;
-                int CourseCredits;
+                byte CourseCredits;
 
                 DialogResult dialogResult = addCourseForm.ShowDialog();
                 if (dialogResult == DialogResult.OK)
@@ -183,7 +183,7 @@ namespace ZC_GPA_Calculator
                     newCourse = new Course(CourseCode, CourseTitle, CourseSubtype, CourseGrade, CourseCredits);
 
                     CourseAdded?.Invoke(this, newCourse);
-                    courseTable.Invalidate();
+                    courseTable.Invalidate();       // Invalidates the entire surface of the courses datagridview to be redrawn
 
                     //CgpaUpdate?.Invoke(null,EventArgs.Empty);     //No need as it already gets invoked with the grade change in course table
                 }
