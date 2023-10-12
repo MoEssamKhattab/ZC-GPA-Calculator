@@ -161,7 +161,7 @@ namespace ZC_GPA_Calculator
                             semestersList[i].Courses[j].RepeatedIn = Convert.ToSByte(semestersList.Count);
                             return true;
                         }
-                        else if ((courseGrade == "W" || courseGrade == "WP" || courseGrade != "WF") && semestersList[i].Courses[j].IsRepeat)
+                        else if ((courseGrade == "W" || courseGrade == "WP" || courseGrade == "WF") && semestersList[i].Courses[j].IsRepeat)
                             searchRepeatedCourse(courseCode, semestersList, i-1);                       
                         else
                             return true;
