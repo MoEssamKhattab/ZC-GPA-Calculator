@@ -58,7 +58,7 @@ namespace ZC_GPA_Calculator
 
                         if (isRepeat) { courseGrade = courseGrade.Substring(1, courseGrade.Length - 2); }
                         //Handling the case of any repeated courses
-                        if (isRepeat && courseGrade != "W" && courseGrade != "WP" && courseGrade != "WF" && courseGrade != "I" && courseGrade != "IP")
+                        if (isRepeat && !isDroppedCourse(courseGrade) && courseGrade != "I" && courseGrade != "IP")
                         {
                             findRepeatedCourse(courseCode, semestersList);
                         }
@@ -69,7 +69,11 @@ namespace ZC_GPA_Calculator
                 semestersList.Add(semester);
             }
             return semestersList;
-        }       
+        }
+        public static bool isDroppedCourse(string courseGrade)
+        {
+            return courseGrade == "W" || courseGrade == "WP" || courseGrade == "WF" ;
+        }
         public static double stringToGrade(string grade)
         {
             switch (grade)
@@ -109,25 +113,6 @@ namespace ZC_GPA_Calculator
         {
             return semesterCardList.IndexOf(semesterCard);
         }
-        public static void changeRepeatedFlag(string courseCode, BindingList<Semester> semestersList)
-        {
-            bool found = false;
-            for (int i = semestersList.Count - 1; i >= 0; i--)   // In reverse order to Handle the last occurence       // i = -2
-            {
-                for (int j = 0; j < semestersList[i].Courses.Count; j++)   // In ordinary order as the course is not repeated at the same semester (it doesn't matter)
-                {
-                    if (semestersList[i].Courses[j].Code == courseCode)
-                    {
-                        semestersList[i].Courses[j].RepeatedIn = Convert.ToSByte(semestersList.Count);
-                        found = true;
-                    }
-                }
-            }
-            if (found == false)
-            {
-                MessageBox.Show($"It seems that the repeated course, {courseCode}, was repeated with different corse code. Reach the old course and change its grade to 'P', please!");
-            }
-        }
         public static void findRepeatedCourse(string courseCode, BindingList<Semester> semestersList)
         {
             bool found = searchRepeatedCourse(courseCode, semestersList, semestersList.Count - 1);
@@ -143,8 +128,10 @@ namespace ZC_GPA_Calculator
                         oldCourseCode = handleRepeatsForm.OldCourseCode;
                     }
                 }
-                if (oldCourseCode != "")
+                if (!string.IsNullOrEmpty(oldCourseCode))
+                {
                     searchRepeatedCourse(oldCourseCode, semestersList, semestersList.Count - 1);
+                }
             }
         }      
         public static bool searchRepeatedCourse(string courseCode, BindingList<Semester> semestersList, int lastIndex)
@@ -161,10 +148,14 @@ namespace ZC_GPA_Calculator
                             semestersList[i].Courses[j].RepeatedIn = Convert.ToSByte(semestersList.Count);
                             return true;
                         }
-                        else if ((courseGrade == "W" || courseGrade == "WP" || courseGrade == "WF") && semestersList[i].Courses[j].IsRepeat)
-                            searchRepeatedCourse(courseCode, semestersList, i-1);                       
+                        else if (isDroppedCourse(courseGrade) && semestersList[i].Courses[j].IsRepeat)
+                        {
+                            searchRepeatedCourse(courseCode, semestersList, i - 1);
+                        }
                         else
+                        {
                             return true;
+                        }
                     }
                 }
             }

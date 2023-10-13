@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Guna.UI2.WinForms.Enums;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace ZC_GPA_Calculator
@@ -7,20 +8,19 @@ namespace ZC_GPA_Calculator
     {
         bool allowEditing = false;
         bool allowAdding = false;
-        BindingList<string> letterGrades;
+        List<string> letterGrades;
         static int maxVisibleCourses = 6;
         public string SemesterTitle { get => semesterTitle.Text; set => semesterTitle.Text = value; }
         public bool AllowAdding { get => allowAdding; set => allowAdding = value; }
         public SemesterCard()
         {
             InitializeComponent();
-            letterGrades = new BindingList<string> { "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "F" };
-            this.grade.DataSource = letterGrades;
+            letterGrades = new List<string> { "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "F" };
+            initializeGradeComboboxItems(letterGrades);
 
             Utilities.SetDoubleBuffered(semesterCardTableLayoutPanel);   // to reduse graphics flicker when resizing
             Utilities.SetDoubleBuffered(CourseTable);
             Utilities.SetDoubleBuffered(calculationsTable);
-
         }
         private void SemesterCard_Load(object sender, EventArgs e)
         {
@@ -30,6 +30,23 @@ namespace ZC_GPA_Calculator
 
             updateCardHeight(maxVisibleCourses);
         }
+        public void initializeGradeComboboxItems(List<string> grades)
+        {
+            foreach (string grade in grades) 
+            {
+                this.grade.Items.Add(grade);
+            }
+        }
+        /// <summary>
+        /// This method is used to add any special grade that found in the transcript and not found in the basic letterGrades list (eg. W, WP, WF, I, TR, ...) 
+        /// </summary>
+        /// <param name="rowIndex">The row of the course that has a new grade to be added</param>
+        private void addNewGradeItem(int rowIndex, string newGrade)
+        {
+            DataGridViewComboBoxCell gradeComboBox = (DataGridViewComboBoxCell)courseTable.Rows[rowIndex].Cells["Grade"];
+            gradeComboBox.Items.Add(newGrade);
+        }
+
         public void updateCardHeight(int maxVisibleCourses)
         {
             // Course table
@@ -62,23 +79,24 @@ namespace ZC_GPA_Calculator
             this.semesterTitle.Text = semesters[index].Name;
             //this.courseTable.Rows.Clear();
             //this.courseTable.Refresh();
-
-            foreach (var course in semesters[index].Courses.ToList())
+            
+            List<Course> courseList = semesters[index].Courses.ToList();
+            for (int i =0; i < courseList.Count; i++)
             {
                 // Fill course table
                 var rowIndex = courseTable.Rows.Add();
-                courseTable.Rows[rowIndex].Cells["Course"].Value = course.Code;
-                courseTable.Rows[rowIndex].Cells["Title"].Value = course.Title;
-                courseTable.Rows[rowIndex].Cells["Subtype"].Value = course.Subtype.ToString();
+                courseTable.Rows[rowIndex].Cells["Course"].Value = courseList[i].Code;
+                courseTable.Rows[rowIndex].Cells["Title"].Value = courseList[i].Title;
+                courseTable.Rows[rowIndex].Cells["Subtype"].Value = courseList[i].Subtype.ToString();
 
-                if (!letterGrades.Contains(course.Grade))
+                if (!letterGrades.Contains(courseList[i].Grade))
                 {
-                    letterGrades.Add(course.Grade);
+                    addNewGradeItem(i,courseList[i].Grade);
                 }
-                courseTable.Rows[rowIndex].Cells["Grade"].Value = course.Grade;
+                courseTable.Rows[rowIndex].Cells["Grade"].Value = courseList[i].Grade;
 
-                courseTable.Rows[rowIndex].Cells["Credits"].Value = course.Credits.ToString();
-                courseTable.Rows[rowIndex].Cells["QualityPoints"].Value = course.calculateQualityPoints().ToString("0.00");
+                courseTable.Rows[rowIndex].Cells["Credits"].Value = courseList[i].Credits.ToString();
+                courseTable.Rows[rowIndex].Cells["QualityPoints"].Value = courseList[i].calculateQualityPoints().ToString("0.00");
             }
             updateGPACalculationsTable(semesters, index);
             //updateCardHeight(maxVisibleCourses);          //  already called in the load event handler
