@@ -30,7 +30,7 @@ namespace ZC_GPA_Calculator
             subtypeComboBox.DataSource = Enum.GetNames(typeof(CourseSubtype));
             subtypeComboBox.SelectedIndex= 0;
 
-            string[] letterGrades = new string[] { "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "F", "P" };
+            string[] letterGrades = new string[] { "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "F" };
             gradeComboBox.DataSource = letterGrades;
             gradeComboBox.SelectedIndex = 0;
         }
