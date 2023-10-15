@@ -1,6 +1,4 @@
-﻿using Guna.UI2.WinForms.Enums;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+﻿using System.ComponentModel;
 
 namespace ZC_GPA_Calculator
 {
@@ -8,14 +6,13 @@ namespace ZC_GPA_Calculator
     {
         bool allowEditing = false;
         bool allowAdding = false;
-        List<string> letterGrades;
+        static List<string> letterGrades = new List<string> { "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "F" };
         static int maxVisibleCourses = 6;
         public string SemesterTitle { get => semesterTitle.Text; set => semesterTitle.Text = value; }
         public bool AllowAdding { get => allowAdding; set => allowAdding = value; }
         public SemesterCard()
         {
             InitializeComponent();
-            letterGrades = new List<string> { "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "F" };
             initializeGradeComboboxItems(letterGrades);
 
             Utilities.SetDoubleBuffered(semesterCardTableLayoutPanel);   // to reduse graphics flicker when resizing

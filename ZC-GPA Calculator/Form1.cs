@@ -221,10 +221,13 @@ namespace ZC_GPA_Calculator
         {
             try
             {
-                Point targetPosition = semesterCardScrollPosition(semesterCardList[semestersComboBox.SelectedIndex]);
-                semestersPanel.AutoScrollPosition = targetPosition;
+                if (isTranscriptInitialized)
+                {
+                    Point targetPosition = semesterCardScrollPosition(semesterCardList[semestersComboBox.SelectedIndex]);
+                    semestersPanel.AutoScrollPosition = targetPosition;
+                }
             }
-            catch { }
+            catch { /*Do nothing*/ }
         }
         private Point semesterCardScrollPosition(SemesterCard semesterCard)
         {
