@@ -37,7 +37,7 @@ namespace ZC_GPA_Calculator
                 {
                     string[] semesterHeader = (WebUtility.HtmlDecode(h4Element.InnerText.Trim())).Split(' ');
                     semester.Year = int.Parse(semesterHeader[0]);
-                    semester.Title = (SemesterType)Enum.Parse(typeof(SemesterType), semesterHeader[1]);
+                    semester.Title = stringToSemesterType(semesterHeader[1]);
                 }
 
                 HtmlNodeCollection rows = table.SelectNodes(".//tr");
@@ -70,6 +70,15 @@ namespace ZC_GPA_Calculator
             }
             return semestersList;
         }
+        public static SemesterType stringToSemesterType(string semesterType)
+        {
+            SemesterType _semesterType;
+            if (Enum.TryParse(semesterType, ignoreCase: true, out _semesterType))
+                return _semesterType;
+            else
+                return SemesterType.Summer1;        // for now, to handle the case of summer 1 semester for the Internship course.
+        }
+
         public static bool isDroppedCourse(string courseGrade)
         {
             return courseGrade == "W" || courseGrade == "WP" || courseGrade == "WF" ;
@@ -143,7 +152,7 @@ namespace ZC_GPA_Calculator
                     if (semestersList[i].Courses[j].Code == courseCode)
                     {
                         string courseGrade = semestersList[i].Courses[j].Grade;
-                        if (courseGrade != "W" && courseGrade != "WP" && courseGrade != "WF" /*&& courseGrade != "I" && courseGrade != "IP"*/)
+                        if (!isDroppedCourse(courseGrade) /*&& courseGrade != "I" && courseGrade != "IP"*/)
                         {
                             semestersList[i].Courses[j].RepeatedIn = Convert.ToSByte(semestersList.Count);
                             return true;
