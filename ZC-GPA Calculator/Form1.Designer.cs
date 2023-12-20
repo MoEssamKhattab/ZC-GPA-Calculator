@@ -142,6 +142,7 @@
             this.tabs.TabIndex = 0;
             this.tabs.TabMenuBackColor = System.Drawing.Color.White;
             this.tabs.TabMenuVisible = false;
+            this.tabs.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tabs_KeyDown);
             // 
             // tab1
             // 
