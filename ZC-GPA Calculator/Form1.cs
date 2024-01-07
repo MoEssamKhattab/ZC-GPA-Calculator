@@ -278,17 +278,20 @@ namespace ZC_GPA_Calculator
         }
         private void tabs_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode & e.KeyCode)
+            if (tabs.Focused)
             {
-                // Disable the default event of the Up and Down arrow keys, not to navigate between different tabs
-                case Keys.Up:
-                    e.Handled = true;
-                    e.SuppressKeyPress = true;
-                    break;
-                case Keys.Down:
-                    e.Handled = true;
-                    e.SuppressKeyPress = true;
-                    break;
+                switch (e.KeyCode & e.KeyCode)
+                {
+                    // Disable the default event of the Up and Down arrow keys, not to navigate between different tabs
+                    case Keys.Up:
+                        e.Handled = true;
+                        e.SuppressKeyPress = true;
+                        break;
+                    case Keys.Down:
+                        e.Handled = true;
+                        e.SuppressKeyPress = true;
+                        break;
+                }
             }
         }
     }
