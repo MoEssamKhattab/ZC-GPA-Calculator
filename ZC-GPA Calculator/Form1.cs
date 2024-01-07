@@ -284,9 +284,6 @@ namespace ZC_GPA_Calculator
                 {
                     // Disable the default event of the Up and Down arrow keys, not to navigate between different tabs
                     case Keys.Up:
-                        e.Handled = true;
-                        e.SuppressKeyPress = true;
-                        break;
                     case Keys.Down:
                         e.Handled = true;
                         e.SuppressKeyPress = true;
