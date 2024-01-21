@@ -85,33 +85,21 @@ namespace ZC_GPA_Calculator
         }
         public static double stringToGrade(string grade)
         {
-            switch (grade)
+            return grade switch
             {
-                case "A":
-                    return Grades.A;
-                case "A-":
-                    return Grades.A_MINUS;
-                case "B+":
-                    return Grades.B_PLUS;
-                case "B":
-                    return Grades.B;
-                case "B-":
-                    return Grades.B_MINUS;
-                case "C+":
-                    return Grades.C_PLUS;
-                case "C":
-                    return Grades.C;
-                case "C-":
-                    return Grades.C_MINUS;
-                case "F":
-                    return Grades.F;
-                case "D+":
-                    return Grades.D_PLUS;
-                case "D":
-                    return Grades.D;
-                default:
-                    return 0.0;
-            }
+                "A" => Grades.A,
+                "A-" => Grades.A_MINUS,
+                "B+" => Grades.B_PLUS,
+                "B" => Grades.B,
+                "B-" => Grades.B_MINUS,
+                "C+" => Grades.C_PLUS,
+                "C" => Grades.C,
+                "C-" => Grades.C_MINUS,
+                "D+" => Grades.D_PLUS,
+                "D" => Grades.D,
+                //"F" =>Grades.F,
+                _ => 0.0
+            };
         }
         public static void updateSemestersList(BindingList<Semester> semesters, int semesterIndex, int courseIndex, string newGrade)
         {
