@@ -47,7 +47,7 @@ namespace ZC_GPA_Calculator
                     HtmlNode row = rows[i];
                     HtmlNodeCollection cells = row.SelectNodes(".//th|td");
 
-                    if (cells != null && cells.Count > 0)
+                    if (cells != null && cells.Count > 1)       // >1 (insted of 0) to skip rows of final grade comments in case of, e.g., incomplete
                     {
                         string courseCode = WebUtility.HtmlDecode(cells[0].InnerText.Trim());
                         string courseTitle = WebUtility.HtmlDecode(cells[1].InnerText.Trim());
