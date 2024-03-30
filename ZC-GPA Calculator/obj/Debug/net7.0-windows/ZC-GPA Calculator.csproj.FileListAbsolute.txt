@@ -119,7 +119,6 @@ E:\ZC\ZC-GPA-Calculator\ZC-GPA Calculator\obj\Debug\net7.0-windows\ZC-GPA Calcul
 E:\ZC\ZC-GPA-Calculator\ZC-GPA Calculator\obj\Debug\net7.0-windows\ZC-GPA Calculator.AssemblyInfoInputs.cache
 E:\ZC\ZC-GPA-Calculator\ZC-GPA Calculator\obj\Debug\net7.0-windows\ZC-GPA Calculator.AssemblyInfo.cs
 E:\ZC\ZC-GPA-Calculator\ZC-GPA Calculator\obj\Debug\net7.0-windows\ZC-GPA Calculator.csproj.CoreCompileInputs.cache
-E:\ZC\ZC-GPA-Calculator\ZC-GPA Calculator\obj\Debug\net7.0-windows\ZC-GPA Calculator.csproj.CopyComplete
 E:\ZC\ZC-GPA-Calculator\ZC-GPA Calculator\obj\Debug\net7.0-windows\ZC-GPA Calculator.dll
 E:\ZC\ZC-GPA-Calculator\ZC-GPA Calculator\obj\Debug\net7.0-windows\refint\ZC-GPA Calculator.dll
 E:\ZC\ZC-GPA-Calculator\ZC-GPA Calculator\obj\Debug\net7.0-windows\ZC-GPA Calculator.pdb
@@ -260,3 +259,5 @@ E:\ZC\ZC-GPA-Calculator - Combobox\ZC-GPA Calculator\obj\Debug\net7.0-windows\re
 E:\ZC\ZC-GPA-Calculator - Combobox\ZC-GPA Calculator\obj\Debug\net7.0-windows\ZC-GPA Calculator.pdb
 E:\ZC\ZC-GPA-Calculator - Combobox\ZC-GPA Calculator\obj\Debug\net7.0-windows\ZC-GPA Calculator.genruntimeconfig.cache
 E:\ZC\ZC-GPA-Calculator - Combobox\ZC-GPA Calculator\obj\Debug\net7.0-windows\ref\ZC-GPA Calculator.dll
+E:\ZC\ZC-GPA-Calculator\ZC-GPA Calculator\obj\Debug\net7.0-windows\ZC-GPA Calculator.sourcelink.json
+E:\ZC\ZC-GPA-Calculator\ZC-GPA Calculator\obj\Debug\net7.0-windows\ZC-GPA C.B66BE073.Up2Date
