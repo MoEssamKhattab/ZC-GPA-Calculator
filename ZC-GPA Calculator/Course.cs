@@ -12,7 +12,7 @@ namespace ZC_GPA_Calculator
         double qualityPoints;
         sbyte repeatedIn;      // Initially = null, to be assigned to index of the semester in which the course is later repeated
         bool isRepeat;         // indicates if the current course is a repeated version of an old one.
-        public Course(string code, string title, CourseSubtype subtype, string grade, byte credits, sbyte repeatedIn = -1, bool isRepeat = false)
+        public Course(string code, string title, CourseSubtype subtype, string grade, byte credits, int year /*= 2020*/, string semester /*= "Fall"*/, sbyte repeatedIn = -1, bool isRepeat = false)
         {
             this.code = code;
             this.title = title;
@@ -31,7 +31,7 @@ namespace ZC_GPA_Calculator
             else
                 this.gpaCredits = credits;
 
-            this.QualityPoints = calculateQualityPoints();
+            this.QualityPoints = calculateQualityPoints(year, semester);
         }
         public string Code { get => code; set => code = value; }
         public string Title { get => title; set => title = value; }
@@ -54,9 +54,14 @@ namespace ZC_GPA_Calculator
         public sbyte RepeatedIn { get => repeatedIn; set => repeatedIn = value; }
         public bool IsRepeat { get => isRepeat; set => isRepeat = value; }
 
-        public double calculateQualityPoints()
+        public double calculateQualityPoints(int year, string semster)
         {
-            return Math.Round(Utilities.stringToGrade(this.grade) * this.credits, 2);
+            bool isNewQPtsSchema = Utilities.isNewQPtsSchema(year, semster);
+            return Math.Round(Utilities.stringToGrade(this.grade, isNewQPtsSchema) * this.credits, 2);
         }
+        //public double calculateQualityPoints()
+        //{
+        //    return Math.Round(Utilities.stringToGrade(this.grade) * this.credits, 2);
+        //}
     }
 }

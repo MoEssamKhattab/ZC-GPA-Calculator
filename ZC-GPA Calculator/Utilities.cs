@@ -1,6 +1,7 @@
 ﻿using HtmlAgilityPack;
 using System.Net;
 using System.ComponentModel;
+using Microsoft.VisualBasic;
 
 namespace ZC_GPA_Calculator
 {    
@@ -62,7 +63,7 @@ namespace ZC_GPA_Calculator
                         {
                             findRepeatedCourse(courseCode, semestersList);
                         }
-                        Course course = new Course(courseCode, courseTitle, courseSubType, courseGrade, courseCredits, -1, isRepeat);
+                        Course course = new Course(courseCode, courseTitle, courseSubType, courseGrade, courseCredits, semester.Year, semester.Title.ToString(), -1, isRepeat);
                         semester.Courses.Add(course);
                     }
                 }
@@ -78,33 +79,58 @@ namespace ZC_GPA_Calculator
             else
                 return SemesterType.Summer1;        // for now, to handle the case of summer 1 semester for the Internship course.
         }
+        public static bool isNewQPtsSchema(int year, string semester)
+        {
+            if (year > 2023) return true;
+            else if (year == 2023 & semester == "Fall") return true;
+            return false;
+        }
 
         public static bool isDroppedCourse(string courseGrade)
         {
             return courseGrade == "W" || courseGrade == "WP" || courseGrade == "WF" ;
         }
-        public static double stringToGrade(string grade)
-        {
-            return grade switch
-            {
-                "A" => Grades.A,
-                "A-" => Grades.A_MINUS,
-                "B+" => Grades.B_PLUS,
-                "B" => Grades.B,
-                "B-" => Grades.B_MINUS,
-                "C+" => Grades.C_PLUS,
-                "C" => Grades.C,
-                "C-" => Grades.C_MINUS,
-                "D+" => Grades.D_PLUS,
-                "D" => Grades.D,
-                //"F" =>Grades.F,
-                _ => 0.0
-            };
-        }
-        public static void updateSemestersList(BindingList<Semester> semesters, int semesterIndex, int courseIndex, string newGrade)
+		//public static double stringToGrade(string grade)
+		//{
+		//    return grade switch
+		//    {
+		//        "A" => Grades.A,
+		//        "A-" => Grades.A_MINUS,
+		//        "B+" => Grades.B_PLUS,
+		//        "B" => Grades.B,
+		//        "B-" => Grades.B_MINUS,
+		//        "C+" => Grades.C_PLUS,
+		//        "C" => Grades.C,
+		//        "C-" => Grades.C_MINUS,
+		//        "D+" => Grades.D_PLUS,
+		//        "D" => Grades.D,
+		//        //"F" =>Grades.F,
+		//        _ => 0.0
+		//    };
+		//}
+		public static double stringToGrade(string grade, bool isNewQPtsSchema)
+		{
+
+			return grade switch
+			{
+				"A" => isNewQPtsSchema? Grades2.A : Grades.A,
+				"A-" => isNewQPtsSchema ? Grades2.A_MINUS : Grades.A_MINUS,
+				"B+" => isNewQPtsSchema ? Grades2.B_PLUS : Grades.B_PLUS,
+				"B" => isNewQPtsSchema ? Grades2.B : Grades.B,
+				"B-" => isNewQPtsSchema ? Grades2.B_MINUS : Grades.B_MINUS,
+				"C+" => isNewQPtsSchema ? Grades2.C_PLUS : Grades.C_PLUS,
+				"C" =>  isNewQPtsSchema ? Grades2.C : Grades.C,
+				"C-" => isNewQPtsSchema ? Grades2.C_MINUS : Grades.C_MINUS,
+				"D+" => isNewQPtsSchema ? Grades2.D_PLUS : Grades.D_PLUS,
+				"D" => isNewQPtsSchema ? Grades2.D : Grades.D,
+				//"F" =>Grades.F,
+				_ => 0.0
+			};
+		}
+		public static void updateSemestersList(BindingList<Semester> semesters, int semesterIndex, int courseIndex, string newGrade)
         {
             semesters[semesterIndex].Courses[courseIndex].Grade = newGrade;
-            semesters[semesterIndex].Courses[courseIndex].QualityPoints = semesters[semesterIndex].Courses[courseIndex].calculateQualityPoints();
+            semesters[semesterIndex].Courses[courseIndex].QualityPoints = semesters[semesterIndex].Courses[courseIndex].calculateQualityPoints(semesters[semesterIndex].Year, semesters[semesterIndex].Title.ToString());
         }
         public static int getSemesterIndex(SemesterCard semesterCard, List<SemesterCard> semesterCardList)
         {

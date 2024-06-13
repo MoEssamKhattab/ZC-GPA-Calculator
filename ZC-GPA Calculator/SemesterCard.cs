@@ -93,7 +93,7 @@ namespace ZC_GPA_Calculator
                 courseTable.Rows[rowIndex].Cells["Grade"].Value = courseList[i].Grade;
 
                 courseTable.Rows[rowIndex].Cells["Credits"].Value = courseList[i].Credits.ToString();
-                courseTable.Rows[rowIndex].Cells["QualityPoints"].Value = courseList[i].calculateQualityPoints().ToString("0.00");
+                courseTable.Rows[rowIndex].Cells["QualityPoints"].Value = courseList[i].calculateQualityPoints(semesters[index].Year, semesters[index].Title.ToString()).ToString("0.00");
             }
             updateGPACalculationsTable(semesters, index);
             //updateCardHeight(maxVisibleCourses);          //  already called in the load event handler
@@ -108,7 +108,7 @@ namespace ZC_GPA_Calculator
             courseTable.Rows[rowIndex].Cells["Subtype"].Value = course.Subtype.ToString();
             courseTable.Rows[rowIndex].Cells["Grade"].Value = course.Grade;
             courseTable.Rows[rowIndex].Cells["Credits"].Value = course.Credits.ToString();
-            courseTable.Rows[rowIndex].Cells["QualityPoints"].Value = course.calculateQualityPoints().ToString("0.00");
+            courseTable.Rows[rowIndex].Cells["QualityPoints"].Value = course.calculateQualityPoints(semesters[semesterIndex].Year, semesters[semesterIndex].Title.ToString()).ToString("0.00");
 
             updateGPACalculationsTable(semesters, semesterIndex);
             updateCardHeight(maxVisibleCourses);
@@ -194,8 +194,10 @@ namespace ZC_GPA_Calculator
                     CourseSubtype = addCourseForm.CourseSubtype;
                     CourseGrade = addCourseForm.CourseGrade;
                     CourseCredits = addCourseForm.CourseCredits;
+					
+                    //string code, string title, CourseSubtype subtype, string grade, byte credits, int year /*= 2020*/, string semester /*= "Fall"*/, sbyte repeatedIn = -1, bool isRepeat = false
 
-                    newCourse = new Course(CourseCode, CourseTitle, CourseSubtype, CourseGrade, CourseCredits);
+					newCourse = new Course(CourseCode, CourseTitle, CourseSubtype, CourseGrade, CourseCredits, int.MaxValue, null /*Always New Schema*/);
 
                     CourseAdded?.Invoke(this, newCourse);
                     courseTable.Invalidate();       // Invalidates the entire surface of the courses datagridview to be redrawn

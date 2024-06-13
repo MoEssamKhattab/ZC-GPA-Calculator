@@ -1,13 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "NWeh1TRYPGg0olCpka/LcDbjcuqeJBtVs3YxA2O6ibHFblIGjZ64XJSS3KNdKucnNeCpFFWLn+/H91Cqk4HmMQ==",
+  "dgSpecHash": "G0jM7LWLV8cXihLRNCHO3WsxSQIVwnRBL04WUsBI6+cbTi97BkQ3ijtcdn+ApQJwQtpT8oVy510COTTaZNxlJg==",
   "success": true,
-  "projectFilePath": "E:\\ZC\\ZC-GPA-Calculator\\ZC-GPA Calculator\\ZC-GPA Calculator.csproj",
+  "projectFilePath": "E:\\ZC\\ZC-GPA-Calculator - Qpts\\ZC-GPA Calculator\\ZC-GPA Calculator.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lenovo\\.nuget\\packages\\guna.ui2.winforms\\2.0.4.4\\guna.ui2.winforms.2.0.4.4.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\htmlagilitypack\\1.11.52\\htmlagilitypack.1.11.52.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\system.codedom\\7.0.0\\system.codedom.7.0.0.nupkg.sha512",
-    "C:\\Users\\lenovo\\.nuget\\packages\\system.management\\7.0.0\\system.management.7.0.0.nupkg.sha512"
+    "C:\\Users\\lenovo\\.nuget\\packages\\system.management\\7.0.0\\system.management.7.0.0.nupkg.sha512",
+    "C:\\Users\\lenovo\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.20\\microsoft.windowsdesktop.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\lenovo\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.20\\microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\lenovo\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.20\\microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\lenovo\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.20\\microsoft.netcore.app.host.win-x64.7.0.20.nupkg.sha512"
   ],
   "logs": []
 }
