@@ -5,13 +5,17 @@
 </div>
 
 ## Table of contents
-- [Introduction](#introduction)
-- [Features](#features)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-- [License](#license)
+- [ZC-GPA-Calculator](#zc-gpa-calculator)
+  - [Table of contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Features](#features)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+      - [Option 1: Build and Run from Source Code](#option-1-build-and-run-from-source-code)
+      - [Option 2: Use Executable from Release](#option-2-use-executable-from-release)
+  - [Usage](#usage)
+  - [License](#license)
 ## Introduction
 ZC-GPA-Calculator is a desktop-based application written in .NET (C# WinForms) designed to provide users with a comprehensive tool for analyzing pre-downloaded academic transcripts in the form of HTML files. This application utilizes web scraping techniques to extract academic data from the HTML transcript file and presents it in a user-friendly interface. Users can easily manipulate the academic data to simulate the effect on their semester GPA and cumulative GPA (cGPA) by introducing changes to course grades.
 
@@ -25,9 +29,9 @@ ZC-GPA-Calculator is a desktop-based application written in .NET (C# WinForms) d
 ### Prerequisites
 Before using ZC GPA Calculator, ensure that you have the following prerequisites installed on your system:
 - **Operating System:** Windows 7 or later.
-- **.NET Framework:** <a href="https://dotnet.microsoft.com/en-us/download/dotnet/7.0" target="_blank">.NET 7.0</a>.
+- **.NET:** <a href="https://dotnet.microsoft.com/en-us/download/dotnet/7.0" target="_blank">.NET 7.0</a>.
 
-Or simply accept the automatic download when launching the software, in case .NET 7.0 is not already installed on your machine.
+Or simply accept the automatic download when launching the software, in case .NET 7.0 runtme is not already installed on your machine.
 
 > _**Please note that:** the application is specifically designed for Windows operating systems starting from Windows 7 and requires the specified version of the .NET Framework to run successfully._
 

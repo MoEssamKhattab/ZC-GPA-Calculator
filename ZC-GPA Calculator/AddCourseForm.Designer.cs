@@ -111,7 +111,7 @@
             this.addCourseBtn.Size = new System.Drawing.Size(180, 45);
             this.addCourseBtn.TabIndex = 5;
             this.addCourseBtn.Text = "Add Course";
-            this.addCourseBtn.Click += new System.EventHandler(this.addCourseBtn_Click);
+            this.addCourseBtn.Click += new System.EventHandler(this.AddCourseBtn_Click);
             // 
             // courseCodeTxt
             // 

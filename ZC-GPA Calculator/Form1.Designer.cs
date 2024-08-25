@@ -53,693 +53,686 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            this.tabs = new Guna.UI2.WinForms.Guna2TabControl();
-            this.tab1 = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.sourceCodeBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.dragFilePanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Separator3 = new Guna.UI2.WinForms.Guna2Separator();
-            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
-            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.browseFileBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.tab2 = new System.Windows.Forms.TabPage();
-            this.transcriptTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.uploadAnotherDocBtn = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.studentPicture = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.studentMajorLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.studentNameLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.guna2Separator2 = new Guna.UI2.WinForms.Guna2Separator();
-            this.specialGPATxt = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.semestersComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.gpaSeparator = new Guna.UI2.WinForms.Guna2VSeparator();
-            this.cgpaLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.addNewSemesterBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.semestersPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.tabs.SuspendLayout();
-            this.tab1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
-            this.dragFilePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
-            this.tab2.SuspendLayout();
-            this.transcriptTableLayoutPanel.SuspendLayout();
-            this.guna2Panel3.SuspendLayout();
-            this.guna2Panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.SuspendLayout();
+            tabs = new Guna.UI2.WinForms.Guna2TabControl();
+            tab1 = new TabPage();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            panel3 = new Panel();
+            guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            label4 = new Label();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            panel1 = new Panel();
+            guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
+            sourceCodeBtn = new Guna.UI2.WinForms.Guna2Button();
+            guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            dragFilePanel = new Guna.UI2.WinForms.Guna2Panel();
+            guna2Separator3 = new Guna.UI2.WinForms.Guna2Separator();
+            guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
+            guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            browseFileBtn = new Guna.UI2.WinForms.Guna2Button();
+            guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            label1 = new Label();
+            guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
+            guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
+            tab2 = new TabPage();
+            transcriptTableLayoutPanel = new TableLayoutPanel();
+            guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            label2 = new Label();
+            uploadAnotherDocBtn = new Guna.UI2.WinForms.Guna2CircleButton();
+            studentPicture = new Guna.UI2.WinForms.Guna2CircleButton();
+            studentMajorLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            studentNameLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            panel4 = new Panel();
+            guna2Separator2 = new Guna.UI2.WinForms.Guna2Separator();
+            specialGPATxt = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            semestersComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
+            gpaSeparator = new Guna.UI2.WinForms.Guna2VSeparator();
+            cgpaLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            addNewSemesterBtn = new Guna.UI2.WinForms.Guna2Button();
+            semestersPanel = new FlowLayoutPanel();
+            tabs.SuspendLayout();
+            tab1.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            panel3.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)guna2PictureBox2).BeginInit();
+            dragFilePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)guna2PictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)guna2PictureBox4).BeginInit();
+            tab2.SuspendLayout();
+            transcriptTableLayoutPanel.SuspendLayout();
+            guna2Panel3.SuspendLayout();
+            guna2Panel2.SuspendLayout();
+            panel4.SuspendLayout();
+            SuspendLayout();
             // 
             // tabs
             // 
-            this.tabs.Alignment = System.Windows.Forms.TabAlignment.Left;
-            this.tabs.Controls.Add(this.tab1);
-            this.tabs.Controls.Add(this.tab2);
-            this.tabs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabs.ItemSize = new System.Drawing.Size(180, 40);
-            this.tabs.Location = new System.Drawing.Point(0, 0);
-            this.tabs.Margin = new System.Windows.Forms.Padding(0);
-            this.tabs.Name = "tabs";
-            this.tabs.Padding = new System.Drawing.Point(0, 0);
-            this.tabs.SelectedIndex = 0;
-            this.tabs.Size = new System.Drawing.Size(1902, 1033);
-            this.tabs.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
-            this.tabs.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
-            this.tabs.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tabs.TabButtonHoverState.ForeColor = System.Drawing.Color.White;
-            this.tabs.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
-            this.tabs.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty;
-            this.tabs.TabButtonIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
-            this.tabs.TabButtonIdleState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tabs.TabButtonIdleState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(160)))), ((int)(((byte)(167)))));
-            this.tabs.TabButtonIdleState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
-            this.tabs.TabButtonSelectedState.BorderColor = System.Drawing.Color.Empty;
-            this.tabs.TabButtonSelectedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(37)))), ((int)(((byte)(49)))));
-            this.tabs.TabButtonSelectedState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tabs.TabButtonSelectedState.ForeColor = System.Drawing.Color.White;
-            this.tabs.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
-            this.tabs.TabButtonSize = new System.Drawing.Size(180, 40);
-            this.tabs.TabIndex = 0;
-            this.tabs.TabMenuBackColor = System.Drawing.Color.White;
-            this.tabs.TabMenuVisible = false;
-            this.tabs.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tabs_KeyDown);
+            tabs.Alignment = TabAlignment.Left;
+            tabs.Controls.Add(tab1);
+            tabs.Controls.Add(tab2);
+            tabs.Dock = DockStyle.Fill;
+            tabs.ItemSize = new Size(180, 40);
+            tabs.Location = new Point(0, 0);
+            tabs.Margin = new Padding(0);
+            tabs.Name = "tabs";
+            tabs.Padding = new Point(0, 0);
+            tabs.SelectedIndex = 0;
+            tabs.Size = new Size(1902, 1033);
+            tabs.TabButtonHoverState.BorderColor = Color.Empty;
+            tabs.TabButtonHoverState.FillColor = Color.FromArgb(40, 52, 70);
+            tabs.TabButtonHoverState.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            tabs.TabButtonHoverState.ForeColor = Color.White;
+            tabs.TabButtonHoverState.InnerColor = Color.FromArgb(40, 52, 70);
+            tabs.TabButtonIdleState.BorderColor = Color.Empty;
+            tabs.TabButtonIdleState.FillColor = Color.FromArgb(33, 42, 57);
+            tabs.TabButtonIdleState.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            tabs.TabButtonIdleState.ForeColor = Color.FromArgb(156, 160, 167);
+            tabs.TabButtonIdleState.InnerColor = Color.FromArgb(33, 42, 57);
+            tabs.TabButtonSelectedState.BorderColor = Color.Empty;
+            tabs.TabButtonSelectedState.FillColor = Color.FromArgb(29, 37, 49);
+            tabs.TabButtonSelectedState.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            tabs.TabButtonSelectedState.ForeColor = Color.White;
+            tabs.TabButtonSelectedState.InnerColor = Color.FromArgb(76, 132, 255);
+            tabs.TabButtonSize = new Size(180, 40);
+            tabs.TabIndex = 0;
+            tabs.TabMenuBackColor = Color.White;
+            tabs.TabMenuVisible = false;
+            tabs.KeyDown += tabs_KeyDown;
             // 
             // tab1
             // 
-            this.tab1.BackColor = System.Drawing.Color.White;
-            this.tab1.Controls.Add(this.tableLayoutPanel1);
-            this.tab1.Controls.Add(this.guna2HtmlLabel2);
-            this.tab1.Controls.Add(this.dragFilePanel);
-            this.tab1.Controls.Add(this.guna2PictureBox3);
-            this.tab1.Controls.Add(this.guna2PictureBox4);
-            this.tab1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tab1.Location = new System.Drawing.Point(5, 4);
-            this.tab1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tab1.Name = "tab1";
-            this.tab1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tab1.Size = new System.Drawing.Size(1893, 1025);
-            this.tab1.TabIndex = 1;
-            this.tab1.Text = "tabPage2";
+            tab1.BackColor = Color.White;
+            tab1.Controls.Add(tableLayoutPanel1);
+            tab1.Controls.Add(guna2HtmlLabel2);
+            tab1.Controls.Add(dragFilePanel);
+            tab1.Controls.Add(guna2PictureBox3);
+            tab1.Controls.Add(guna2PictureBox4);
+            tab1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            tab1.Location = new Point(5, 4);
+            tab1.Margin = new Padding(4, 3, 4, 3);
+            tab1.Name = "tab1";
+            tab1.Padding = new Padding(4, 3, 4, 3);
+            tab1.Size = new Size(1893, 1025);
+            tab1.TabIndex = 1;
+            tab1.Text = "tabPage2";
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.57732F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.42268F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1885, 296);
-            this.tableLayoutPanel1.TabIndex = 13;
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(panel3, 0, 1);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 0);
+            tableLayoutPanel1.Dock = DockStyle.Top;
+            tableLayoutPanel1.Location = new Point(4, 3);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 52.57732F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 47.42268F));
+            tableLayoutPanel1.Size = new Size(1885, 296);
+            tableLayoutPanel1.TabIndex = 13;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.guna2HtmlLabel3);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 158);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1879, 135);
-            this.panel3.TabIndex = 12;
+            panel3.Controls.Add(guna2HtmlLabel3);
+            panel3.Controls.Add(label4);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(3, 158);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1879, 135);
+            panel3.TabIndex = 12;
             // 
             // guna2HtmlLabel3
             // 
-            this.guna2HtmlLabel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel3.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(569, 23);
-            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(741, 56);
-            this.guna2HtmlLabel3.TabIndex = 12;
-            this.guna2HtmlLabel3.Text = "Manipulate Your Academic Data Easily!";
+            guna2HtmlLabel3.Anchor = AnchorStyles.Top;
+            guna2HtmlLabel3.BackColor = Color.Transparent;
+            guna2HtmlLabel3.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            guna2HtmlLabel3.Location = new Point(569, 23);
+            guna2HtmlLabel3.Name = "guna2HtmlLabel3";
+            guna2HtmlLabel3.Size = new Size(741, 56);
+            guna2HtmlLabel3.TabIndex = 12;
+            guna2HtmlLabel3.Text = "Manipulate Your Academic Data Easily!";
             // 
             // label4
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label4.Location = new System.Drawing.Point(622, 89);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(635, 42);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "ZC GPA Calculator is  a comprehensive tool to analyze your transcript,\r\nand conve" +
-    "niently manipulate your academic data.";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label4.Anchor = AnchorStyles.Top;
+            label4.AutoSize = true;
+            label4.Font = new Font("Arial Rounded MT Bold", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.ForeColor = SystemColors.ControlDarkDark;
+            label4.Location = new Point(622, 89);
+            label4.Name = "label4";
+            label4.Size = new Size(635, 42);
+            label4.TabIndex = 7;
+            label4.Text = "ZC GPA Calculator is  a comprehensive tool to analyze your transcript,\r\nand conveniently manipulate your academic data.";
+            label4.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.5F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.5F));
-            this.tableLayoutPanel2.Controls.Add(this.panel1, 1, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1879, 149);
-            this.tableLayoutPanel2.TabIndex = 13;
+            tableLayoutPanel2.ColumnCount = 3;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 7.5F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 85F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 7.5F));
+            tableLayoutPanel2.Controls.Add(panel1, 1, 0);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(3, 3);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Size = new Size(1879, 149);
+            tableLayoutPanel2.TabIndex = 13;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.guna2PictureBox2);
-            this.panel1.Controls.Add(this.sourceCodeBtn);
-            this.panel1.Controls.Add(this.guna2HtmlLabel4);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(143, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1591, 143);
-            this.panel1.TabIndex = 11;
+            panel1.Controls.Add(guna2PictureBox2);
+            panel1.Controls.Add(sourceCodeBtn);
+            panel1.Controls.Add(guna2HtmlLabel4);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(143, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1591, 143);
+            panel1.TabIndex = 11;
             // 
             // guna2PictureBox2
             // 
-            this.guna2PictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox2.CustomizableEdges = customizableEdges1;
-            this.guna2PictureBox2.FillColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox2.Image")));
-            this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(18, 80);
-            this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            this.guna2PictureBox2.Size = new System.Drawing.Size(45, 49);
-            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox2.TabIndex = 2;
-            this.guna2PictureBox2.TabStop = false;
+            guna2PictureBox2.BackColor = Color.Transparent;
+            guna2PictureBox2.CustomizableEdges = customizableEdges1;
+            guna2PictureBox2.FillColor = Color.Transparent;
+            guna2PictureBox2.Image = (Image)resources.GetObject("guna2PictureBox2.Image");
+            guna2PictureBox2.ImageRotate = 0F;
+            guna2PictureBox2.Location = new Point(18, 80);
+            guna2PictureBox2.Name = "guna2PictureBox2";
+            guna2PictureBox2.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2PictureBox2.Size = new Size(45, 49);
+            guna2PictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            guna2PictureBox2.TabIndex = 2;
+            guna2PictureBox2.TabStop = false;
             // 
             // sourceCodeBtn
             // 
-            this.sourceCodeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.sourceCodeBtn.Animated = true;
-            this.sourceCodeBtn.BackColor = System.Drawing.Color.Transparent;
-            this.sourceCodeBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(79)))), ((int)(((byte)(237)))));
-            this.sourceCodeBtn.BorderRadius = 30;
-            this.sourceCodeBtn.BorderThickness = 1;
-            this.sourceCodeBtn.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(79)))), ((int)(((byte)(237)))));
-            this.sourceCodeBtn.CustomizableEdges = customizableEdges3;
-            this.sourceCodeBtn.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(79)))), ((int)(((byte)(237)))));
-            this.sourceCodeBtn.DisabledState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(79)))), ((int)(((byte)(237)))));
-            this.sourceCodeBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(251)))));
-            this.sourceCodeBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.sourceCodeBtn.FillColor = System.Drawing.Color.Empty;
-            this.sourceCodeBtn.Font = new System.Drawing.Font("Courier New", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.sourceCodeBtn.ForeColor = System.Drawing.Color.Gray;
-            this.sourceCodeBtn.Location = new System.Drawing.Point(1406, 73);
-            this.sourceCodeBtn.Name = "sourceCodeBtn";
-            this.sourceCodeBtn.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            this.sourceCodeBtn.Size = new System.Drawing.Size(167, 62);
-            this.sourceCodeBtn.TabIndex = 10;
-            this.sourceCodeBtn.Text = "Source Code";
-            this.sourceCodeBtn.Click += new System.EventHandler(this.sourceCodeBtn_Click);
+            sourceCodeBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            sourceCodeBtn.Animated = true;
+            sourceCodeBtn.BackColor = Color.Transparent;
+            sourceCodeBtn.BorderColor = Color.FromArgb(50, 79, 237);
+            sourceCodeBtn.BorderRadius = 30;
+            sourceCodeBtn.BorderThickness = 1;
+            sourceCodeBtn.CustomBorderColor = Color.FromArgb(50, 79, 237);
+            sourceCodeBtn.CustomizableEdges = customizableEdges3;
+            sourceCodeBtn.DisabledState.BorderColor = Color.FromArgb(50, 79, 237);
+            sourceCodeBtn.DisabledState.CustomBorderColor = Color.FromArgb(50, 79, 237);
+            sourceCodeBtn.DisabledState.FillColor = Color.FromArgb(241, 245, 251);
+            sourceCodeBtn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            sourceCodeBtn.FillColor = Color.Empty;
+            sourceCodeBtn.Font = new Font("Courier New", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            sourceCodeBtn.ForeColor = Color.Gray;
+            sourceCodeBtn.Location = new Point(1406, 73);
+            sourceCodeBtn.Name = "sourceCodeBtn";
+            sourceCodeBtn.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            sourceCodeBtn.Size = new Size(167, 62);
+            sourceCodeBtn.TabIndex = 10;
+            sourceCodeBtn.Text = "Source Code";
+            sourceCodeBtn.Click += sourceCodeBtn_Click;
             // 
             // guna2HtmlLabel4
             // 
-            this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.guna2HtmlLabel4.Location = new System.Drawing.Point(69, 89);
-            this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(205, 30);
-            this.guna2HtmlLabel4.TabIndex = 5;
-            this.guna2HtmlLabel4.Text = "ZC GPA CALCULATOR";
+            guna2HtmlLabel4.BackColor = Color.Transparent;
+            guna2HtmlLabel4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            guna2HtmlLabel4.Location = new Point(69, 89);
+            guna2HtmlLabel4.Name = "guna2HtmlLabel4";
+            guna2HtmlLabel4.Size = new Size(205, 30);
+            guna2HtmlLabel4.TabIndex = 5;
+            guna2HtmlLabel4.Text = "ZC GPA CALCULATOR";
             // 
             // guna2HtmlLabel2
             // 
-            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI Semibold", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.Gray;
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(4, 1008);
-            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(1885, 14);
-            this.guna2HtmlLabel2.TabIndex = 8;
-            this.guna2HtmlLabel2.Text = "© 2023 MoEssamKhattab";
-            this.guna2HtmlLabel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            guna2HtmlLabel2.BackColor = Color.Transparent;
+            guna2HtmlLabel2.Dock = DockStyle.Bottom;
+            guna2HtmlLabel2.Font = new Font("Segoe UI Semibold", 6F, FontStyle.Bold, GraphicsUnit.Point);
+            guna2HtmlLabel2.ForeColor = Color.Gray;
+            guna2HtmlLabel2.Location = new Point(4, 1008);
+            guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            guna2HtmlLabel2.Size = new Size(1885, 14);
+            guna2HtmlLabel2.TabIndex = 8;
+            guna2HtmlLabel2.Text = "© 2023 MoEssamKhattab";
+            guna2HtmlLabel2.TextAlignment = ContentAlignment.MiddleCenter;
             // 
             // dragFilePanel
             // 
-            this.dragFilePanel.AllowDrop = true;
-            this.dragFilePanel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dragFilePanel.BackColor = System.Drawing.Color.Transparent;
-            this.dragFilePanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(223)))), ((int)(((byte)(242)))));
-            this.dragFilePanel.BorderRadius = 25;
-            this.dragFilePanel.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.dragFilePanel.BorderThickness = 3;
-            this.dragFilePanel.Controls.Add(this.guna2Separator3);
-            this.dragFilePanel.Controls.Add(this.guna2Separator1);
-            this.dragFilePanel.Controls.Add(this.guna2HtmlLabel5);
-            this.dragFilePanel.Controls.Add(this.browseFileBtn);
-            this.dragFilePanel.Controls.Add(this.guna2PictureBox1);
-            this.dragFilePanel.Controls.Add(this.label1);
-            this.dragFilePanel.CustomizableEdges = customizableEdges9;
-            this.dragFilePanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(251)))));
-            this.dragFilePanel.Location = new System.Drawing.Point(672, 466);
-            this.dragFilePanel.Name = "dragFilePanel";
-            this.dragFilePanel.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            this.dragFilePanel.Size = new System.Drawing.Size(549, 340);
-            this.dragFilePanel.TabIndex = 0;
-            this.dragFilePanel.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragFilePanel_DragDrop);
-            this.dragFilePanel.DragEnter += new System.Windows.Forms.DragEventHandler(this.dragFilePanel_DragEnter);
+            dragFilePanel.AllowDrop = true;
+            dragFilePanel.Anchor = AnchorStyles.None;
+            dragFilePanel.BackColor = Color.Transparent;
+            dragFilePanel.BorderColor = Color.FromArgb(210, 223, 242);
+            dragFilePanel.BorderRadius = 25;
+            dragFilePanel.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            dragFilePanel.BorderThickness = 3;
+            dragFilePanel.Controls.Add(guna2Separator3);
+            dragFilePanel.Controls.Add(guna2Separator1);
+            dragFilePanel.Controls.Add(guna2HtmlLabel5);
+            dragFilePanel.Controls.Add(browseFileBtn);
+            dragFilePanel.Controls.Add(guna2PictureBox1);
+            dragFilePanel.Controls.Add(label1);
+            dragFilePanel.CustomizableEdges = customizableEdges9;
+            dragFilePanel.FillColor = Color.FromArgb(241, 245, 251);
+            dragFilePanel.Location = new Point(672, 466);
+            dragFilePanel.Name = "dragFilePanel";
+            dragFilePanel.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            dragFilePanel.Size = new Size(549, 340);
+            dragFilePanel.TabIndex = 0;
+            dragFilePanel.DragDrop += dragFilePanel_DragDrop;
+            dragFilePanel.DragEnter += dragFilePanel_DragEnter;
             // 
             // guna2Separator3
             // 
-            this.guna2Separator3.Location = new System.Drawing.Point(297, 211);
-            this.guna2Separator3.Name = "guna2Separator3";
-            this.guna2Separator3.Size = new System.Drawing.Size(67, 12);
-            this.guna2Separator3.TabIndex = 5;
+            guna2Separator3.Location = new Point(297, 211);
+            guna2Separator3.Name = "guna2Separator3";
+            guna2Separator3.Size = new Size(67, 12);
+            guna2Separator3.TabIndex = 5;
             // 
             // guna2Separator1
             // 
-            this.guna2Separator1.Location = new System.Drawing.Point(184, 211);
-            this.guna2Separator1.Name = "guna2Separator1";
-            this.guna2Separator1.Size = new System.Drawing.Size(67, 12);
-            this.guna2Separator1.TabIndex = 4;
+            guna2Separator1.Location = new Point(184, 211);
+            guna2Separator1.Name = "guna2Separator1";
+            guna2Separator1.Size = new Size(67, 12);
+            guna2Separator1.TabIndex = 4;
             // 
             // guna2HtmlLabel5
             // 
-            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.guna2HtmlLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(257, 199);
-            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(34, 33);
-            this.guna2HtmlLabel5.TabIndex = 3;
-            this.guna2HtmlLabel5.Text = "OR";
+            guna2HtmlLabel5.BackColor = Color.Transparent;
+            guna2HtmlLabel5.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            guna2HtmlLabel5.ForeColor = Color.FromArgb(193, 200, 207);
+            guna2HtmlLabel5.Location = new Point(257, 199);
+            guna2HtmlLabel5.Name = "guna2HtmlLabel5";
+            guna2HtmlLabel5.Size = new Size(34, 33);
+            guna2HtmlLabel5.TabIndex = 3;
+            guna2HtmlLabel5.Text = "OR";
             // 
             // browseFileBtn
             // 
-            this.browseFileBtn.Animated = true;
-            this.browseFileBtn.BackColor = System.Drawing.Color.Transparent;
-            this.browseFileBtn.BorderRadius = 8;
-            this.browseFileBtn.CustomizableEdges = customizableEdges5;
-            this.browseFileBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.browseFileBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.browseFileBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.browseFileBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.browseFileBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(79)))), ((int)(((byte)(237)))));
-            this.browseFileBtn.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.browseFileBtn.ForeColor = System.Drawing.Color.White;
-            this.browseFileBtn.Location = new System.Drawing.Point(184, 247);
-            this.browseFileBtn.Name = "browseFileBtn";
-            this.browseFileBtn.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            this.browseFileBtn.Size = new System.Drawing.Size(180, 51);
-            this.browseFileBtn.TabIndex = 2;
-            this.browseFileBtn.Text = "Open Transcript";
-            this.browseFileBtn.Click += new System.EventHandler(this.browseFileBtn_Click);
+            browseFileBtn.Animated = true;
+            browseFileBtn.BackColor = Color.Transparent;
+            browseFileBtn.BorderRadius = 8;
+            browseFileBtn.CustomizableEdges = customizableEdges5;
+            browseFileBtn.DisabledState.BorderColor = Color.DarkGray;
+            browseFileBtn.DisabledState.CustomBorderColor = Color.DarkGray;
+            browseFileBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            browseFileBtn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            browseFileBtn.FillColor = Color.FromArgb(50, 79, 237);
+            browseFileBtn.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            browseFileBtn.ForeColor = Color.White;
+            browseFileBtn.Location = new Point(184, 247);
+            browseFileBtn.Name = "browseFileBtn";
+            browseFileBtn.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            browseFileBtn.Size = new Size(180, 51);
+            browseFileBtn.TabIndex = 2;
+            browseFileBtn.Text = "Open Transcript";
+            browseFileBtn.Click += browseFileBtn_Click;
             // 
             // guna2PictureBox1
             // 
-            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox1.CustomizableEdges = customizableEdges7;
-            this.guna2PictureBox1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(242, 43);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(65, 76);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 1;
-            this.guna2PictureBox1.TabStop = false;
+            guna2PictureBox1.BackColor = Color.Transparent;
+            guna2PictureBox1.CustomizableEdges = customizableEdges7;
+            guna2PictureBox1.FillColor = Color.Transparent;
+            guna2PictureBox1.Image = (Image)resources.GetObject("guna2PictureBox1.Image");
+            guna2PictureBox1.ImageRotate = 0F;
+            guna2PictureBox1.Location = new Point(242, 43);
+            guna2PictureBox1.Name = "guna2PictureBox1";
+            guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            guna2PictureBox1.Size = new Size(65, 76);
+            guna2PictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            guna2PictureBox1.TabIndex = 1;
+            guna2PictureBox1.TabStop = false;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(138, 134);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(272, 50);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Drag your HTML transcript file\r\nhere to start analyzing.";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.FromArgb(64, 64, 64);
+            label1.Location = new Point(138, 134);
+            label1.Name = "label1";
+            label1.Size = new Size(272, 50);
+            label1.TabIndex = 0;
+            label1.Text = "Drag your HTML transcript file\r\nhere to start analyzing.";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // guna2PictureBox3
             // 
-            this.guna2PictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox3.CustomizableEdges = customizableEdges11;
-            this.guna2PictureBox3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox3.Image")));
-            this.guna2PictureBox3.ImageRotate = 0F;
-            this.guna2PictureBox3.Location = new System.Drawing.Point(1586, 397);
-            this.guna2PictureBox3.Name = "guna2PictureBox3";
-            this.guna2PictureBox3.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            this.guna2PictureBox3.Size = new System.Drawing.Size(572, 562);
-            this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox3.TabIndex = 6;
-            this.guna2PictureBox3.TabStop = false;
+            guna2PictureBox3.BackColor = Color.Transparent;
+            guna2PictureBox3.CustomizableEdges = customizableEdges11;
+            guna2PictureBox3.FillColor = Color.Transparent;
+            guna2PictureBox3.Image = (Image)resources.GetObject("guna2PictureBox3.Image");
+            guna2PictureBox3.ImageRotate = 0F;
+            guna2PictureBox3.Location = new Point(1586, 397);
+            guna2PictureBox3.Name = "guna2PictureBox3";
+            guna2PictureBox3.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            guna2PictureBox3.Size = new Size(572, 562);
+            guna2PictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            guna2PictureBox3.TabIndex = 6;
+            guna2PictureBox3.TabStop = false;
             // 
             // guna2PictureBox4
             // 
-            this.guna2PictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox4.CustomizableEdges = customizableEdges13;
-            this.guna2PictureBox4.FillColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox4.Image")));
-            this.guna2PictureBox4.ImageRotate = 0F;
-            this.guna2PictureBox4.Location = new System.Drawing.Point(-196, 265);
-            this.guna2PictureBox4.Name = "guna2PictureBox4";
-            this.guna2PictureBox4.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            this.guna2PictureBox4.Size = new System.Drawing.Size(487, 694);
-            this.guna2PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox4.TabIndex = 9;
-            this.guna2PictureBox4.TabStop = false;
+            guna2PictureBox4.BackColor = Color.Transparent;
+            guna2PictureBox4.CustomizableEdges = customizableEdges13;
+            guna2PictureBox4.FillColor = Color.Transparent;
+            guna2PictureBox4.Image = (Image)resources.GetObject("guna2PictureBox4.Image");
+            guna2PictureBox4.ImageRotate = 0F;
+            guna2PictureBox4.Location = new Point(-196, 265);
+            guna2PictureBox4.Name = "guna2PictureBox4";
+            guna2PictureBox4.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            guna2PictureBox4.Size = new Size(487, 694);
+            guna2PictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            guna2PictureBox4.TabIndex = 9;
+            guna2PictureBox4.TabStop = false;
             // 
             // tab2
             // 
-            this.tab2.BackColor = System.Drawing.Color.White;
-            this.tab2.Controls.Add(this.transcriptTableLayoutPanel);
-            this.tab2.Location = new System.Drawing.Point(5, 4);
-            this.tab2.Margin = new System.Windows.Forms.Padding(0);
-            this.tab2.Name = "tab2";
-            this.tab2.Size = new System.Drawing.Size(1893, 1025);
-            this.tab2.TabIndex = 2;
-            this.tab2.Text = "tabPage1";
+            tab2.BackColor = Color.White;
+            tab2.Controls.Add(transcriptTableLayoutPanel);
+            tab2.Location = new Point(5, 4);
+            tab2.Margin = new Padding(0);
+            tab2.Name = "tab2";
+            tab2.Size = new Size(1893, 1025);
+            tab2.TabIndex = 2;
+            tab2.Text = "tabPage1";
             // 
             // transcriptTableLayoutPanel
             // 
-            this.transcriptTableLayoutPanel.ColumnCount = 3;
-            this.transcriptTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.transcriptTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.transcriptTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.transcriptTableLayoutPanel.Controls.Add(this.guna2Panel3, 1, 0);
-            this.transcriptTableLayoutPanel.Controls.Add(this.panel4, 1, 1);
-            this.transcriptTableLayoutPanel.Controls.Add(this.addNewSemesterBtn, 1, 3);
-            this.transcriptTableLayoutPanel.Controls.Add(this.semestersPanel, 1, 2);
-            this.transcriptTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.transcriptTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
-            this.transcriptTableLayoutPanel.Name = "transcriptTableLayoutPanel";
-            this.transcriptTableLayoutPanel.RowCount = 4;
-            this.transcriptTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18F));
-            this.transcriptTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11F));
-            this.transcriptTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 64F));
-            this.transcriptTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7F));
-            this.transcriptTableLayoutPanel.Size = new System.Drawing.Size(1893, 1025);
-            this.transcriptTableLayoutPanel.TabIndex = 20;
+            transcriptTableLayoutPanel.ColumnCount = 3;
+            transcriptTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            transcriptTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
+            transcriptTableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            transcriptTableLayoutPanel.Controls.Add(guna2Panel3, 1, 0);
+            transcriptTableLayoutPanel.Controls.Add(panel4, 1, 1);
+            transcriptTableLayoutPanel.Controls.Add(addNewSemesterBtn, 1, 3);
+            transcriptTableLayoutPanel.Controls.Add(semestersPanel, 1, 2);
+            transcriptTableLayoutPanel.Dock = DockStyle.Fill;
+            transcriptTableLayoutPanel.Location = new Point(0, 0);
+            transcriptTableLayoutPanel.Name = "transcriptTableLayoutPanel";
+            transcriptTableLayoutPanel.RowCount = 4;
+            transcriptTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 18F));
+            transcriptTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 11F));
+            transcriptTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 64F));
+            transcriptTableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 7F));
+            transcriptTableLayoutPanel.Size = new Size(1893, 1025);
+            transcriptTableLayoutPanel.TabIndex = 20;
             // 
             // guna2Panel3
             // 
-            this.guna2Panel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel3.Controls.Add(this.guna2Panel2);
-            this.guna2Panel3.Controls.Add(this.studentPicture);
-            this.guna2Panel3.Controls.Add(this.studentMajorLabel);
-            this.guna2Panel3.Controls.Add(this.studentNameLabel);
-            this.guna2Panel3.CustomizableEdges = customizableEdges19;
-            this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Panel3.Location = new System.Drawing.Point(192, 3);
-            this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            this.guna2Panel3.Size = new System.Drawing.Size(1508, 178);
-            this.guna2Panel3.TabIndex = 5;
+            guna2Panel3.BackColor = Color.Transparent;
+            guna2Panel3.Controls.Add(guna2Panel2);
+            guna2Panel3.Controls.Add(studentPicture);
+            guna2Panel3.Controls.Add(studentMajorLabel);
+            guna2Panel3.Controls.Add(studentNameLabel);
+            guna2Panel3.CustomizableEdges = customizableEdges19;
+            guna2Panel3.Dock = DockStyle.Fill;
+            guna2Panel3.FillColor = Color.Transparent;
+            guna2Panel3.Location = new Point(192, 3);
+            guna2Panel3.Name = "guna2Panel3";
+            guna2Panel3.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            guna2Panel3.Size = new Size(1508, 178);
+            guna2Panel3.TabIndex = 5;
             // 
             // guna2Panel2
             // 
-            this.guna2Panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel2.BorderColor = System.Drawing.Color.LightGray;
-            this.guna2Panel2.BorderRadius = 50;
-            this.guna2Panel2.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.guna2Panel2.BorderThickness = 2;
-            this.guna2Panel2.Controls.Add(this.label2);
-            this.guna2Panel2.Controls.Add(this.uploadAnotherDocBtn);
-            this.guna2Panel2.CustomizableEdges = customizableEdges16;
-            this.guna2Panel2.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Panel2.Location = new System.Drawing.Point(1388, 55);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges17;
-            this.guna2Panel2.Size = new System.Drawing.Size(120, 120);
-            this.guna2Panel2.TabIndex = 6;
+            guna2Panel2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            guna2Panel2.BackColor = Color.Transparent;
+            guna2Panel2.BorderColor = Color.LightGray;
+            guna2Panel2.BorderRadius = 50;
+            guna2Panel2.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            guna2Panel2.BorderThickness = 2;
+            guna2Panel2.Controls.Add(label2);
+            guna2Panel2.Controls.Add(uploadAnotherDocBtn);
+            guna2Panel2.CustomizableEdges = customizableEdges16;
+            guna2Panel2.FillColor = Color.Transparent;
+            guna2Panel2.Location = new Point(1388, 55);
+            guna2Panel2.Name = "guna2Panel2";
+            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges17;
+            guna2Panel2.Size = new Size(120, 120);
+            guna2Panel2.TabIndex = 6;
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.LightGray;
-            this.label2.Location = new System.Drawing.Point(19, 87);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Another File";
+            label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 7.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.LightGray;
+            label2.Location = new Point(19, 87);
+            label2.Name = "label2";
+            label2.Size = new Size(82, 17);
+            label2.TabIndex = 1;
+            label2.Text = "Another File";
             // 
             // uploadAnotherDocBtn
             // 
-            this.uploadAnotherDocBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.uploadAnotherDocBtn.Animated = true;
-            this.uploadAnotherDocBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.uploadAnotherDocBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.uploadAnotherDocBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.uploadAnotherDocBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.uploadAnotherDocBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(35)))));
-            this.uploadAnotherDocBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.uploadAnotherDocBtn.ForeColor = System.Drawing.Color.White;
-            this.uploadAnotherDocBtn.Location = new System.Drawing.Point(30, 22);
-            this.uploadAnotherDocBtn.Name = "uploadAnotherDocBtn";
-            this.uploadAnotherDocBtn.ShadowDecoration.CustomizableEdges = customizableEdges15;
-            this.uploadAnotherDocBtn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.uploadAnotherDocBtn.Size = new System.Drawing.Size(60, 60);
-            this.uploadAnotherDocBtn.TabIndex = 0;
-            this.uploadAnotherDocBtn.Text = "+";
-            this.uploadAnotherDocBtn.Click += new System.EventHandler(this.uploadAnotherDocBtn_Click);
+            uploadAnotherDocBtn.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            uploadAnotherDocBtn.Animated = true;
+            uploadAnotherDocBtn.DisabledState.BorderColor = Color.DarkGray;
+            uploadAnotherDocBtn.DisabledState.CustomBorderColor = Color.DarkGray;
+            uploadAnotherDocBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            uploadAnotherDocBtn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            uploadAnotherDocBtn.FillColor = Color.FromArgb(30, 31, 35);
+            uploadAnotherDocBtn.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            uploadAnotherDocBtn.ForeColor = Color.White;
+            uploadAnotherDocBtn.Location = new Point(30, 22);
+            uploadAnotherDocBtn.Name = "uploadAnotherDocBtn";
+            uploadAnotherDocBtn.ShadowDecoration.CustomizableEdges = customizableEdges15;
+            uploadAnotherDocBtn.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            uploadAnotherDocBtn.Size = new Size(60, 60);
+            uploadAnotherDocBtn.TabIndex = 0;
+            uploadAnotherDocBtn.Text = "+";
+            uploadAnotherDocBtn.Click += uploadAnotherDocBtn_Click;
             // 
             // studentPicture
             // 
-            this.studentPicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.studentPicture.BackColor = System.Drawing.Color.Transparent;
-            this.studentPicture.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.studentPicture.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.studentPicture.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.studentPicture.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.studentPicture.Enabled = false;
-            this.studentPicture.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(35)))));
-            this.studentPicture.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.studentPicture.ForeColor = System.Drawing.Color.White;
-            this.studentPicture.Location = new System.Drawing.Point(3, 74);
-            this.studentPicture.Name = "studentPicture";
-            this.studentPicture.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            this.studentPicture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.studentPicture.Size = new System.Drawing.Size(80, 80);
-            this.studentPicture.TabIndex = 3;
-            this.studentPicture.Text = "L";
+            studentPicture.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            studentPicture.BackColor = Color.Transparent;
+            studentPicture.DisabledState.BorderColor = Color.DarkGray;
+            studentPicture.DisabledState.CustomBorderColor = Color.DarkGray;
+            studentPicture.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            studentPicture.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            studentPicture.Enabled = false;
+            studentPicture.FillColor = Color.FromArgb(30, 31, 35);
+            studentPicture.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            studentPicture.ForeColor = Color.White;
+            studentPicture.Location = new Point(3, 74);
+            studentPicture.Name = "studentPicture";
+            studentPicture.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            studentPicture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            studentPicture.Size = new Size(80, 80);
+            studentPicture.TabIndex = 3;
+            studentPicture.Text = "L";
             // 
             // studentMajorLabel
             // 
-            this.studentMajorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.studentMajorLabel.BackColor = System.Drawing.Color.Transparent;
-            this.studentMajorLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.studentMajorLabel.ForeColor = System.Drawing.Color.Gray;
-            this.studentMajorLabel.Location = new System.Drawing.Point(89, 124);
-            this.studentMajorLabel.Name = "studentMajorLabel";
-            this.studentMajorLabel.Size = new System.Drawing.Size(55, 30);
-            this.studentMajorLabel.TabIndex = 1;
-            this.studentMajorLabel.Text = "Major";
+            studentMajorLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            studentMajorLabel.BackColor = Color.Transparent;
+            studentMajorLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            studentMajorLabel.ForeColor = Color.Gray;
+            studentMajorLabel.Location = new Point(89, 124);
+            studentMajorLabel.Name = "studentMajorLabel";
+            studentMajorLabel.Size = new Size(55, 30);
+            studentMajorLabel.TabIndex = 1;
+            studentMajorLabel.Text = "Major";
             // 
             // studentNameLabel
             // 
-            this.studentNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.studentNameLabel.BackColor = System.Drawing.Color.Transparent;
-            this.studentNameLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.studentNameLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.studentNameLabel.Location = new System.Drawing.Point(89, 74);
-            this.studentNameLabel.Name = "studentNameLabel";
-            this.studentNameLabel.Size = new System.Drawing.Size(95, 47);
-            this.studentNameLabel.TabIndex = 0;
-            this.studentNameLabel.Text = "Name";
+            studentNameLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            studentNameLabel.BackColor = Color.Transparent;
+            studentNameLabel.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point);
+            studentNameLabel.ForeColor = SystemColors.ActiveCaptionText;
+            studentNameLabel.Location = new Point(89, 74);
+            studentNameLabel.Name = "studentNameLabel";
+            studentNameLabel.Size = new Size(95, 47);
+            studentNameLabel.TabIndex = 0;
+            studentNameLabel.Text = "Name";
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.guna2Separator2);
-            this.panel4.Controls.Add(this.specialGPATxt);
-            this.panel4.Controls.Add(this.semestersComboBox);
-            this.panel4.Controls.Add(this.gpaSeparator);
-            this.panel4.Controls.Add(this.cgpaLabel);
-            this.panel4.Controls.Add(this.guna2HtmlLabel1);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(192, 187);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1508, 106);
-            this.panel4.TabIndex = 17;
+            panel4.Controls.Add(guna2Separator2);
+            panel4.Controls.Add(specialGPATxt);
+            panel4.Controls.Add(semestersComboBox);
+            panel4.Controls.Add(gpaSeparator);
+            panel4.Controls.Add(cgpaLabel);
+            panel4.Controls.Add(guna2HtmlLabel1);
+            panel4.Dock = DockStyle.Fill;
+            panel4.Location = new Point(192, 187);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(1508, 106);
+            panel4.TabIndex = 17;
             // 
             // guna2Separator2
             // 
-            this.guna2Separator2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Separator2.FillColor = System.Drawing.Color.Gainsboro;
-            this.guna2Separator2.Location = new System.Drawing.Point(3, 92);
-            this.guna2Separator2.Name = "guna2Separator2";
-            this.guna2Separator2.Size = new System.Drawing.Size(1502, 12);
-            this.guna2Separator2.TabIndex = 19;
+            guna2Separator2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            guna2Separator2.FillColor = Color.Gainsboro;
+            guna2Separator2.Location = new Point(3, 92);
+            guna2Separator2.Name = "guna2Separator2";
+            guna2Separator2.Size = new Size(1502, 12);
+            guna2Separator2.TabIndex = 19;
             // 
             // specialGPATxt
             // 
-            this.specialGPATxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.specialGPATxt.BackColor = System.Drawing.Color.Transparent;
-            this.specialGPATxt.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.specialGPATxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(35)))));
-            this.specialGPATxt.Location = new System.Drawing.Point(1121, 37);
-            this.specialGPATxt.Name = "specialGPATxt";
-            this.specialGPATxt.Size = new System.Drawing.Size(214, 33);
-            this.specialGPATxt.TabIndex = 17;
-            this.specialGPATxt.Text = "Special GPA: 4.0000";
-            this.specialGPATxt.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            specialGPATxt.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            specialGPATxt.BackColor = Color.Transparent;
+            specialGPATxt.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            specialGPATxt.ForeColor = Color.FromArgb(30, 31, 35);
+            specialGPATxt.Location = new Point(1121, 37);
+            specialGPATxt.Name = "specialGPATxt";
+            specialGPATxt.Size = new Size(214, 33);
+            specialGPATxt.TabIndex = 17;
+            specialGPATxt.Text = "Special GPA: 4.0000";
+            specialGPATxt.TextAlignment = ContentAlignment.TopRight;
             // 
             // semestersComboBox
             // 
-            this.semestersComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.semestersComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.semestersComboBox.BorderRadius = 8;
-            this.semestersComboBox.CustomizableEdges = customizableEdges21;
-            this.semestersComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.semestersComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.semestersComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.semestersComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.semestersComboBox.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.semestersComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.semestersComboBox.ItemHeight = 30;
-            this.semestersComboBox.Location = new System.Drawing.Point(3, 54);
-            this.semestersComboBox.Name = "semestersComboBox";
-            this.semestersComboBox.ShadowDecoration.CustomizableEdges = customizableEdges22;
-            this.semestersComboBox.Size = new System.Drawing.Size(287, 36);
-            this.semestersComboBox.TabIndex = 15;
-            this.semestersComboBox.SelectedIndexChanged += new System.EventHandler(this.semestersComboBox_SelectedIndexChanged);
+            semestersComboBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            semestersComboBox.BackColor = Color.Transparent;
+            semestersComboBox.BorderRadius = 8;
+            semestersComboBox.CustomizableEdges = customizableEdges21;
+            semestersComboBox.DrawMode = DrawMode.OwnerDrawFixed;
+            semestersComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            semestersComboBox.FocusedColor = Color.FromArgb(94, 148, 255);
+            semestersComboBox.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            semestersComboBox.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            semestersComboBox.ForeColor = Color.FromArgb(68, 88, 112);
+            semestersComboBox.ItemHeight = 30;
+            semestersComboBox.Location = new Point(3, 54);
+            semestersComboBox.Name = "semestersComboBox";
+            semestersComboBox.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            semestersComboBox.Size = new Size(287, 36);
+            semestersComboBox.TabIndex = 15;
+            semestersComboBox.SelectedIndexChanged += semestersComboBox_SelectedIndexChanged;
             // 
             // gpaSeparator
             // 
-            this.gpaSeparator.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.gpaSeparator.Location = new System.Drawing.Point(1341, 37);
-            this.gpaSeparator.Name = "gpaSeparator";
-            this.gpaSeparator.Size = new System.Drawing.Size(12, 33);
-            this.gpaSeparator.TabIndex = 18;
+            gpaSeparator.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            gpaSeparator.Location = new Point(1341, 37);
+            gpaSeparator.Name = "gpaSeparator";
+            gpaSeparator.Size = new Size(12, 33);
+            gpaSeparator.TabIndex = 18;
             // 
             // cgpaLabel
             // 
-            this.cgpaLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cgpaLabel.BackColor = System.Drawing.Color.Transparent;
-            this.cgpaLabel.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.cgpaLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(35)))));
-            this.cgpaLabel.Location = new System.Drawing.Point(1359, 37);
-            this.cgpaLabel.Name = "cgpaLabel";
-            this.cgpaLabel.Size = new System.Drawing.Size(146, 33);
-            this.cgpaLabel.TabIndex = 12;
-            this.cgpaLabel.Text = "CGPA: 4.0000";
-            this.cgpaLabel.TextAlignment = System.Drawing.ContentAlignment.TopRight;
+            cgpaLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            cgpaLabel.BackColor = Color.Transparent;
+            cgpaLabel.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            cgpaLabel.ForeColor = Color.FromArgb(30, 31, 35);
+            cgpaLabel.Location = new Point(1359, 37);
+            cgpaLabel.Name = "cgpaLabel";
+            cgpaLabel.Size = new Size(146, 33);
+            cgpaLabel.TabIndex = 12;
+            cgpaLabel.Text = "CGPA: 4.0000";
+            cgpaLabel.TextAlignment = ContentAlignment.TopRight;
             // 
             // guna2HtmlLabel1
             // 
-            this.guna2HtmlLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(3, 24);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(88, 30);
-            this.guna2HtmlLabel1.TabIndex = 16;
-            this.guna2HtmlLabel1.Text = "Semester";
+            guna2HtmlLabel1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            guna2HtmlLabel1.BackColor = Color.Transparent;
+            guna2HtmlLabel1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            guna2HtmlLabel1.Location = new Point(3, 24);
+            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            guna2HtmlLabel1.Size = new Size(88, 30);
+            guna2HtmlLabel1.TabIndex = 16;
+            guna2HtmlLabel1.Text = "Semester";
             // 
             // addNewSemesterBtn
             // 
-            this.addNewSemesterBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.addNewSemesterBtn.Animated = true;
-            this.addNewSemesterBtn.BackColor = System.Drawing.Color.Transparent;
-            this.addNewSemesterBtn.BorderColor = System.Drawing.Color.DimGray;
-            this.addNewSemesterBtn.BorderRadius = 8;
-            this.addNewSemesterBtn.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.addNewSemesterBtn.BorderThickness = 1;
-            this.addNewSemesterBtn.CustomizableEdges = customizableEdges23;
-            this.addNewSemesterBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.addNewSemesterBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.addNewSemesterBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.addNewSemesterBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.addNewSemesterBtn.FillColor = System.Drawing.Color.White;
-            this.addNewSemesterBtn.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.addNewSemesterBtn.ForeColor = System.Drawing.Color.DimGray;
-            this.addNewSemesterBtn.Location = new System.Drawing.Point(192, 955);
-            this.addNewSemesterBtn.Name = "addNewSemesterBtn";
-            this.addNewSemesterBtn.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            this.addNewSemesterBtn.Size = new System.Drawing.Size(1508, 45);
-            this.addNewSemesterBtn.TabIndex = 9;
-            this.addNewSemesterBtn.Text = "Add New Semester";
-            this.addNewSemesterBtn.Click += new System.EventHandler(this.addNewSemesterBtn_Click);
+            addNewSemesterBtn.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            addNewSemesterBtn.Animated = true;
+            addNewSemesterBtn.BackColor = Color.Transparent;
+            addNewSemesterBtn.BorderColor = Color.DimGray;
+            addNewSemesterBtn.BorderRadius = 8;
+            addNewSemesterBtn.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            addNewSemesterBtn.BorderThickness = 1;
+            addNewSemesterBtn.CustomizableEdges = customizableEdges23;
+            addNewSemesterBtn.DisabledState.BorderColor = Color.DarkGray;
+            addNewSemesterBtn.DisabledState.CustomBorderColor = Color.DarkGray;
+            addNewSemesterBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            addNewSemesterBtn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            addNewSemesterBtn.FillColor = Color.White;
+            addNewSemesterBtn.Font = new Font("Arial Rounded MT Bold", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            addNewSemesterBtn.ForeColor = Color.DimGray;
+            addNewSemesterBtn.Location = new Point(192, 955);
+            addNewSemesterBtn.Name = "addNewSemesterBtn";
+            addNewSemesterBtn.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            addNewSemesterBtn.Size = new Size(1508, 45);
+            addNewSemesterBtn.TabIndex = 9;
+            addNewSemesterBtn.Text = "Add New Semester";
+            addNewSemesterBtn.Click += addNewSemesterBtn_Click;
             // 
             // semestersPanel
             // 
-            this.semestersPanel.AutoScroll = true;
-            this.semestersPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.semestersPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.semestersPanel.Location = new System.Drawing.Point(192, 299);
-            this.semestersPanel.Name = "semestersPanel";
-            this.semestersPanel.Size = new System.Drawing.Size(1508, 650);
-            this.semestersPanel.TabIndex = 20;
-            this.semestersPanel.WrapContents = false;
-            this.semestersPanel.SizeChanged += new System.EventHandler(this.semestersPanel_SizeChanged);
+            semestersPanel.AutoScroll = true;
+            semestersPanel.Dock = DockStyle.Fill;
+            semestersPanel.FlowDirection = FlowDirection.TopDown;
+            semestersPanel.Location = new Point(192, 299);
+            semestersPanel.Name = "semestersPanel";
+            semestersPanel.Size = new Size(1508, 650);
+            semestersPanel.TabIndex = 20;
+            semestersPanel.WrapContents = false;
+            semestersPanel.SizeChanged += semestersPanel_SizeChanged;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(8)))), ((int)(((byte)(8)))));
-            this.ClientSize = new System.Drawing.Size(1902, 1033);
-            this.Controls.Add(this.tabs);
-            this.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "MainForm";
-            this.Text = "ZC GPA Calculator";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.tabs.ResumeLayout(false);
-            this.tab1.ResumeLayout(false);
-            this.tab1.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
-            this.dragFilePanel.ResumeLayout(false);
-            this.dragFilePanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
-            this.tab2.ResumeLayout(false);
-            this.transcriptTableLayoutPanel.ResumeLayout(false);
-            this.guna2Panel3.ResumeLayout(false);
-            this.guna2Panel3.PerformLayout();
-            this.guna2Panel2.ResumeLayout(false);
-            this.guna2Panel2.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(12F, 23F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(8, 8, 8);
+            ClientSize = new Size(1902, 1033);
+            Controls.Add(tabs);
+            Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "MainForm";
+            Text = "ZC GPA Calculator";
+            WindowState = FormWindowState.Maximized;
+            Load += Form1_Load;
+            tabs.ResumeLayout(false);
+            tab1.ResumeLayout(false);
+            tab1.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)guna2PictureBox2).EndInit();
+            dragFilePanel.ResumeLayout(false);
+            dragFilePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)guna2PictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)guna2PictureBox4).EndInit();
+            tab2.ResumeLayout(false);
+            transcriptTableLayoutPanel.ResumeLayout(false);
+            guna2Panel3.ResumeLayout(false);
+            guna2Panel3.PerformLayout();
+            guna2Panel2.ResumeLayout(false);
+            guna2Panel2.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion
