@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using static ZC_GPA_Calculator.GradeCalculator;
 
 namespace ZC_GPA_Calculator;
 
@@ -131,19 +132,19 @@ public partial class SemesterCard : UserControl
         calculationsTable.Rows.Add(overallRow);
         // GPA Calculations
         calculationsTable.Rows[0].Cells["GPACredits"].Value = semesters[index].CalculateGPACredits().ToString();
-        calculationsTable.Rows[1].Cells["GPACredits"].Value = Semester.CalculateOverallGPACredits(semesters, index).ToString();
+        calculationsTable.Rows[1].Cells["GPACredits"].Value = CalculateOverallGPACredits(semesters, index).ToString();
         calculationsTable.Rows[0].Cells["AttemptedCredits"].Value = semesters[index].CalculateAttemptedCredits().ToString();
-        calculationsTable.Rows[1].Cells["AttemptedCredits"].Value = Semester.CalculateOverallAttemptedCredits(semesters, index).ToString();
+        calculationsTable.Rows[1].Cells["AttemptedCredits"].Value = CalculateOverallAttemptedCredits(semesters, index).ToString();
         calculationsTable.Rows[0].Cells["EarnedCredits"].Value = semesters[index].CalculateEarnedCredits().ToString();
-        calculationsTable.Rows[1].Cells["EarnedCredits"].Value = Semester.CalculateOverallEarnedCredits(semesters, index).ToString();
+        calculationsTable.Rows[1].Cells["EarnedCredits"].Value = CalculateOverallEarnedCredits(semesters, index).ToString();
         calculationsTable.Rows[0].Cells["TotalCredits"].Value = semesters[index].CalculateTotalCredits().ToString();
-        calculationsTable.Rows[1].Cells["TotalCredits"].Value = Semester.CalculateOverallTotalCredits(semesters, index).ToString();
+        calculationsTable.Rows[1].Cells["TotalCredits"].Value = CalculateOverallTotalCredits(semesters, index).ToString();
         calculationsTable.Rows[0].Cells["TransferCredits"].Value = semesters[index].CalculateTransferCredits().ToString();
-        calculationsTable.Rows[1].Cells["TransferCredits"].Value = Semester.CalculateOverallTransferCredits(semesters, index).ToString();
+        calculationsTable.Rows[1].Cells["TransferCredits"].Value = CalculateOverallTransferCredits(semesters, index).ToString();
         calculationsTable.Rows[0].Cells["Quality_Points"].Value = semesters[index].CalculateQualityPoints().ToString("0.00");
-        calculationsTable.Rows[1].Cells["Quality_Points"].Value = Semester.CalculateOverallQualityPoints(semesters, index).ToString("0.00");
+        calculationsTable.Rows[1].Cells["Quality_Points"].Value = CalculateOverallQualityPoints(semesters, index).ToString("0.00");
         calculationsTable.Rows[0].Cells["GPA"].Value = semesters[index].CalculateGPA().ToString("0.0000");
-        calculationsTable.Rows[1].Cells["GPA"].Value = Semester.CalculateOverallGPA(semesters, index).ToString("0.0000");
+        calculationsTable.Rows[1].Cells["GPA"].Value = CalculateOverallGPA(semesters, index).ToString("0.0000");
     }
 
     // This event handler manually raises the CellValueChanged event 
@@ -178,7 +179,7 @@ public partial class SemesterCard : UserControl
     private void addCourseBtn_Click(object sender, EventArgs e)
     {
         Course newCourse;
-        using (AddCourseForm addCourseForm = new AddCourseForm())
+        using (AddCourseForm addCourseForm = new())
         {
             string CourseCode;
             string CourseTitle;

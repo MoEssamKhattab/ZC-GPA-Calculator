@@ -1,0 +1,56 @@
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\bin\Release\net7.0-windows\ZC-GPA Calculator.exe
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\bin\Release\net7.0-windows\ZC-GPA Calculator.deps.json
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\bin\Release\net7.0-windows\ZC-GPA Calculator.runtimeconfig.json
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\bin\Release\net7.0-windows\ZC-GPA Calculator.dll
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\bin\Release\net7.0-windows\ZC-GPA Calculator.pdb
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\bin\Release\net7.0-windows\Guna.UI2.dll
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\bin\Release\net7.0-windows\HtmlAgilityPack.dll
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\bin\Release\net7.0-windows\System.Management.dll
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\bin\Release\net7.0-windows\runtimes\win\lib\net7.0\System.Management.dll
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC-GPA Calculator.csproj.AssemblyReference.cache
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC_GPA_Calculator.AddCourseForm.resources
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC_GPA_Calculator.AddSemesterForm.resources
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC_GPA_Calculator.MainForm.resources
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC_GPA_Calculator.HandleRepeatsForm.resources
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC_GPA_Calculator.Properties.Resources.resources
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC_GPA_Calculator.SemesterCard.resources
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC-GPA Calculator.csproj.GenerateResource.cache
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC-GPA Calculator.GeneratedMSBuildEditorConfig.editorconfig
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC-GPA Calculator.AssemblyInfoInputs.cache
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC-GPA Calculator.AssemblyInfo.cs
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC-GPA Calculator.csproj.CoreCompileInputs.cache
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC-GPA Calculator.sourcelink.json
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC-GPA C.B66BE073.Up2Date
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC-GPA Calculator.dll
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\obj\Release\net7.0-windows\refint\ZC-GPA Calculator.dll
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC-GPA Calculator.pdb
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC-GPA Calculator.genruntimeconfig.cache
+E:\ZC\ZC-GPA-Calculator - Qpts\ZC-GPA Calculator\obj\Release\net7.0-windows\ref\ZC-GPA Calculator.dll
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\bin\Release\net7.0-windows\ZC-GPA Calculator.exe
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\bin\Release\net7.0-windows\ZC-GPA Calculator.deps.json
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\bin\Release\net7.0-windows\ZC-GPA Calculator.runtimeconfig.json
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\bin\Release\net7.0-windows\ZC-GPA Calculator.dll
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\bin\Release\net7.0-windows\ZC-GPA Calculator.pdb
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\bin\Release\net7.0-windows\Guna.UI2.dll
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\bin\Release\net7.0-windows\HtmlAgilityPack.dll
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\bin\Release\net7.0-windows\System.Management.dll
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\bin\Release\net7.0-windows\runtimes\win\lib\net7.0\System.Management.dll
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC-GPA Calculator.csproj.AssemblyReference.cache
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC_GPA_Calculator.AddCourseForm.resources
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC_GPA_Calculator.AddSemesterForm.resources
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC_GPA_Calculator.MainForm.resources
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC_GPA_Calculator.HandleRepeatsForm.resources
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC_GPA_Calculator.Properties.Resources.resources
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC_GPA_Calculator.SemesterCard.resources
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC-GPA Calculator.csproj.GenerateResource.cache
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC-GPA Calculator.GeneratedMSBuildEditorConfig.editorconfig
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC-GPA Calculator.AssemblyInfoInputs.cache
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC-GPA Calculator.AssemblyInfo.cs
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC-GPA Calculator.csproj.CoreCompileInputs.cache
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC-GPA Calculator.sourcelink.json
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC-GPA C.B66BE073.Up2Date
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC-GPA Calculator.dll
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\obj\Release\net7.0-windows\refint\ZC-GPA Calculator.dll
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC-GPA Calculator.pdb
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\obj\Release\net7.0-windows\ZC-GPA Calculator.genruntimeconfig.cache
+E:\ZC\ZC-GPA-Calculator - Qpts - Copy\ZC-GPA Calculator\obj\Release\net7.0-windows\ref\ZC-GPA Calculator.dll

@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Diagnostics;
-using System.Text;
+using static ZC_GPA_Calculator.GradeCalculator;
+
 
 namespace ZC_GPA_Calculator;
 
@@ -16,8 +17,9 @@ public partial class MainForm : Form
     {
         InitializeComponent();
         semestersComboBox.DisplayMember = "Name";
-    }
-    private void Form1_Load(object sender, EventArgs e)
+		AutoScaleMode = AutoScaleMode.Dpi;
+	}
+	private void Form1_Load(object sender, EventArgs e)
     {
         this.MinimumSize = new Size(1024, 768);
         this.MaximumSize = new Size(1920, 1080);
@@ -160,11 +162,11 @@ public partial class MainForm : Form
             updateSemestersGPATables(this.semesterList, this.semesterCardList);
             semesterCard_CgpaUpdate(null, EventArgs.Empty);
         };
-        semesterCard.CgpaUpdate += new System.EventHandler(this.semesterCard_CgpaUpdate);
+        semesterCard.CgpaUpdate += new EventHandler(this.semesterCard_CgpaUpdate);
     }
     private void semesterCard_CgpaUpdate(object sender, EventArgs e)
     {
-        double cGPA = Semester.CalculateOverallGPA(semesterList, semesterList.Count - 1);
+        double cGPA = CalculateOverallGPA(semesterList, semesterList.Count - 1);
         cgpaLabel.Text = $"CGPA: {cGPA.ToString("0.0000")}";
 
         double specialGPA = Utilities.CalculateSpecialGPA(semesterList);

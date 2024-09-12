@@ -1,7 +1,7 @@
 ﻿using HtmlAgilityPack;
 using System.Net;
 using System.ComponentModel;
-
+using static ZC_GPA_Calculator.GradeCalculator;
 namespace ZC_GPA_Calculator;
 
 internal static class Utilities
@@ -78,16 +78,11 @@ internal static class Utilities
         else
             return SemesterType.Summer1;        // for now, to handle the case of summer 1 semester for the Internship course.
     }
-    public static bool isNewQPtsSchema(int year, string semester)
+    public static bool IsNewQPtsSchema(int year, string semester)
     {
         if (year > 2023) return true;
         else if (year == 2023 & semester == "Fall") return true;
         return false;
-    }
-
-    public static bool IsDroppedCourse(string courseGrade)
-    {
-        return courseGrade == "W" || courseGrade == "WP" || courseGrade == "WF" ;
     }
 	//public static double stringToGrade(string grade)
 	//{
@@ -107,7 +102,7 @@ internal static class Utilities
 	//        _ => 0.0
 	//    };
 	//}
-	public static double stringToGrade(string grade, bool isNewQPtsSchema)
+	public static double StringToGrade(string grade, bool isNewQPtsSchema)
 	{
 
 		return grade switch
@@ -137,11 +132,11 @@ internal static class Utilities
     }
     public static void FindRepeatedCourse(string courseCode, BindingList<Semester> semestersList)
     {
-        bool found = SearchRepeatedCourse(courseCode, semestersList, semestersList.Count - 1);
+        bool found = SearchAndMarkRepeatedCourse(courseCode, semestersList, semestersList.Count - 1);
         
-        if (found == false)
+        if (!found)
         {
-            string oldCourseCode = "";
+            string oldCourseCode = string.Empty;
             using (HandleRepeatsForm handleRepeatsForm = new HandleRepeatsForm(courseCode, semestersList))
             {                   
                 DialogResult dialogResult = handleRepeatsForm.ShowDialog();
@@ -152,42 +147,30 @@ internal static class Utilities
             }
             if (!string.IsNullOrEmpty(oldCourseCode))
             {
-                SearchRepeatedCourse(oldCourseCode, semestersList, semestersList.Count - 1);
+				SearchAndMarkRepeatedCourse(oldCourseCode, semestersList, semestersList.Count - 1);
             }
         }
     }      
-    public static bool SearchRepeatedCourse(string courseCode, BindingList<Semester> semestersList, int lastIndex)
+    public static bool SearchAndMarkRepeatedCourse(string courseCode, IEnumerable<Semester> semestersList, int lastIndex)
     {
-        for (int i = lastIndex; i >= 0; i--)   // In reverse order to Handle the last occurence
+        var course = semestersList
+            .SelectMany((semester, index) => semester.Courses
+                .Where(course => course.Code == courseCode && index <= lastIndex)
+                .Select(c => new { Course = c, semesterIndex = index }))
+            .OrderByDescending(course => course.semesterIndex)     // to get the latest repeated version
+            .FirstOrDefault(c => !IsDroppedCourse(c.Course.Grade));
+        if (course != null)
         {
-            for (int j = 0; j < semestersList[i].Courses.Count; j++)   // In ordinary order as the course is not repeated at the same semester (it doesn't matter)
-            {
-                if (semestersList[i].Courses[j].Code == courseCode)
-                {
-                    string courseGrade = semestersList[i].Courses[j].Grade;
-                    if (!IsDroppedCourse(courseGrade) /*&& courseGrade != "I" && courseGrade != "IP"*/)
-                    {
-                        semestersList[i].Courses[j].RepeatedIn = Convert.ToSByte(semestersList.Count);
-                        return true;
-                    }
-                    else if (IsDroppedCourse(courseGrade) && semestersList[i].Courses[j].IsRepeat)
-                    {
-                        SearchRepeatedCourse(courseCode, semestersList, i - 1);
-                    }
-                    else
-                    {
-                        return true;
-                    }
-                }
-            }
-        }
+			course.Course.RepeatedIn = Convert.ToSByte(course.semesterIndex);
+			return true;
+		}
         return false;
     }
     public static double CalculateSpecialGPA(BindingList<Semester> semesters)
     {
-        if (semesters.Count <= 2)
+        if (semesters.Count() <= 2)
             return double.NaN;
-        if (semesters.Count == 3 && (IsTransferSemester(semesters, 0) || semesters[2].Title == SemesterType.Summer)) 
+        if (semesters.Count() == 3 && (IsTransferSemester(semesters, 0) || semesters[2].Title == SemesterType.Summer)) 
             return double.NaN;
 
         int startIndex;
@@ -198,16 +181,16 @@ internal static class Utilities
         else
             startIndex = 2;
 
-        return Math.Round(Semester.CalculateOverallQualityPoints(semesters, semesters.Count-1, startIndex) / Semester.CalculateOverallGPACredits(semesters, semesters.Count - 1, startIndex), 4);
+        return Math.Round(CalculateOverallQualityPoints(semesters, semesters.Count-1, startIndex) / CalculateOverallGPACredits(semesters, semesters.Count - 1, startIndex), 4);
     }
     public static bool IsTransferSemester(BindingList<Semester> semesters, int semesterIndex)
     {
         foreach (Course course in semesters[semesterIndex].Courses)
         {
-            if (course.Grade != "TR")
-                return false;
+            if (course.Grade == "TR")
+                return true;
         }
-        return true;
+        return false;
     }
 
     // To Reduce Graphics Flicker with Double Buffering For WinForms Controls
@@ -219,7 +202,7 @@ internal static class Utilities
             return;
 
         System.Reflection.PropertyInfo aProp =
-              typeof(System.Windows.Forms.Control).GetProperty(
+              typeof(Control).GetProperty(
                     "DoubleBuffered",
                     System.Reflection.BindingFlags.NonPublic |
                     System.Reflection.BindingFlags.Instance);

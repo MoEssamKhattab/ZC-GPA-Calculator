@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ZC-GPA Calculator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+10e12e6d3472e34713e4ccd90a43bbfef68b8618")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+36c67bca2e5ea40fbc64e4065279d0dcd1982133")]
 [assembly: System.Reflection.AssemblyProductAttribute("ZC-GPA Calculator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ZC-GPA Calculator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

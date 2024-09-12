@@ -1,4 +1,5 @@
-﻿
+﻿using static ZC_GPA_Calculator.GradeCalculator;
+
 namespace ZC_GPA_Calculator;
 
 public class Course
@@ -22,16 +23,12 @@ public class Course
         this.repeatedIn = repeatedIn;
         this.isRepeat = isRepeat;
 
-        //if (grade == "A" || grade == "A-" || grade == "B+" || grade == "B" || grade == "B-" || grade == "C+" || grade == "C" || grade == "C-" || grade == "F" )
-        //    this.gpaCredits = credits;
-        //else
-        //    this.gpaCredits = 0;
-        if (grade == "P" || grade == "I" || grade == "IP" || grade == "W" || grade == "WP" || grade == "WF" || grade == "TR")       // TR === transfer
-            this.gpaCredits = 0;
+        if (IsGPAGrade(grade))       // TR === transfer
+            gpaCredits = credits;
         else
-            this.gpaCredits = credits;
+            gpaCredits = 0;
 
-        this.QualityPoints = CalculateQualityPoints(year, semester);
+        QualityPoints = CalculateQualityPoints(year, semester);
     }
     public string Code { get => code; set => code = value; }
     public string Title { get => title; set => title = value; }
@@ -41,10 +38,10 @@ public class Course
         set
         {
             grade = value;
-            if (grade == "P" || grade == "I" || grade == "IP" || grade == "W" || grade == "WP" || grade == "WF" || grade == "TR")
-                gpaCredits = 0;
-            else
+            if (IsGPAGrade(grade))
                 gpaCredits = credits;
+            else
+                gpaCredits = 0;
         }
     }
     public byte Credits { get => credits; set => credits = value; }
@@ -56,8 +53,8 @@ public class Course
 
     public double CalculateQualityPoints(int year, string semster)
     {
-        bool isNewQPtsSchema = Utilities.isNewQPtsSchema(year, semster);
-        return Math.Round(Utilities.stringToGrade(this.grade, isNewQPtsSchema) * this.credits, 2);
+        bool isNewQPtsSchema = Utilities.IsNewQPtsSchema(year, semster);
+        return Math.Round(Utilities.StringToGrade(this.grade, isNewQPtsSchema) * this.credits, 2);
     }
     //public double calculateQualityPoints()
     //{

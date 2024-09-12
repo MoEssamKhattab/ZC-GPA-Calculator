@@ -17,6 +17,7 @@
   <ItemGroup>
     <PackageReference Include="Guna.UI2.WinForms" Version="2.0.4.4" />
     <PackageReference Include="HtmlAgilityPack" Version="1.11.52" />
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="8.0.8" />
   </ItemGroup>
 
   <ItemGroup>
